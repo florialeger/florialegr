@@ -1,0 +1,13 @@
+{
+    "$schema": "https://ui.shadcn.com/schema.json",
+    "style": "custom",
+    "tsx": true,
+    "aliases": {
+      "components": "@/components",
+      "utils": "@/utils",
+      "hooks": "@/hooks",
+      "services": "@/services",
+      "config": "@/config"
+    },
+    "iconLibrary": "lucide"
+  }

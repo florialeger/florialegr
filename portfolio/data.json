@@ -1,0 +1,575 @@
+{
+    "projects": [
+      {
+        "title": "Tuto Figma",
+        "context": "",
+        "created": "2024-06",
+        "duration": "1",
+        "projectDuty": "UX Design",
+        "support": "Figma",
+        "primaryImage": ["figma-primary.png", "figma-primary2.png"],
+        "type": "ux",
+        "secondaryImages": [
+          "figma-second1.png",
+          "figma-second2.png",
+          "figma-second3.png",
+          "figma-second4.png",
+          "figma-second5.png",
+          "figma-second6.png",
+          "figma-second7.png",
+          "figma-second8.png",
+          "figma-second9.png",
+          "figma-second10.png",
+          "figma-second11.png",
+          "figma-second12.png",
+          "figma-second13.png",
+          "figma-second14.png",
+          "figma-second15.png",
+          "figma-second16.png",
+          "figma-second17.png"
+        ],
+        "link": "https://www.figma.com/community/file/1434630096456807172/slide-deck-figma",
+        "slug": "tuto-figma"
+      },
+  
+      {
+        "title": "DeskFriend",
+        "context": "DeskFriend is a team-based mockup project developed from a set of specifications provided by another group. Within the team, I was fully responsible for the mockup design, implementing a component-based approach to enhance visual consistency and simplify updates. I also designed an intuitive and efficient prototype while overseeing the art direction and technical management in Figma, ensuring a seamless and easily adaptable user experience.",
+        "created": "2025-01",
+        "duration": "1",
+        "projectDuty": "UX Design",
+        "support": "Figma",
+        "primaryImage": ["desk-primary.png", "desk-primary2.png"],
+        "type": "ux",
+        "secondaryImages": [
+          "desk-second1.png",
+          "desk-second2.png",
+          "desk-second3.png",
+          "desk-second4.png",
+          "desk-second5.png",
+          "desk-second6.png",
+          "desk-second7.png",
+          "desk-second8.png",
+          "desk-second9.png",
+          "desk-second10.png",
+          "desk-second11.png",
+          "desk-second12.png",
+          "desk-second13.png",
+          "desk-second14.png",
+          "desk-second15.png"
+        ],
+        "link": "https://www.figma.com/community/file/1471512161772048324/maquettage-bureau-intelligent",
+        "slug": "desk-friend"
+      },
+  
+      {
+        "title": "Tout va bien",
+        "context": "This project supports middle school students facing challenges through an autonomous questionnaire that identifies their needs and provides tailored resources. I designed the visual identity, including the logo and style guide, and created the project's wireframes and interactive prototypes on Figma, optimizing usability and accessibility. User research, conducted through semi-structured interviews with experts, informed the design using contextual inquiry methodologies.",
+        "duration": "4",
+        "projectDuty": "UX Design",
+        "support": "Figma",
+        "primaryImage": ["TVB-primary.png", "TVB-primary2.png"],
+        "type": "ux",
+        "secondaryImages": [
+          "TVB-second1.png",
+          "TVB-second2.png",
+          "TVB-second3.png",
+          "TVB-second4.png",
+          "TVB-second5.png",
+          "TVB-second6.png",
+          "TVB-second7.png",
+          "TVB-second8.png",
+          "TVB-second9.png",
+          "TVB-second10.png",
+          "TVB-second11.png",
+          "TVB-second12.png"
+        ],
+        "link": "",
+        "slug": "tout-va-bien"
+      },
+  
+      {
+        "title": "Krystal",
+        "context": "Designed custom logos for the eight schools competing in the Krystal university sports tournament, using Procreate and Figma. Ensured alignment with the client's vision (Bordeaux INP Sports Association) through continuous collaboration and iterative refinements. Conducted in-depth semantic research on the tournament’s concept to craft designs that are both meaningful and impactful.",
+        "created": "2025-02",
+        "duration": "3",
+        "projectDuty": "Logo Design",
+        "support": "Figma",
+        "primaryImage": ["krystal-primary.png", "krystal-primary2.png"],
+        "type": "illustration",
+        "secondaryImages": [
+          "krystal-second1.png",
+          "krystal-second2.png",
+          "krystal-second3.png",
+          "krystal-second4.png",
+          "krystal-second5.png",
+          "krystal-second6.png",
+          "krystal-second7.png",
+          "krystal-second8.png",
+          "krystal-second9.png",
+          "krystal-second10.png",
+          "krystal-second11.png",
+          "krystal-second12.png",
+          "krystal-second13.png",
+          "krystal-second14.png",
+          "krystal-second15.png"
+        ],
+        "link": "https://www.figma.com/community/file/1475552492788537881/krystal",
+        "slug": "krystal"
+      },
+  
+      {
+        "title": "Les Boucaniers",
+        "context": "I had the opportunity to create a logo for the ENSMAC BDE campaigns, which was used on various goodies. This project gave me the opportunity to develop my artistic direction and creativity while meeting expectations and deadlines.",
+        "created": "2024-02",
+        "duration": "1",
+        "projectDuty": "Logo Design",
+        "support": "Procreate",
+        "primaryImage": ["boucaniers-primary.png"],
+        "type": "illustration",
+        "secondaryImages": [
+          "boucaniers-second1.png",
+          "boucaniers-second2.png",
+          "boucaniers-second3.png",
+          "boucaniers-second4.png",
+          "boucaniers-second5.png"
+        ],
+        "link": "",
+        "slug": "les-boucaniers"
+      },
+  
+      {
+        "title": "Choralamar",
+        "context": "The Choir at my school (ENSC) asked me to design a logo for their Club, and I really appreciated the creative freedom they gave me, as well as the trust they placed in me. Exploring a logo with bright colours was a particularly interesting experience.",
+        "created": "2024-02",
+        "duration": "1",
+        "projectDuty": "Logo Design",
+        "support": "Procreate",
+        "primaryImage": ["choralamar-primary.png"],
+        "type": "illustration",
+        "secondaryImages": ["choralamar-second1.png"],
+        "link": "",
+        "slug": "choralamar"
+      }
+    ],
+    "playgrounds": [
+      {
+        "title": "GameBoy",
+        "context": "Replica of the Gameboy",
+        "created": "2025-02",
+        "support": "Figma",
+        "primaryImage": ["gameboy-primary.png", "gameboy-primary2.png"],
+        "type": "ux",
+        "secondaryImages": [
+          "gameboy-second1.png",
+          "gameboy-second2.png",
+          "gameboy-second3.png",
+          "gameboy-second4.png",
+          "gameboy-second5.png",
+          "gameboy-second6.png",
+          "gameboy-second7.png",
+          "gameboy-second8.png",
+          "gameboy-second9.png"
+        ],
+        "slug": "gameboy"
+      },
+  
+      {
+        "title": "Nintendo Pocket",
+        "context": "",
+        "created": "2025-02",
+        "support": "Figma",
+        "primaryImage": ["pocket-primary.png", "pocket-primary2.png"],
+        "type": "ux",
+        "secondaryImages": [
+          "pocket-second1.png",
+          "pocket-second2.png",
+          "pocket-second3.mp4",
+          "pocket-second4.png",
+          "pocket-second5.png",
+          "pocket-second6.png",
+          "pocket-second7.png",
+          "pocket-second8.png",
+          "pocket-second9.png"
+        ],
+        "slug": "pocket"
+      },
+  
+      {
+        "title": "Clavier",
+        "context": "",
+        "created": "2025-02",
+        "support": "Figma",
+        "primaryImage": ["music-primary.png"],
+        "type": "ux",
+        "secondaryImages": [
+          "music-second1.png",
+          "music-second2.png",
+          "music-second3.png"
+        ],
+        "slug": "clavier"
+      },
+  
+      {
+        "title": "Button",
+        "context": "",
+        "created": "2025-02",
+        "support": "Figma",
+        "primaryImage": ["buttons-primary.png", "buttons-primary2.png"],
+        "type": "ux",
+        "secondaryImages": [
+          "buttons-second1.png",
+          "buttons-second2.png",
+          "buttons-second3.png",
+          "buttons-second4.png",
+          "buttons-second5.png",
+          "buttons-second6.png"
+        ],
+        "slug": "button"
+      },
+  
+      {
+        "title": "Folder",
+        "context": "",
+        "created": "2025-02",
+        "support": "Figma",
+        "primaryImage": ["folder-primary.png", "folder-primary2.png"],
+        "type": "ux",
+        "secondaryImages": [
+          "folder-second1.png",
+          "folder-second2.png",
+          "folder-second3.png",
+          "folder-second4.png",
+          "folder-second5.png"
+        ],
+        "slug": "folder"
+      },
+  
+      {
+        "title": "Talence",
+        "context": "",
+        "created": "2024-11",
+        "support": "Figma",
+        "primaryImage": ["talence-primary.png"],
+        "type": "ux",
+        "secondaryImages": ["talence-second1.png"],
+        "slug": "talence"
+      },
+  
+      {
+        "title": "MP3",
+        "context": "",
+        "created": "2025-03",
+        "support": "Figma",
+        "primaryImage": ["mp3-primary.png", "mp3-primary2.png"],
+        "type": "ux",
+        "secondaryImages": [
+          "mp3-second1.png",
+          "mp3-second2.png",
+          "mp3-second3.png"
+        ],
+        "slug": "mp3"
+      },
+  
+      {
+        "title": "Stickers",
+        "context": "",
+        "created": "2025-01",
+        "support": "Figma",
+        "primaryImage": ["sticker-primary.png", "sticker-primary2.png"],
+        "type": "ux",
+        "secondaryImages": [
+          "sticker-second1.png",
+          "sticker-second2.png",
+          "sticker-second3.png",
+          "sticker-second4.png",
+          "sticker-second5.png",
+          "sticker-second6.png",
+          "sticker-second7.png",
+          "sticker-second8.png",
+          "sticker-second9.png",
+          "sticker-second10.png",
+          "sticker-second11.png",
+          "sticker-second12.png"
+        ],
+        "slug": "stickers"
+      },
+  
+      {
+        "title": "Hands",
+        "context": "",
+        "created": "2024-06",
+        "support": "Procreate",
+        "primaryImage": ["hands-primary.png", "hands-primary2.png"],
+        "type": "illustration",
+        "secondaryImages": [
+          "hands-second1.png",
+          "hands-second2.png",
+          "hands-second3.png",
+          "hands-second4.png",
+          "hands-second5.png",
+          "hands-second6.png",
+          "hands-second7.png",
+          "hands-second8.png",
+          "hands-second9.png",
+          "hands-second10.png",
+          "hands-second11.png"
+        ],
+        "slug": "hand"
+      },
+  
+      {
+        "title": "Sketchbook 01",
+        "context": "",
+        "created": "2025-02",
+        "support": "Paper",
+        "primaryImage": ["trad1-primary.png", "trad1-primary2.png"],
+        "type": "illustration",
+        "secondaryImages": [
+          "trad1-second1.png",
+          "trad1-second2.png",
+          "trad1-second3.png",
+          "trad1-second4.png",
+          "trad1-second5.png",
+          "trad1-second6.png",
+          "trad1-second7.png",
+          "trad1-second8.png",
+          "trad1-second9.png",
+          "trad1-second10.png",
+          "trad1-second11.png"
+        ],
+        "slug": "sketchbook-01"
+      },
+  
+      {
+        "title": "sketchbook 02",
+        "context": "",
+        "created": "2025-03",
+        "support": "Paper",
+        "primaryImage": ["trad2-primary.png", "trad2-primary2.png"],
+        "type": "illustration",
+        "secondaryImages": [
+          "trad2-second1.png",
+          "trad2-second2.png",
+          "trad2-second3.png",
+          "trad2-second4.png",
+          "trad2-second5.png",
+          "trad2-second6.png",
+          "trad2-second7.png",
+          "trad2-second8.png",
+          "trad2-second9.png",
+          "trad2-second10.png",
+          "trad2-second11.png"
+        ],
+        "slug": "sketchbook-02"
+      },
+      {
+        "title": "Sketchbook 03",
+        "context": "",
+        "created": "2025-03",
+        "support": "Paper",
+        "primaryImage": ["trad3-primary.png", "trad3-primary2.png"],
+        "type": "illustration",
+        "secondaryImages": [
+          "trad3-second1.png",
+          "trad3-second2.png",
+          "trad3-second3.png",
+          "trad3-second4.png",
+          "trad3-second5.png",
+          "trad3-second6.png",
+          "trad3-second7.png",
+          "trad3-second8.png",
+          "trad3-second9.png",
+          "trad3-second10.png",
+          "trad3-second11.png",
+          "trad3-second12.png"
+        ],
+        "slug": "sketchbook-03"
+      },
+  
+      {
+        "title": "planche 01",
+        "context": "",
+        "created": "2023-08",
+        "support": "Procreate",
+        "primaryImage": ["planche1-primary.png", "planche1-primary2.png"],
+        "type": "illustration",
+        "secondaryImages": [
+          "planche1-second1.png",
+          "planche1-second2.png",
+          "planche1-second3.png",
+          "planche1-second4.png",
+          "planche1-second5.png",
+          "planche1-second6.png",
+          "planche1-second7.png",
+          "planche1-second8.png"
+        ],
+        "slug": "planche-01"
+      },
+  
+      {
+        "title": "planche 02",
+        "context": "",
+        "created": "2023-08",
+        "support": "Procreate",
+        "primaryImage": ["planche2-primary.png", "planche2-primary2.png"],
+        "type": "illustration",
+        "secondaryImages": [
+          "planche2-second1.png",
+          "planche2-second2.png",
+          "planche2-second3.png",
+          "planche2-second4.png",
+          "planche2-second5.png",
+          "planche2-second6.png",
+          "planche2-second7.png",
+          "planche2-second8.png",
+          "planche2-second9.png"
+        ],
+        "slug": "planche-02"
+      },
+  
+      {
+        "title": "planche 03",
+        "context": "",
+        "created": "2024-07",
+        "support": "Procreate",
+        "primaryImage": ["planche3-primary.png", "planche3-primary2.png"],
+        "type": "illustration",
+        "secondaryImages": [
+          "planche3-second1.png",
+          "planche3-second2.png",
+          "planche3-second3.png",
+          "planche3-second4.png",
+          "planche3-second5.png",
+          "planche3-second6.png",
+          "planche3-second7.png",
+          "planche3-second8.png",
+          "planche3-second9.png"
+        ],
+        "slug": "planche-03"
+      },
+  
+      {
+        "title": "planche 04",
+        "context": "",
+        "created": "2025-02",
+        "support": "Procreate",
+        "primaryImage": ["planche4-primary.png", "planche4-primary2.png"],
+        "type": "illustration",
+        "secondaryImages": [
+          "planche4-second1.png",
+          "planche4-second2.png",
+          "planche4-second3.png",
+          "planche3-second4.png",
+          "planche4-second5.png",
+          "planche4-second6.png",
+          "planche4-second7.png",
+          "planche4-second8.png"
+        ],
+        "slug": "planche-04"
+      },
+      {
+        "title": "ENSC",
+        "context": "",
+        "created": "2024-12",
+        "support": "Procreate",
+        "primaryImage": ["ensc-primary.png", "ensc-primary2.png"],
+        "type": "illustration",
+        "secondaryImages": [
+          "ensc-second1.png",
+          "ensc-second2.png",
+          "ensc-second3.png",
+          "ensc-second4.png",
+          "ensc-second5.png",
+          "ensc-second6.png",
+          "ensc-second7.png",
+          "ensc-second8.png"
+        ],
+        "slug": "ensc"
+      },
+      
+      {
+        "title": "Ellie",
+        "context": "Ian Woods style",
+        "created": "2023-06",
+        "support": "Procreate",
+        "primaryImage": ["ellie-primary.png"],
+        "type": "illustration",
+        "secondaryImages": ["ellie-second1.png"],
+        "slug": "ellie"
+      },
+  
+      {
+        "title": "Mii",
+        "context": "My siblings, mii style",
+        "created": "2024-10",
+        "support": "Procreate",
+        "primaryImage": ["mii-primary.png"],
+        "type": "illustration",
+        "secondaryImages": ["mii-second1.png"],
+        "slug": "mii"
+      },
+  
+      {
+        "title": "Me",
+        "context": "",
+        "created": "2024-01",
+        "support": "Procreate",
+        "primaryImage": ["me-primary.png"],
+        "type": "illustration",
+        "secondaryImages": ["me-second1.png"],
+        "slug": "me"
+      },
+  
+      {
+        "title": "Marcy",
+        "context": "",
+        "created": "2025-01",
+        "support": "Procreate",
+        "primaryImage": ["marcy-primary.png"],
+        "type": "illustration",
+        "secondaryImages": ["marcy-second1.png"],
+        "slug": "marcy"
+      },
+  
+      {
+        "title": "Arcane Face Study",
+        "context": "",
+        "created": "2023-06",
+        "support": "Procreate",
+        "primaryImage": ["arcane-primary.png"],
+        "type": "illustration",
+        "secondaryImages": [
+          "arcane-second1.png",
+          "arcane-second2.png",
+          "arcane-second3.png",
+          "arcane-second4.png",
+          "arcane-second5.png",
+          "arcane-second6.png"
+        ],
+        "slug": "arcane"
+      },
+  
+      {
+        "title": "Mode",
+        "context": "",
+        "created": "2023-09",
+        "support": "Procreate",
+        "primaryImage": ["mode-primary.png", "mode-primary2.png"],
+        "type": "illustration",
+        "secondaryImages": [
+          "mode-second1.png",
+          "mode-second2.png",
+          "mode-second3.png",
+          "mode-second4.png",
+          "mode-second5.png",
+          "mode-second6.png",
+          "mode-second7png",
+          "mode-second8.png",
+          "mode-second9.png"
+        ],
+        "slug": "mode"
+      }
+    ]
+  }
+  
