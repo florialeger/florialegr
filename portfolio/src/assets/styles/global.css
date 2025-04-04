@@ -1,0 +1,154 @@
+:root {
+  --font-family-headline: -apple-system-headline, -apple-system, Inter,
+    system-ui, Avenir, Helvetica, Arial, sans-serif;
+  --font-family-subheadline: -apple-system-subheadline, -apple-system, Inter,
+    system-ui, Avenir, Helvetica, Arial, sans-serif;
+  --font-family-body: -apple-system-body, -apple-system, Inter, system-ui,
+    Avenir, Helvetica, Arial, sans-serif;
+  --font-family-secondary: -apple-system-body, -apple-system, Inter, system-ui,
+    Avenir, Helvetica, Arial, sans-serif;
+
+  --line-height-default: 1.5;
+
+  --font-weight-regular: 400;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  --font-weight-extrabold: 800;
+
+  --font-size-headline: 4em;
+  --font-size-subheadline: 2.25em;
+  --font-size-button: 1.25em;
+  --font-size-primary: 1.125em;
+  --font-size-secondary: 0.9375em;
+  --font-size-tertiary: 0.875em;
+
+  --spacing-base: 1rem;
+
+  --nav-height: 104px; 
+
+  --gray-10: rgb(254, 254, 254);
+  --gray-50: rgb(250, 250, 250);
+  --gray-100: rgb(245, 245, 245);
+  --gray-200: rgb(230, 230, 230);
+  --gray-300: rgba(204, 204, 204, 1);
+  --gray-400: rgba(179, 179, 179, 1);
+  --gray-500: rgba(153, 153, 153, 1);
+  --gray-600: rgba(128, 128, 128, 1);
+  --gray-700: rgba(102, 102, 102, 1);
+  --gray-800: rgba(77, 77, 77, 1);
+  --gray-900: rgba(51, 51, 51, 1);
+  --gray-1000: rgba(26, 26, 26, 1);
+
+  --shadows--mini: 0px 0px 0px rgba(0, 0, 0, 0.06),
+    0px 1px 1px -1px rgba(0, 0, 0, 0.06), 0px 3px 3px -1px rgba(0, 0, 0, 0.06);
+
+  --shadows--normal: 0px 0px 0px rgba(0, 0, 0, 0.06),
+    0px 1px 1px -1px rgba(0, 0, 0, 0.06), 0px 3px 3px -1px rgba(0, 0, 0, 0.06),
+    0px 6px 6px -3px rgba(0, 0, 0, 0.06), 0px 12px 12px -6px rgba(0, 0, 0, 0.05),
+    0px 24px 24px -12px rgba(0, 0, 0, 0);
+
+  font-size: 16px;
+  font-family: var(--font-family-body);
+  line-height: var(---line-height-default);
+  font-weight: var(--font-weight-regular);
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  height: 100%;
+}
+
+html {
+  scroll-behavior: smooth;
+  text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  width: 100%;
+    display: flex;
+  flex-direction: column;
+  font-family: inherit;
+  font-size: 1rem;
+  line-height: inherit;
+  color: var(--textDefault);
+  background: var(--backgroundMain);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+main {
+  padding-top: var(--nav-height); 
+   flex: 1;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-base);
+}
+
+.text-center {
+  text-align: center;
+}
