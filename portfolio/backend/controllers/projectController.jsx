@@ -1,4 +1,4 @@
-const Project = require("../models/project.jsx");
+const Project = require('../models/project.jsx');
 
 // Get all projects
 exports.getProjects = async (req, res) => {
@@ -15,7 +15,7 @@ exports.getProjectById = async (req, res) => {
   try {
     const project = await Project.findById(req.params.id);
     if (!project) {
-      return res.status(404).json({ message: "Project not found" });
+      return res.status(404).json({ message: 'Project not found' });
     }
     res.status(200).json(project);
   } catch (error) {
@@ -42,7 +42,7 @@ exports.updateProject = async (req, res) => {
       runValidators: true, // Ensure validation rules are applied
     });
     if (!project) {
-      return res.status(404).json({ message: "Project not found" });
+      return res.status(404).json({ message: 'Project not found' });
     }
     res.status(200).json(project);
   } catch (error) {
@@ -55,9 +55,9 @@ exports.deleteProject = async (req, res) => {
   try {
     const project = await Project.findByIdAndDelete(req.params.id);
     if (!project) {
-      return res.status(404).json({ message: "Project not found" });
+      return res.status(404).json({ message: 'Project not found' });
     }
-    res.status(200).json({ message: "Project deleted successfully" });
+    res.status(200).json({ message: 'Project deleted successfully' });
   } catch (error) {
     res.status(500).json({ message: error.message });
   }

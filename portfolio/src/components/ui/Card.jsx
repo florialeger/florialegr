@@ -1,6 +1,7 @@
-import React, { memo } from 'react';
+import { createElement, memo, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import useMagneticEffect from '@/hooks/useMagneticEffect';
 import styles from './Card.module.css';
 
 /**
@@ -12,20 +13,36 @@ const Card = ({
   onClick,
   to,
   href,
-  as: Component = 'article', // Semantic default
+  as,
   target,
   rel,
+  magnetic = true,
+  magneticOptions,
   ...props
 }) => {
+  const elementType = as || 'article';
   const isInteractive = !!(onClick || to || href);
+  const setMagneticNode = useMagneticEffect(magneticOptions);
+  const shouldUseRef = magnetic && isInteractive && (to || href || typeof elementType === 'string');
   const combinedClassName = `
     ${styles.card}
     ${isInteractive ? styles.interactive : ''}
     ${className}
   `.trim();
 
+  useEffect(() => {
+    if (!shouldUseRef) {
+      setMagneticNode(null);
+    }
+
+    return () => {
+      setMagneticNode(null);
+    };
+  }, [setMagneticNode, shouldUseRef]);
+
   const commonProps = {
     className: combinedClassName,
+    ref: shouldUseRef ? setMagneticNode : undefined,
     ...props,
   };
 
@@ -54,14 +71,19 @@ const Card = ({
   }
 
   if (onClick) {
-    return (
-      <Component onClick={onClick} role="button" tabIndex={0} {...commonProps}>
-        {content}
-      </Component>
+    return createElement(
+      elementType,
+      {
+        onClick,
+        role: 'button',
+        tabIndex: 0,
+        ...commonProps,
+      },
+      content
     );
   }
 
-  return <Component {...commonProps}>{content}</Component>;
+  return createElement(elementType, commonProps, content);
 };
 
 Card.propTypes = {
@@ -73,30 +95,8 @@ Card.propTypes = {
   as: PropTypes.elementType,
   target: PropTypes.string,
   rel: PropTypes.string,
+  magnetic: PropTypes.bool,
+  magneticOptions: PropTypes.object,
 };
 
 export default memo(Card);
-
-/* --- Card.module.css (Example) ---
-.card {
-  background-color: var(--card-bg, white);
-  border: 1px solid var(--card-border-color, #e0e0e0);
-  border-radius: var(--border-radius-large, 8px);
-  box-shadow: var(--shadow-sm, 0 1px 3px rgba(0,0,0,0.1));
-  overflow: hidden;
-  transition: box-shadow 0.2s ease, transform 0.2s ease;
-}
-
-.card.interactive {
-  cursor: pointer;
-}
-
-.card.interactive:hover {
-   box-shadow: var(--shadow-md, 0 4px 8px rgba(0,0,0,0.15));
-   transform: translateY(-2px);
-}
-
-.content {
-  padding: var(--card-padding, 1.5rem);
-}
-*/

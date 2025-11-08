@@ -1,15 +1,9 @@
 .footer {
-  padding: 1.5rem var(--container-padding-x, 1rem);
+  padding: 1.5rem var(--container-padding-x, 1em);
   text-align: center;
-  color: var(--text-secondary-color);
-  font-size: 0.9em;
-  border-top: 1px solid var(--border-color, #eee);
+  color: var(--label---tertiary);
   display: flex; 
   justify-content: center;
   align-items: center;
-  gap: 1rem;
-}
-
-.footerAnimation {
-  line-height: 0; 
+  gap: 1em;
 }

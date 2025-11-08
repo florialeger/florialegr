@@ -1,103 +1,143 @@
-import React, { useState, useRef, useEffect, memo } from 'react';
+import React, { useState, useRef, useEffect, useLayoutEffect, useCallback, memo } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { motion, AnimatePresence } from 'framer-motion'; // Added AnimatePresence
+import { motion, AnimatePresence } from 'framer-motion';
 
-// Import the hook
 import useMediaQuery from '@/hooks/useMediaQuery';
-// Keep your other imports
 import styles from './Navigation.module.css';
-import {
-  PlaygroundIcon,
-  WorkIcon,
-  AboutIcon,
-  HomeIcon,
-  NameIcon,
-} from '@/assets/svgs/IconText';
 
 // --- Constants ---
 const MOBILE_BREAKPOINT_QUERY = '(max-width: 679.98px)'; // Equivalent to < 680px
 
 // Define nav items outside the component for stability
 const navItems = [
-  { name: 'Home', path: '/', Icon: HomeIcon, DesktopIcon: NameIcon }, // Added DesktopIcon for clarity
-  { name: 'Work', path: '/work', Icon: WorkIcon },
-  { name: 'Playground', path: '/playground', Icon: PlaygroundIcon },
-  { name: 'About', path: '/about', Icon: AboutIcon },
+  { name: 'home', path: '/' },
+  { name: 'work', path: '/work' },
+  { name: 'playground', path: '/playground' },
+  { name: 'about', path: '/about' },
 ];
 
 /* Subcomponent: BackgroundSlider */
-const BackgroundSlider = memo(({ activeIndex, hoveredIndex, linkRefs }) => {
+const BackgroundSlider = memo(({ activeIndex, hoveredIndex, linkRefs, containerRef, hideHome, isMobile }) => {
+  const paddingX = isMobile ? 24 : 0;
+  const paddingY = isMobile ? 6 : 0;
+
   const [animateProps, setAnimateProps] = useState({
     x: 0,
+    y: 0,
     width: 0,
+    height: 0,
     opacity: 0,
-    filter: 'blur(5px)', // Start blurred and hidden
+    filter: 'blur(5px)',
   });
 
-  // Store precomputed positions to avoid recalculating layout on every hover/active change
   const linkPositions = useRef([]);
 
-  useEffect(() => {
-    // Precompute link positions when refs are available or change
-    linkPositions.current = linkRefs.map((ref) => {
-      if (ref.current) {
-        return {
-          offsetLeft: ref.current.offsetLeft,
-          offsetWidth: ref.current.offsetWidth,
-        };
+  const computePositions = useCallback(() => {
+    const container = containerRef?.current;
+    if (!container) return [];
+
+    const containerRect = container.getBoundingClientRect();
+
+    return linkRefs.map((ref) => {
+      if (!ref?.current) {
+        return null;
       }
-      return { offsetLeft: 0, offsetWidth: 0 }; // Fallback
+
+      const element = ref.current;
+      const rect = element.getBoundingClientRect();
+
+      const width = Math.min(rect.width + paddingX * 2, containerRect.width);
+      const height = rect.height + paddingY * 2;
+      const x = Math.max(rect.left - containerRect.left - paddingX, 0);
+      const y = Math.max(rect.top - containerRect.top - paddingY, 0);
+
+      return {
+        x,
+        y,
+        width,
+        height,
+      };
     });
-    // Re-calculate initial position based on activeIndex when positions are first computed
-    // This handles the initial load case correctly
-    const initialTargetIndex = activeIndex;
-    const initialPosition = linkPositions.current[initialTargetIndex];
-    const isInitialTargetHome = initialTargetIndex === 0;
+  }, [containerRef, linkRefs, paddingX, paddingY]);
 
-    if (initialPosition) {
-      setAnimateProps({
-        x: initialPosition.offsetLeft,
-        width: isInitialTargetHome ? 0 : initialPosition.offsetWidth,
-        opacity: isInitialTargetHome ? 0 : 1,
-        filter: isInitialTargetHome ? 'blur(5px)' : 'blur(0px)',
-      });
-    }
-  }, [linkRefs, activeIndex]); // Depend on linkRefs and activeIndex for initial calculation
+  const updateForIndex = useCallback(
+    (index, positions = linkPositions.current) => {
+      if (!Array.isArray(positions) || positions.length === 0) {
+        setAnimateProps((prev) => ({ ...prev, opacity: 0 }));
+        return;
+      }
+
+      if (index == null || index < 0) {
+        setAnimateProps((prev) => ({ ...prev, opacity: 0 }));
+        return;
+      }
+
+      const position = positions[index];
+      const shouldHide = hideHome && index === 0;
+
+      if (position) {
+        if (shouldHide) {
+          setAnimateProps({
+            x: position.x,
+            y: position.y,
+            width: 0,
+            height: 0,
+            opacity: 0,
+            filter: 'blur(5px)',
+          });
+        } else {
+          setAnimateProps({
+            x: position.x,
+            y: position.y,
+            width: Math.max(position.width, 1),
+            height: Math.max(position.height, 1),
+            opacity: 1,
+            filter: 'blur(0px)',
+          });
+        }
+      } else {
+        setAnimateProps((prev) => ({ ...prev, opacity: 0 }));
+      }
+    },
+    [hideHome]
+  );
+
+  useLayoutEffect(() => {
+    const positions = computePositions();
+    linkPositions.current = positions;
+    const targetIndex = hoveredIndex !== null ? hoveredIndex : activeIndex;
+    updateForIndex(targetIndex, positions);
+  }, [activeIndex, hoveredIndex, computePositions, updateForIndex]);
 
   useEffect(() => {
-    // Determine the current target index (hover takes precedence over active)
     const targetIndex = hoveredIndex !== null ? hoveredIndex : activeIndex;
-    const position = linkPositions.current[targetIndex];
-    const isTargetHome = targetIndex === 0; // Check if the target is the Home link (index 0)
+    updateForIndex(targetIndex);
+  }, [activeIndex, hoveredIndex, updateForIndex]);
 
-    if (position) {
-      if (isTargetHome) {
-        // Home link specific style: move but hide/blur
-        setAnimateProps({
-          x: position.offsetLeft,
-          width: 0, // Collapse width
-          opacity: 0, // Make invisible
-          filter: 'blur(5px)', // Apply blur
-        });
-      } else {
-        // Other links: normal style
-        setAnimateProps({
-          x: position.offsetLeft,
-          width: position.offsetWidth,
-          opacity: 1,
-          filter: 'blur(0px)', // No blur
-        });
-      }
-    } else {
-      // Fallback if position is somehow not found (shouldn't happen ideally)
-      setAnimateProps({ x: 0, width: 0, opacity: 0, filter: 'blur(5px)' });
+  useEffect(() => {
+    const container = containerRef?.current;
+    if (!container || typeof ResizeObserver === 'undefined') {
+      return undefined;
     }
-  }, [activeIndex, hoveredIndex]); // Update slider whenever active or hovered index changes
+
+    const observer = new ResizeObserver(() => {
+      const positions = computePositions();
+      linkPositions.current = positions;
+      const targetIndex = hoveredIndex !== null ? hoveredIndex : activeIndex;
+      updateForIndex(targetIndex, positions);
+    });
+
+    observer.observe(container);
+
+    return () => {
+      observer.disconnect();
+    };
+  }, [activeIndex, hoveredIndex, computePositions, updateForIndex, containerRef]);
 
   return (
     <motion.div
       className={styles.backgroundSlider}
-      initial={false} // Don't use Framer Motion's initial animation, rely on useEffect
+      initial={false}
       animate={animateProps}
       transition={{ duration: 0.3, ease: 'easeInOut' }}
     />
@@ -106,120 +146,109 @@ const BackgroundSlider = memo(({ activeIndex, hoveredIndex, linkRefs }) => {
 BackgroundSlider.displayName = 'BackgroundSlider'; // Add display name for better debugging
 
 /* Subcomponent: NavLink */
-const NavLink = memo(
-  ({
-    path,
-    Icon,
-    isActive,
-    isHovered,
-    setHoveredIndex,
-    index,
-    closeNav,
-    refProp,
-  }) => (
-    <li // <--- Handlers are here
+const NavLink = memo((props) => {
+  const { path, label, ariaLabel, isActive, isHovered, setHoveredIndex, index, closeNav, refProp } = props;
+
+  return (
+    <li
       ref={refProp}
       className={`${styles.navItem} ${isActive ? styles.active : ''}`}
-      onMouseEnter={() => setHoveredIndex(index)} // Triggers on li hover
-      onMouseLeave={() => setHoveredIndex(null)} // Triggers on li hover leave
+      onMouseEnter={() => setHoveredIndex(index)}
+      onMouseLeave={() => setHoveredIndex(null)}
     >
-      <Link to={path} onClick={closeNav} className={styles.navLink}>
-        <Icon hovered={isHovered} />
+      <Link
+        to={path}
+        onClick={closeNav}
+        className={styles.navLink}
+        aria-current={isActive ? 'page' : undefined}
+        aria-label={ariaLabel}
+      >
+        <span className={`${styles.navLabel} ${isHovered ? styles.hovered : ''}`}>{label}</span>
       </Link>
     </li>
-  )
-);
+  );
+});
 NavLink.displayName = 'NavLink';
 
 /* Subcomponent: NavList */
-const NavList = memo(
-  ({
-    navItems,
-    activeIndex,
-    hoveredIndex,
-    setHoveredIndex,
-    closeNav,
-    isMobile,
-    linkRefs,
-  }) => {
-    // ... (your existing NavList code - verify it branches layout based on isMobile)
-    const isActive = (index) => activeIndex === index;
-    const isHovered = (index) => hoveredIndex === index;
+const NavList = memo(({ navItems, activeIndex, hoveredIndex, setHoveredIndex, closeNav, isMobile, linkRefs }) => {
+  const containerRef = useRef(null);
 
-    return (
-      <div
-        className={`${styles.navListContainer} ${
-          isMobile ? styles.mobileContainer : styles.desktopContainer
-        }`}
-      >
-        {/* Desktop Layout */}
-        {!isMobile && (
-          <>
-            <ul className={styles.navLeft}>
-              <NavLink
-                index={0}
-                path={navItems[0].path}
-                Icon={navItems[0].DesktopIcon || navItems[0].Icon}
-                isActive={isActive(0)}
-                isHovered={isHovered(0)}
-                setHoveredIndex={setHoveredIndex}
-                closeNav={closeNav}
-                refProp={linkRefs[0]}
-              />
-            </ul>
-            <div className={styles.navLinksContainer}>
-              <BackgroundSlider
-                activeIndex={activeIndex}
-                linkRefs={linkRefs}
-                hoveredIndex={hoveredIndex}
-              />
-              <ul className={styles.navRight}>
-                {navItems.slice(1).map((item, index) => (
-                  <NavLink
-                    key={item.path}
-                    index={index + 1}
-                    path={item.path}
-                    Icon={item.Icon}
-                    isActive={isActive(index + 1)}
-                    isHovered={isHovered(index + 1)}
-                    setHoveredIndex={setHoveredIndex}
-                    closeNav={closeNav}
-                    refProp={linkRefs[index + 1]}
-                  />
-                ))}
-              </ul>
-            </div>
-          </>
-        )}
+  const isActive = (index) => activeIndex === index;
+  const isHovered = (index) => hoveredIndex === index;
 
-        {/* Mobile Layout */}
-        {isMobile && (
-          <ul className={styles.mobileNavList}>
-            {navItems.map((item, index) => (
+  return (
+    <div
+      ref={containerRef}
+      className={`${styles.navListContainer} ${isMobile ? styles.mobileContainer : styles.desktopContainer}`}
+    >
+      <BackgroundSlider
+        activeIndex={activeIndex}
+        hoveredIndex={hoveredIndex}
+        linkRefs={linkRefs}
+        containerRef={containerRef}
+        hideHome={!isMobile}
+        isMobile={isMobile}
+      />
+
+      {!isMobile && (
+        <>
+          <ul className={styles.navLeft}>
+            <NavLink
+              index={0}
+              path={navItems[0].path}
+              label="Floria Leger"
+              ariaLabel={navItems[0].name}
+              isActive={isActive(0)}
+              isHovered={isHovered(0)}
+              setHoveredIndex={setHoveredIndex}
+              closeNav={closeNav}
+              refProp={linkRefs[0]}
+            />
+          </ul>
+          <ul className={styles.navRight}>
+            {navItems.slice(1).map((item, index) => (
               <NavLink
                 key={item.path}
-                index={index}
+                index={index + 1}
                 path={item.path}
-                Icon={item.Icon}
-                isActive={isActive(index)}
-                isHovered={isHovered(index)}
+                label={item.name}
+                isActive={isActive(index + 1)}
+                isHovered={isHovered(index + 1)}
                 setHoveredIndex={setHoveredIndex}
                 closeNav={closeNav}
-                refProp={linkRefs[index]}
+                refProp={linkRefs[index + 1]}
               />
             ))}
           </ul>
-        )}
-      </div>
-    );
-  }
-);
+        </>
+      )}
+
+      {isMobile && (
+        <ul className={styles.mobileNavList}>
+          {navItems.map((item, index) => (
+            <NavLink
+              key={item.path}
+              index={index}
+              path={item.path}
+              label={item.name}
+              isActive={isActive(index)}
+              isHovered={isHovered(index)}
+              setHoveredIndex={setHoveredIndex}
+              closeNav={closeNav}
+              refProp={linkRefs[index]}
+            />
+          ))}
+        </ul>
+      )}
+    </div>
+  );
+});
 NavList.displayName = 'NavList';
 
-
 /* Subcomponent: BlurOverlay */
-const BlurOverlay = memo(({ isMobile }) => (
-  <div className={isMobile ? styles.gradientBlurReduced : styles.gradientBlur}>
+const BlurOverlay = memo(() => (
+  <div className={styles.gradientBlur}>
     {Array.from({ length: 6 }).map((_, index) => (
       <div key={index}></div>
     ))}
@@ -227,20 +256,29 @@ const BlurOverlay = memo(({ isMobile }) => (
 ));
 BlurOverlay.displayName = 'BlurOverlay';
 
+/* Subcomponent: MenuTrigger */
+const MenuTrigger = memo(({ isNavOpen, toggleNav }) => (
+  <h3 className={styles.menuTriggerHeading}>
+    <button
+      type="button"
+      className={styles.menuTrigger}
+      onClick={toggleNav}
+      aria-label={isNavOpen ? 'Close menu' : 'Open menu'}
+      aria-expanded={isNavOpen}
+    >
+      <span className={styles.menuTriggerLabel}>Menu</span>
+    </button>
+  </h3>
+));
+MenuTrigger.displayName = 'MenuTrigger';
 
-/* Subcomponent: MenuButton */
-const MenuButton = memo(({ isNavOpen, toggleNav }) => (
-  <button
-    className={styles.menuButton}
-    onClick={toggleNav}
-    aria-label={isNavOpen ? 'Close menu' : 'Open menu'}
-    aria-expanded={isNavOpen}
-  >
-    {/* Consider using an actual burger icon component here */}
-    {isNavOpen ? 'Close' : 'Menu'}
+/* Subcomponent: CloseButton */
+const CloseButton = memo(({ onClick }) => (
+  <button type="button" className={styles.mobileCloseButton} onClick={onClick} aria-label="Close menu">
+    <span className={styles.mobileCloseIcon} aria-hidden="true" />
   </button>
 ));
-MenuButton.displayName = 'MenuButton';
+CloseButton.displayName = 'CloseButton';
 
 /* Main Component: Navigation */
 const Navigation = () => {
@@ -256,8 +294,7 @@ const Navigation = () => {
     (item) =>
       item.path === location.pathname ||
       (location.pathname.startsWith('/work/') && item.path === '/work') || // Handle active state for nested work routes
-      (location.pathname.startsWith('/playground/') &&
-        item.path === '/playground') // Handle active state for nested playground routes
+      (location.pathname.startsWith('/playground/') && item.path === '/playground') // Handle active state for nested playground routes
   );
 
   const toggleNav = () => setIsNavOpen((prev) => !prev);
@@ -280,13 +317,22 @@ const Navigation = () => {
     }
   }, [isMobile, isNavOpen]);
 
+  useEffect(() => {
+    if (isMobile && isNavOpen) {
+      const previousOverflow = document.body.style.overflow;
+      document.body.style.overflow = 'hidden';
+      return () => {
+        document.body.style.overflow = previousOverflow;
+      };
+    }
+    document.body.style.overflow = '';
+    return undefined;
+  }, [isMobile, isNavOpen]);
+
   return (
     // Apply class based on `isMobile` state
-    <nav
-      className={`${styles.nav} ${isMobile ? styles.mobile : styles.desktop}`}
-    >
-      {/* Pass isMobile prop instead of isReduced */}
-      <BlurOverlay isMobile={isMobile} />
+    <nav className={`${styles.nav} ${isMobile ? styles.mobile : styles.desktop}`}>
+      <BlurOverlay />
       <div className={styles.navContainer}>
         {/* --- Desktop Navigation --- */}
         {!isMobile && (
@@ -304,37 +350,32 @@ const Navigation = () => {
         {/* --- Mobile Navigation --- */}
         {isMobile && (
           <>
-            <Link
-              to="/"
-              className={styles.mobileHomeIcon}
-              onClick={closeNav}
-              aria-label="Home"
-            >
-              <NameIcon />
-            </Link>
-            <MenuButton isNavOpen={isNavOpen} toggleNav={toggleNav} />
+            <MenuTrigger isNavOpen={isNavOpen} toggleNav={toggleNav} />
 
             {/* Use AnimatePresence for smooth open/close */}
             <AnimatePresence>
               {isNavOpen && (
-                <motion.div
-                  key="mobile-nav-list" // Add key for AnimatePresence
-                  initial={{ opacity: 0, y: -20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -20 }}
+                <motion.aside
+                  key="mobile-nav-overlay"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
                   transition={{ duration: 0.2 }}
-                  className={styles.mobileNavWrapper}
+                  className={styles.mobileNavOverlay}
                 >
-                  <NavList
-                    navItems={navItems}
-                    activeIndex={activeIndex}
-                    hoveredIndex={hoveredIndex}
-                    setHoveredIndex={setHoveredIndex}
-                    closeNav={closeNav} // Mobile links should close the nav
-                    isMobile={true}
-                    linkRefs={linkRefs.current}
-                  />
-                </motion.div>
+                  <div className={styles.mobileNavInner}>
+                    <NavList
+                      navItems={navItems}
+                      activeIndex={activeIndex}
+                      hoveredIndex={hoveredIndex}
+                      setHoveredIndex={setHoveredIndex}
+                      closeNav={closeNav} // Mobile links should close the nav
+                      isMobile={true}
+                      linkRefs={linkRefs.current}
+                    />
+                    <CloseButton onClick={closeNav} />
+                  </div>
+                </motion.aside>
               )}
             </AnimatePresence>
           </>
@@ -345,4 +386,3 @@ const Navigation = () => {
 };
 
 export default memo(Navigation);
-

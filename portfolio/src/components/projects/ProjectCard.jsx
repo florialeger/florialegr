@@ -1,125 +1,187 @@
-import React, { memo, useCallback } from 'react';
+import { memo, useCallback, useEffect, useMemo } from 'react';
 import PropTypes from 'prop-types';
-import { useNavigate } from 'react-router-dom';
-import Card from '@/components/ui/Card'; // Use the base Card component
+import { useLocation, useNavigate } from 'react-router-dom';
+import { resolveMediaPath } from '@/utils/media';
+import { ArrowIcon, LockIcon } from '@/components/ui/icons';
+import useMagneticEffect from '@/hooks/useMagneticEffect';
 import styles from './ProjectCard.module.css';
 
-// Helper to construct image paths (adjust based on your API/setup)
-const getImageUrl = (imageName) => {
-    // Option 1: If API provides full URLs, just return imageName
-    // return imageName;
-
-    // Option 2: If API provides relative paths from a known base
-    // return `${import.meta.env.VITE_ASSETS_BASE_URL || '/assets/img/'}${imageName}`;
-
-    // Option 3: If using local import structure (Less ideal for dynamic data)
-     return `/assets/img/${imageName}`; // Adjust this path as needed
-};
-
-
-/**
- * Displays a preview card for a single project.
- */
-const ProjectCard = ({ project, className = '' }) => {
+const WorkCard = memo(({ item, className, onHoverChange }) => {
   const navigate = useNavigate();
+  const location = useLocation();
+  const fromPath = useMemo(
+    () => `${location.pathname}${location.search}${location.hash}`,
+    [location.hash, location.pathname, location.search]
+  );
 
-  // Determine the correct navigation path based on project type
-  const path = project.type === 'playground' // Assuming 'type' distinguishes them
-        ? `/playground/${project.slug}`
-        : `/work/${project.slug}`;
+  const categoryLabel = useMemo(() => {
+    if (item.projectDuty?.length) {
+      return item.projectDuty[0];
+    }
+    if (item.type) {
+      return item.type
+        .toString()
+        .replace(/_/g, ' ')
+        .replace(/\b\w/g, (char) => char.toUpperCase());
+    }
+    return 'Project';
+  }, [item.projectDuty, item.type]);
 
-  const handleOpenDetail = useCallback(() => {
-    // Consider if scroll position saving is still needed
-    // const currentScrollPosition = window.scrollY;
-    // setScrollPosition(currentScrollPosition); // Needs scroll context
+  const handlePointerEnter = useCallback(() => {
+    onHoverChange?.(item.slug);
+  }, [item.slug, onHoverChange]);
 
-    navigate(path, { state: { projectData: project } }); // Pass data if needed on detail page
-  }, [navigate, path, project]);
+  const handlePointerLeave = useCallback(() => {
+    onHoverChange?.(null);
+  }, [onHoverChange]);
 
-  const primaryImageUrl = project.primaryImage?.[0] ? getImageUrl(project.primaryImage[0]) : '/assets/img/placeholder.png'; // Fallback image
-  // const secondaryImageUrl = project.primaryImage?.[1] ? getImageUrl(project.primaryImage[1]) : null; // Optional secondary image
+  const handleClick = useCallback(() => {
+    if (item.isLocked) return;
+    navigate(`/work/${item.slug}`, {
+      state: { from: fromPath },
+    });
+  }, [fromPath, item.isLocked, item.slug, navigate]);
+
+  const handleKeyDown = useCallback(
+    (event) => {
+      if (event.key === 'Enter' || event.key === ' ') {
+        event.preventDefault();
+        handleClick();
+      }
+    },
+    [handleClick]
+  );
+
+  const setMagneticNode = useMagneticEffect();
+  const shouldMagnetize = !item.isLocked;
+
+  useEffect(() => {
+    if (!shouldMagnetize) {
+      setMagneticNode(null);
+    }
+
+    return () => {
+      setMagneticNode(null);
+    };
+  }, [setMagneticNode, shouldMagnetize]);
 
   return (
-    <Card
-      className={`${styles.projectCard} ${className}`.trim()}
-      onClick={handleOpenDetail} // Make the whole card clickable
-      aria-label={`View project: ${project.title}`}
+    <article
+      className={`${styles.card} ${styles.work} ${className}`.trim()}
+      tabIndex={0}
+      role={item.isLocked ? 'group' : 'button'}
+      aria-disabled={item.isLocked}
+      data-locked={item.isLocked}
+      data-slug={item.slug}
+      onClick={handleClick}
+      onKeyDown={handleKeyDown}
+      onPointerEnter={handlePointerEnter}
+      onPointerLeave={handlePointerLeave}
+      onFocus={() => onHoverChange?.(item.slug)}
+      onBlur={() => onHoverChange?.(null)}
+      ref={shouldMagnetize ? setMagneticNode : undefined}
     >
-      <div className={styles.imageContainer}>
-          {/* Basic Image */}
-        <img
-          src={primaryImageUrl}
-          alt={`${project.title} preview`}
-          className={styles.image}
-          loading="lazy" // Native lazy loading
-        />
-        {/* Add overlay or secondary image logic here if needed */}
+      <div className={styles.inner}>
+        <span className={styles.category}>{categoryLabel}</span>
+        <div className={styles.titleRow}>
+          <h3>{item.title}</h3>
+          <span className={styles.statusIcon} aria-hidden="true">
+            {item.isLocked ? <LockIcon size={22} /> : <ArrowIcon size={22} />}
+          </span>
+        </div>
       </div>
-      {/* Render title only for non-playground items, as per original logic */}
-      {project.type !== 'playground' && (
-          <div className={styles.titleWrapper}>
-             <h3 className={styles.title}>{project.title}</h3>
-              {/* Optional: Add tags or short description */}
-              {/* <p className={styles.shortDesc}>{project.context?.substring(0, 50)}...</p> */}
-          </div>
-      )}
-    </Card>
+    </article>
   );
+});
+WorkCard.displayName = 'WorkCard';
+
+const PlaygroundCard = memo(({ item, className, onHoverChange }) => {
+  const navigate = useNavigate();
+  const location = useLocation();
+  const primaryImage = useMemo(() => resolveMediaPath(item.primaryImage?.[0]), [item.primaryImage]);
+  const fromPath = useMemo(
+    () => `${location.pathname}${location.search}${location.hash}`,
+    [location.hash, location.pathname, location.search]
+  );
+
+  const handleClick = useCallback(() => {
+    navigate(`/playground/${item.slug}`, {
+      state: { from: fromPath },
+    });
+  }, [fromPath, item.slug, navigate]);
+
+  const handleKeyDown = useCallback(
+    (event) => {
+      if (event.key === 'Enter' || event.key === ' ') {
+        event.preventDefault();
+        handleClick();
+      }
+    },
+    [handleClick]
+  );
+
+  const setMagneticNode = useMagneticEffect();
+
+  useEffect(
+    () => () => {
+      setMagneticNode(null);
+    },
+    [setMagneticNode]
+  );
+
+  return (
+    <article
+      className={`${styles.card} ${styles.playground} ${className}`.trim()}
+      tabIndex={0}
+      role="button"
+      data-slug={item.slug}
+      onClick={handleClick}
+      onKeyDown={handleKeyDown}
+      onPointerEnter={() => onHoverChange?.(item.slug)}
+      onPointerLeave={() => onHoverChange?.(null)}
+      onFocus={() => onHoverChange?.(item.slug)}
+      onBlur={() => onHoverChange?.(null)}
+      ref={setMagneticNode}
+    >
+      {primaryImage && (
+        <div className={styles.preview}>
+          <img src={primaryImage} alt={`${item.title} preview`} loading="lazy" />
+        </div>
+      )}
+    </article>
+  );
+});
+PlaygroundCard.displayName = 'PlaygroundCard';
+
+const ProjectCard = ({ item, variant = 'work', onHoverChange, className }) => {
+  if (variant === 'playground') {
+    return <PlaygroundCard item={item} className={className} onHoverChange={onHoverChange} />;
+  }
+  return <WorkCard item={item} className={className} onHoverChange={onHoverChange} />;
 };
 
 ProjectCard.propTypes = {
-  // Define shape based on your Mongoose Project schema
-  project: PropTypes.shape({
-    _id: PropTypes.string, // Or ObjectId if needed
+  item: PropTypes.shape({
     slug: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
+    created: PropTypes.oneOfType([PropTypes.string, PropTypes.instanceOf(Date)]),
+    duration: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+    projectDuty: PropTypes.arrayOf(PropTypes.string),
+    support: PropTypes.arrayOf(PropTypes.string),
     primaryImage: PropTypes.arrayOf(PropTypes.string),
-    type: PropTypes.oneOf(['ux', 'illustration']).isRequired,
-    context: PropTypes.string,
-    // Add other fields if used in the card
+    type: PropTypes.string,
+    isLocked: PropTypes.bool,
   }).isRequired,
+  variant: PropTypes.oneOf(['work', 'playground']),
+  onHoverChange: PropTypes.func,
   className: PropTypes.string,
 };
 
+ProjectCard.defaultProps = {
+  variant: 'work',
+  onHoverChange: undefined,
+  className: '',
+};
+
 export default memo(ProjectCard);
-
-/* --- ProjectCard.module.css (Example) ---
-.projectCard {
- 
-    padding: 0; 
-}
-
- .projectCard .content {
-    padding: 0; 
- }
-
-.imageContainer {
-    position: relative;
-    overflow: hidden;
-    aspect-ratio: 4 / 3; 
-    background-color: #eee; 
-}
-
-.image {
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: cover; 
-    transition: transform 0.3s ease-out;
-}
-
- .projectCard:hover .image {
-     /* transform: scale(1.05); 
- }
-
-.titleWrapper {
-    padding: 1rem 1.25rem;
-}
-
-.title {
-    font-size: 1.1rem;
-    font-weight: 600;
-    margin: 0;
-    color: var(--heading-color);
-}
-*/
+export { WorkCard, PlaygroundCard };

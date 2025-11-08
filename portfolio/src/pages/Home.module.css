@@ -1,0 +1,63 @@
+.home {
+  display: flex;
+  flex-direction: column;
+  gap: var(--layout-page-gap);
+  padding-bottom: var(--layout-page-padding-bottom);
+  background: var(--background---primary);
+}
+
+.introSection {
+  display: flex;
+}
+
+.introContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: clamp(2rem, 5vw, 2.75rem);
+  width: 100%;
+  max-width: var(--copy-block-max-width);
+}
+
+.introCopy {
+  display: grid;
+  text-align: left;
+  gap: var(--copy-block-gap);
+  max-width: 100%;
+}
+
+.emailRow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-family: var(--type---title-3---family);
+  font-size: var(--type---title-3---size);
+  line-height: var(--type---title-3---line-height);
+  font-weight: var(--type---title-3---weight-regular);
+  color: var(--label---primary);
+  letter-spacing: 0.01em;
+}
+
+.emailIcon {
+  flex-shrink: 0;
+  width: 1.65rem;
+  height: 1.65rem;
+}
+
+.emailText {
+  display: inline-block;
+}
+
+@media (max-width: 960px) {
+  .introContainer {
+    justify-items: center;
+  }
+
+  .introCopy {
+    max-width: none;
+  }
+
+  .emailRow {
+    justify-content: center;
+  }
+}

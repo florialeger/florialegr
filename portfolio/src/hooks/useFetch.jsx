@@ -1,145 +1,139 @@
-// This hook will handle fetching data from your API endpoints (/api/projects, /api/playgrounds) and also sending data (/api/messages).
+import { useState, useEffect, useCallback, useRef } from 'react';
 
-import { useState, useEffect, useCallback } from 'react';
-
-// Default options for fetch requests
-const defaultOptions = {
-  headers: {
-    'Content-Type': 'application/json',
-    // Add other default headers if needed, e.g., Authorization
-  },
+const defaultHeaders = {
+  'Content-Type': 'application/json',
 };
 
-/**
- * Custom hook for fetching data from an API endpoint.
- *
- * @param {string | null} url - The URL to fetch from. Pass null initially if you want to fetch manually later.
- * @param {object} options - Optional fetch options (method, headers, body, etc.). Merged with defaults.
- * @param {Array} dependencies - Optional dependency array to trigger refetch when values change.
- * @returns {{ data: any, loading: boolean, error: Error | null, refetch: function }}
- */
-function useFetch(initialUrl = null, initialOptions = {}, dependencies = []) {
-  const [url, setUrl] = useState(initialUrl);
-  const [options, setOptions] = useState(initialOptions);
-  const [data, setData] = useState(null);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
+const mergeOptions = (options = {}) => {
+  const { headers, body, ...rest } = options;
+  const nextOptions = {
+    ...rest,
+    headers: {
+      ...defaultHeaders,
+      ...(headers || {}),
+    },
+  };
 
-  const fetchData = useCallback(async (fetchUrl = url, fetchOptions = options) => {
-    if (!fetchUrl) {
-      // Don't fetch if URL is null or empty
+  if (body && typeof body === 'object' && !(body instanceof FormData)) {
+    nextOptions.body = JSON.stringify(body);
+  } else if (body) {
+    nextOptions.body = body;
+  }
+
+  return nextOptions;
+};
+
+function useFetch(initialUrl = null, initialOptions = {}) {
+  const [data, setData] = useState(null);
+  const [loading, setLoading] = useState(Boolean(initialUrl));
+  const [error, setError] = useState(null);
+  const requestRef = useRef({ url: initialUrl, options: initialOptions });
+  const abortRef = useRef(null);
+
+  const executeFetch = useCallback(async (url, options = {}) => {
+    if (!url) {
       setData(null);
       setLoading(false);
       setError(null);
-      return;
+      return null;
     }
+
+    if (abortRef.current) {
+      abortRef.current.abort();
+    }
+
+    const controller = new AbortController();
+    abortRef.current = controller;
 
     setLoading(true);
     setError(null);
-    const abortController = new AbortController();
-    const signal = abortController.signal;
 
     try {
-      const mergedOptions = {
-        ...defaultOptions,
-        ...fetchOptions,
-        headers: {
-          ...defaultOptions.headers,
-          ...(fetchOptions.headers || {}),
-        },
-        signal, // Pass the abort signal to fetch
-      };
+      const response = await fetch(url, {
+        ...mergeOptions(options),
+        signal: controller.signal,
+      });
 
-      // Ensure body is stringified if it's an object (common for POST/PUT)
-      if (mergedOptions.body && typeof mergedOptions.body === 'object') {
-        mergedOptions.body = JSON.stringify(mergedOptions.body);
-      }
-
-      const response = await fetch(fetchUrl, mergedOptions);
-
-      if (signal.aborted) return; // Don't process if aborted
-
-      // Attempt to parse JSON, handle potential errors
-      let responseData;
       const contentType = response.headers.get('content-type');
-      if (contentType && contentType.includes('application/json')) {
-         responseData = await response.json();
-      } else {
-         // Handle non-JSON responses if necessary, e.g., plain text
-         responseData = await response.text();
-      }
+      const isJson = contentType && contentType.includes('application/json');
+      const payload = isJson ? await response.json() : await response.text();
 
       if (!response.ok) {
-        // Throw an error with the response data (often contains error details from API)
-        const err = new Error(responseData.message || `HTTP error! status: ${response.status}`);
-        err.response = response; // Attach response for more context
-        err.data = responseData; // Attach parsed error data
+        const err = new Error(payload?.message || `Request failed with status ${response.status}`);
+        err.status = response.status;
+        err.data = payload;
         throw err;
       }
 
-      setData(responseData);
-      setError(null); // Clear previous errors on success
-
+      setData(payload);
+      return payload;
     } catch (err) {
-      if (err.name === 'AbortError') {
-        console.log('Fetch aborted');
-      } else {
-        console.error("Fetch error:", err);
-        setError(err); // Set the error state
-        setData(null); // Clear data on error
+      if (err.name !== 'AbortError') {
+        setError(err);
+        setData(null);
       }
+      throw err;
     } finally {
-      // Only set loading to false if the fetch wasn't aborted
-      // This prevents state updates on unmounted components in some race conditions
-      if (!signal.aborted) {
+      if (!controller.signal.aborted) {
         setLoading(false);
       }
     }
+  }, []);
 
-    // Cleanup function for useEffect
-    return () => {
-      abortController.abort();
-    };
-  }, [url, JSON.stringify(options)]); // Stringify options for dependency check
+  const refetch = useCallback(
+    async (url = requestRef.current.url, options = requestRef.current.options) => {
+      requestRef.current = { url, options };
+      try {
+        return await executeFetch(url, options);
+      } catch (err) {
+        if (err.name === 'AbortError') {
+          return null;
+        }
+        throw err;
+      }
+    },
+    [executeFetch]
+  );
 
-
-  // Effect to fetch data automatically when URL, options, or dependencies change
   useEffect(() => {
-    // Only fetch automatically if initialUrl was provided
-    if(initialUrl) {
-        const cleanup = fetchData();
-        // Return the cleanup function directly if fetchData returns it
-        // Note: fetchData's async nature means it won't directly return cleanup here.
-        // The cleanup logic is handled by the AbortController within fetchData.
-        // We need a separate cleanup for the effect itself.
-        let aborted = false;
-        const controller = new AbortController();
-        const signal = controller.signal;
-
-        const runFetch = async () => {
-            await fetchData(url, options);
-            // Add any specific effect cleanup if needed after fetch completes or errors
-        };
-
-        runFetch();
-
-        // This effect cleanup will abort the controller used *within* fetchData
-        return () => {
-            controller.abort();
-            aborted = true; // Flag to prevent state updates after unmount
-        };
+    requestRef.current = { url: initialUrl, options: initialOptions };
+    if (!initialUrl) {
+      setLoading(false);
+      return undefined;
     }
-  }, [initialUrl, url, JSON.stringify(options), fetchData, ...dependencies]); // Include dependencies
 
-  // Manual refetch function
-  const refetch = useCallback((newUrl = url, newOptions = options) => {
-    setUrl(newUrl); // Update state if new URL/options are provided
-    setOptions(newOptions);
-    return fetchData(newUrl, newOptions); // Return the promise from fetchData
-  }, [fetchData, url, options]);
+    let cancelled = false;
 
+    const run = async () => {
+      try {
+        await executeFetch(initialUrl, initialOptions);
+      } catch (err) {
+        if (err.name === 'AbortError' || cancelled) {
+          return;
+        }
+        console.error('Fetch error:', err);
+      }
+    };
 
-  return { data, loading, error, refetch, setUrl, setOptions };
+    run();
+
+    return () => {
+      cancelled = true;
+      if (abortRef.current) {
+        abortRef.current.abort();
+      }
+    };
+  }, [initialUrl, initialOptions, executeFetch]);
+
+  return {
+    data,
+    loading,
+    error,
+    refetch,
+    setRequest: (url, options = {}) => {
+      requestRef.current = { url, options };
+    },
+  };
 }
 
 export default useFetch;

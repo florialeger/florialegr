@@ -1,18 +1,19 @@
-const express = require("express");
-const dotenv = require("dotenv");
-const cors = require("cors");
-const bodyParser = require("body-parser");
-const connectDB = require("./config/db.jsx");
-const swaggerDocs = require("./config/swagger.jsx");
+const path = require('path');
+const express = require('express');
+const dotenv = require('dotenv');
+const cors = require('cors');
+const bodyParser = require('body-parser');
+const connectDB = require('./config/db.jsx');
+const swaggerDocs = require('./config/swagger.jsx');
 
 // Import Routes
-const projectRoutes = require("./routes/projectRoutes.jsx");
-const playgroundRoutes = require("./routes/playgroundRoutes.jsx");
-const messageRoutes = require("./routes/messageRoutes.jsx");
-const testRoutes = require("./routes/testRoutes.jsx");
+const projectRoutes = require('./routes/projectRoutes.jsx');
+const playgroundRoutes = require('./routes/playgroundRoutes.jsx');
+const messageRoutes = require('./routes/messageRoutes.jsx');
+const testRoutes = require('./routes/testRoutes.jsx');
 
 // Load environment variables
-dotenv.config();
+dotenv.config({ path: path.join(__dirname, '.env') });
 
 // Connect to MongoDB
 connectDB();
@@ -24,10 +25,10 @@ app.use(cors());
 app.use(bodyParser.json());
 
 // Routes
-app.use("/api/projects", projectRoutes);
-app.use("/api/playgrounds", playgroundRoutes);
-app.use("/api/messages", messageRoutes); 
-app.use("/api", testRoutes);
+app.use('/api/projects', projectRoutes);
+app.use('/api/playgrounds', playgroundRoutes);
+app.use('/api/messages', messageRoutes);
+app.use('/api', testRoutes);
 
 // Swagger Documentation
 swaggerDocs(app); // Initialize Swagger

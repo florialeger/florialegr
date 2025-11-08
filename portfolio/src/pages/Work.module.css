@@ -1,0 +1,123 @@
+.workPage {
+  display: flex;
+  flex-direction: column;
+  gap: var(--layout-page-gap);
+  padding: var(--layout-page-padding-top) 0 var(--layout-page-padding-bottom);
+  background: var(--background---primary);
+  color: var(--label---primary);
+}
+
+.pageHeader {
+  display: flex;
+  flex-direction: column;
+  gap: var(--stack-gap-sm);
+}
+
+.listContainer {
+  display: flex;
+  flex-direction: column;
+  gap: var(--stack-gap-lg);
+}
+
+.yearList {
+  display: flex;
+  flex-direction: column;
+  gap: calc(var(--stack-gap-lg) + var(--stack-gap-sm));
+}
+
+.yearSection {
+  display: grid;
+  gap: var(--stack-gap-md);
+}
+
+.projectList {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(9.5rem, 1fr));
+  gap: var(--stack-gap-sm);
+  margin: 0;
+  padding: 0;
+}
+
+.projectItem {
+  display: flex;
+  flex-direction: column;
+  padding: var(--stack-gap-sm) 0;
+  width: fit-content;
+}
+
+.projectType {
+  font-family: var(--type---label---family);
+  line-height: var(--type---label---line-height);
+  font-weight: var(--type---label---weight);
+  letter-spacing: var(--type---label---letter-spacing);
+    color: var(--label---tertiary);
+}
+
+.projectLink,
+.projectTitle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: start;
+  gap: var(--stack-gap-sm);
+  font-family: var(--type---title-3---family);
+  font-weight: var(--type---title-3---weight-emphasized);
+  color: var(--label---primary);
+  text-decoration: none;
+  transition:
+    color 180ms ease,
+    transform 180ms ease;
+}
+
+.projectLink:hover,
+.projectLink:focus-visible {
+  color: color-mix(in srgb, var(--label---primary) 88%, black 12%);
+  transform: translateX(6px);
+}
+
+.projectLink svg,
+.projectTitle svg {
+  width: 1.1em;
+  height: 1.1em;
+  color: inherit;
+}
+
+.locked {
+  color: var(--label---tertiary);
+}
+
+@media (max-width: 900px) {
+  .projectItem {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+
+  .projectType {
+    order: 2;
+    letter-spacing: 0.18em;
+  }
+
+  .projectLink,
+  .projectTitle {
+    order: 1;
+    justify-content: flex-start;
+  }
+}
+
+@media (max-width: 600px) {
+  .workPage {
+    gap: var(--stack-gap-lg);
+  }
+
+  .yearSection {
+    gap: var(--stack-gap-sm);
+  }
+
+  .yearSection h2 {
+    font-size: clamp(1.4rem, 4vw, 1.6rem);
+  }
+
+  .projectType {
+    font-size: clamp(0.75rem, 2vw, 0.85rem);
+  }
+}

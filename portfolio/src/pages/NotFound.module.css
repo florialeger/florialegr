@@ -1,0 +1,33 @@
+.notFound {
+  min-height: calc(100vh - var(--nav-height));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--stack-gap-lg) var(--stack-gap-md);
+  background: var(--background---primary);
+  color: var(--label---primary);
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--stack-gap-md);
+  text-align: center;
+}
+
+.title {
+  font-family: var(--type---large-title---family);
+  font-size: clamp(3rem, 8vw, 4.5rem);
+  font-weight: var(--type---large-title---weight-emphasized);
+  line-height: var(--type---large-title---line-height);
+  letter-spacing: -0.02em;
+  color: var(--label---primary);
+  margin: 0;
+}
+
+.description {
+  max-width: var(--copy-block-max-width);
+  color: var(--label---secondary);
+}

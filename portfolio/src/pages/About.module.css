@@ -1,0 +1,163 @@
+.aboutPage {
+  display: flex;
+  flex-direction: column;
+  gap: var(--layout-page-gap);
+  padding: var(--layout-page-padding-top) 0 var(--layout-page-padding-bottom);
+  color: var(--label---primary);
+}
+
+.contactSection {
+  padding-top: var(--stack-gap-lg);
+}
+
+.contactContainer {
+  display: flex;
+  justify-content: center;
+  padding: var(--stack-gap-lg);
+}
+
+.contactRow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--stack-gap-sm);
+  padding: var(--stack-gap-md);
+  flex-wrap: wrap;
+}
+
+.contactIntro,
+.contactMessage {
+  margin: 0;
+  white-space: nowrap;
+}
+
+.contactMessage {
+  position: relative;
+  min-width: clamp(15rem, 24vw, 19rem);
+  display: flex;
+  justify-content: start;
+  align-items: start;
+}
+
+.message {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transform: translateY(8px);
+  transition:
+    opacity 180ms ease,
+    transform 220ms ease;
+}
+
+.message[data-visible='true'] {
+  opacity: 1;
+  transform: translateY(0);
+  z-index: 1;
+}
+
+.iconList {
+  display: flex;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.iconItem {
+  --stack-offset: clamp(-1.4rem, -3.8vw, -1.9rem);
+  --active-offset: clamp(1.3rem, 4vw, 2rem);
+  --tilt: 5deg;
+  margin: 0;
+  transition:
+    margin 220ms ease,
+    transform 200ms ease;
+}
+
+.iconItem + .iconItem {
+  margin-left: var(--stack-offset);
+}
+
+.iconItem:nth-child(even) {
+  --tilt: -5deg;
+}
+
+.iconLink {
+  width: clamp(3rem, 6vw, 4em);
+  display: block;
+  border-radius: 100%;
+  transform: rotate(var(--tilt));
+  transition:
+    transform 220ms ease,
+    box-shadow 220ms ease;
+}
+
+.socialIconImage {
+  display: block;
+  width: 100%;
+  height: auto;
+  transition:
+    filter 180ms ease,
+    opacity 180ms ease;
+}
+
+.iconList[data-hovered='true'] .iconItem:not([data-active='true']) .socialIconImage {
+  filter: grayscale(0.9);
+  opacity: 0.35;
+}
+
+.iconItem[data-active='true'] .socialIconImage {
+  filter: none;
+  opacity: 1;
+}
+
+.iconItem[data-active='true'] {
+  margin-left: var(--active-offset);
+  margin-right: var(--active-offset);
+  --stack-offset: var(--active-offset);
+}
+
+.iconItem[data-active='true'] .iconLink {
+  transform: rotate(var(--tilt)) translateY(-6px) scale(1.08);
+  box-shadow: var(--shadows--normal);
+}
+
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+@media (max-width: 720px) {
+  .contactRow {
+    gap: var(--stack-gap-md);
+    padding: var(--stack-gap-sm);
+  }
+
+  .contactIntro,
+  .contactMessage {
+    white-space: normal;
+    text-align: center;
+  }
+
+  .contactMessage {
+    min-width: clamp(9rem, 40vw, 12rem);
+  }
+}
+
+@media (max-width: 520px) {
+  .iconList {
+    gap: clamp(0.6rem, 6vw, 1rem);
+  }
+
+  .socialIconImage {
+    width: clamp(2.2rem, 8vw, 2.8rem);
+  }
+}

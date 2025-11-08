@@ -1,4 +1,3 @@
-
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 // Optional: Add styling
@@ -21,7 +20,7 @@ class ErrorBoundary extends Component {
 
   componentDidCatch(error, errorInfo) {
     // You can also log the error to an error reporting service here
-    console.error("ErrorBoundary caught an error:", error, errorInfo);
+    console.error('ErrorBoundary caught an error:', error, errorInfo);
     this.setState({ errorInfo });
     // Example: logErrorToMyService(error, errorInfo);
   }
@@ -37,7 +36,7 @@ class ErrorBoundary extends Component {
           <h2>Something went wrong.</h2>
           <p>We're sorry, an unexpected error occurred. Please try refreshing the page.</p>
           {/* Optional: Show error details during development */}
-          {process.env.NODE_ENV === 'development' && (
+          {import.meta.env?.DEV && (
             <details style={{ whiteSpace: 'pre-wrap', marginTop: '1rem' }}>
               <summary>Error Details</summary>
               {this.state.error && this.state.error.toString()}
@@ -74,4 +73,3 @@ export default ErrorBoundary;
  .errorBoundary details { text-align: left; color: #666; font-size: 0.9em; }
  .errorBoundary summary { cursor: pointer; font-weight: bold; }
 */
-

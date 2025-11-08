@@ -1,0 +1,141 @@
+.card {
+  position: relative;
+  border-radius: clamp(1.6rem, 3vw, 2.4rem);
+  color: var(--label---primary);
+  overflow: hidden;
+  isolation: isolate;
+  transform: translateZ(0);
+  transition:
+    transform 220ms ease,
+    box-shadow 220ms ease,
+    filter 200ms ease,
+    opacity 200ms ease;
+  cursor: pointer;
+}
+
+.card:focus-visible {
+  outline: 3px solid color-mix(in srgb, var(--label---primary) 20%, transparent);
+  outline-offset: 5px;
+}
+
+.card:hover,
+.card:focus-visible {
+  transform: translateY(-4px);
+  box-shadow: var(--shadows--normal);
+}
+
+.card[data-locked='true'] {
+  cursor: not-allowed;
+  filter: saturate(0.72);
+}
+
+.card[data-locked='true']:hover,
+.card[data-locked='true']:focus-visible {
+  transform: translateY(-2px);
+}
+
+.work {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: var(--stack-gap-sm);
+  min-height: clamp(9.5rem, 18vw, 12rem);
+  padding: var(--stack-gap-md);
+  background: color-mix(in srgb, var(--fills---non--opaque) 55%, transparent);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.inner {
+  display: flex;
+  flex-direction: column;
+  gap: var(--stack-gap-sm);
+}
+
+.category {
+  font-family: var(--type---label---family);
+  font-size: clamp(1.05rem, 2.6vw, 1.45rem);
+  font-style: italic;
+  font-weight: var(--type---label---weight);
+  letter-spacing: clamp(-0.04em, -0.2vw, -0.02em);
+  color: var(--label---secondary);
+  text-transform: none;
+}
+
+.titleRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--stack-gap-md);
+}
+
+.titleRow h3 {
+  margin: 0;
+  font-family: var(--type---title-2---family);
+  font-size: clamp(2.2rem, 4.6vw, 2.9rem);
+  font-weight: var(--type---title-2---weight-emphasized);
+  letter-spacing: var(--type---title-2---letter-spacing);
+  text-wrap: balance;
+}
+
+.statusIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: clamp(2.8rem, 6vw, 3.2rem);
+  height: clamp(2.8rem, 6vw, 3.2rem);
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--label---primary) 12%, transparent);
+  color: currentColor;
+  transition:
+    transform 200ms ease,
+    background-color 200ms ease;
+}
+
+.card:not([data-locked='true']):hover .statusIcon,
+.card:not([data-locked='true']):focus-visible .statusIcon {
+  background: var(--label---primary);
+  color: var(--label---inverted);
+  transform: scale(1.05);
+}
+
+.playground {
+  display: flex;
+  min-height: clamp(12rem, 20vw, 15rem);
+}
+
+.preview {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  border-radius: clamp(1.2rem, 2.5vw, 1.8rem);
+  overflow: hidden;
+  background: var(--background---secondary);
+}
+
+.preview img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 220ms ease;
+}
+
+.playground:hover .preview img,
+.playground:focus-visible .preview img {
+  transform: scale(1.05);
+}
+
+@media (max-width: 720px) {
+  .work {
+    padding: clamp(1.5rem, 6vw, 2.2rem);
+  }
+
+  .titleRow h3 {
+    font-size: clamp(1.9rem, 7vw, 2.4rem);
+  }
+
+  .statusIcon {
+    width: clamp(2.4rem, 8vw, 2.9rem);
+    height: clamp(2.4rem, 8vw, 2.9rem);
+  }
+}

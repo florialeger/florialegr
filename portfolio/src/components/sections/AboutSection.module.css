@@ -1,0 +1,98 @@
+.contactContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: start;
+  gap: clamp(2rem, 6vw, 3.5rem);
+  flex-wrap: wrap;
+}
+
+.buttonRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: clamp(0.85rem, 2.6vw, 1.2rem);
+}
+
+.copyColumn {
+  display: grid;
+  gap: clamp(2rem, 5vw, 2.75rem);
+  max-width: var(--copy-block-max-width);
+  justify-items: start;
+}
+
+.paragraphs {
+  display: grid;
+  gap: var(--copy-block-gap);
+  max-width: 100%;
+  text-align: left;
+}
+
+.paragraphs p {
+  margin: 0;
+  max-width: none;
+}
+
+.actionButton {
+  --button-background: var(--fills---secondary);
+  --button-color: var(--label---accent);
+  --button-font-weight: 400;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  text-transform: none;
+}
+
+.actionButton:hover:not(:disabled):not([aria-disabled='true']) {
+  --button-background: var(--fills---secondary);
+}
+
+.actionButton:focus-visible {
+  outline-offset: 3px;
+}
+
+.downloadIcon {
+  transform: rotate(-45deg);
+}
+
+.portrait {
+  margin: 0;
+  width: clamp(160px, 35vw, 240px);
+  display: grid;
+  place-items: center;
+  border-radius: clamp(1.8rem, 4vw, 2.4rem);
+}
+
+.portrait img {
+  display: block;
+  width: 100%;
+  border-radius: clamp(1.4rem, 3.5vw, 2rem);
+  object-fit: cover;
+}
+
+@media (max-width: 960px) {
+  .contactContainer {
+    justify-content: center;
+    text-align: center;
+  }
+
+  .portrait {
+    max-width: min(320px, 85%);
+    justify-self: center;
+  }
+
+  .copyColumn {
+    justify-items: center;
+    text-align: left;
+  }
+
+  .paragraphs {
+    justify-items: center;
+  }
+}
+
+@media (max-width: 640px) {
+  .buttonRow {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}

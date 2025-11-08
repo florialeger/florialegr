@@ -1,92 +1,167 @@
-import React, { memo } from 'react';
+import React, { forwardRef, memo, useCallback, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import { ArrowIcon, DownloadIcon } from '@/components/ui/icons';
+import useMagneticEffect from '@/hooks/useMagneticEffect';
 import styles from './Button.module.css';
 
-/**
- * A versatile button component that can act as a button, internal link, or external link.
- */
-const Button = ({
-  children,
-  onClick,
-  to, // For react-router Link
-  href, // For external anchor link
-  variant = 'primary', // e.g., 'primary', 'secondary', 'outline'
-  size = 'medium', // e.g., 'small', 'medium', 'large'
-  disabled = false,
-  className = '',
-  type = 'button', // 'button', 'submit', 'reset'
-  target, // For anchor links (_blank, etc.)
-  rel, // For anchor links (noopener noreferrer)
-  ...props
-}) => {
-  const baseClassName = styles.button;
-  const variantClassName = styles[variant] || styles.primary;
-  const sizeClassName = styles[size] || styles.medium;
-  const combinedClassName =
-    `${baseClassName} ${variantClassName} ${sizeClassName} ${className}`.trim();
+const ICON_MAP = {
+  arrow: ArrowIcon,
+  download: DownloadIcon,
+};
 
-  // Render as React Router Link
-  if (to) {
+const resolveIcon = (icon, size, iconProps = {}) => {
+  const combinedClassName = `${styles.icon} ${iconProps.className || ''}`.trim();
+  if (React.isValidElement(icon)) {
+    const existingClassName = icon.props?.className || '';
+    return React.cloneElement(icon, {
+      ...iconProps,
+      className: `${existingClassName} ${combinedClassName}`.trim(),
+      size: icon.props?.size ?? size,
+    });
+  }
+
+  const IconComponent = ICON_MAP[icon] || ArrowIcon;
+  return <IconComponent size={size} className={combinedClassName} {...iconProps} />;
+};
+
+const isExternalUrl = (value) => /^https?:\/\//i.test(value);
+
+const ButtonBase = (
+  {
+    label,
+    icon = 'arrow',
+    iconSize = 20,
+    className = '',
+    onClick,
+    to,
+    href,
+    download,
+    target,
+    rel,
+    type = 'button',
+    disabled = false,
+    iconProps = {},
+    magnetic = true,
+    magneticOptions,
+    ...props
+  },
+  ref
+) => {
+  const isRouterLink = Boolean(to);
+  const isAnchor = Boolean(href);
+  const setMagneticNode = useMagneticEffect(magneticOptions);
+  const shouldMagnetize = magnetic && !disabled;
+
+  useEffect(() => {
+    if (!shouldMagnetize) {
+      setMagneticNode(null);
+    }
+
+    return () => {
+      setMagneticNode(null);
+    };
+  }, [setMagneticNode, shouldMagnetize]);
+
+  const mergedRef = useCallback(
+    (node) => {
+      if (shouldMagnetize) {
+        setMagneticNode(node);
+      } else {
+        setMagneticNode(null);
+      }
+
+      if (typeof ref === 'function') {
+        ref(node);
+      } else if (ref && typeof ref === 'object') {
+        ref.current = node;
+      }
+    },
+    [ref, setMagneticNode, shouldMagnetize]
+  );
+
+  const computedTarget = isAnchor && !download ? target || (isExternalUrl(href) ? '_blank' : undefined) : target;
+  const computedRel = rel || (computedTarget === '_blank' ? 'noopener noreferrer' : undefined);
+
+  const handleClick = (event) => {
+    if (disabled) {
+      event.preventDefault();
+      event.stopPropagation();
+      return;
+    }
+
+    if (onClick) {
+      onClick(event);
+    }
+  };
+
+  const iconElement = resolveIcon(icon, iconSize, iconProps);
+
+  const content = (
+    <span className={styles.inner}>
+      <span className={styles.label}>{label}</span>
+      <span className={styles.iconWrapper}>{iconElement}</span>
+    </span>
+  );
+
+  const sharedProps = {
+    className: `${styles.button} ${className}`.trim(),
+    onClick: handleClick,
+    'aria-disabled': disabled || undefined,
+    ref: mergedRef,
+    ...props,
+  };
+
+  if (isRouterLink) {
     return (
-      <Link
-        to={to}
-        className={combinedClassName}
-        onClick={disabled ? (e) => e.preventDefault() : onClick}
-        aria-disabled={disabled}
-        {...props}
-      >
-        {children}
+      <Link {...sharedProps} to={to} tabIndex={disabled ? -1 : undefined}>
+        {content}
       </Link>
     );
   }
 
-  // Render as external link
-  if (href) {
+  if (isAnchor) {
     return (
       <a
+        {...sharedProps}
         href={href}
-        className={combinedClassName}
-        onClick={disabled ? (e) => e.preventDefault() : onClick}
-        target={target || (href.startsWith('http') ? '_blank' : undefined)} // Default _blank for external
-        rel={rel || (target === '_blank' ? 'noopener noreferrer' : undefined)}
-        aria-disabled={disabled}
-        {...props}
+        download={download}
+        target={computedTarget}
+        rel={computedRel}
+        tabIndex={disabled ? -1 : undefined}
       >
-        {children}
+        {content}
       </a>
     );
   }
 
-  // Render as standard button
   return (
-    <button
-      type={type}
-      className={combinedClassName}
-      onClick={onClick}
-      disabled={disabled}
-      aria-disabled={disabled}
-      {...props}
-    >
-      {children}
+    <button {...sharedProps} type={type} disabled={disabled} data-disabled={disabled || undefined}>
+      {content}
     </button>
   );
 };
 
+const Button = memo(forwardRef(ButtonBase));
+
+Button.displayName = 'Button';
+
 Button.propTypes = {
-  children: PropTypes.node.isRequired,
+  label: PropTypes.string.isRequired,
+  icon: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
+  iconSize: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+  iconProps: PropTypes.object,
+  className: PropTypes.string,
   onClick: PropTypes.func,
   to: PropTypes.string,
   href: PropTypes.string,
-  variant: PropTypes.string,
-  size: PropTypes.string,
-  disabled: PropTypes.bool,
-  className: PropTypes.string,
-  type: PropTypes.oneOf(['button', 'submit', 'reset']),
+  download: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
   target: PropTypes.string,
   rel: PropTypes.string,
+  type: PropTypes.oneOf(['button', 'submit', 'reset']),
+  disabled: PropTypes.bool,
+  magnetic: PropTypes.bool,
+  magneticOptions: PropTypes.object,
 };
 
-export default memo(Button);
-
-
+export default Button;

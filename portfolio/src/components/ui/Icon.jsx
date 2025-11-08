@@ -1,4 +1,4 @@
-import React, { memo } from 'react';
+import { memo } from 'react';
 import PropTypes from 'prop-types';
 // Import your SVG components - adjust path as needed
 import * as AllIcons from '@/assets/svgs/icons'; // Assuming icons.js exports named SVGs
@@ -47,25 +47,4 @@ Icon.propTypes = {
 
 export default memo(Icon);
 
-/* --- Icon.module.css (Example) ---
-.icon {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  vertical-align: middle; /* Adjust as needed */
-  fill: currentColor; /* Allows color inheritance or override via prop/style 
-}
-
-.icon svg {
-  display: block;
-  width: 100%;
-  height: 100%;
-}
-
-
-/* --- Example src/assets/svgs/icons.js ---
-export { ReactComponent as GithubIcon } from './github.svg'; // Using SVGR
-export { ReactComponent as LinkedinIcon } from './linkedin.svg';
-export { ReactComponent as EmailIcon } from './email.svg';
-// ... import and export all icons you need
-*/
+/* Example usage of Icon component and styles documented in project wiki. */

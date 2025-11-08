@@ -1,0 +1,49 @@
+.projectsSection {
+  padding: var(--layout-page-padding-top) 0 var(--layout-page-padding-bottom);
+  background: var(--background---primary);
+  color: var(--label---primary);
+}
+
+.heading {
+  margin: 0 0 var(--stack-gap-lg);
+  text-align: center;
+  font-family: var(--type---title-2---family);
+  font-size: var(--type---title-2---size);
+  line-height: var(--type---title-2---line-height);
+  font-weight: var(--type---title-2---weight-emphasized);
+  color: var(--label---primary);
+}
+
+.statusMessage {
+  margin: 0 0 var(--stack-gap-md);
+  text-align: center;
+  font-family: var(--type---body---family);
+  font-size: var(--type---body---size);
+  line-height: var(--type---body---line-height);
+  font-weight: var(--type---body---weight);
+  color: var(--label---secondary);
+}
+
+.error {
+  margin: 0 0 var(--stack-gap-md);
+  padding: var(--stack-gap-sm);
+  border-radius: var(--border-radius-medium);
+  background: color-mix(in srgb, var(--fills---primary) 78%, transparent);
+  border: 1px solid color-mix(in srgb, var(--label---primary) 14%, transparent);
+  text-align: center;
+  font-family: var(--type---body---family);
+  font-size: var(--type---body---size);
+  line-height: var(--type---body---line-height);
+  font-weight: var(--type---body---weight);
+  color: var(--label---primary);
+}
+
+.emptyState {
+  margin: var(--stack-gap-lg) 0 0;
+  text-align: center;
+  font-family: var(--type---body---family);
+  font-size: var(--type---body---size);
+  line-height: var(--type---body---line-height);
+  font-weight: var(--type---body---weight);
+  color: var(--label---secondary);
+}

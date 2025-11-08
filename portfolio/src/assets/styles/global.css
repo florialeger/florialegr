@@ -1,61 +1,140 @@
 :root {
-  --font-family-headline: -apple-system-headline, -apple-system, Inter,
-    system-ui, Avenir, Helvetica, Arial, sans-serif;
-  --font-family-subheadline: -apple-system-subheadline, -apple-system, Inter,
-    system-ui, Avenir, Helvetica, Arial, sans-serif;
-  --font-family-body: -apple-system-body, -apple-system, Inter, system-ui,
-    Avenir, Helvetica, Arial, sans-serif;
-  --font-family-secondary: -apple-system-body, -apple-system, Inter, system-ui,
-    Avenir, Helvetica, Arial, sans-serif;
+  /* Typography */
+  --type---large-title---family:
+    'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+  --type---large-title---size: clamp(2.8rem, 5.6vw, 3rem);
+  --type---large-title---weight-regular: regular;
+  --type---large-title---weight-emphasized: 1000;
+  --type---large-title---letter-spacing: -3px;
 
-  --line-height-default: 1.5;
+  --type---title-1---family: var(--type---large-title---family);
+  --type---title-1---size: clamp(2.5rem, 5.2vw, 2.8rem);
+  --type---title-1---letter-spacing: -2px;
+  --type---title-1---weight-regular: 700;
 
-  --font-weight-regular: 400;
-  --font-weight-semibold: 600;
-  --font-weight-bold: 700;
-  --font-weight-extrabold: 800;
+  --type---title-2---family: var(--type---large-title---family);
+  --type---title-2---size: clamp(1.8rem, 3vw, 2em);
+  --type---title-2---letter-spacing: -2px;
+  --type---title-2---line-height: 1;
 
-  --font-size-headline: 4em;
-  --font-size-subheadline: 2.25em;
-  --font-size-button: 1.25em;
-  --font-size-primary: 1.125em;
-  --font-size-secondary: 0.9375em;
-  --font-size-tertiary: 0.875em;
+  --type---title-2---weight-regular: 600;
+  --type---title-2---weight-emphasized: 900;
 
-  --spacing-base: 1rem;
+  --type---title-3---family:
+    'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+  --type---title-3---size: clamp(1.4rem, 2vw, 1.6rem);
+  --type---title-3---letter-spacing: -1px;
+  --type---title-3---weight-regular: 400;
+  --type---title-3---weight-emphasized: 600;
 
-  --nav-height: 104px; 
+  --type---headline---family: var(--type---title-3---family);
+  --type---headline---size: clamp(1rem, 2vw, 1.2rem);
+  --type---headline---weight: 500;
+  --type---headline---weight-regular: 600;
+  --type---headline---weight-emphasized: 900;
+  --type---headline---letter-spacing: -1px;
 
-  --gray-10: rgb(254, 254, 254);
-  --gray-50: rgb(250, 250, 250);
-  --gray-100: rgb(245, 245, 245);
-  --gray-200: rgb(230, 230, 230);
-  --gray-300: rgba(204, 204, 204, 1);
-  --gray-400: rgba(179, 179, 179, 1);
-  --gray-500: rgba(153, 153, 153, 1);
-  --gray-600: rgba(128, 128, 128, 1);
-  --gray-700: rgba(102, 102, 102, 1);
-  --gray-800: rgba(77, 77, 77, 1);
-  --gray-900: rgba(51, 51, 51, 1);
-  --gray-1000: rgba(26, 26, 26, 1);
+  --type---label---family: 'Volkhov', Georgia, 'Times New Roman', serif;
+  --type---label---size: 1.8rem;
+  --type---label---weight: 550;
+  --type---label---letter-spacing: 0.01em;
 
-  --shadows--mini: 0px 0px 0px rgba(0, 0, 0, 0.06),
-    0px 1px 1px -1px rgba(0, 0, 0, 0.06), 0px 3px 3px -1px rgba(0, 0, 0, 0.06);
+  --type---body---family: var(--type---title-3---family);
+  --type---body---size: 1rem;
+  --type---body---weight: 400;
+  --type---body---line-height: 1.5;
+  --type---body---letter-spacing: -1px;
 
-  --shadows--normal: 0px 0px 0px rgba(0, 0, 0, 0.06),
-    0px 1px 1px -1px rgba(0, 0, 0, 0.06), 0px 3px 3px -1px rgba(0, 0, 0, 0.06),
+  --type---subheadline---family: var(--type---title-3---family);
+  --type---subheadline---size: 0.8rem;
+  --type---subheadline---weight: 500;
+  --type---subheadline---weight-regular: 600;
+  --type---subheadline---weight-emphasized: 900;
+  --type---subheadline---line-height: 1.15;
+  --type---subheadline---letter-spacing: -0.5px;
+
+  /* Layout */
+  --nav-height: 104px;
+  --container-max-width: 1200px;
+  --container-padding-x: 1rem;
+  --copy-block-gap: clamp(1.4rem, 3vw, 1.9rem);
+  --copy-block-max-width: clamp(30rem, 68vw, 38rem);
+  --layout-page-gap: clamp(3.5rem, 8vw, 5.5rem);
+  --layout-page-padding-top: clamp(4rem, 10vw, 6rem);
+  --layout-page-padding-bottom: clamp(6rem, 12vw, 9rem);
+  --stack-gap-lg: clamp(2.5rem, 6vw, 4rem);
+  --stack-gap-md: clamp(1.6rem, 4vw, 2.6rem);
+  --stack-gap-sm: clamp(0.75rem, 3vw, 1.25rem);
+
+  /* Motion and effects */
+  --animate-spin: spin 1s linear infinite;
+  --shimmer-width: 180px;
+  --duration: 20s;
+  --gap: 2.5rem;
+
+  /* Shape */
+  --border-radius-medium: 6px;
+
+  /* Theme defaults (white baseline) */
+  --surface---main: rgba(255, 255, 255, 1);
+  --background---primary: rgba(252, 252, 252, 1);
+  --background---secondary: rgba(244, 244, 244, 1);
+  --label---primary: rgba(23, 23, 23, 1);
+  --label---secondary: rgba(23, 23, 23, 0.8);
+  --label---tertiary: rgba(23, 23, 23, 0.6);
+  --label---inverted: rgba(0, 0, 0, 0.9);
+  --fills---primary: rgba(225, 225, 225, 1);
+  --fills---secondary: rgba(200, 200, 200, 1);
+  --fills---non--opaque: rgba(255, 255, 255, 0.5);
+  --fills---linear-non--opaque: rgba(252, 252, 252, 0);
+  --separator---black-10: rgba(0, 0, 0, 0.1);
+  --separator---white-20: rgba(255, 255, 255, 0.2);
+
+  /* Effects */
+  --sticker--normal:
+    0px 0px 0px 0px rgba(0, 0, 0, 0.06), 0px 1px 1px 0px rgba(0, 0, 0, 0.06), 0px 3px 3px 0px rgba(0, 0, 0, 0.06),
+    0px 0px 1.600000023841858px 0px rgba(0, 0, 0, 0.25);
+  --shadows--extra_small: 0px 0px 0px 1px rgba(0, 0, 0, 0.06), 0px 1px 1px -0.5px rgba(0, 0, 0, 0.06);
+  --shadows--small:
+    0px 0px 0px 1px rgba(0, 0, 0, 0.06), 0px 1px 1px -0.5px rgba(0, 0, 0, 0.06), 0px 3px 3px -1.5px rgba(0, 0, 0, 0.06);
+  --shadows--normal:
+    0px 0px 0px 1px rgba(0, 0, 0, 0.06), 0px 1px 1px -0.5px rgba(0, 0, 0, 0.06), 0px 3px 3px -1.5px rgba(0, 0, 0, 0.06),
     0px 6px 6px -3px rgba(0, 0, 0, 0.06), 0px 12px 12px -6px rgba(0, 0, 0, 0.05),
-    0px 24px 24px -12px rgba(0, 0, 0, 0);
+    0px 24px 24px -12px rgba(0, 0, 0, 0.05);
+  --shadows--3d:
+    0px 0px 0px 10px rgba(0, 0, 0, 0.06), 0px 10px 10px -5px rgba(0, 0, 0, 0.06),
+    0px 30px 30px -15px rgba(0, 0, 0, 0.06), 0px 60px 60px -30px rgba(0, 0, 0, 0.06),
+    0px 120px 120px -60px rgba(0, 0, 0, 0.05), 0px 240px 240px -120px rgba(0, 0, 0, 0.05);
 
-  font-size: 16px;
-  font-family: var(--font-family-body);
-  line-height: var(---line-height-default);
-  font-weight: var(--font-weight-regular);
-
+  font-size: 18px;
+  font-family: var(--type---body---family);
+  line-height: var(--type---body---line-height);
+  font-weight: var(--type---body---weight);
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+@media (max-width: 1024px) {
+  :root {
+    --type---large-title---size: clamp(2.6rem, 7vw, 3.2rem);
+    --type---title-1---size: clamp(2.2rem, 5.5vw, 2.8rem);
+    --type---title-2---size: clamp(1.9rem, 4.8vw, 2.4rem);
+    --type---title-3---size: clamp(0.95rem, 2.4vw, 1.05rem);
+    --type---headline---size: 0.95rem;
+  }
+}
+
+@media (max-width: 768px) {
+  :root {
+    --type---large-title---size: clamp(2.2rem, 8vw, 2.8rem);
+    --type---title-1---size: clamp(1.9rem, 6vw, 2.4rem);
+    --type---title-2---size: clamp(1.6rem, 5.5vw, 2rem);
+    --type---title-3---size: clamp(0.9rem, 3vw, 0.98rem);
+    --type---headline---size: 0.9rem;
+    --type---body---size: 0.9375rem;
+  }
 }
 
 *,
@@ -66,7 +145,9 @@
   box-sizing: border-box;
 }
 
-html, body, #root {
+html,
+body,
+#root {
   height: 100%;
 }
 
@@ -79,20 +160,75 @@ body {
   margin: 0;
   min-height: 100vh;
   width: 100%;
-    display: flex;
+  display: flex;
   flex-direction: column;
   font-family: inherit;
-  font-size: 1rem;
-  line-height: inherit;
-  color: var(--textDefault);
-  background: var(--backgroundMain);
+  font-size: var(--type---body---size);
+  line-height: var(--type---body---line-height);
+  font-weight: var(--type---body---weight);
+  color: var(--label---primary);
+  background: var(--background---primary);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 main {
-  padding-top: var(--nav-height); 
-   flex: 1;
+  padding-top: var(--nav-height);
+  flex: 1;
+}
+
+h1 {
+  font-family: var(--type---large-title---family);
+  font-size: var(--type---large-title---size);
+  font-weight: var(--type---large-title---weight-emphasized);
+  letter-spacing: var(--type---large-title---letter-spacing);
+  text-box: trim-both cap alphabetic;
+  color: var(--label---primary);
+  text-wrap: balance;
+}
+
+h2 {
+  font-family: var(--type---title-1---family);
+  font-size: var(--type---title-1---size);
+  font-weight: var(--type---title-1---weight-regular);
+  letter-spacing: var(--type---title-1---letter-spacing);
+  text-box: trim-both cap alphabetic;
+}
+
+h3 {
+  font-family: var(--type---title-2---family);
+  font-size: var(--type---title-2---size);
+  font-weight: var(--type---title-2---weight-regular);
+  letter-spacing: var(--type---title-2---letter-spacing);
+  line-height: var(--type---title-2---line-height);
+  text-box: trim-both cap alphabetic;
+}
+
+h4 {
+  font-family: var(--type---title-3---family);
+  font-size: var(--type---title-3---size);
+  font-weight: var(--type---title-3---weight-regular);
+  letter-spacing: var(--type---title-3---letter-spacing);
+  text-box: trim-both cap alphabetic;
+}
+
+h5 {
+  font-family: var(--type---headline---family);
+  font-size: var(--type---headline---size);
+  font-weight: var(--type---headline---weight);
+  letter-spacing: var(--type---headline---letter-spacing);
+  text-box: trim-both cap alphabetic;
+}
+
+p {
+  text-wrap: pretty;
+  font-family: var(--type---body---family);
+  font-size: var(--type---body---size);
+  font-weight: var(--type---body---weight);
+  letter-spacing: var(--type---body---letter-spacing);
+  max-width: clamp(20rem, 80vw, 34.375rem);
+  margin-left: auto;
+  margin-right: auto;
 }
 
 img,
@@ -101,7 +237,6 @@ video,
 canvas,
 svg {
   display: block;
-  max-width: 100%;
 }
 
 input,
@@ -144,11 +279,114 @@ ol {
 }
 
 .container {
-  max-width: 1200px;
+  max-width: var(--container-max-width);
   margin: 0 auto;
-  padding: 0 var(--spacing-base);
+  padding: 0 var(--container-padding-x);
 }
 
 .text-center {
   text-align: center;
+}
+
+.animate-fade-in {
+  animation: fade-in 1s var(--animation-delay, 0s) ease forwards;
+}
+
+.animate-fade-up {
+  animation: fade-up 1s var(--animation-delay, 0s) ease forwards;
+}
+
+.animate-marquee {
+  animation: marquee var(--duration) infinite linear;
+}
+
+.animate-marquee-vertical {
+  animation: marquee-vertical var(--duration) linear infinite;
+}
+
+.animate-shimmer {
+  animation: shimmer 8s infinite;
+}
+
+.animate-spin {
+  animation: var(--animate-spin);
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(1turn);
+  }
+}
+
+@keyframes image-glow {
+  0% {
+    opacity: 0;
+    animation-timing-function: cubic-bezier(0.74, 0.25, 0.76, 1);
+  }
+
+  10% {
+    opacity: 0.7;
+    animation-timing-function: cubic-bezier(0.12, 0.01, 0.08, 0.99);
+  }
+
+  to {
+    opacity: 0.4;
+  }
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes fade-up {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes shimmer {
+  0%,
+  90%,
+  to {
+    background-position: calc(-100% - var(--shimmer-width)) 0;
+  }
+
+  30%,
+  60% {
+    background-position: calc(100% + var(--shimmer-width)) 0;
+  }
+}
+
+@keyframes marquee {
+  0% {
+    transform: translate(0);
+  }
+
+  to {
+    transform: translateX(calc(-100% - var(--gap)));
+  }
+}
+
+@keyframes marquee-vertical {
+  0% {
+    transform: translateY(0);
+  }
+
+  to {
+    transform: translateY(calc(-100% - var(--gap)));
+  }
 }

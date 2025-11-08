@@ -1,10 +1,5 @@
-import React, {
-  createContext,
-  useState,
-  useEffect,
-  useContext,
-  useMemo,
-} from 'react';
+/* eslint-disable react-refresh/only-export-components */
+import React, { createContext, useState, useEffect, useContext, useMemo } from 'react';
 import { themes } from '@assets/styles/theme'; // Make sure this path is correct
 
 // Define a default theme (e.g., the first one in your themes object)
@@ -64,15 +59,12 @@ export const ThemeProvider = ({ children }) => {
       theme,
       setTheme,
       availableThemes: Object.keys(themes), // Provide available theme names
+      themes,
     }),
     [theme]
   );
 
-  return (
-    <ThemeContext.Provider value={contextValue}>
-      {children}
-    </ThemeContext.Provider>
-  );
+  return <ThemeContext.Provider value={contextValue}>{children}</ThemeContext.Provider>;
 };
 
 // Create a custom hook for consuming the context easily

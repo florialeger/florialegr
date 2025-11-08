@@ -1,113 +1,110 @@
-import React, { memo } from 'react';
-import { motion } from 'framer-motion';
-import PropTypes from 'prop-types';
+import { memo, useCallback, useEffect, useRef, useState } from 'react';
 import Container from '@/components/ui/Container';
-import Button from '@/components/ui/Button'; // Example: Add a CTA button
+import heroImageOne from '@/assets/images/home-1.png';
+import heroImageTwo from '@/assets/images/home-2.png';
+import heroImageThree from '@/assets/images/home-3.png';
+import heroImageFour from '@/assets/images/home-4.png';
 import styles from './HeroSection.module.css';
 
-// Animation variants for Framer Motion
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: { staggerChildren: 0.2, delayChildren: 0.1 },
-  },
-};
+const heroImages = [
+  { id: 'ux-primary', src: heroImageOne, type: 'ux', className: styles.heroImagePrimary },
+  { id: 'illustration-primary', src: heroImageTwo, type: 'illustration', className: styles.heroImageSecondary },
+  { id: 'ux-secondary', src: heroImageThree, type: 'ux', className: styles.heroImageTertiary },
+  { id: 'illustration-secondary', src: heroImageFour, type: 'illustration', className: styles.heroImageQuaternary },
+];
 
-const itemVariants = {
-  hidden: { y: 20, opacity: 0 },
-  visible: { y: 0, opacity: 1, transition: { duration: 0.5 } },
-};
+const HeroSection = () => {
+  const [hoveredType, setHoveredType] = useState(null);
+  const [activeIndex, setActiveIndex] = useState(null);
+  const visualRef = useRef(null);
+  const animationFrameRef = useRef(null);
 
-/**
- * The main introductory section of the portfolio.
- */
-const HeroSection = ({ className = '' }) => {
-  const combinedClassName = `${styles.heroSection} ${className}`.trim();
+  const applyPointer = useCallback((x, y) => {
+    if (!visualRef.current) return;
+    visualRef.current.style.setProperty('--pointer-x', x.toFixed(3));
+    visualRef.current.style.setProperty('--pointer-y', y.toFixed(3));
+  }, []);
+
+  const handlePointerMove = useCallback(
+    (event) => {
+      if (!visualRef.current) return;
+      const rect = visualRef.current.getBoundingClientRect();
+      const relativeX = (event.clientX - rect.left) / rect.width - 0.5;
+      const relativeY = (event.clientY - rect.top) / rect.height - 0.5;
+
+      if (animationFrameRef.current) cancelAnimationFrame(animationFrameRef.current);
+      animationFrameRef.current = requestAnimationFrame(() => {
+        applyPointer(relativeX, relativeY);
+        animationFrameRef.current = null;
+      });
+    },
+    [applyPointer]
+  );
+
+  const resetPointer = useCallback(() => {
+    if (animationFrameRef.current) cancelAnimationFrame(animationFrameRef.current);
+    animationFrameRef.current = requestAnimationFrame(() => {
+      applyPointer(0, 0);
+      animationFrameRef.current = null;
+    });
+  }, [applyPointer]);
+
+  useEffect(
+    () => () => {
+      if (animationFrameRef.current) cancelAnimationFrame(animationFrameRef.current);
+    },
+    []
+  );
+
+  const handleImageEnter = useCallback((index, type) => {
+    setHoveredType(type);
+    setActiveIndex(index);
+  }, []);
+
+  const handleImageLeave = useCallback(() => {
+    setHoveredType(null);
+    setActiveIndex(null);
+  }, []);
 
   return (
-    <section className={combinedClassName}>
-      <Container>
-        <motion.div
-          className={styles.contentWrapper}
-          variants={containerVariants}
-          initial="hidden"
-          animate="visible"
+    <section className={styles.hero} aria-labelledby="hero-title" data-hovered={hoveredType || 'none'}>
+      <Container className={styles.heroContainer}>
+        <div
+          className={styles.heroVisual}
+          ref={visualRef}
+          aria-hidden="true"
+          onPointerMove={handlePointerMove}
+          onPointerLeave={() => {
+            handleImageLeave();
+            resetPointer();
+          }}
         >
-          <motion.h1 className={styles.name} variants={itemVariants}>
-            Floria Leger {/* Or pass as prop */}
-          </motion.h1>
-          <motion.p className={styles.title} variants={itemVariants}>
-            Illustrator & UX Designer {/* Or pass as prop */}
-          </motion.p>
-          <motion.p className={styles.subtitle} variants={itemVariants}>
-            {/* Add a short, compelling tagline or description */}
-            Creating engaging visuals and intuitive digital experiences.
-          </motion.p>
-          <motion.div variants={itemVariants} className={styles.actions}>
-            {/* Example Call to Action Button */}
-            <Button to="/work" variant="primary" size="large">
-              View My Work
-            </Button>
-            <Button href="#contact" variant="outline" size="large"> {/* Link to contact section */}
-              Get In Touch
-            </Button>
-          </motion.div>
-        </motion.div>
-        {/* You could add a visual element here (image, illustration, animation) */}
-        {/* <motion.div className={styles.visualElement} variants={itemVariants}> ... </motion.div> */}
+          {heroImages.map(({ id, src, type, className }, index) => (
+            <div
+              key={id}
+              className={`${styles.heroImageWrapper} ${className}`.trim()}
+              data-type={type}
+              data-active={activeIndex === index}
+              onPointerEnter={() => handleImageEnter(index, type)}
+              onPointerLeave={handleImageLeave}
+            >
+              <img src={src} alt="" loading="lazy" className={styles.heroImageMedia} />
+            </div>
+          ))}
+        </div>
+
+        <div className={styles.heroCopy}>
+          <h1 id="hero-title" className={styles.heroTitle}>
+            <h1 className={styles.heroTitleUpper}>UX/UI Designer</h1>
+            <h1 className={styles.heroTitleAmpersand} aria-hidden="true">
+              &
+            </h1>
+            <h1 className={styles.heroTitleLower}>Digital Illustrator</h1>
+          </h1>
+        </div>
       </Container>
     </section>
   );
 };
 
-HeroSection.propTypes = {
-    className: PropTypes.string,
-};
-
 export default memo(HeroSection);
-
-/* --- HeroSection.module.css (Example) ---
-.heroSection {
-  padding: var(--section-padding-y-large, 6rem) 0;
-  background-color: var(--hero-bg-color, transparent); 
-  text-align: center;
-  min-height: 60vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.contentWrapper {
-  max-width: 800px;
-  margin: 0 auto;
-}
-
-.name {
-  font-size: var(--font-size-xxl, 3rem);
-  margin-bottom: 0.5rem;
-  color: var(--heading-color, inherit);
-}
-
-.title {
-  font-size: var(--font-size-xl, 2rem);
-  color: var(--primary-color, blue); 
-  margin-bottom: 1.5rem;
-  font-weight: 500;
-}
-
- .subtitle {
-     font-size: var(--font-size-large, 1.25rem);
-     color: var(--text-secondary-color, grey);
-     margin-bottom: 2.5rem;
-     max-width: 600px;
-     margin-left: auto;
-     margin-right: auto;
- }
-
- .actions {
-     display: flex;
-     justify-content: center;
-     gap: 1rem;
-     flex-wrap: wrap; 
-*/

@@ -8,6 +8,7 @@
   height: var(--nav-height); /* Use the variable for the navigation height */
   padding: 2em 3em;
   transition: all 0.5s ease;
+  color: var(--label---primary);
 }
 
 .navContainer {
@@ -19,57 +20,144 @@
   position: relative;
 }
 
+.nav.mobile .navContainer {
+  justify-content: center;
+}
+
 .navListContainer {
   display: flex;
   justify-content: space-between;
   position: relative;
   width: 100%;
   align-items: center; /* Vertically align items */
+  gap: clamp(1.5rem, 4vw, 2.5rem);
 }
 
 /* Add specific styles for desktop/mobile containers if needed */
-.desktopContainer {
-  /* Desktop specific layout styles */
-}
-
 /* Reduced State Styles */
 .nav.mobile {
   padding: 1em 1em;
 }
 
-.mobileContainer {
-  position: fixed;
-  top: var(--nav-height);
-  left: 0;
-  width: 100%;
-  height: calc(100vh - var(--nav-height));
-  background: rgba(var(--background-rgb), 0.9);
-  backdrop-filter: blur(10px);
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-  padding-top: 2em;
-  overflow-y: auto;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+.desktopContainer {
+  flex-direction: row;
 }
 
-.mobileNavWrapper {
-  position: fixed;
-  top: 0;
-  left: 0;
+.mobileContainer {
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: center;
+  gap: clamp(1.75rem, 6vh, 2.5rem);
+  padding: clamp(1rem, 4vw, 2rem) 0;
   width: 100%;
-  height: 100vh;
-  background: rgba(var(--background-rgb), 0.9);
-  backdrop-filter: blur(48px);
-  z-index: 999;
+}
+
+.menuTriggerHeading {
+  margin: 0;
+  display: inline-flex;
+}
+
+.menuTrigger {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.6em 1em;
+  border: none;
+  background: none;
+  color: var(--label---primary);
+  text-transform: none;
+  transition: color 180ms ease;
+  cursor: pointer;
+}
+
+.menuTriggerLabel {
+  text-transform: none;
+  margin: 0;
+}
+
+.menuTrigger:hover,
+.menuTrigger:focus-visible {
+  color: var(--label---primary);
+}
+
+.menuTrigger:focus-visible {
+  outline: 2px solid var(--label---primary);
+  outline-offset: 6px;
+}
+
+.mobileNavOverlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1001;
   display: flex;
   justify-content: center;
+  align-items: center;
+  background: var(--fills---linear-non--opaque);
+  backdrop-filter: blur(48px);
+  padding: clamp(2rem, 6vh, 3rem) clamp(1.5rem, 5vw, 2.5rem);
 }
 
-.navLinksContainer {
-  position: relative;
+.mobileNavInner {
+  width: min(100%, 26rem);
+  height: 100%;
   display: flex;
+  flex-direction: column;
   align-items: center;
+  justify-content: center;
+  gap: clamp(2rem, 6vh, 3rem);
+}
+
+.mobileCloseButton {
+  margin-top: auto;
+  margin-bottom: clamp(2.5rem, 8vh, 4rem);
+  width: clamp(3.25rem, 12vw, 3.75rem);
+  height: clamp(3.25rem, 12vw, 3.75rem);
+  border-radius: 999px;
+  background: var(--fills---primary);
+  box-shadow: var(--shadows--extra_small);
+  border: 1px solid var(--separator---black-10);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition:
+    background 180ms ease,
+    transform 180ms ease;
+}
+
+.mobileCloseButton:hover {
+  transform: translateY(-2px);
+}
+
+.mobileCloseButton:focus-visible {
+  outline: 2px solid var(--label---primary);
+  outline-offset: 4px;
+}
+
+.mobileCloseIcon {
+  position: relative;
+  width: clamp(1.5rem, 6vw, 1.75rem);
+  height: clamp(1.5rem, 6vw, 1.75rem);
+}
+
+.mobileCloseIcon::before,
+.mobileCloseIcon::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  border-radius: 999px;
+  background: var(--label---primary);
+  transform-origin: center;
+}
+
+.mobileCloseIcon::before {
+  transform: translateY(-50%) rotate(45deg);
+}
+
+.mobileCloseIcon::after {
+  transform: translateY(-50%) rotate(-45deg);
 }
 
 .navLeft,
@@ -79,10 +167,13 @@
   list-style: none;
   padding: 0;
   margin: 0;
+  position: relative;
+  z-index: 1;
 }
 
 .navRight {
   gap: 1rem;
+  margin-left: auto;
 }
 
 .navItem {
@@ -98,55 +189,92 @@
   text-decoration: none;
 }
 
-.menuButton {
-  background: var(--backgroundSecondary);
-  padding: 0.5rem 1rem;
-  border-radius: 1.5em;
-  cursor: pointer;
+.navLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6em;
+  text-decoration: none;
+}
+
+.navLabel {
+  font-size: calc(var(--type---title-2---size) * 0.55);
+  line-height: var(--type---title-2---line-height);
+  font-weight: var(--type---title-2---weight-regular);
+  letter-spacing: 0.01em;
+  text-transform: none;
+  color: var(--label---secondary);
+  transition:
+    color 180ms ease,
+    transform 180ms ease,
+    font-weight 180ms ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   position: relative;
-  z-index: 1001;
+}
+
+.navItem.active .navLabel {
+  color: var(--label---primary);
+  font-weight: var(--type---title-2---weight-emphasized, 600);
+}
+
+.navLabel:hover,
+.navLabel:focus-visible,
+.hovered {
+  color: var(--label---primary);
+  font-weight: var(--type---title-2---weight-emphasized, 600);
+  transform: translateY(-2px);
 }
 
 .mobileNavList {
+  flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 0.5em;
+  gap: clamp(1.5rem, 4vh, 2.25rem);
   list-style: none;
   padding: 0;
   margin: 0;
   align-items: center;
+  justify-content: center;
   width: 100%;
   position: relative;
   z-index: 1;
 }
 
 .mobileNavList .navItem {
-  padding: 1em 1.5em;
-  width: 80%;
+  padding: 0.75em 0;
+  width: fit-content;
   justify-content: center;
 }
 
-.mobileNavList .navItem a {
-  font-size: 1.2rem;
+.mobileNavList .navLink {
+  width: 100%;
+  justify-content: center;
+}
+
+.mobileNavList .navLabel {
+  font-size: var(--type---title-2---size);
+  line-height: var(--type---title-2---line-height);
+  letter-spacing: var(--type---title-2---letter-spacing);
 }
 
 .backgroundSlider {
   position: absolute;
   top: 0;
   left: 0;
-  height: 100%;
-  background: var(--backgroundSecondary);
-  box-shadow: var(--shadows--mini);
-  border-radius: 0.8em;
+  background: var(--background---secondary);
+  border-radius: 1em;
   z-index: 0;
-  transform-origin: left;
+  transform-origin: center;
+  pointer-events: none;
 }
 
 .gradientBlur {
   position: fixed;
   z-index: -1;
   inset: 0 0 auto 0;
-  height: calc(var(--nav-height) + 2em) ;
+  height: calc(var(--nav-height) + 2em);
+  background: var(--fills---linear-non--opaque);
   pointer-events: none;
 }
 
@@ -233,122 +361,10 @@
 .gradientBlur > div:nth-of-type(6) {
   z-index: 7;
   backdrop-filter: blur(32px);
-  mask: linear-gradient(
-    to top,
-    rgba(0, 0, 0, 0) 75%,
-    rgba(0, 0, 0, 1) 87.5%,
-    rgba(0, 0, 0, 1) 100%
-  );
+  mask: linear-gradient(to top, rgba(0, 0, 0, 0) 75%, rgba(0, 0, 0, 1) 87.5%, rgba(0, 0, 0, 1) 100%);
 }
 
 .gradientBlur::after {
-  content: '';
-  z-index: 8;
-  backdrop-filter: blur(64px);
-  mask: linear-gradient(to top, rgba(0, 0, 0, 0) 87.5%, rgba(0, 0, 0, 1) 100%);
-}
-
-.gradientBlurReduced {
-  position: fixed;
-  z-index: -1;
-  inset: 0 0 auto 0;
-  height: var(--nav-height);
-  pointer-events: none;
-
-}
-
-.gradientBlurReduced > div,
-.gradientBlurReduced::before,
-.gradientBlurReduced::after {
-  position: absolute;
-  inset: 0;
-}
-
-.gradientBlurReduced::before {
-  content: '';
-  z-index: 1;
-  backdrop-filter: blur(0.5px);
-  mask: linear-gradient(
-    to top,
-    rgba(0, 0, 0, 0) 0%,
-    rgba(0, 0, 0, 1) 12.5%,
-    rgba(0, 0, 0, 1) 25%,
-    rgba(0, 0, 0, 0) 37.5%
-  );
-}
-
-.gradientBlurReduced > div:nth-of-type(1) {
-  z-index: 2;
-  backdrop-filter: blur(1px);
-  mask: linear-gradient(
-    to top,
-    rgba(0, 0, 0, 0) 12.5%,
-    rgba(0, 0, 0, 1) 25%,
-    rgba(0, 0, 0, 1) 37.5%,
-    rgba(0, 0, 0, 0) 50%
-  );
-}
-
-.gradientBlurReduced > div:nth-of-type(2) {
-  z-index: 3;
-  backdrop-filter: blur(2px);
-  mask: linear-gradient(
-    to top,
-    rgba(0, 0, 0, 0) 25%,
-    rgba(0, 0, 0, 1) 37.5%,
-    rgba(0, 0, 0, 1) 50%,
-    rgba(0, 0, 0, 0) 62.5%
-  );
-}
-
-.gradientBlurReduced > div:nth-of-type(3) {
-  z-index: 4;
-  backdrop-filter: blur(4px);
-  mask: linear-gradient(
-    to top,
-    rgba(0, 0, 0, 0) 37.5%,
-    rgba(0, 0, 0, 1) 50%,
-    rgba(0, 0, 0, 1) 62.5%,
-    rgba(0, 0, 0, 0) 75%
-  );
-}
-
-.gradientBlurReduced > div:nth-of-type(4) {
-  z-index: 5;
-  backdrop-filter: blur(8px);
-  mask: linear-gradient(
-    to top,
-    rgba(0, 0, 0, 0) 50%,
-    rgba(0, 0, 0, 1) 62.5%,
-    rgba(0, 0, 0, 1) 75%,
-    rgba(0, 0, 0, 0) 87.5%
-  );
-}
-
-.gradientBlurReduced > div:nth-of-type(5) {
-  z-index: 6;
-  backdrop-filter: blur(16px);
-  mask: linear-gradient(
-    to top,
-    rgba(0, 0, 0, 0) 62.5%,
-    rgba(0, 0, 0, 1) 75%,
-    rgba(0, 0, 0, 1) 87.5%,
-    rgba(0, 0, 0, 0) 100%
-  );
-}
-
-.gradientBlurReduced > div:nth-of-type(6) {
-  z-index: 7;
-  backdrop-filter: blur(32px);
-  mask: linear-gradient(
-    to top,
-    rgba(0, 0, 0, 0) 75%,
-    rgba(0, 0, 0, 1) 87.5%,
-    rgba(0, 0, 0, 1) 100%
-  );
-}
-
-.gradientBlurReduced::after {
   content: '';
   z-index: 8;
   backdrop-filter: blur(64px);
