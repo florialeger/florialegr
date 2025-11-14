@@ -20,7 +20,7 @@ const LockIcon = ({ className = '', size = 20, title }) => {
       {...ariaProps}
     >
       {title ? <title>{title}</title> : null}
-      <path d={LOCK_PATH} fill="var(--label---primary)" />
+      <path d={LOCK_PATH} fill="var(--label---secondary)" />
     </svg>
   );
 };

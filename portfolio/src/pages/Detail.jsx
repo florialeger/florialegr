@@ -7,7 +7,6 @@ import { usePortfolio } from '@/contexts/PortfolioContext';
 import formatDate from '@/utils/formatDate';
 import { resolveSupportIcons } from '@/utils/supportIcons';
 import { resolveMediaPath } from '@/utils/media';
-import navStyles from '@/components/ui/Navigation.module.css';
 import ThemeSwitcher from '@/components/ui/ThemeSwitcher';
 import styles from './Detail.module.css';
 import useMagneticEffect from '@/hooks/useMagneticEffect';
@@ -171,24 +170,7 @@ const Detail = ({ variant }) => {
   const durationLabel = data.duration ? `${data.duration} ${Number(data.duration) > 1 ? 'months' : 'month'}` : null;
   return (
     <div className={styles.detailPage}>
-      {/* Bottom-oriented layered gradient blur (light-theme) */}
-      <div
-        className={navStyles.gradientBlurBottom}
-        aria-hidden="true"
-        style={{
-          left: 0,
-          right: 0,
-          bottom: 0,
-          height: 'var(--nav-height)',
-          zIndex: 1,
-          background: 'transparent',
-          pointerEvents: 'none',
-        }}
-      >
-        {Array.from({ length: 6 }).map((_, i) => (
-          <div key={i} />
-        ))}
-      </div>
+      {/* Navigation gradient blur intentionally not rendered on Detail page. */}
 
       {/* Bottom bar that contains the centered Back control (mirrors Playground filter placement). */}
       <div className={styles.bottomBar} role="toolbar" aria-label="Navigation">
