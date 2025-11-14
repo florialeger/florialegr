@@ -1,11 +1,11 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import navStyles from '@/components/ui/Navigation.module.css';
 import useRevealOnView from '@/hooks/useRevealOnView';
 import Container from '@/components/ui/Container';
 import CardGrid from '@/components/projects/CardGrid';
 import ProjectCard from '@/components/projects/ProjectCard';
 import { usePortfolio } from '@/contexts/PortfolioContext';
 import styles from './Playground.module.css';
+import useMagneticEffect from '@/hooks/useMagneticEffect';
 
 const ALL_CATEGORY = 'all';
 
@@ -117,6 +117,9 @@ const Playground = () => {
     return () => cancelAnimationFrame(id);
   }, []);
 
+  // Magnetic effect for the filter list (subtle translate + scale when pointer moves)
+  const setFilterMag = useMagneticEffect({ maxDistance: 14, scale: 1.02 });
+
   // Reveal playground cards when they enter the viewport.
   // We target the inner visual wrapper with [data-reveal-target] so
   // the outer card element (which handles hover/dimming) remains untouched.
@@ -134,22 +137,6 @@ const Playground = () => {
       {/* Fixed mirrored gradient blur anchored to the viewport bottom.
           Render the same inner structure used by the navigation blur (six stacked layers)
           so the masks and backdrop-filter settings are preserved. */}
-      <div
-        className={navStyles.gradientBlurBottom}
-        aria-hidden="true"
-        style={{
-          left: 0,
-          right: 0,
-          bottom: 0,
-          height: 'var(--nav-height)',
-          background: 'transparent',
-          zIndex: 1,
-        }}
-      >
-        {Array.from({ length: 6 }).map((_, i) => (
-          <div key={i} />
-        ))}
-      </div>
       <Container className={`${styles.pageHeader} reveal-hero ${headerVisible ? 'is-visible' : ''}`}>
         <p>
           I've been passionate about drawing for eighteen years now. Behind this rather simple word lies a world of
@@ -199,7 +186,7 @@ const Playground = () => {
             <span />
             <span />
           </div>
-          <ul className={styles.filterList}>
+          <ul ref={setFilterMag} className={styles.filterList}>
             {categories.map((category) => {
               const isActive = category === selectedCategory;
               return (

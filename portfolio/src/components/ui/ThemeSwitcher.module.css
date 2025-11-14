@@ -4,18 +4,20 @@
   right: 1.5em;
   width: 3em;
   height: 3em;
-  display: flex; 
-  justify-content: center; 
-  align-items: center; 
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  z-index: 3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+  /* Sit above the bottom navigation bar (which uses z-index ~1001) */
+  z-index: 1103;
   cursor: pointer;
   filter: url(#goo);
 }
 
-
-.theme-switcher:hover  {
-  filter: saturate(1.5) drop-shadow(0 0 15px rgba(255,255,255,0.2));
+.theme-switcher:hover {
+  filter: saturate(1.5) drop-shadow(0 0 15px rgba(255, 255, 255, 0.2));
 }
 
 .color-wheel {
@@ -23,7 +25,7 @@
   transition: transform 0.8s ease;
   position: relative;
   width: 100%;
-  z-index: 2;
+  z-index: 1102;
 }
 
 .theme-switcher.open .color-wheel {
@@ -38,9 +40,12 @@
   width: 1.25em;
   aspect-ratio: 1;
   border-radius: 50%;
-  transition: transform 0.5s ease, opacity 0.2s;
+  transition:
+    transform 0.5s ease,
+    opacity 0.2s;
   opacity: 0.8;
-  z-index: 1;
+  /* Ensure swatches render above the bottom bar and the wheel */
+  z-index: 1101;
   cursor: pointer;
 }
 
@@ -79,7 +84,7 @@
 }
 .theme-switcher.open .theme-circle:nth-child(4):hover {
   transform: translate(-4em, 1em) scale(2.2);
-  filter: saturate(1.2) drop-shadow(0 0 10px rgba(255,255,255,0.1));
+  filter: saturate(1.2) drop-shadow(0 0 10px rgba(255, 255, 255, 0.1));
   transition: all 0.2s ease-out;
 }
 
@@ -87,8 +92,8 @@
   transform: translate(-4.3em, -2.2em) scale(2);
 }
 .theme-switcher.open .theme-circle:nth-child(3):hover {
-  transform: translate(-4.3em, -2.2em)  scale(2.2);
-    filter: saturate(1.2) drop-shadow(0 0 10px rgba(255,255,255,0.1));
+  transform: translate(-4.3em, -2.2em) scale(2.2);
+  filter: saturate(1.2) drop-shadow(0 0 10px rgba(255, 255, 255, 0.1));
   transition: all 0.2s ease-out;
 }
 
@@ -96,7 +101,7 @@
   transform: translate(-1.3em, -4.1em) scale(2);
 }
 .theme-switcher.open .theme-circle:nth-child(2):hover {
-  transform: translate(-1.3em, -4.1em)  scale(2.2);
-    filter: saturate(1.2) drop-shadow(0 0 10px rgba(255,255,255,0.1));
+  transform: translate(-1.3em, -4.1em) scale(2.2);
+  filter: saturate(1.2) drop-shadow(0 0 10px rgba(255, 255, 255, 0.1));
   transition: all 0.2s ease-out;
 }

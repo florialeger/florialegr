@@ -230,6 +230,29 @@
       "locked": false
     },
     {
+      "title": "Dyspraxia",
+      "context": [""],
+      "created": "2025-03-21",
+      "duration": "",
+      "projectDuty": ["Poster Design"],
+      "support": ["figma"],
+      "primaryImage": ["dyspraxia-primary.jpg"],
+      "type": "illustration",
+      "secondaryImages": [
+        "dyspraxia-second1.jpg",
+        "dyspraxia-second2.jpg",
+        "dyspraxia-second3.jpg",
+        "dyspraxia-second4.jpg",
+        "dyspraxia-second5.jpg",
+        "dyspraxia-second6.jpg"
+      ],
+      "link": [
+        { "label": "View Figma", "url": "https://www.figma.com/community/file/1570788918790254567/infographie-dyspraxie" }
+      ],
+      "slug": "dyspraxia",
+      "locked": false
+    },
+    {
       "title": "Mates",
       "context": [""],
       "created": "2025-03-31",
@@ -403,9 +426,16 @@
       "support": ["figma"],
       "primaryImage": ["talence-primary.jpg"],
       "type": "ux_ui",
-      "secondaryImages": ["talence-second1.jpg", "talence-second2.jpg", "talence-second3.jpg"],
+      "secondaryImages": [
+        "talence-second1.jpg",
+        "talence-second2.jpg",
+        "talence-second3.jpg",
+        "talence-second4.jpg",
+        "talence-second5.jpg",
+        "talence-second6.jpg"
+      ],
       "slug": "talence",
-      "link": []
+      "link": [{ "label": "View Figma", "url": "https://www.figma.com/community/file/1570699960534572076/logo-ustvb" }]
     },
     {
       "title": "MP3",
@@ -443,6 +473,30 @@
       ],
       "slug": "stickers",
       "link": []
+    },
+    {
+      "title": "Bordeaux Inp",
+      "context": [
+        ""
+      ],
+      "created": "2025-05-27",
+      "support": ["figma"],
+      "primaryImage": ["inp-primary.jpg"],
+      "type": "ux_ui",
+      "secondaryImages": [
+        "inp-second1.jpg",
+        "inp-second2.jpg",
+        "inp-second3.jpg",
+        "inp-second4.jpg",
+        "inp-second5.jpg",
+        "inp-second6.jpg",
+        "inp-second7.jpg",
+        "inp-second8.jpg"
+      ],
+      "slug": "bordeaux-inp",
+      "link": [
+        { "label": "View Figma", "url": "https://www.figma.com/community/file/1570704562718253153/bordeaux-inp-icones" }
+      ]
     },
     {
       "title": "Hands",

@@ -146,6 +146,9 @@ const Detail = ({ variant }) => {
     navigate(returnTo, { replace: true });
   };
 
+  // Magnetic effect for the bottom "Back" control
+  const setBackMag = useMagneticEffect({ maxDistance: 18, scale: 1.03 });
+
   // legacy reveal hooks removed; we now use viewport reveal + magnetic interactions
 
   if (!loading && !data) {
@@ -182,6 +185,7 @@ const Detail = ({ variant }) => {
           </div>
           <div className={styles.bottomList}>
             <button
+              ref={setBackMag}
               type="button"
               onClick={handleClose}
               className={styles.backTextButton}

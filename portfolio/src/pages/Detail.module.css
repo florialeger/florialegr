@@ -117,11 +117,12 @@
   line-height: var(--type---headline---line-height);
   font-weight: var(--type---headline---weight-regular);
   text-transform: none;
-  text-decoration: underline;
-  text-decoration-thickness: 0.12em;
-  text-underline-offset: 0.3em;
-  letter-spacing: 0;
-  transition: color 160ms ease;
+  /* allow both color and transform animations for magnetic interactions */
+  will-change: transform, color;
+  transform-origin: center;
+  transition:
+    color 160ms ease,
+    transform 220ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .backTextButton:focus-visible {
