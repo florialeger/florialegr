@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 import useMediaQuery from '@/hooks/useMediaQuery';
 import styles from './Navigation.module.css';
+import { CloseIcon } from '@/components/ui/icons';
 
 // --- Constants ---
 const MOBILE_BREAKPOINT_QUERY = '(max-width: 679.98px)'; // Equivalent to < 680px
@@ -275,7 +276,8 @@ MenuTrigger.displayName = 'MenuTrigger';
 /* Subcomponent: CloseButton */
 const CloseButton = memo(({ onClick }) => (
   <button type="button" className={styles.mobileCloseButton} onClick={onClick} aria-label="Close menu">
-    <span className={styles.mobileCloseIcon} aria-hidden="true" />
+    {/* larger close icon for better tap target visibility */}
+    <CloseIcon className={styles.mobileCloseSvg} size={40} title="Close menu" />
   </button>
 ));
 CloseButton.displayName = 'CloseButton';

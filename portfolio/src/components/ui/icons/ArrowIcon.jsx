@@ -23,7 +23,7 @@ const ArrowIcon = ({ className = '', size = 20, title }) => {
         d={ARROW_PATH}
         fill="none"
         stroke="currentColor"
-        strokeWidth="2.5"
+        strokeWidth="3"
         strokeLinecap="round"
         strokeLinejoin="round"
       />

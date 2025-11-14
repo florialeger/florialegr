@@ -59,14 +59,28 @@
   width: clamp(160px, 35vw, 240px);
   display: grid;
   place-items: center;
-  border-radius: clamp(1.8rem, 4vw, 2.4rem);
+  border-radius: var(--radius-lg);
 }
 
 .portrait img {
   display: block;
   width: 100%;
-  border-radius: clamp(1.4rem, 3.5vw, 2rem);
+  border-radius: var(--radius-lg);
+  corner-shape: squircle;
   object-fit: cover;
+}
+
+/* Make portrait slightly more saturated on hover and animate smoothly. */
+.portrait img {
+  transition:
+    transform 220ms ease,
+    filter 180ms ease;
+}
+
+.portrait:hover img,
+.portrait:focus-within img {
+  filter: saturate(1.18);
+  transform: translateZ(0) scale(1.01);
 }
 
 @media (max-width: 960px) {

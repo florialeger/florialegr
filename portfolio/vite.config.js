@@ -22,11 +22,17 @@ export default defineConfig({
   },
   assetsInclude: ['**/*.png', '**/*.mp4'],
   server: {
-    proxy: {
-      '/api': {
-        target: 'http://localhost:5000', // Backend server
-        changeOrigin: true,
-      },
-    },
+    // Only enable proxying to the backend when explicitly requested via Vite env var
+    // Set VITE_USE_BACKEND=true to enable the /api proxy during development.
+    ...(process.env.VITE_USE_BACKEND === 'true'
+      ? {
+          proxy: {
+            '/api': {
+              target: 'http://localhost:5000', // Backend server
+              changeOrigin: true,
+            },
+          },
+        }
+      : {}),
   },
 });

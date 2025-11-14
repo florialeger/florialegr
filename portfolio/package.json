@@ -8,7 +8,8 @@
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "start": "concurrently \"npm run backend\" \"npm run frontend\"",
+    "start": "npm run frontend",
+    "start:full": "concurrently \"npm run backend\" \"npm run frontend\"",
     "backend": "cd backend && node serveur.jsx",
     "frontend": "vite",
     "seed": "node backend/importData.jsx"
@@ -19,6 +20,7 @@
     "@mui/material": "^7.0.2",
     "framer-motion": "^12.6.5",
     "gridfs-stream": "^1.1.1",
+    "gsap": "^3.13.0",
     "mongodb": "^6.15.0",
     "mongoose": "^8.13.2",
     "multer": "^1.4.5-lts.2",

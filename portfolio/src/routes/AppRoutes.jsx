@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
-import { useEffect } from 'react';
+import { useLayoutEffect } from 'react';
 import App from '@/App';
 import Home from '@/pages/Home';
 import About from '@/pages/About';
@@ -11,15 +11,13 @@ import NotFound from '@/pages/NotFound';
 const ScrollToTop = () => {
   const { pathname, hash } = useLocation();
 
-  useEffect(() => {
-    if (typeof window === 'undefined') {
-      return;
-    }
+  // useLayoutEffect so scroll position is set synchronously before the browser paints
+  useLayoutEffect(() => {
+    if (typeof window === 'undefined') return;
 
-    if (hash) {
-      return;
-    }
+    if (hash) return;
 
+    // synchronous jump to top to avoid visible scroll-before-reset on navigation
     window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
   }, [pathname, hash]);
 

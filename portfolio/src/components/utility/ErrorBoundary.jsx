@@ -66,7 +66,7 @@ export default ErrorBoundary;
    border: 1px solid var(--error-border-color, red);
    background-color: var(--error-bg-color, #fff5f5);
    color: var(--error-color, red);
-   border-radius: var(--border-radius-medium);
+  border-radius: var(--radius-md);
    text-align: center;
 }
  .errorBoundary h2 { margin-bottom: 1rem; }

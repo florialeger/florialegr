@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Container from '@/components/ui/Container';
 import AboutSection from '@/components/sections/AboutSection';
 import portraitImage from '@/assets/images/profil-picture.png';
@@ -69,21 +69,33 @@ const About = () => {
     setHoveredLabel(null);
   };
 
+  const [aboutVisible, setAboutVisible] = useState(false);
+  const [contactVisible, setContactVisible] = useState(false);
+
+  useEffect(() => {
+    const id = requestAnimationFrame(() => {
+      setAboutVisible(true);
+      setContactVisible(true);
+    });
+    return () => cancelAnimationFrame(id);
+  }, []);
+
   return (
     <div className={styles.aboutPage}>
       <AboutSection
+        className={`reveal-hero ${aboutVisible ? 'is-visible' : ''}`}
         paragraphs={aboutParagraphs}
         downloads={downloadLinks}
         portraitSrc={portraitImage}
         portraitAlt="Floria Leger"
       />
 
-      <section className={styles.contactSection}>
+      <section className={`${styles.contactSection} reveal-hero ${contactVisible ? 'is-visible' : ''}`}>
         <Container className={styles.contactContainer}>
           <div className={styles.contactRow}>
             <h4 className={styles.contactIntro}>Get in touch</h4>
 
-            <ul className={styles.iconList} data-hovered={Boolean(hoveredLabel)}>
+            <ul className={styles.iconList} data-hovered={hoveredLabel ? 'true' : 'false'}>
               {contactLinks.map((link) => {
                 const isActive = hoveredLabel === link.label;
                 return (
@@ -97,6 +109,7 @@ const About = () => {
                       onFocus={() => handleIconEnter(link.label)}
                       onMouseLeave={handleIconLeave}
                       onBlur={handleIconLeave}
+                      aria-label={link.label}
                     >
                       <img src={link.src} alt="" className={styles.socialIconImage} />
                       <span className={styles.srOnly}>{link.label}</span>

@@ -61,7 +61,7 @@ const SkillsSection = ({ className = '' }) => {
 };
 
 SkillsSection.propTypes = {
-    className: PropTypes.string,
+  className: PropTypes.string,
 };
 
 export default memo(SkillsSection);
@@ -85,10 +85,10 @@ export default memo(SkillsSection);
   gap: 2rem;
 }
 
-.category {
+  category {
   background-color: var(--card-bg, #fdfdfd);
   padding: 1.5rem;
-  border-radius: var(--border-radius-medium);
+  border-radius: var(--radius-md);
   border: 1px solid var(--card-border-color, #eee);
 }
 

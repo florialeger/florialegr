@@ -1,4 +1,5 @@
 import { memo } from 'react';
+import useMagneticEffect from '@/hooks/useMagneticEffect';
 import PropTypes from 'prop-types';
 import Container from '@/components/ui/Container';
 import Button from '@/components/ui/Button';
@@ -23,7 +24,7 @@ const AboutSection = ({ paragraphs, downloads, portraitSrc, portraitAlt = 'Portr
         ) : null}
       </div>
 
-      <figure className={styles.portrait}>
+      <figure className={styles.portrait} ref={useMagneticEffect({ maxDistance: 18, scale: 1.03 })}>
         <img src={portraitSrc} alt={portraitAlt} loading="lazy" />
       </figure>
     </Container>

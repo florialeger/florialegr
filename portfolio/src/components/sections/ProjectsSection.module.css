@@ -27,7 +27,7 @@
 .error {
   margin: 0 0 var(--stack-gap-md);
   padding: var(--stack-gap-sm);
-  border-radius: var(--border-radius-medium);
+  border-radius: var(--radius-md);
   background: color-mix(in srgb, var(--fills---primary) 78%, transparent);
   border: 1px solid color-mix(in srgb, var(--label---primary) 14%, transparent);
   text-align: center;

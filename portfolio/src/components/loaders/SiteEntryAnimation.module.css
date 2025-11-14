@@ -4,8 +4,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background: color-mix(in srgb, var(--background---secondary) 82%, rgba(2, 2, 4, 0.45));
   backdrop-filter: blur(8px);
+  background: var(--background---primary);
   z-index: 9999;
   opacity: 1;
   animation: fade-in 180ms ease-out;
@@ -17,8 +17,6 @@
   font-size: clamp(2rem, 6vw, 3rem);
   line-height: var(--type---title-2---line-height);
   font-weight: var(--type---title-2---weight-emphasized);
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
 }
 
 @keyframes fade-in {

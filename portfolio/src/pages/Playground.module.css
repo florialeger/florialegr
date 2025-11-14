@@ -30,15 +30,18 @@
 
 .grid {
   width: 100%;
+
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: clamp(8rem, 3vw, 12rem);
+  gap: clamp(4rem, 8vw, 12rem);
   justify-items: center;
 }
 
 @media (max-width: 1100px) {
   .grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+    width: 80%;
+    margin: auto;
   }
 }
 
@@ -54,36 +57,41 @@
 }
 
 .filterBar {
+  height: calc(var(--nav-height) / 1.5);
   position: fixed;
   left: 50%;
-  bottom: clamp(1.2rem, 4vw, 2rem);
+  bottom: 0;
   transform: translate(-50%, 120%);
   display: flex;
   justify-content: center;
-  width: 100%;
-  max-width: min(90vw, 48rem);
+  width: 100vw;
   transition:
     transform 240ms ease,
     opacity 200ms ease;
   opacity: 0;
   pointer-events: none;
-  z-index: 900;
+  z-index: 1; /* keep the filter on top */
+  overflow: visible; /* allow the larger pseudo-element to extend upward */
 }
 
 .filterBar.visible {
   transform: translate(-50%, 0);
   opacity: 1;
   pointer-events: auto;
+  background: transparent;
 }
+
+/* Note: the flipped gradient is rendered via a dedicated fixed DOM node in the page component.
+   Rendering it as a pseudo-element on the transformed .filterBar caused containing-block issues
+   (transforms on the parent alter how fixed/absolute positioning behaves). */
 
 .filterShell {
   position: relative;
   display: flex;
   align-items: center;
-  border-radius: 999px;
-  padding: 0.25rem;
   overflow: hidden;
   isolation: isolate;
+  z-index: 1; /* ensure shell and its contents sit above the flipped gradient pseudo-element */
 }
 
 .filterBackdrop {
@@ -119,7 +127,7 @@
   margin: 0;
   padding: 0.55rem 0.8rem;
   list-style: none;
-  border-radius: 999px;
+  border-radius: var(--radius-pill);
   z-index: 1;
 }
 
@@ -134,7 +142,7 @@
   letter-spacing: 0;
   text-transform: none;
   padding: 0.6rem 1.05rem;
-  border-radius: 999px;
+  border-radius: var(--radius-pill);
   cursor: pointer;
   transition:
     color 160ms ease,
@@ -173,7 +181,15 @@
   }
 
   .filterButton {
-    padding: 0.55rem 0.9rem;
-    font-size: 0.75rem;
+    padding: 0.2rem 0.3rem;
   }
+}
+
+/* Mirror helper removed; mirrored blur is rendered by a fixed DOM node */
+
+/* helper to flip the navigation gradient blur for the playground page */
+.playgroundGradient {
+  transform: scaleY(-1);
+  transform-origin: bottom;
+  pointer-events: none;
 }

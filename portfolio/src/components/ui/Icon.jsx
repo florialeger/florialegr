@@ -1,4 +1,5 @@
 import { memo } from 'react';
+import useMagneticEffect from '@/hooks/useMagneticEffect';
 import PropTypes from 'prop-types';
 // Import your SVG components - adjust path as needed
 import * as AllIcons from '@/assets/svgs/icons'; // Assuming icons.js exports named SVGs
@@ -15,6 +16,7 @@ const Icon = ({
   title, // For accessibility
   ...props
 }) => {
+  const setMagnet = useMagneticEffect({ maxDistance: 10, scale: 1.03 });
   const IconComponent = AllIcons[name]; // Find the component by name
   const combinedClassName = `${styles.icon} ${className}`.trim();
 
@@ -31,7 +33,7 @@ const Icon = ({
   };
 
   return (
-    <span className={combinedClassName} style={style} {...props}>
+    <span ref={setMagnet} className={combinedClassName} style={style} {...props}>
       <IconComponent aria-hidden={!title} title={title} />
     </span>
   );

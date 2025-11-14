@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import HeroSection from '@/components/sections/HeroSection';
 import Container from '@/components/ui/Container';
 import { MailIcon } from '@/components/ui/icons';
@@ -14,29 +15,38 @@ const aboutParagraphs = [
   "I'm currently looking for a 5–6 month international internship in UX/UI starting in February for my final year of studies. It's the perfect chance to dive deeper into the world of UX design and to add my own creative touch to it. Feel free to reach out below or connect with me on LinkedIn.",
 ];
 
-const Home = () => (
-  <div className={styles.home}>
-    <HeroSection />
+const Home = () => {
+  // reveal on mount for intro section
+  const [introVisible, setIntroVisible] = useState(false);
+  useEffect(() => {
+    const id = requestAnimationFrame(() => setIntroVisible(true));
+    return () => cancelAnimationFrame(id);
+  }, []);
 
-    <section className={styles.introSection}>
-      <Container className={styles.introContainer}>
-        <div className={styles.introCopy}>
-          {aboutTitle.map((title) => (
-            <h3 key={title}>{title}</h3>
-          ))}
-        </div>
-        <div className={styles.introCopy}>
-          {aboutParagraphs.map((paragraph) => (
-            <p key={paragraph}>{paragraph}</p>
-          ))}
-        </div>
-        <div className={styles.emailRow}>
-          <MailIcon className={styles.emailIcon} size={24} title="Adresse e-mail" />
-          <h5 className={styles.emailText}>floria.leger@ensc.fr</h5>
-        </div>
-      </Container>
-    </section>
-  </div>
-);
+  return (
+    <div className={styles.home}>
+      <HeroSection />
+
+      <section className={`${styles.introSection} reveal-hero ${introVisible ? 'is-visible' : ''}`}>
+        <Container className={`${styles.introContainer}`.trim()}>
+          <div className={styles.introCopy}>
+            {aboutTitle.map((title) => (
+              <h3 key={title}>{title}</h3>
+            ))}
+          </div>
+          <div className={styles.introCopy}>
+            {aboutParagraphs.map((paragraph) => (
+              <p key={paragraph}>{paragraph}</p>
+            ))}
+          </div>
+          <div className={styles.emailRow}>
+            <MailIcon className={styles.emailIcon} size={24} title="Adresse e-mail" />
+            <h5 className={styles.emailText}>floria.leger@ensc.fr</h5>
+          </div>
+        </Container>
+      </section>
+    </div>
+  );
+};
 
 export default Home;

@@ -5,6 +5,7 @@ import { resolveMediaPath } from '@/utils/media';
 import { ArrowIcon, LockIcon } from '@/components/ui/icons';
 import useMagneticEffect from '@/hooks/useMagneticEffect';
 import styles from './ProjectCard.module.css';
+import Media from '@/components/ui/Media';
 
 const WorkCard = memo(({ item, className, onHoverChange }) => {
   const navigate = useNavigate();
@@ -81,7 +82,7 @@ const WorkCard = memo(({ item, className, onHoverChange }) => {
       onBlur={() => onHoverChange?.(null)}
       ref={shouldMagnetize ? setMagneticNode : undefined}
     >
-      <div className={styles.inner}>
+      <div className={styles.inner} data-reveal-target>
         <span className={styles.category}>{categoryLabel}</span>
         <div className={styles.titleRow}>
           <h3>{item.title}</h3>
@@ -145,7 +146,7 @@ const PlaygroundCard = memo(({ item, className, onHoverChange }) => {
     >
       {primaryImage && (
         <div className={styles.preview}>
-          <img src={primaryImage} alt={`${item.title} preview`} loading="lazy" />
+          <Media src={primaryImage} alt={`${item.title} preview`} className="" />
         </div>
       )}
     </article>

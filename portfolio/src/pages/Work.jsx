@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useMemo } from 'react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import Container from '@/components/ui/Container';
 import { ArrowIcon, LockIcon } from '@/components/ui/icons';
@@ -110,13 +110,24 @@ const Work = () => {
       });
   }, [projects]);
 
+  const [headerVisible, setHeaderVisible] = useState(false);
+  const [listVisible, setListVisible] = useState(false);
+
+  useEffect(() => {
+    const id = requestAnimationFrame(() => {
+      setHeaderVisible(true);
+      setListVisible(true);
+    });
+    return () => cancelAnimationFrame(id);
+  }, []);
+
   return (
     <div className={styles.workPage}>
-      <Container className={styles.pageHeader}>
+      <Container className={`${styles.pageHeader} reveal-hero ${headerVisible ? 'is-visible' : ''}`}>
         <h3>Recent projects</h3>
       </Container>
 
-      <Container className={styles.listContainer}>
+      <Container className={`${styles.listContainer} reveal-hero ${listVisible ? 'is-visible' : ''}`}>
         {loading && <p className={styles.stateMessage}>Loading projects…</p>}
         {error && !loading && <p className={styles.stateMessage}>Unable to load projects right now.</p>}
 
@@ -128,7 +139,7 @@ const Work = () => {
           <div className={styles.yearList}>
             {groupedProjects.map(({ year, items }) => (
               <section key={year} className={styles.yearSection}>
-                <h2>{year}</h2>
+                <h3>{year}</h3>
                 <ul className={styles.projectList}>
                   {items.map((project) => {
                     const typeLabel = normalizeDuty(project.projectDuty);

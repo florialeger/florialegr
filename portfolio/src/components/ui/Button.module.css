@@ -2,8 +2,12 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 0.75rem 1rem;
-  border-radius: 16px;
+  padding: 0.75rem 1.2rem;
+  /* Buttons should use a smaller, consistent radius so they don't become circular
+    when the element's height is small. Use the design token system (sm/md). */
+  border-radius: var(--radius-sm);
+    corner-shape: squircle;
+
   background: var(--fills---secondary);
   color: var(--label---primary);
   font-family: var(--type---headline---family);
@@ -20,17 +24,10 @@
   white-space: nowrap;
 }
 
-.button:focus-visible {
-  outline: 3px solid color-mix(in srgb, var(--label---primary) 25%, transparent);
-  outline-offset: 4px;
-}
-
 .button:hover:not([aria-disabled='true']):not([data-disabled='true']) {
-  background: color-mix(in srgb, var(--fills---secondary) 86%, white 14%);
+  background: color-mix(in srgb, var(--fills---secondary), white 10%);
   font-weight: var(--type---headline---weight-emphasized);
-  box-shadow: var(--shadows--small);
 }
-
 
 .button[aria-disabled='true'],
 .button[data-disabled='true'] {
@@ -58,6 +55,14 @@
 }
 
 .icon {
-  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   line-height: 0;
+  width: 1.8rem;
+  height: 1.8rem;
+}
+.icon svg {
+  width: 100%;
+  height: 100%;
 }

@@ -6,6 +6,10 @@
   color: var(--label---primary);
 }
 
+.aboutPage p {
+  color: var(--label---secondary);
+}
+
 .contactSection {
   padding-top: var(--stack-gap-lg);
 }
@@ -13,6 +17,8 @@
 .contactContainer {
   display: flex;
   justify-content: center;
+  height: calc(100vh - var(--nav-height) - var(--layout-page-padding-top) - var(--layout-page-padding-bottom));
+  width: 100vw;
   padding: var(--stack-gap-lg);
 }
 
@@ -22,7 +28,7 @@
   justify-content: center;
   gap: var(--stack-gap-sm);
   padding: var(--stack-gap-md);
-  flex-wrap: wrap;
+  width: 100%;
 }
 
 .contactIntro,
@@ -64,20 +70,35 @@
   padding: 0;
   margin: 0;
   list-style: none;
+  /* Use a responsive gap by default; switch to overlapping layout on wider screens */
+  --icon-gap: clamp(0.6rem, 4vw, 1rem);
+  --icon-overlap: clamp(-1.4rem, -3.8vw, -1.9rem);
+  gap: var(--icon-gap);
 }
 
 .iconItem {
-  --stack-offset: clamp(-1.4rem, -3.8vw, -1.9rem);
-  --active-offset: clamp(1.3rem, 4vw, 2rem);
   --tilt: 5deg;
   margin: 0;
+  padding: 0;
   transition:
-    margin 220ms ease,
-    transform 200ms ease;
+    transform 220ms ease,
+    box-shadow 220ms ease,
+    margin 220ms ease;
+  will-change: transform;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.iconItem + .iconItem {
-  margin-left: var(--stack-offset);
+/* Overlap icons on wider screens for the stacked visual */
+@media (min-width: 720px) {
+  .iconList {
+    gap: 0;
+  }
+
+  .iconItem + .iconItem {
+    margin-left: var(--icon-overlap);
+  }
 }
 
 .iconItem:nth-child(even) {
@@ -91,20 +112,22 @@
   transform: rotate(var(--tilt));
   transition:
     transform 220ms ease,
-    box-shadow 220ms ease;
+    box-shadow 220ms ease,
+    filter 180ms ease,
+    opacity 180ms ease;
+  display: inline-grid;
+  place-items: center;
 }
 
 .socialIconImage {
   display: block;
   width: 100%;
   height: auto;
-  transition:
-    filter 180ms ease,
-    opacity 180ms ease;
 }
 
+/* When the icon list has an active hover, dim non-active icons */
 .iconList[data-hovered='true'] .iconItem:not([data-active='true']) .socialIconImage {
-  filter: grayscale(0.9);
+  filter: grayscale(0.9) contrast(0.85);
   opacity: 0.35;
 }
 
@@ -113,15 +136,13 @@
   opacity: 1;
 }
 
+/* On hover or focus, the individual icon lifts slightly and becomes more prominent */
+.iconItem:hover,
+.iconItem:focus-within,
 .iconItem[data-active='true'] {
-  margin-left: var(--active-offset);
-  margin-right: var(--active-offset);
-  --stack-offset: var(--active-offset);
-}
-
-.iconItem[data-active='true'] .iconLink {
-  transform: rotate(var(--tilt)) translateY(-6px) scale(1.08);
-  box-shadow: var(--shadows--normal);
+  transform: translateY(-6px) translateX(-5px) scale(1.1);
+  margin: 2rem 0;
+  z-index: 5;
 }
 
 .srOnly {
@@ -137,6 +158,7 @@
 
 @media (max-width: 720px) {
   .contactRow {
+    flex-direction: column;
     gap: var(--stack-gap-md);
     padding: var(--stack-gap-sm);
   }

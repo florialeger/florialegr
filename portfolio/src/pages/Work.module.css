@@ -2,9 +2,24 @@
   display: flex;
   flex-direction: column;
   gap: var(--layout-page-gap);
-  padding: var(--layout-page-padding-top) 0 var(--layout-page-padding-bottom);
+  padding: var(--layout-page-padding-top) clamp(3.5rem, 8vw, 5.5rem) var(--layout-page-padding-bottom) clamp(3.5rem, 8vw, 5.5rem);
   background: var(--background---primary);
   color: var(--label---primary);
+  /* A page-local content width to keep headings and lists aligned. You can
+     tweak this value or map it to a design token. */
+  --work-content-max: 1100px;
+  /* Column sizing helpers for the project grid (tweak to change max columns)
+    --work-col-min: minimum width a column can shrink to
+    --work-max-columns: maximum number of columns to allow */
+  --work-col-min: 180px;
+  --work-max-columns: 5;
+  /* center the inner containers and make them use the page-local max width */
+  align-items: center;
+  margin-inline: auto;
+  max-width: min(
+    var(--work-content-max),
+    calc((var(--work-col-min) * var(--work-max-columns)) + (var(--stack-gap-sm) * (var(--work-max-columns) - 1)))
+  );
 }
 
 .pageHeader {
@@ -17,41 +32,74 @@
   display: flex;
   flex-direction: column;
   gap: var(--stack-gap-lg);
+  /* Make the container content use the same fitted max width as the header
+     so headings, years and lists share a common left edge. Also limit the
+     container width so the grid cannot fit more than `--work-max-columns` at
+     the `--work-col-min` size. This ensures a strict maximum column count. */
+  width: 100%;
+  
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .yearList {
   display: flex;
   flex-direction: column;
-  gap: calc(var(--stack-gap-lg) + var(--stack-gap-sm));
+  gap: calc(var(--stack-gap-lg) + var(--stack-gap-md));
 }
 
 .yearSection {
   display: grid;
-  gap: var(--stack-gap-md);
+  gap: calc(var(--stack-gap-md) * 1.2);
 }
 
 .projectList {
   list-style: none;
   display: grid;
-  grid-template-columns: repeat(3, minmax(9.5rem, 1fr));
-  gap: var(--stack-gap-sm);
+  /* Responsive grid: auto-fit columns with a sensible minimum width and a
+    capped maximum so items don't stretch too wide and the whole grid can be
+    visually centered (3 -> 2 -> 1 columns responsively). */
+  /* Let the columns expand to fill available space so the last column
+    touches the right edge of the grid. Each column keeps a sensible
+    minimum (180px) but grows (1fr) to remove the empty band on the right. */
+  /* Use the page-level column min and let columns expand to fill available
+    space. The list container's max-width is constrained above so at most
+    `--work-max-columns` will fit at the minimum column width. */
+  grid-template-columns: repeat(auto-fit, minmax(var(--work-col-min), 1fr));
+  /* Remove explicit start-justification so the grid stretches to fill the
+    container width (default/grid behavior). */
+  justify-content: stretch;
+  row-gap: var(--stack-gap-md);
+  column-gap: var(--stack-gap-sm);
   margin: 0;
   padding: 0;
+}
+
+/* Ensure the page header uses the same fitted width so the "Recent projects"
+   title lines up with the year and project list. The header is a Container
+   with the `.pageHeader` class injected, so this targets it specifically. */
+.pageHeader {
+  width: 100%;
+  max-width: var(--work-content-max);
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .projectItem {
   display: flex;
   flex-direction: column;
-  padding: var(--stack-gap-sm) 0;
-  width: fit-content;
+  /* Make each item fill its grid column so contents align with column edges
+     and the rightmost column visually reaches the container border. */
+  width: 100%;
+  min-width: 0;
 }
 
 .projectType {
   font-family: var(--type---label---family);
-  line-height: var(--type---label---line-height);
   font-weight: var(--type---label---weight);
+  font-size: var(--type---label---size);
   letter-spacing: var(--type---label---letter-spacing);
-    color: var(--label---tertiary);
+  color: var(--label---tertiary);
 }
 
 .projectLink,
@@ -59,9 +107,10 @@
   display: inline-flex;
   align-items: center;
   justify-content: start;
-  gap: var(--stack-gap-sm);
-  font-family: var(--type---title-3---family);
-  font-weight: var(--type---title-3---weight-emphasized);
+  gap: calc(0.5 * var(--stack-gap-sm));
+  font-family: var(--type---headline---family);
+  font-weight: var(--type---headline---weight-emphasized);
+  font-size: var(--type---headline---size);
   color: var(--label---primary);
   text-decoration: none;
   transition:
@@ -72,52 +121,15 @@
 .projectLink:hover,
 .projectLink:focus-visible {
   color: color-mix(in srgb, var(--label---primary) 88%, black 12%);
-  transform: translateX(6px);
 }
 
 .projectLink svg,
 .projectTitle svg {
-  width: 1.1em;
-  height: 1.1em;
+  width: 1.5em;
+  height: 1.5em;
   color: inherit;
 }
 
 .locked {
   color: var(--label---tertiary);
-}
-
-@media (max-width: 900px) {
-  .projectItem {
-    grid-template-columns: 1fr;
-    gap: 0.5rem;
-  }
-
-  .projectType {
-    order: 2;
-    letter-spacing: 0.18em;
-  }
-
-  .projectLink,
-  .projectTitle {
-    order: 1;
-    justify-content: flex-start;
-  }
-}
-
-@media (max-width: 600px) {
-  .workPage {
-    gap: var(--stack-gap-lg);
-  }
-
-  .yearSection {
-    gap: var(--stack-gap-sm);
-  }
-
-  .yearSection h2 {
-    font-size: clamp(1.4rem, 4vw, 1.6rem);
-  }
-
-  .projectType {
-    font-size: clamp(0.75rem, 2vw, 0.85rem);
-  }
 }

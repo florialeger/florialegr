@@ -2,13 +2,13 @@
   /* Typography */
   --type---large-title---family:
     'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
-  --type---large-title---size: clamp(2.8rem, 5.6vw, 3rem);
+  --type---large-title---size: clamp(2.6rem, 5.6vw, 2.8rem);
   --type---large-title---weight-regular: regular;
   --type---large-title---weight-emphasized: 1000;
   --type---large-title---letter-spacing: -3px;
 
   --type---title-1---family: var(--type---large-title---family);
-  --type---title-1---size: clamp(2.5rem, 5.2vw, 2.8rem);
+  --type---title-1---size: clamp(2.3rem, 5.2vw, 2.6rem);
   --type---title-1---letter-spacing: -2px;
   --type---title-1---weight-regular: 700;
 
@@ -16,27 +16,26 @@
   --type---title-2---size: clamp(1.8rem, 3vw, 2em);
   --type---title-2---letter-spacing: -2px;
   --type---title-2---line-height: 1;
-
   --type---title-2---weight-regular: 600;
   --type---title-2---weight-emphasized: 900;
 
   --type---title-3---family:
     'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
-  --type---title-3---size: clamp(1.4rem, 2vw, 1.6rem);
+  --type---title-3---size: clamp(1.2rem, 2.6vw, 1.4rem);
   --type---title-3---letter-spacing: -1px;
-  --type---title-3---weight-regular: 400;
-  --type---title-3---weight-emphasized: 600;
+  --type---title-3---weight-regular: 500;
+  --type---title-3---weight-emphasized: 800;
 
   --type---headline---family: var(--type---title-3---family);
   --type---headline---size: clamp(1rem, 2vw, 1.2rem);
   --type---headline---weight: 500;
-  --type---headline---weight-regular: 600;
+  --type---headline---weight-regular: 500;
   --type---headline---weight-emphasized: 900;
   --type---headline---letter-spacing: -1px;
 
   --type---label---family: 'Volkhov', Georgia, 'Times New Roman', serif;
-  --type---label---size: 1.8rem;
-  --type---label---weight: 550;
+  --type---label---size: clamp(1.1rem, 2vw, 1.2rem);
+  --type---label---weight: 650;
   --type---label---letter-spacing: 0.01em;
 
   --type---body---family: var(--type---title-3---family);
@@ -73,20 +72,28 @@
   --gap: 2.5rem;
 
   /* Shape */
-  --border-radius-medium: 6px;
+  /* Corner radius tokens (scalable & responsive)
+    - values use rem (root font-size = 18px) so px ~= rem * 18
+    - --border-radius-medium kept as an alias for compatibility */
+  --radius-xs: 0.9rem; /* ~6.75px */
+  --radius-sm: 1.4rem; /* ~10.8px */
+  --radius-md: clamp(1.4rem, 2.5vw, 2rem); /* ~10.8px - 19.8px */
+  --radius-lg: clamp(2.2rem, 3vw, 2.8rem); /* ~16.2px - 28.8px */
+  --radius-pill: 999px;
+  --border-radius-medium: var(--radius-md);
 
   /* Theme defaults (white baseline) */
-  --surface---main: rgba(255, 255, 255, 1);
-  --background---primary: rgba(252, 252, 252, 1);
-  --background---secondary: rgba(244, 244, 244, 1);
-  --label---primary: rgba(23, 23, 23, 1);
-  --label---secondary: rgba(23, 23, 23, 0.8);
-  --label---tertiary: rgba(23, 23, 23, 0.6);
+  --surface---main: #fcfcfc;
+  --background---primary: #fcfcfc;
+  --background---secondary: #ebebeb;
+  --label---primary: #171717;
+  --label---secondary: rgba(23, 23, 23, 0.7);
+  --label---tertiary: rgba(23, 23, 23, 0.5);
   --label---inverted: rgba(0, 0, 0, 0.9);
-  --fills---primary: rgba(225, 225, 225, 1);
-  --fills---secondary: rgba(200, 200, 200, 1);
+  --fills---primary: #c7c7c7;
+  --fills---secondary: #bcbcbc;
   --fills---non--opaque: rgba(255, 255, 255, 0.5);
-  --fills---linear-non--opaque: rgba(252, 252, 252, 0);
+  --fills---linear-non--opaque: linear-gradient(180deg, var(--surface---main) 0%, rgba(252, 252, 252, 0) 100%);
   --separator---black-10: rgba(0, 0, 0, 0.1);
   --separator---white-20: rgba(255, 255, 255, 0.2);
 
@@ -116,26 +123,9 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-@media (max-width: 1024px) {
-  :root {
-    --type---large-title---size: clamp(2.6rem, 7vw, 3.2rem);
-    --type---title-1---size: clamp(2.2rem, 5.5vw, 2.8rem);
-    --type---title-2---size: clamp(1.9rem, 4.8vw, 2.4rem);
-    --type---title-3---size: clamp(0.95rem, 2.4vw, 1.05rem);
-    --type---headline---size: 0.95rem;
-  }
-}
-
-@media (max-width: 768px) {
-  :root {
-    --type---large-title---size: clamp(2.2rem, 8vw, 2.8rem);
-    --type---title-1---size: clamp(1.9rem, 6vw, 2.4rem);
-    --type---title-2---size: clamp(1.6rem, 5.5vw, 2rem);
-    --type---title-3---size: clamp(0.9rem, 3vw, 0.98rem);
-    --type---headline---size: 0.9rem;
-    --type---body---size: 0.9375rem;
-  }
-}
+/* Typography scaling is handled by the per-token clamp() values defined above.
+   Removing breakpoint overrides prevents abrupt jumps and ensures a smooth
+   fluid scale between the defined min and max for each token. */
 
 *,
 *::before,
@@ -185,6 +175,7 @@ h1 {
   text-box: trim-both cap alphabetic;
   color: var(--label---primary);
   text-wrap: balance;
+  text-align: center;
 }
 
 h2 {
@@ -202,6 +193,7 @@ h3 {
   letter-spacing: var(--type---title-2---letter-spacing);
   line-height: var(--type---title-2---line-height);
   text-box: trim-both cap alphabetic;
+  width: fit-content;
 }
 
 h4 {
@@ -306,6 +298,33 @@ ol {
 
 .animate-shimmer {
   animation: shimmer 8s infinite;
+}
+
+.reveal-hero {
+  filter: blur(4px);
+  opacity: 0;
+  transform: translateY(4px);
+  transition:
+    filter 520ms cubic-bezier(0.33, 0.14, 0.27, 1),
+    opacity 720ms cubic-bezier(0.33, 0.14, 0.27, 1),
+    transform 980ms cubic-bezier(0.33, 0.14, 0.27, 1);
+  will-change: opacity, transform, filter;
+}
+
+.reveal-hero.is-visible {
+  filter: blur(0);
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal-hero,
+  .reveal-hero.is-visible {
+    transition: none !important;
+    filter: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
 }
 
 .animate-spin {

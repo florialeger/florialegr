@@ -1,4 +1,6 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import navStyles from '@/components/ui/Navigation.module.css';
+import useRevealOnView from '@/hooks/useRevealOnView';
 import Container from '@/components/ui/Container';
 import CardGrid from '@/components/projects/CardGrid';
 import ProjectCard from '@/components/projects/ProjectCard';
@@ -11,6 +13,8 @@ const formatCategoryLabel = (category) => {
   if (category === ALL_CATEGORY) return 'All';
   return category.replace(/_/g, ' ').replace(/\b\w/g, (char) => char.toUpperCase());
 };
+
+/* gradient blur overlay intentionally removed in favor of a CSS pseudo-element */
 
 const Playground = () => {
   const { playgrounds, uniquePlaygroundCategories, loading, error } = usePortfolio();
@@ -106,10 +110,47 @@ const Playground = () => {
     },
     [filterVisible, recomputeThreshold, selectedCategory]
   );
+  const [headerVisible, setHeaderVisible] = useState(false);
+
+  useEffect(() => {
+    const id = requestAnimationFrame(() => setHeaderVisible(true));
+    return () => cancelAnimationFrame(id);
+  }, []);
+
+  // Reveal playground cards when they enter the viewport.
+  // We target the inner visual wrapper with [data-reveal-target] so
+  // the outer card element (which handles hover/dimming) remains untouched.
+  useRevealOnView(gridRef, {
+    itemSelector: '[data-slug]',
+    targetSelector: '[data-reveal-target]',
+    rootMargin: '0px 0px -8% 0px',
+    threshold: 0.06,
+    stagger: 80,
+    once: true,
+  });
 
   return (
     <div className={styles.playgroundPage}>
-      <Container className={styles.pageHeader}>
+      {/* Fixed mirrored gradient blur anchored to the viewport bottom.
+          Render the same inner structure used by the navigation blur (six stacked layers)
+          so the masks and backdrop-filter settings are preserved. */}
+      <div
+        className={navStyles.gradientBlurBottom}
+        aria-hidden="true"
+        style={{
+          left: 0,
+          right: 0,
+          bottom: 0,
+          height: 'var(--nav-height)',
+          background: 'transparent',
+          zIndex: 1,
+        }}
+      >
+        {Array.from({ length: 6 }).map((_, i) => (
+          <div key={i} />
+        ))}
+      </div>
+      <Container className={`${styles.pageHeader} reveal-hero ${headerVisible ? 'is-visible' : ''}`}>
         <p>
           I've been passionate about drawing for eighteen years now. Behind this rather simple word lies a world of
           incredibly talented artists whom I admire, even if I don't claim to be on their level. I try to progress at my
@@ -140,7 +181,7 @@ const Playground = () => {
                 item={item}
                 variant="playground"
                 onHoverChange={handleHoverChange}
-                className={hoveredSlug && hoveredSlug !== item.slug ? styles.dimmed : ''}
+                className={`${hoveredSlug && hoveredSlug !== item.slug ? styles.dimmed : ''}`.trim()}
               />
             ))}
           </CardGrid>
@@ -176,6 +217,7 @@ const Playground = () => {
             })}
           </ul>
         </div>
+        {/* CSS pseudo-element on .filterBar renders the mirrored gradient – no extra DOM node needed */}
       </div>
     </div>
   );

@@ -7,7 +7,12 @@ import styles from './ThemeSwitcher.module.css';
 // Keep ThemeCircle as is, but it needs the background color info
 // Let's pass the whole theme object for flexibility or just the required color
 const ThemeCircle = ({ themeName, themeData, handleThemeChange }) => {
-  const swatch = themeData?.['background---primary'] ?? 'transparent';
+  // Use the theme's background-secondary color for the swatch (preferred per request)
+  const swatch =
+    themeData?.['background---secondary'] ??
+    themeData?.['fills---primary'] ??
+    themeData?.['background---primary'] ??
+    'transparent';
 
   return (
     <div

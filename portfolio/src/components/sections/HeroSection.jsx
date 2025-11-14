@@ -16,8 +16,11 @@ const heroImages = [
 const HeroSection = () => {
   const [hoveredType, setHoveredType] = useState(null);
   const [activeIndex, setActiveIndex] = useState(null);
+  const [mountedVisible, setMountedVisible] = useState(false);
   const visualRef = useRef(null);
   const animationFrameRef = useRef(null);
+  // useBlurReveal removed — no-op ref setter
+  const setRevealNode = () => {};
 
   const applyPointer = useCallback((x, y) => {
     if (!visualRef.current) return;
@@ -66,8 +69,19 @@ const HeroSection = () => {
     setActiveIndex(null);
   }, []);
 
+  useEffect(() => {
+    // trigger a CSS-driven mount animation on next frame
+    const id = requestAnimationFrame(() => setMountedVisible(true));
+    return () => cancelAnimationFrame(id);
+  }, []);
+
   return (
-    <section className={styles.hero} aria-labelledby="hero-title" data-hovered={hoveredType || 'none'}>
+    <section
+      ref={setRevealNode}
+      className={`${styles.hero} reveal-hero ${mountedVisible ? 'is-visible' : ''}`}
+      aria-labelledby="hero-title"
+      data-hovered={hoveredType || 'none'}
+    >
       <Container className={styles.heroContainer}>
         <div
           className={styles.heroVisual}
@@ -95,11 +109,11 @@ const HeroSection = () => {
 
         <div className={styles.heroCopy}>
           <h1 id="hero-title" className={styles.heroTitle}>
-            <h1 className={styles.heroTitleUpper}>UX/UI Designer</h1>
-            <h1 className={styles.heroTitleAmpersand} aria-hidden="true">
+            <span className={styles.heroTitleUpper}>UX/UI Designer</span>
+            <span className={styles.heroTitleAmpersand} aria-hidden="true">
               &
-            </h1>
-            <h1 className={styles.heroTitleLower}>Digital Illustrator</h1>
+            </span>
+            <span className={styles.heroTitleLower}>Digital Illustrator</span>
           </h1>
         </div>
       </Container>

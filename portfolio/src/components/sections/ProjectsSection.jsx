@@ -5,14 +5,17 @@ import useFetch from '@/hooks/useFetch';
 import Container from '@/components/ui/Container';
 import ProjectCard from '@/components/projects/ProjectCard';
 import CardGrid from '@/components/projects/CardGrid';
+// useBlurReveal removed
 import styles from './ProjectsSection.module.css';
 
 const ProjectsSection = ({ className = '' }) => {
   const { data: projects, loading, error } = useFetch('/api/projects');
   const combinedClassName = [styles.projectsSection, className].filter(Boolean).join(' ');
 
+  const setRevealNode = () => {};
+
   return (
-    <section id="work" className={combinedClassName}>
+    <section id="work" ref={setRevealNode} className={combinedClassName}>
       <Container>
         <h2 className={styles.heading}>My Work</h2>
         {loading && (

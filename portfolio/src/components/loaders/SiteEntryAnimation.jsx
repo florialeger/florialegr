@@ -18,7 +18,7 @@ const SiteEntryAnimation = ({ onFinished, duration = DEFAULT_DURATION }) => {
 
   return (
     <div className={styles.overlay} role="status" aria-live="polite">
-      <span className={styles.wordmark}>Floria Leger</span>
+      <span className={styles.wordmark}>Loading...</span>
     </div>
   );
 };
