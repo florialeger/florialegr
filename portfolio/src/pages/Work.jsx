@@ -64,20 +64,22 @@ const ProjectListItem = ({ project, typeLabel, locked, targetState }) => {
   );
 
   return (
-    <li className={styles.projectItem} ref={assignRef} data-locked={locked || undefined}>
-      <span className={styles.projectType}>{typeLabel}</span>
-      {locked ? (
-        <span className={`${styles.projectTitle} ${styles.locked}`.trim()}>
-          {project.title}
-          <LockIcon size={18} />
-        </span>
-      ) : (
-        <Link to={`/work/${project.slug}`} state={targetState} className={styles.projectLink}>
-          <span>{project.title}</span>
-          <ArrowIcon size={18} />
-        </Link>
-      )}
-    </li>
+    <Link to={`/work/${project.slug}`} state={targetState} className={styles.projectLink}>
+      <li className={styles.projectItem} ref={assignRef} data-locked={locked || undefined}>
+        <span className={styles.projectType}>{typeLabel}</span>
+        {locked ? (
+          <span className={`${styles.projectTitle} ${styles.locked}`.trim()}>
+            {project.title}
+            <LockIcon size={18} />
+          </span>
+        ) : (
+          <span to={`/work/${project.slug}`} state={targetState} className={styles.projectLink}>
+            <span>{project.title}</span>
+            <ArrowIcon size={18} />
+          </span>
+        )}
+      </li>
+    </Link>
   );
 };
 
