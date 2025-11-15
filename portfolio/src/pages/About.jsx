@@ -10,6 +10,10 @@ import bentoIcon from '@/assets/icons/Bento.png';
 import githubIcon from '@/assets/icons/GitHub.png';
 import linkedinIcon from '@/assets/icons/Linkedin.png';
 import layersIcon from '@/assets/icons/Layers.png';
+import figmaIcon from '@/assets/icons/Figma.png';
+import procreateIcon from '@/assets/icons/Procreate.png';
+import vscodeIcon from '@/assets/icons/Visual Studio.png';
+import useMagneticEffect from '@/hooks/useMagneticEffect';
 import styles from './About.module.css';
 
 const aboutTitle = [
@@ -80,6 +84,9 @@ const About = () => {
 
   const [aboutVisible, setAboutVisible] = useState(false);
   const [contactVisible, setContactVisible] = useState(false);
+  const setFigmaMagnet = useMagneticEffect({ maxDistance: 20, scale: 1.06 });
+  const setVSCodeMagnet = useMagneticEffect({ maxDistance: 18, scale: 1.04 });
+  const setProcreateMagnet = useMagneticEffect({ maxDistance: 20, scale: 1.06 });
 
   useEffect(() => {
     const id = requestAnimationFrame(() => {
@@ -99,6 +106,43 @@ const About = () => {
         portraitSrc={portraitImage}
         portraitAlt="Floria Leger"
       />
+
+      <section className={`reveal-hero ${contactVisible ? 'is-visible' : ''} ${styles.softwareSection}`}>
+        <Container className={styles.softwareContainer}>
+          <div className={styles.softwareInner}>
+            <h2 className={styles.softwareTitle}>The software i’m using</h2>
+
+            <ul className={styles.softwareList}>
+              <li className={styles.softwareItem} ref={setFigmaMagnet}>
+                <button type="button" className={styles.softwareButton} aria-label="Figma">
+                  <span className={styles.softwareIcon}>
+                    <img src={figmaIcon} alt="Figma" className={styles.softwareImg} />
+                  </span>
+                  <h4 className={styles.softwareLabel}>Figma</h4>
+                </button>
+              </li>
+
+              <li className={styles.softwareItem} ref={setVSCodeMagnet}>
+                <button type="button" className={styles.softwareButton} aria-label="VS Code">
+                  <span className={styles.softwareIcon}>
+                    <img src={vscodeIcon} alt="VS Code" className={styles.softwareImg} />
+                  </span>
+                  <h4 className={styles.softwareLabel}>VS Code</h4>
+                </button>
+              </li>
+
+              <li className={styles.softwareItem} ref={setProcreateMagnet}>
+                <button type="button" className={styles.softwareButton} aria-label="Procreate">
+                  <span className={styles.softwareIcon}>
+                    <img src={procreateIcon} alt="Procreate" className={styles.softwareImg} />
+                  </span>
+                  <h4 className={styles.softwareLabel}>Procreate</h4>
+                </button>
+              </li>
+            </ul>
+          </div>
+        </Container>
+      </section>
 
       <section className={`${styles.contactSection} reveal-hero ${contactVisible ? 'is-visible' : ''}`}>
         <Container className={styles.contactContainer}>
