@@ -71,8 +71,8 @@
   margin: 0;
   list-style: none;
   /* Use a responsive gap by default; switch to overlapping layout on wider screens */
-  --icon-gap: clamp(0.6rem, 4vw, 1rem);
-  --icon-overlap: clamp(-1.4rem, -3.8vw, -1.9rem);
+  --icon-gap: clamp(1rem, 4vw, 1.2rem);
+  --icon-overlap: clamp(-0.5rem, -3.8vw, -1.9rem);
   gap: var(--icon-gap);
 }
 
@@ -159,7 +159,7 @@
 @media (max-width: 720px) {
   .contactRow {
     flex-direction: column;
-    gap: var(--stack-gap-md);
+    gap: var(--stack-gap-lg);
     padding: var(--stack-gap-sm);
   }
 
@@ -171,15 +171,5 @@
 
   .contactMessage {
     min-width: clamp(9rem, 40vw, 12rem);
-  }
-}
-
-@media (max-width: 520px) {
-  .iconList {
-    gap: clamp(0.6rem, 6vw, 1rem);
-  }
-
-  .socialIconImage {
-    width: clamp(2.2rem, 8vw, 2.8rem);
   }
 }

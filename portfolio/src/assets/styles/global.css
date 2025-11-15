@@ -173,13 +173,14 @@ h1 {
 }
 
 h2 {
-  color : var(--label---secondary);
+  color: var(--label---secondary);
   font-family: var(--type---title-2---family);
   font-size: var(--type---title-2---size);
   font-weight: var(--type---title-2---weight-regular);
   letter-spacing: var(--type---title-2---letter-spacing);
-  line-height: var( --type---title-2---line-height);
+  line-height: var(--type---title-2---line-height);
   text-box: trim-both cap alphabetic;
+  text-wrap: stable;
 }
 
 h3 {
@@ -201,12 +202,12 @@ h4 {
 }
 
 p {
-  text-wrap: pretty;
   font-family: var(--type---body---family);
   font-size: var(--type---body---size);
   font-weight: var(--body-regular-weight);
   letter-spacing: var(--body-regular-letter-spacing);
   max-width: clamp(20rem, 80vw, 34.375rem);
+  text-wrap: stable;
 }
 
 /* Utility classes exposing body italic / emphasized styles for use in CSS modules

@@ -1,9 +1,7 @@
 .cardGrid {
   display: grid;
-  /* auto-fit with a reasonable min width lets the grid flow from 3 -> 2 -> 1 columns
-     depending on available space without brittle breakpoints */
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: var(--stack-gap-md);
+  --card-size: 180px;
+  grid-template-columns: repeat(auto-fit, minmax(var(--card-size), 1fr));
   position: relative;
   width: 100%;
 }

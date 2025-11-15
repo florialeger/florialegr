@@ -1,6 +1,5 @@
 .card {
   position: relative;
-  /* project cards use the large radius token */
   border-radius: var(--radius-lg);
   corner-shape: squircle;
   color: var(--label---primary);
@@ -41,7 +40,7 @@
   flex-direction: column;
   justify-content: center;
   gap: var(--stack-gap-sm);
-  min-height: clamp(9.5rem, 18vw, 12rem);
+  min-height: clamp(6rem, 12vw, 8rem);
   padding: var(--stack-gap-md);
   background: color-mix(in srgb, var(--fills---non--opaque) 55%, transparent);
   backdrop-filter: blur(10px);
@@ -108,7 +107,8 @@
 
 .playground {
   display: flex;
-  min-height: clamp(12rem, 20vw, 15rem);
+  /* Keep the preview area smaller so the overall card remains a manageable square. */
+  min-height: clamp(6rem, 12vw, 8rem);
 }
 
 .preview {
