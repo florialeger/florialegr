@@ -336,7 +336,7 @@
   ],
   "playgrounds": [
     {
-      "title": "GameBoy",
+      "title": "GameBoy Replica",
       "context": ["I love retro designs!"],
       "created": "2025-02-15",
       "support": ["figma"],
@@ -357,7 +357,7 @@
       "link": []
     },
     {
-      "title": "Nintendo Pocket",
+      "title": "Game console",
       "context": [],
       "created": "2025-02-27",
       "support": ["figma"],
@@ -374,22 +374,22 @@
         "pocket-second8.jpg",
         "pocket-second9.jpg"
       ],
-      "slug": "pocket",
+      "slug": "game-console",
       "link": []
     },
     {
-      "title": "Clavier",
+      "title": "MIDI controller",
       "context": [],
       "created": "2025-02-07",
       "support": ["figma"],
       "primaryImage": ["music-primary.jpg"],
       "type": "ux_ui",
       "secondaryImages": ["music-second1.jpg", "music-second2.jpg", "music-second3.mp4"],
-      "slug": "clavier",
+      "slug": "midi-controller",
       "link": []
     },
     {
-      "title": "Button",
+      "title": "Buttons",
       "context": [],
       "created": "2025-02-05",
       "support": ["figma"],
@@ -403,11 +403,11 @@
         "buttons-second5.jpg",
         "buttons-second6.mp4"
       ],
-      "slug": "button",
+      "slug": "buttons",
       "link": []
     },
     {
-      "title": "Folder",
+      "title": "File Replica",
       "context": [],
       "created": "2025-02-18",
       "support": ["figma"],
@@ -420,7 +420,7 @@
         "folder-second4.jpg",
         "folder-second5.jpg"
       ],
-      "slug": "folder",
+      "slug": "file",
       "link": []
     },
     {
@@ -440,11 +440,11 @@
         "talence-second5.jpg",
         "talence-second6.jpg"
       ],
-      "slug": "talence",
+      "slug": "ustvb",
       "link": [{ "label": "View Figma", "url": "https://www.figma.com/community/file/1570699960534572076/logo-ustvb" }]
     },
     {
-      "title": "MP3",
+      "title": "MP3 Replica",
       "context": ["The icons on the screen were torture to make but I like the result!"],
       "created": "2025-03-05",
       "support": ["figma"],
@@ -481,7 +481,7 @@
       "link": []
     },
     {
-      "title": "Bordeaux Inp",
+      "title": "Bordeaux INP",
       "context": [""],
       "created": "2025-05-27",
       "support": ["figma"],
@@ -524,7 +524,7 @@
       "link": []
     },
     {
-      "title": "Icones",
+      "title": "Icones & Assets",
       "context": [""],
       "created": "2025-11-04",
       "support": ["figma"],
@@ -540,11 +540,11 @@
         "icones-second7.jpg",
         "icones-second8.jpg"
       ],
-      "slug": "icones",
+      "slug": "icones-assets",
       "link": []
     },
     {
-      "title": "Hands",
+      "title": "Anatomy study",
       "context": [],
       "created": "2024-06-15",
       "support": ["procreate"],
@@ -563,11 +563,11 @@
         "hands-second10.jpg",
         "hands-second11.jpg"
       ],
-      "slug": "hand",
+      "slug": "anatomy-study",
       "link": []
     },
     {
-      "title": "Sketchbook",
+      "title": "Moleskine sketch",
       "context": [],
       "created": "2025-02-02",
       "support": ["paper"],
@@ -586,11 +586,11 @@
         "trad1-second10.jpg",
         "trad1-second11.jpg"
       ],
-      "slug": "sketchbook-01",
+      "slug": "moleskine-sketch-01",
       "link": []
     },
     {
-      "title": "Sketchbook",
+      "title": "Moleskine sketch",
       "context": [],
       "created": "2025-03-01",
       "support": ["paper"],
@@ -609,11 +609,11 @@
         "trad2-second10.jpg",
         "trad2-second11.jpg"
       ],
-      "slug": "sketchbook-02",
+      "slug": "moleskine-sketch-02",
       "link": []
     },
     {
-      "title": "Sketchbook",
+      "title": "Moleskine sketch",
       "context": [],
       "created": "2025-03-14",
       "support": ["paper"],
@@ -633,11 +633,11 @@
         "trad3-second11.jpg",
         "trad3-second12.jpg"
       ],
-      "slug": "sketchbook-03",
+      "slug": "moleskine-sketch-03",
       "link": []
     },
     {
-      "title": "Board",
+      "title": "Digital Board",
       "context": [],
       "created": "2023-08-01",
       "support": ["procreate"],
@@ -653,11 +653,11 @@
         "planche1-second7.jpg",
         "planche1-second8.jpg"
       ],
-      "slug": "board-01",
+      "slug": "digital-board-01",
       "link": []
     },
     {
-      "title": "Board",
+      "title": "Digital Board",
       "context": [],
       "created": "2023-08-15",
       "support": ["procreate"],
@@ -674,11 +674,11 @@
         "planche2-second8.jpg",
         "planche2-second9.jpg"
       ],
-      "slug": "board-02",
+      "slug": "digital-board-02",
       "link": []
     },
     {
-      "title": "Board",
+      "title": "Digital Board",
       "context": [],
       "created": "2024-07-10",
       "support": ["procreate"],
@@ -695,11 +695,11 @@
         "planche3-second8.jpg",
         "planche3-second9.jpg"
       ],
-      "slug": "board-03",
+      "slug": "digital-board-03",
       "link": []
     },
     {
-      "title": "Board",
+      "title": "Digital Board",
       "context": [],
       "created": "2025-02-26",
       "support": ["procreate"],
@@ -715,11 +715,11 @@
         "planche4-second7.jpg",
         "planche4-second8.jpg"
       ],
-      "slug": "board-04",
+      "slug": "digital-board-04",
       "link": []
     },
     {
-      "title": "ENSC",
+      "title": "Logo ENSC",
       "context": [],
       "created": "2024-12-12",
       "support": ["procreate"],
@@ -735,12 +735,12 @@
         "ensc-second7.jpg",
         "ensc-second8.jpg"
       ],
-      "slug": "ensc",
+      "slug": "logo-ensc",
       "link": []
     },
     {
       "title": "Ellie",
-      "context": ["Ian Woods style"],
+      "context": ["Ellie from \"The last of us\" Ian Woods style"],
       "created": "2023-06",
       "support": ["procreate"],
       "primaryImage": ["ellie-primary.jpg"],
@@ -761,19 +761,19 @@
       "link": []
     },
     {
-      "title": "Me",
+      "title": "Self portrait",
       "context": [],
       "created": "2024-01",
       "support": ["procreate"],
       "primaryImage": ["me-primary.jpg"],
       "type": "illustration",
       "secondaryImages": ["me-second1.jpg"],
-      "slug": "me",
+      "slug": "self-portrait",
       "link": []
     },
     {
       "title": "Marcy",
-      "context": [],
+      "context": ["Marcy from \"Adventure Time\" stylized"],
       "created": "2025-01",
       "support": ["procreate"],
       "primaryImage": ["marcy-primary.jpg"],
@@ -783,8 +783,8 @@
       "link": []
     },
     {
-      "title": "Arcane Face Study",
-      "context": [],
+      "title": "Expression study",
+      "context": ["Vi from \"Arcane\" expression study"],
       "created": "2023-06",
       "support": ["procreate"],
       "primaryImage": ["arcane-primary.jpg"],
@@ -797,11 +797,11 @@
         "arcane-second5.jpg",
         "arcane-second6.jpg"
       ],
-      "slug": "arcane",
+      "slug": "expression-study-01",
       "link": []
     },
     {
-      "title": "Mode",
+      "title": "Fashion",
       "context": [],
       "created": "2023-09",
       "support": ["procreate"],
@@ -818,11 +818,11 @@
         "mode-second8.jpg",
         "mode-second9.jpg"
       ],
-      "slug": "mode",
+      "slug": "fashion-01",
       "link": []
     },
     {
-      "title": "Sketchbook",
+      "title": "Moleskine sketch",
       "context": [],
       "created": "2025-06-21",
       "support": ["paper"],
@@ -839,11 +839,11 @@
         "trad4-second8.jpg",
         "trad4-second9.jpg"
       ],
-      "slug": "sketchbook-04",
+      "slug": "moleskine-sketch-04",
       "link": []
     },
     {
-      "title": "Sketchbook",
+      "title": "Moleskine sketch",
       "context": [],
       "created": "2025-07-31",
       "support": ["paper"],
@@ -860,7 +860,7 @@
         "trad5-second8.jpg",
         "trad5-second9.jpg"
       ],
-      "slug": "sketchbook-05",
+      "slug": "moleskine-sketch-05",
       "link": []
     },
     {
@@ -881,7 +881,7 @@
       "link": []
     },
     {
-      "title": "Realistic portrait",
+      "title": "Portrait",
       "context": [],
       "created": "2025-09-02",
       "support": ["procreate"],
@@ -892,11 +892,11 @@
         "realistic-portrait-second2.jpg",
         "realistic-portrait-second3.jpg"
       ],
-      "slug": "realistic-portrait",
+      "slug": "portrait",
       "link": []
     },
     {
-      "title": "Mode",
+      "title": "Fashion",
       "context": [],
       "created": "2025-04-15",
       "support": ["procreate"],
@@ -910,7 +910,7 @@
         "mode-2-second5.jpg",
         "mode-2-second6.jpg"
       ],
-      "slug": "mode-02",
+      "slug": "fashion-02",
       "link": []
     },
     {
@@ -946,7 +946,7 @@
     },
       {
         "title": "Expression study",
-        "context": [],
+        "context": ["Characters from the novel \"The Rise of Kyoshi\" expression study"],
         "created": "2025-08",
         "support": ["procreate"],
         "primaryImage": ["expression-study-primary.jpg"],
@@ -959,12 +959,12 @@
           "expression-study-second5.jpg",
           "expression-study-second6.jpg"
         ],
-        "slug": "expression-study",
+        "slug": "expression-study-02",
         "link": []
       },
         {
-          "title": "Shiho DecTo",
-          "context": [],
+          "title": "Shiho",
+          "context": ["Shiho (Haibara Ai) from \"Detective Conan\" study "],
           "created": "2025-03-26",
           "support": ["procreate"],
           "primaryImage": ["shiho-primary.jpg"],

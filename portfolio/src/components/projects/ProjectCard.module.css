@@ -1,5 +1,6 @@
 .card {
   position: relative;
+  z-index: 2;
   border-radius: var(--radius-lg);
   corner-shape: squircle;
   color: var(--label---primary);
@@ -59,36 +60,10 @@
   color: var(--label---secondary);
   text-transform: none;
 }
-
-.titleRow {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: var(--stack-gap-md);
-}
-
-.titleRow h4 {
-  margin: 0;
-  /* Use a larger title token for the card title while remaining an h4 element */
-  font-family: var(--type---title-2---family);
-  font-size: var(--type---title-2---size);
-  font-weight: var(--type---title-2---weight-emphasized);
-  letter-spacing: var(--type---title-2---letter-spacing);
-  text-wrap: balance;
-}
-
-.statusIcon {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: clamp(2.8rem, 6vw, 3.2rem);
-  height: clamp(2.8rem, 6vw, 3.2rem);
-  border-radius: var(--radius-pill);
-  background: color-mix(in srgb, var(--label---primary) 12%, transparent);
-  color: currentColor;
-  transition:
-    transform 200ms ease,
-    background-color 200ms ease;
+.playgroundWrapper:hover .ghostTitle,
+.playgroundWrapper:focus-within .ghostTitle {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
 }
 
 .iconImage {
@@ -142,6 +117,45 @@
 .playground:hover .preview img,
 .playground:focus-visible .preview img {
   transform: scale(1.05);
+}
+
+/* Wrapper used to group the playground card and its ghost title so both are magnetized together */
+.playgroundWrapper {
+  position: relative;
+  display: inline-block; /* keep natural flow and size */
+}
+
+/* Title shown behind the playground card on hover */
+.ghostTitle {
+  position: absolute;
+  left: 50%;
+  top: 100%;
+  transform: translate(-50%, -10%);
+  color: var(--label---primary);
+  opacity: 0;
+  /* subtle initial blur so the title peeks in smoothly */
+  filter: blur(4px);
+  z-index: 1; /* behind the .card which has z-index:2 */
+  pointer-events: none;
+  /*
+    Coordinate transitions: opacity and filter are fast and paired for a soft fade/clarify,
+    transform is slightly slower with a gentle overshoot curve for a natural drop-in.
+  */
+  will-change: opacity, transform, filter;
+  transition:
+    opacity 240ms cubic-bezier(0.215, 0.61, 0.355, 1),
+    filter 200ms cubic-bezier(0.215, 0.61, 0.355, 1),
+    transform 420ms cubic-bezier(0.22, 1, 0.36, 1);
+  text-align: center;
+  white-space: nowrap;
+}
+
+.playgroundWrapper:hover .ghostTitle,
+.playgroundWrapper:focus-within .ghostTitle {
+  opacity: 1;
+  filter: blur(0);
+  /* final position slightly lower so the title peeks from behind the card */
+  transform: translate(-50%, -50%) translateY(24px);
 }
 
 @media (max-width: 720px) {

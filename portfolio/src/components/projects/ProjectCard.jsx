@@ -137,25 +137,30 @@ const PlaygroundCard = memo(({ item, className, onHoverChange }) => {
   );
 
   return (
-    <article
-      className={`${styles.card} ${styles.playground} ${className}`.trim()}
-      tabIndex={0}
-      role="button"
-      data-slug={item.slug}
-      onClick={handleClick}
-      onKeyDown={handleKeyDown}
-      onPointerEnter={() => onHoverChange?.(item.slug)}
-      onPointerLeave={() => onHoverChange?.(null)}
-      onFocus={() => onHoverChange?.(item.slug)}
-      onBlur={() => onHoverChange?.(null)}
-      ref={setMagneticNode}
-    >
-      {primaryImage && (
-        <div className={styles.preview}>
-          <Media src={primaryImage} alt={`${item.title} preview`} className="" />
-        </div>
-      )}
-    </article>
+    <div className={styles.playgroundWrapper} ref={setMagneticNode}>
+      <h2 className={styles.ghostTitle} aria-hidden="true">
+        {item.title}
+      </h2>
+
+      <article
+        className={`${styles.card} ${styles.playground} ${className}`.trim()}
+        tabIndex={0}
+        role="button"
+        data-slug={item.slug}
+        onClick={handleClick}
+        onKeyDown={handleKeyDown}
+        onPointerEnter={() => onHoverChange?.(item.slug)}
+        onPointerLeave={() => onHoverChange?.(null)}
+        onFocus={() => onHoverChange?.(item.slug)}
+        onBlur={() => onHoverChange?.(null)}
+      >
+        {primaryImage && (
+          <div className={styles.preview}>
+            <Media src={primaryImage} alt={`${item.title} preview`} className="" />
+          </div>
+        )}
+      </article>
+    </div>
   );
 });
 PlaygroundCard.displayName = 'PlaygroundCard';
