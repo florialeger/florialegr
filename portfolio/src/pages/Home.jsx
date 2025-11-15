@@ -29,19 +29,18 @@ const Home = () => {
 
       <section className={`${styles.introSection} reveal-hero ${introVisible ? 'is-visible' : ''}`}>
         <Container className={`${styles.introContainer}`.trim()}>
-          <div className={styles.introCopy}>
-            {aboutTitle.map((title) => (
-              <h3 key={title}>{title}</h3>
-            ))}
-          </div>
-          <div className={styles.introCopy}>
-            {aboutParagraphs.map((paragraph) => (
-              <p key={paragraph}>{paragraph}</p>
-            ))}
-          </div>
+          {aboutTitle.map((title) => (
+            <h2 key={title}>{title}</h2>
+          ))}
+
+          {aboutParagraphs.map((paragraph) => (
+            <p key={paragraph}>{paragraph}</p>
+          ))}
+
           <div className={styles.emailRow}>
+            <p className={styles.emailText}>get in touch at</p>
             <MailIcon className={styles.emailIcon} size={24} title="Adresse e-mail" />
-            <h5 className={styles.emailText}>floria.leger@ensc.fr</h5>
+            <p className={styles.emailText}>floria.leger@ensc.fr</p>
           </div>
         </Container>
       </section>

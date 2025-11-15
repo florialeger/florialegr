@@ -37,6 +37,7 @@
           "url": "https://www.figma.com/community/file/1434630096456807172/slide-deck-figma"
         }
       ],
+      "icon": "figma-icone.png",
       "slug": "tuto-figma",
       "locked": false
     },
@@ -76,6 +77,7 @@
           "url": "https://www.figma.com/community/file/1471512161772048324/deskfriend"
         }
       ],
+      "icon": "desk-icone.png",
       "slug": "desk-friend",
       "locked": false
     },
@@ -116,6 +118,7 @@
           "url": "https://github.com/JeCode667/ToutVaBien"
         }
       ],
+      "icon": "tvb-icone.png",
       "slug": "tout-va-bien",
       "locked": false
     },
@@ -247,7 +250,10 @@
         "dyspraxia-second6.jpg"
       ],
       "link": [
-        { "label": "View Figma", "url": "https://www.figma.com/community/file/1570788918790254567/infographie-dyspraxie" }
+        {
+          "label": "View Figma",
+          "url": "https://www.figma.com/community/file/1570788918790254567/infographie-dyspraxie"
+        }
       ],
       "slug": "dyspraxia",
       "locked": false
@@ -289,7 +295,7 @@
       "title": "Purely",
       "context": "",
       "created": "2025-04-29",
-      "duration": "",
+      "duration": "ongoing",
       "projectDuty": "UX/UI Design",
       "support": ["paper", "procreate", "figma"],
       "primaryImage": ["", ""],
@@ -317,7 +323,7 @@
       "title": "Twinkle",
       "context": "",
       "created": "2025-10-12",
-      "duration": "",
+      "duration": "ongoing",
       "projectDuty": "Brand Design",
       "support": ["paper", "figma"],
       "primaryImage": ["", ""],

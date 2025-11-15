@@ -5,11 +5,15 @@ import Container from '@/components/ui/Container';
 import Button from '@/components/ui/Button';
 import styles from './AboutSection.module.css';
 
-const AboutSection = ({ paragraphs, downloads, portraitSrc, portraitAlt = 'Portrait', className = '' }) => (
+const AboutSection = ({ title = [], paragraphs, downloads, portraitSrc, portraitAlt = 'Portrait', className = '' }) => (
   <section className={`${styles.section} ${className}`.trim()}>
     <Container className={styles.contactContainer}>
       <div className={styles.copyColumn}>
         <div className={styles.paragraphs}>
+          {title.map((t) => (
+            <h2 key={t}>{t}</h2>
+          ))}
+
           {paragraphs.map((paragraph) => (
             <p key={paragraph}>{paragraph}</p>
           ))}
@@ -32,6 +36,7 @@ const AboutSection = ({ paragraphs, downloads, portraitSrc, portraitAlt = 'Portr
 );
 
 AboutSection.propTypes = {
+  title: PropTypes.arrayOf(PropTypes.string),
   paragraphs: PropTypes.arrayOf(PropTypes.string).isRequired,
   downloads: PropTypes.arrayOf(
     PropTypes.shape({
@@ -46,6 +51,7 @@ AboutSection.propTypes = {
 };
 
 AboutSection.defaultProps = {
+  title: [],
   downloads: [],
   portraitAlt: 'Portrait',
   className: '',

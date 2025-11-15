@@ -1,62 +1,56 @@
 :root {
-  /* Typography */
-  --type---large-title---family:
-    'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
-  --type---large-title---size: clamp(2.6rem, 5.6vw, 2.8rem);
-  --type---large-title---weight-regular: regular;
-  --type---large-title---weight-emphasized: 1000;
-  --type---large-title---letter-spacing: -3px;
+  /* Cleaned typography tokens: only title-1..title-4 + body + exported body variants */
 
-  --type---title-1---family: var(--type---large-title---family);
-  --type---title-1---size: clamp(2.3rem, 5.2vw, 2.6rem);
+  /* Headings (Source Sans 3) */
+  --type---title-1---family: 'Source Sans 3', system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
+  --type---title-1---size: clamp(2.2rem, 5.2vw, 2.8rem);
+  --type---title-1---weight-regular: 900;
+  --type---title-1---weight-emphasized: 900;
   --type---title-1---letter-spacing: -2px;
-  --type---title-1---weight-regular: 700;
 
-  --type---title-2---family: var(--type---large-title---family);
-  --type---title-2---size: clamp(1.8rem, 3vw, 2em);
-  --type---title-2---letter-spacing: -2px;
+  --type---title-2---family: 'Source Sans 3', system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
+  --type---title-2---size: clamp(1.3rem, 3vw, 1.7em);
+  --type---title-2---weight-regular: 700;
+  --type---title-2---weight-emphasized: 700;
+  --type---title-2---letter-spacing: 0;
   --type---title-2---line-height: 1;
-  --type---title-2---weight-regular: 600;
-  --type---title-2---weight-emphasized: 900;
 
-  --type---title-3---family:
-    'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
-  --type---title-3---size: clamp(1.2rem, 2.6vw, 1.4rem);
-  --type---title-3---letter-spacing: -1px;
-  --type---title-3---weight-regular: 500;
+  --type---title-3---family: 'Source Sans 3', system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
+  --type---title-3---size: clamp(1.2rem, 2.6vw, 1.3rem);
+  --type---title-3---weight-regular: 600;
   --type---title-3---weight-emphasized: 800;
+  --type---title-3---letter-spacing: 0;
 
-  --type---headline---family: var(--type---title-3---family);
-  --type---headline---size: clamp(1rem, 2vw, 1.2rem);
-  --type---headline---weight: 500;
-  --type---headline---weight-regular: 500;
-  --type---headline---weight-emphasized: 900;
-  --type---headline---letter-spacing: -1px;
+  --type---title-4---family: 'Source Sans 3', system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
+  --type---title-4---size: clamp(1rem, 2vw, 1.1rem);
+  --type---title-4---weight-regular: 600;
+  --type---title-4---weight-emphasized: 800;
+  --type---title-4---letter-spacing: 0;
 
-  --type---label---family: 'Volkhov', Georgia, 'Times New Roman', serif;
-  --type---label---size: clamp(1.1rem, 2vw, 1.2rem);
-  --type---label---weight: 650;
-  --type---label---letter-spacing: 0.01em;
-
-  --type---body---family: var(--type---title-3---family);
+  /* Body (EB Garamond) */
+  --type---body---family: 'EB Garamond', Georgia, 'Times New Roman', serif;
   --type---body---size: 1rem;
-  --type---body---weight: 400;
+  --type---body---weight: 500;
   --type---body---line-height: 1.5;
-  --type---body---letter-spacing: -1px;
+  --type---body---letter-spacing: 0;
 
-  --type---subheadline---family: var(--type---title-3---family);
-  --type---subheadline---size: 0.8rem;
-  --type---subheadline---weight: 500;
-  --type---subheadline---weight-regular: 600;
-  --type---subheadline---weight-emphasized: 900;
-  --type---subheadline---line-height: 1.15;
-  --type---subheadline---letter-spacing: -0.5px;
+  /* Exported body style variables for other modules */
+  --body-regular-weight: 500;
+  --body-regular-size: 1rem;
+  --body-regular-letter-spacing: 0;
+
+  --body-italic-weight: 700;
+  --body-italic-style: italic;
+  --body-italic-letter-spacing: 0.01em; /* ~1% */
+
+  --body-emphasized-weight: 800;
+  --body-emphasized-letter-spacing: 0.01em; /* ~1% */
 
   /* Layout */
   --nav-height: 104px;
   --container-max-width: 1200px;
   --container-padding-x: 1rem;
-  --copy-block-gap: clamp(1.4rem, 3vw, 1.9rem);
+  --copy-block-gap: clamp(1.6rem, 3vw, 2.2rem);
   --copy-block-max-width: clamp(30rem, 68vw, 38rem);
   --layout-page-gap: clamp(3.5rem, 8vw, 5.5rem);
   --layout-page-padding-top: clamp(4rem, 10vw, 6rem);
@@ -85,7 +79,7 @@
   /* Theme defaults (white baseline) */
   --surface---main: #fcfcfc;
   --background---primary: #fcfcfc;
-  --background---secondary: #ebebeb;
+  --background---secondary: rgba(211, 211, 211, 0.6);
   --label---primary: #171717;
   --label---secondary: rgba(23, 23, 23, 0.7);
   --label---tertiary: rgba(23, 23, 23, 0.5);
@@ -113,7 +107,7 @@
     0px 30px 30px -15px rgba(0, 0, 0, 0.06), 0px 60px 60px -30px rgba(0, 0, 0, 0.06),
     0px 120px 120px -60px rgba(0, 0, 0, 0.05), 0px 240px 240px -120px rgba(0, 0, 0, 0.05);
 
-  font-size: 18px;
+  font-size: 19px;
   font-family: var(--type---body---family);
   line-height: var(--type---body---line-height);
   font-weight: var(--type---body---weight);
@@ -168,10 +162,10 @@ main {
 }
 
 h1 {
-  font-family: var(--type---large-title---family);
-  font-size: var(--type---large-title---size);
-  font-weight: var(--type---large-title---weight-emphasized);
-  letter-spacing: var(--type---large-title---letter-spacing);
+  font-family: var(--type---title-1---family);
+  font-size: var(--type---title-1---size);
+  font-weight: var(--type---title-1---weight-regular);
+  letter-spacing: var(--type---title-1---letter-spacing);
   text-box: trim-both cap alphabetic;
   color: var(--label---primary);
   text-wrap: balance;
@@ -179,36 +173,30 @@ h1 {
 }
 
 h2 {
-  font-family: var(--type---title-1---family);
-  font-size: var(--type---title-1---size);
-  font-weight: var(--type---title-1---weight-regular);
-  letter-spacing: var(--type---title-1---letter-spacing);
-  text-box: trim-both cap alphabetic;
-}
-
-h3 {
+  color : var(--label---secondary);
   font-family: var(--type---title-2---family);
   font-size: var(--type---title-2---size);
   font-weight: var(--type---title-2---weight-regular);
   letter-spacing: var(--type---title-2---letter-spacing);
-  line-height: var(--type---title-2---line-height);
+  line-height: var( --type---title-2---line-height);
+  text-box: trim-both cap alphabetic;
+}
+
+h3 {
+  font-family: var(--type---title-3---family);
+  font-size: var(--type---title-3---size);
+  font-weight: var(--type---title-3---weight-regular);
+  letter-spacing: var(--type---title-3---letter-spacing);
+  line-height: var(--type---title-3---line-height, 1);
   text-box: trim-both cap alphabetic;
   width: fit-content;
 }
 
 h4 {
-  font-family: var(--type---title-3---family);
-  font-size: var(--type---title-3---size);
-  font-weight: var(--type---title-3---weight-regular);
-  letter-spacing: var(--type---title-3---letter-spacing);
-  text-box: trim-both cap alphabetic;
-}
-
-h5 {
-  font-family: var(--type---headline---family);
-  font-size: var(--type---headline---size);
-  font-weight: var(--type---headline---weight);
-  letter-spacing: var(--type---headline---letter-spacing);
+  font-family: var(--type---title-4---family);
+  font-size: var(--type---title-4---size);
+  font-weight: var(--type---title-4---weight-regular);
+  letter-spacing: var(--type---title-4---letter-spacing);
   text-box: trim-both cap alphabetic;
 }
 
@@ -216,11 +204,50 @@ p {
   text-wrap: pretty;
   font-family: var(--type---body---family);
   font-size: var(--type---body---size);
-  font-weight: var(--type---body---weight);
-  letter-spacing: var(--type---body---letter-spacing);
+  font-weight: var(--body-regular-weight);
+  letter-spacing: var(--body-regular-letter-spacing);
   max-width: clamp(20rem, 80vw, 34.375rem);
-  margin-left: auto;
-  margin-right: auto;
+}
+
+/* Utility classes exposing body italic / emphasized styles for use in CSS modules
+   Other files should consume the --body-italic-* and --body-emphasized-* variables
+   via these helper classes or by reading the variables directly. */
+.text-body-italic {
+  font-family: var(--type---body---family);
+  font-weight: var(--body-italic-weight);
+  font-style: var(--body-italic-style);
+  letter-spacing: var(--body-italic-letter-spacing);
+}
+
+.text-body-emphasized {
+  font-family: var(--type---body---family);
+  font-weight: var(--body-emphasized-weight);
+  letter-spacing: var(--body-emphasized-letter-spacing);
+}
+
+/* h3/h4 interactive emphasis: regular by default, emphasized on hover/active or when given .emphasized/.is-active */
+h3 {
+  transition:
+    font-weight 120ms ease,
+    color 120ms ease;
+}
+
+h3:hover,
+h3.emphasized,
+h3.is-active {
+  font-weight: var(--type---title-3---weight-emphasized);
+}
+
+h4 {
+  transition:
+    font-weight 120ms ease,
+    color 120ms ease;
+}
+
+h4:hover,
+h4.emphasized,
+h4.is-active {
+  font-weight: var(--type---title-3---weight-emphasized);
 }
 
 img,

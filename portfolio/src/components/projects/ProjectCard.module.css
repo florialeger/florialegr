@@ -55,11 +55,8 @@
 }
 
 .category {
-  font-family: var(--type---label---family);
-  font-size: clamp(1.05rem, 2.6vw, 1.45rem);
-  font-style: italic;
-  font-weight: var(--type---label---weight);
-  letter-spacing: clamp(-0.04em, -0.2vw, -0.02em);
+  /* category is semantic body text; body italic is applied via the utility class */
+  font-size: clamp(1.05rem, 2.6vw, 1.15rem);
   color: var(--label---secondary);
   text-transform: none;
 }
@@ -71,10 +68,11 @@
   gap: var(--stack-gap-md);
 }
 
-.titleRow h3 {
+.titleRow h4 {
   margin: 0;
+  /* Use a larger title token for the card title while remaining an h4 element */
   font-family: var(--type---title-2---family);
-  font-size: clamp(2.2rem, 4.6vw, 2.9rem);
+  font-size: var(--type---title-2---size);
   font-weight: var(--type---title-2---weight-emphasized);
   letter-spacing: var(--type---title-2---letter-spacing);
   text-wrap: balance;
@@ -92,6 +90,13 @@
   transition:
     transform 200ms ease,
     background-color 200ms ease;
+}
+
+.iconImage {
+  display: inline-block;
+  width: 22px;
+  height: 22px;
+  object-fit: contain;
 }
 
 .card:not([data-locked='true']):hover .statusIcon,
@@ -144,7 +149,7 @@
     padding: clamp(1.5rem, 6vw, 2.2rem);
   }
 
-  .titleRow h3 {
+  .titleRow h4 {
     font-size: clamp(1.9rem, 7vw, 2.4rem);
   }
 

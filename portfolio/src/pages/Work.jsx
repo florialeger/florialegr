@@ -64,22 +64,25 @@ const ProjectListItem = ({ project, typeLabel, locked, targetState }) => {
   );
 
   return (
-    <Link to={`/work/${project.slug}`} state={targetState} className={styles.projectLink}>
-      <li className={styles.projectItem} ref={assignRef} data-locked={locked || undefined}>
-        <span className={styles.projectType}>{typeLabel}</span>
-        {locked ? (
-          <span className={`${styles.projectTitle} ${styles.locked}`.trim()}>
-            {project.title}
+    <li ref={assignRef} data-locked={locked || undefined}>
+      {locked ? (
+        <div className={`${styles.projectItem} ${styles.locked}`.trim()}>
+          <p className={styles.projectType + ' text-body-italic'}>{typeLabel}</p>
+          <div className={styles.projectTitleContent}>
+            <p>{project.title}</p>
             <LockIcon size={18} />
-          </span>
-        ) : (
-          <span to={`/work/${project.slug}`} state={targetState} className={styles.projectLink}>
-            <span>{project.title}</span>
-            <ArrowIcon size={18} />
-          </span>
-        )}
-      </li>
-    </Link>
+          </div>
+        </div>
+      ) : (
+        <Link to={`/work/${project.slug}`} state={targetState} className={styles.projectItem}>
+          <p className={styles.projectType + ' text-body-italic'}>{typeLabel}</p>
+          <div className={styles.projectTitleContent}>
+            <p>{project.title}</p>
+            {project.icon ? <img src={project.icon} alt="" className={styles.inlineIcon} /> : <ArrowIcon size={18} />}
+          </div>
+        </Link>
+      )}
+    </li>
   );
 };
 
@@ -126,7 +129,7 @@ const Work = () => {
   return (
     <div className={styles.workPage}>
       <Container className={`${styles.pageHeader} reveal-hero ${headerVisible ? 'is-visible' : ''}`}>
-        <h3>Recent projects</h3>
+        <h2>Recent projects</h2>
       </Container>
 
       <Container className={`${styles.listContainer} reveal-hero ${listVisible ? 'is-visible' : ''}`}>

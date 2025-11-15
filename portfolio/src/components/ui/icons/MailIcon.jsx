@@ -26,7 +26,7 @@ const MailIcon = ({ className = '', size = 20, title }) => {
         <path
           d={MAIL_ENVELOPE_PATH}
           fill="var(--fills---non--opaque)"
-          stroke="var(--label---primary)"
+          stroke="var(--label---secondary)"
           strokeWidth="2.5"
         />
 

@@ -2,6 +2,7 @@
 import { createContext, useCallback, useContext, useEffect, useMemo, useState } from 'react';
 import { fetchProjects, fetchPlaygrounds } from '@/services/api';
 import slugify from '@/utils/slugify';
+import { findIconForProject, resolveIconPath } from '@/utils/icons';
 
 const PortfolioContext = createContext(null);
 
@@ -71,10 +72,24 @@ const ensureArray = (value) => {
 const normalizeProject = (project) => {
   const created = project.created || project.date || null;
   const lockedValue = project.locked ?? project.isLocked;
+  const slug = slugify(project.slug || project.title);
+  const duration = project.duration ?? project.timeframe ?? '';
+  const explicitOngoing = typeof project.isOngoing !== 'undefined' ? parseBoolean(project.isOngoing) : undefined;
+  const isOngoing = explicitOngoing ?? /ongoing/i.test(String(duration));
+
+  // determine icon: prefer explicit field, otherwise try to find a matching icon asset
+  let iconUrl = null;
+  if (project.icon) {
+    iconUrl = resolveIconPath(project.icon);
+  } else {
+    const found = findIconForProject({ title: project.title, slug });
+    iconUrl = found || null;
+  }
+
   return {
     ...project,
-    id: project._id || project.id || project.slug,
-    slug: slugify(project.slug || project.title),
+    id: project._id || project.id || slug,
+    slug,
     created,
     createdAt: created ? new Date(created) : null,
     projectDuty: normalizeArray(project.projectDuty),
@@ -84,6 +99,8 @@ const normalizeProject = (project) => {
     secondaryImages: ensureArray(project.secondaryImages),
     type: normalizeType(project.type),
     isLocked: parseBoolean(lockedValue),
+    isOngoing,
+    icon: iconUrl,
   };
 };
 
@@ -176,6 +193,10 @@ export const PortfolioProvider = ({ children }) => {
 
   const sortedProjects = useMemo(() => {
     return [...projects].sort((a, b) => {
+      // ongoing projects first
+      if (a.isOngoing && !b.isOngoing) return -1;
+      if (!a.isOngoing && b.isOngoing) return 1;
+
       const dateA = a.createdAt ? a.createdAt.getTime() : 0;
       const dateB = b.createdAt ? b.createdAt.getTime() : 0;
       return dateB - dateA;

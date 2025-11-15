@@ -2,25 +2,22 @@
 import React, { createContext, useState, useEffect, useContext, useMemo } from 'react';
 import { themes } from '@assets/styles/theme'; // Make sure this path is correct
 
-// Define a default theme (e.g., the first one in your themes object)
-const defaultTheme = Object.keys(themes)[0] || 'default'; // Use 'default' or a specific theme name
+// Define a default theme. Temporarily force 'white' (light) theme so the site
+// stays in light mode while the theme switcher is hidden. To restore the
+// previous behavior (respecting localStorage), revert this to the original
+// implementation using Object.keys(themes)[0].
+const defaultTheme = 'white';
 
 // Create the context
 const ThemeContext = createContext(null);
 
 // Define the provider component
 export const ThemeProvider = ({ children }) => {
-  const [theme, setTheme] = useState(() => {
-    // 1. Check localStorage for a saved theme
-    try {
-      const savedTheme = window.localStorage.getItem('app-theme');
-      // Ensure the saved theme is actually one of your defined themes
-      return savedTheme && themes[savedTheme] ? savedTheme : defaultTheme;
-    } catch (error) {
-      console.error('Could not read theme from localStorage', error);
-      return defaultTheme;
-    }
-  });
+  // Temporarily ignore any previously saved theme and always start with
+  // the light `white` theme. This makes it easy to keep the site in light
+  // mode while the ThemeSwitcher is hidden. Revert if you want to restore
+  // persisted theme behavior.
+  const [theme, setTheme] = useState(() => defaultTheme);
 
   // Effect to apply the theme to the document root
   useEffect(() => {
@@ -45,13 +42,16 @@ export const ThemeProvider = ({ children }) => {
   }, [theme]); // Re-run only when theme changes
 
   // Effect to save the theme to localStorage
+  // Persist the forced light theme so reloading the page remains in light mode.
+  // You can remove this effect to stop persisting, or uncomment the block
+  // below to restore the original persisted behavior.
   useEffect(() => {
     try {
       window.localStorage.setItem('app-theme', theme);
     } catch (error) {
-      console.error('Could not save theme to localStorage', error);
+      // ignore
     }
-  }, [theme]); // Re-run only when theme changes
+  }, [theme]);
 
   // Memoize the context value to prevent unnecessary re-renders
   const contextValue = useMemo(

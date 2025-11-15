@@ -16,6 +16,13 @@ const formatCategoryLabel = (category) => {
 
 /* gradient blur overlay intentionally removed in favor of a CSS pseudo-element */
 
+const playgroundTitle = ["I've been passionate about drawing for eighteen years now."];
+
+const playgroundParagraphs = [
+  "Behind this rather simple word lies a world of incredibly talented artists whom I admire, even if I don't claim to be on their level. I try to progress at my own pace, doing my best. Although I rarely share my work on social networks, for lack of time and because that's not really my thing, I still enjoy drawing on my own whenever I get the chance.",
+  "Over the last four years, I feel I've really progressed, and without pretension, I'm pretty proud of that! But compared with the ease and speed I'd like to achieve, I've still got a long way to go. Until I reach those heights, here are my latest little creations that I'd like to show you! I hope you like them!",
+];
+
 const Playground = () => {
   const { playgrounds, uniquePlaygroundCategories, loading, error } = usePortfolio();
   const [selectedCategory, setSelectedCategory] = useState(ALL_CATEGORY);
@@ -134,27 +141,16 @@ const Playground = () => {
 
   return (
     <div className={styles.playgroundPage}>
-      {/* Fixed mirrored gradient blur anchored to the viewport bottom.
-          Render the same inner structure used by the navigation blur (six stacked layers)
-          so the masks and backdrop-filter settings are preserved. */}
       <Container className={`${styles.pageHeader} reveal-hero ${headerVisible ? 'is-visible' : ''}`}>
-        <p>
-          I've been passionate about drawing for eighteen years now. Behind this rather simple word lies a world of
-          incredibly talented artists whom I admire, even if I don't claim to be on their level. I try to progress at my
-          own pace, doing my best.
-        </p>
-        <p>
-          Although I rarely share my work on social networks, for lack of time and because that's not really my thing, I
-          still enjoy drawing on my own whenever I get the chance.
-        </p>
-        <p>
-          Over the last three years, I feel I've really progressed, and without pretension, I'm pretty proud of that!
-          But compared with the ease and speed I'd like to achieve, I've still got a long way to go.
-        </p>
-        <p>
-          Until I reach those heights, here are my latest little creations that I'd like to show you! I hope you like
-          them!
-        </p>
+        <Container className={`${styles.introContainer}`.trim()}>
+          {playgroundTitle.map((t) => (
+            <h2 key={t}>{t}</h2>
+          ))}
+
+          {playgroundParagraphs.map((p) => (
+            <p key={p}>{p}</p>
+          ))}
+        </Container>
       </Container>
 
       <Container className={styles.gridContainer}>

@@ -8,7 +8,6 @@
   height: var(--nav-height); /* Use the variable for the navigation height */
   padding: 2em 3em;
   transition: all 0.5s ease;
-  color: var(--label---primary);
 }
 
 .navContainer {
@@ -207,9 +206,6 @@
 }
 
 .navLabel {
-  font-size: calc(var(--type---title-2---size) * 0.55);
-  line-height: var(--type---title-2---line-height);
-  font-weight: var(--type---title-2---weight-regular);
   letter-spacing: 0.01em;
   text-transform: none;
   color: var(--label---secondary);
@@ -225,14 +221,14 @@
 
 .navItem.active .navLabel {
   color: var(--label---primary);
-  font-weight: var(--type---title-2---weight-emphasized, 600);
+  font-weight: var(--type---title-3---weight-emphasized);
 }
 
 .navLabel:hover,
 .navLabel:focus-visible,
 .hovered {
   color: var(--label---primary);
-  font-weight: var(--type---title-2---weight-emphasized, 600);
+  font-weight: var(--type---title-3---weight-emphasized);
   transform: translateY(-2px);
 }
 
@@ -260,12 +256,6 @@
 .mobileNavList .navLink {
   width: 100%;
   justify-content: center;
-}
-
-.mobileNavList .navLabel {
-  font-size: var(--type---title-2---size);
-  line-height: var(--type---title-2---line-height);
-  letter-spacing: var(--type---title-2---letter-spacing);
 }
 
 .backgroundSlider {
@@ -379,110 +369,4 @@
   z-index: 8;
   backdrop-filter: blur(64px);
   mask: linear-gradient(to top, rgba(0, 0, 0, 0) 87.5%, rgba(0, 0, 0, 1) 100%);
-}
-
-/* Bottom-oriented gradient blur (mirrored vertically from .gradientBlur)
-   Use this when you need the same layered blur at the viewport bottom.
-   The masks are inverted so the blur fades upward from the bottom edge. */
-.gradientBlurBottom {
-  position: fixed;
-  z-index: -1;
-  inset: auto 0 0 0; /* place at bottom */
-  height: calc(var(--nav-height));
-  background: var(--fills---linear-non--opaque);
-  pointer-events: none;
-}
-
-.gradientBlurBottom > div,
-.gradientBlurBottom::before,
-.gradientBlurBottom::after {
-  position: absolute;
-  inset: 0;
-}
-
-.gradientBlurBottom::before {
-  content: '';
-  z-index: 1;
-  backdrop-filter: blur(0.5px);
-  /* inverted mask: fade upward from bottom */
-  mask: linear-gradient(
-    to bottom,
-    rgba(0, 0, 0, 0) 0%,
-    rgba(0, 0, 0, 1) 12.5%,
-    rgba(0, 0, 0, 1) 25%,
-    rgba(0, 0, 0, 0) 37.5%
-  );
-}
-
-.gradientBlurBottom > div:nth-of-type(1) {
-  z-index: 2;
-  backdrop-filter: blur(1px);
-  mask: linear-gradient(
-    to bottom,
-    rgba(0, 0, 0, 0) 12.5%,
-    rgba(0, 0, 0, 1) 25%,
-    rgba(0, 0, 0, 1) 37.5%,
-    rgba(0, 0, 0, 0) 50%
-  );
-}
-
-.gradientBlurBottom > div:nth-of-type(2) {
-  z-index: 3;
-  backdrop-filter: blur(2px);
-  mask: linear-gradient(
-    to bottom,
-    rgba(0, 0, 0, 0) 25%,
-    rgba(0, 0, 0, 1) 37.5%,
-    rgba(0, 0, 0, 1) 50%,
-    rgba(0, 0, 0, 0) 62.5%
-  );
-}
-
-.gradientBlurBottom > div:nth-of-type(3) {
-  z-index: 4;
-  backdrop-filter: blur(4px);
-  mask: linear-gradient(
-    to bottom,
-    rgba(0, 0, 0, 0) 37.5%,
-    rgba(0, 0, 0, 1) 50%,
-    rgba(0, 0, 0, 1) 62.5%,
-    rgba(0, 0, 0, 0) 75%
-  );
-}
-
-.gradientBlurBottom > div:nth-of-type(4) {
-  z-index: 5;
-  backdrop-filter: blur(8px);
-  mask: linear-gradient(
-    to bottom,
-    rgba(0, 0, 0, 0) 50%,
-    rgba(0, 0, 0, 1) 62.5%,
-    rgba(0, 0, 0, 1) 75%,
-    rgba(0, 0, 0, 0) 87.5%
-  );
-}
-
-.gradientBlurBottom > div:nth-of-type(5) {
-  z-index: 6;
-  backdrop-filter: blur(16px);
-  mask: linear-gradient(
-    to bottom,
-    rgba(0, 0, 0, 0) 62.5%,
-    rgba(0, 0, 0, 1) 75%,
-    rgba(0, 0, 0, 1) 87.5%,
-    rgba(0, 0, 0, 0) 100%
-  );
-}
-
-.gradientBlurBottom > div:nth-of-type(6) {
-  z-index: 7;
-  backdrop-filter: blur(32px);
-  mask: linear-gradient(to bottom, rgba(0, 0, 0, 0) 75%, rgba(0, 0, 0, 1) 87.5%, rgba(0, 0, 0, 1) 100%);
-}
-
-.gradientBlurBottom::after {
-  content: '';
-  z-index: 8;
-  backdrop-filter: blur(64px);
-  mask: linear-gradient(to bottom, rgba(0, 0, 0, 0) 87.5%, rgba(0, 0, 0, 1) 100%);
 }

@@ -164,7 +164,7 @@ const NavLink = memo((props) => {
         aria-current={isActive ? 'page' : undefined}
         aria-label={ariaLabel}
       >
-        <span className={`${styles.navLabel} ${isHovered ? styles.hovered : ''}`}>{label}</span>
+        <h3 className={`${styles.navLabel} ${isHovered ? styles.hovered : ''}`}>{label}</h3>
       </Link>
     </li>
   );

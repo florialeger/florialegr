@@ -83,11 +83,17 @@ const WorkCard = memo(({ item, className, onHoverChange }) => {
       ref={shouldMagnetize ? setMagneticNode : undefined}
     >
       <div className={styles.inner} data-reveal-target>
-        <span className={styles.category}>{categoryLabel}</span>
+        <p className={styles.category + ' text-body-italic'}>{categoryLabel}</p>
         <div className={styles.titleRow}>
-          <h3>{item.title}</h3>
+          <h4>{item.title}</h4>
           <span className={styles.statusIcon} aria-hidden="true">
-            {item.isLocked ? <LockIcon size={22} /> : <ArrowIcon size={22} />}
+            {item.isLocked ? (
+              <LockIcon size={22} />
+            ) : item.icon ? (
+              <img src={item.icon} alt="" className={styles.iconImage} />
+            ) : (
+              <ArrowIcon size={22} />
+            )}
           </span>
         </div>
       </div>

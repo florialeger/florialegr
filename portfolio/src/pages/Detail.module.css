@@ -33,8 +33,9 @@
 .scrollArea {
   flex: 1;
   overflow-y: auto;
-  padding: calc(2 * var(--layout-page-padding-top)) var(--detail-scroll-padding)
-    calc(2 * var(--layout-page-padding-bottom));
+  padding: var(--layout-page-padding-top) var(--detail-scroll-padding)
+   var(--layout-page-padding-bottom);
+  gap: var(--stack-gap-lg);
   display: flex;
   flex-direction: column;
   scroll-behavior: smooth;
@@ -68,54 +69,20 @@
   display: none;
 }
 
-.backArrow {
-  position: fixed;
-  z-index: 9999;
-  /* will be positioned with inline style set from Detail.jsx */
-  display: inline-grid;
-  place-items: center;
-  --icon-button-size: 5rem;
-  border: none;
-  color: #171717; /* ensure arrow uses light label color */
-  padding: 0;
-}
-
-/* Smooth movement and sensible defaults for the fixed back arrow */
-.backArrow {
-  transition:
-    top 160ms ease,
-    left 160ms ease;
-  /* Default fallback position pinned to the left edge using safe-area inset */
-  left: calc(env(safe-area-inset-left, 0px) + 12px);
-  top: 2rem;
-}
-
-.backArrow :global(.icon) {
-  transition: transform 180ms ease;
-  transform-origin: center;
-}
-
-.backArrow:hover :global(.icon) {
-  transform: scale(1.06);
-}
-
-/* Textual back button that mirrors the Playground filter "active" label UI.
-   No entrance animation; always visible and sits above the gradient blur. */
 .backTextButton {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   padding: 0.6rem 1.8rem;
-  border-radius: var(--radius-pill);
+  border-radius: var(--radius-xs);
   border: none;
-  border-radius: var(--radius-sm);
   background: var(--background---secondary);
   cursor: pointer;
   color: #171717;
-  font-family: var(--type---headline---family);
-  font-size: var(--type---headline---size);
-  line-height: var(--type---headline---line-height);
-  font-weight: var(--type---headline---weight-regular);
+  font-family: var(--type---title-4---family);
+  font-size: var(--type---title-4---size);
+  line-height: var(--type---title-4---line-height);
+  font-weight: var(--type---title-4---weight-regular);
   text-transform: none;
   /* allow both color and transform animations for magnetic interactions */
   will-change: transform, color;
@@ -128,12 +95,6 @@
 .backTextButton:focus-visible {
   outline: 3px solid color-mix(in srgb, var(--label---primary) 20%, transparent);
   outline-offset: 6px;
-}
-
-@media (max-width: 640px) {
-  .backTextButton {
-    --font-size: calc(var(--type---headline---size) * 0.9);
-  }
 }
 
 /* Bottom bar (centered) that mirrors Playground.filterBar placement */
@@ -166,19 +127,6 @@
   z-index: 1; /* keep shell above the mirrored gradient */
 }
 
-.bottomBackdrop {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  /* Remove blurred decorative elements behind the bottom bar on Detail page.
-     The global/navigation blur is kept in the nav component; the Detail
-     page should not render additional backdrop-filter blurs that introduce
-     heavy repaints and visual jank. */
-  display: none;
-}
-
-/* Decorative blur spans removed for performance on Detail page. */
-
 .bottomList {
   position: relative;
   display: flex;
@@ -192,11 +140,6 @@
 }
 
 .header {
-  /* Make the header scroll with content (not sticky) */
-  position: static;
-  padding-top: var(--stack-gap-md);
-  padding-bottom: var(--stack-gap-sm);
-  margin-bottom: var(--stack-gap-sm);
   background: transparent;
   border-bottom: none;
   display: flex;
@@ -208,7 +151,6 @@
   width: min(100%, var(--detail-content-width));
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto;
-  gap: var(--stack-gap-sm);
   align-items: start;
 }
 
@@ -217,26 +159,24 @@
 }
 
 .headerPrimary {
-  display: grid;
-  gap: 0.2rem;
+  display: flex;
+  flex-direction: column;
   align-content: start;
 }
+
 .headerRow {
   display: flex;
   justify-content: start;
-  align-items: baseline; /* align title and duties on same baseline */
+  align-items: baseline;
   gap: 0.6rem;
 }
 
 .titleBlock {
   display: flex;
-  gap: 0.2rem;
 }
 
-.titleBlock h4 {
-  margin: 0;
+.titleBlock h3 {
   font-weight: var(--type---title-3---weight-emphasized);
-  font-size: var(--type---headline---size);
 }
 
 .metaColumn {
@@ -284,10 +224,12 @@
 }
 
 .badgeList li {
-  font-family: var(--type---label---family);
-  font-size: calc(var(--type---label---size));
-  font-weight: var(--type---label---weight);
-  letter-spacing: var(--type---label---letter-spacing);
+  /* Render badges as body italic text (use exported body variables) */
+  font-family: var(--type---body---family);
+  font-size: var(--type---title-3---size);
+  font-style: italic;
+  font-weight: var(--body-italic-weight);
+  letter-spacing: var(--body-italic-letter-spacing);
   color: var(--label---tertiary);
 }
 
@@ -311,7 +253,6 @@
 
 .supportList li {
   --stack-offset: clamp(-1.4rem, -3.8vw, -1.9rem);
-  --tilt: 5deg;
   margin: 0;
   padding: 0.35rem;
   border-radius: var(--radius-sm);
@@ -324,16 +265,12 @@
   margin-left: var(--stack-offset);
 }
 
-.supportList li:nth-child(even) {
-  --tilt: -5deg;
-}
 
 .supportList img {
-  width: 2.25rem;
-  height: 2.25rem;
+  width: 2rem;
+  height: 2rem;
   object-fit: contain;
   display: block;
-  transform: rotate(var(--tilt));
   transition:
     transform 220ms ease,
     filter 180ms ease,
@@ -341,7 +278,7 @@
 }
 
 .supportList li:hover img {
-  transform: rotate(var(--tilt)) translateY(-6px) scale(1.05);
+  transform: translateY(-6px) scale(1.05);
   filter: saturate(1.05);
 }
 
@@ -372,7 +309,6 @@
 .overview {
   width: min(100%, var(--detail-content-width));
   margin: 0 auto;
-  padding-bottom: var(--stack-gap-lg);
 }
 
 .overviewInner {
@@ -385,8 +321,7 @@
 .context {
   display: grid;
   width: 100%;
-  margin-top: var(--copy-block-gap);
-  gap: var(--copy-block-gap);
+  gap: calc(var(--copy-block-gap) * 0.5);
 }
 
 .context p {
@@ -488,14 +423,13 @@
 
 @media (max-width: 900px) {
   .scrollArea {
-    margin: 0 var(--stack-gap-sm);
+    margin: var(--stack-gap-md)
   }
 
   .header {
     position: static;
     margin: 0;
     padding: 0 0 var(--stack-gap-md);
-    border-bottom: 1px solid color-mix(in srgb, var(--label---primary) 6%, transparent);
     box-shadow: none;
   }
 
@@ -539,11 +473,9 @@
   }
 
   .headerRow {
-    flex-direction: column;
-    align-items: flex-start;
     gap: 0.3rem;
   }
   .scrollArea {
-    padding: calc(2 * var(--layout-page-padding-top)) 0 var(--stack-gap-sm);
+    padding:  var(--layout-page-padding-top) 0 var(--stack-gap-sm);
   }
 }

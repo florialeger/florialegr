@@ -19,6 +19,7 @@
     "@emotion/styled": "^11.14.0",
     "@mui/material": "^7.0.2",
     "framer-motion": "^12.6.5",
+    "react-router-dom": "^6.18.0",
     "gridfs-stream": "^1.1.1",
     "gsap": "^3.13.0",
     "mongodb": "^6.15.0",

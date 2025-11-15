@@ -5,7 +5,8 @@ import { Outlet, useLocation } from 'react-router-dom';
 import ClientBody from '@/components/layout/ClientBody';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
-import ThemeSwitcher from '@/components/ui/ThemeSwitcher';
+// ThemeSwitcher temporarily hidden. Uncomment import below to re-enable the theme picker.
+// import ThemeSwitcher from '@/components/ui/ThemeSwitcher';
 import { ThemeProvider } from './contexts/ThemeContext';
 import { PortfolioProvider } from './contexts/PortfolioContext';
 import SiteEntryAnimation from '@/components/loaders/SiteEntryAnimation';
@@ -44,7 +45,9 @@ function App() {
               </ErrorBoundary>
             </main>
             {!isDetailRoute && <Footer />}
-            {!hideThemeSwitcher && <ThemeSwitcher />}
+            {/* ThemeSwitcher temporarily hidden to keep the site in light mode.
+              To re-enable, uncomment the import at the top and this line:
+              {!hideThemeSwitcher && <ThemeSwitcher />} */}
           </div>
         </ClientBody>
       </PortfolioProvider>

@@ -7,7 +7,8 @@ import { usePortfolio } from '@/contexts/PortfolioContext';
 import formatDate from '@/utils/formatDate';
 import { resolveSupportIcons } from '@/utils/supportIcons';
 import { resolveMediaPath } from '@/utils/media';
-import ThemeSwitcher from '@/components/ui/ThemeSwitcher';
+// ThemeSwitcher temporarily hidden. Uncomment import below to re-enable the theme picker.
+// import ThemeSwitcher from '@/components/ui/ThemeSwitcher';
 import styles from './Detail.module.css';
 import useMagneticEffect from '@/hooks/useMagneticEffect';
 import Media from '@/components/ui/Media';
@@ -204,7 +205,7 @@ const Detail = ({ variant }) => {
               <div className={styles.headerPrimary}>
                 <div className={styles.headerRow}>
                   <div className={styles.titleBlock}>
-                    <h4 ref={titleRef}>{data.title}</h4>
+                    <h3 ref={titleRef}>{data.title}</h3>
                   </div>
                   {duties.length > 0 && (
                     <ul className={styles.badgeList}>
@@ -225,16 +226,16 @@ const Detail = ({ variant }) => {
                 )}
               </div>
               <div className={styles.metaColumn}>
-                {/* Theme wheel - keep available on the Detail page */}
-                <ThemeSwitcher />
+                {/* Theme wheel temporarily hidden to force light mode.
+                  To re-enable, uncomment the import at the top and this component:
+                  <ThemeSwitcher /> */}
                 <dl className={styles.metaList}>
                   <div className={styles.metaItem}>
-                    <dt>Created</dt>
                     <dd>{createdLabel}</dd>
                   </div>
                   {durationLabel && (
                     <div className={styles.metaItem}>
-                      <dt>Duration</dt>
+                      <dt>duration</dt>
                       <dd>{durationLabel}</dd>
                     </div>
                   )}

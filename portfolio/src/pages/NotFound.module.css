@@ -18,10 +18,10 @@
 }
 
 .title {
-  font-family: var(--type---large-title---family);
+  font-family: var(--type---title-1---family);
   font-size: clamp(3rem, 8vw, 4.5rem);
-  font-weight: var(--type---large-title---weight-emphasized);
-  line-height: var(--type---large-title---line-height);
+  font-weight: var(--type---title-1---weight-emphasized);
+  line-height: var(--type---title-1---line-height, 1);
   letter-spacing: -0.02em;
   color: var(--label---primary);
   margin: 0;
