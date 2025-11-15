@@ -127,8 +127,11 @@
   margin: 0.55rem 0.8rem;
   padding: 0.5rem 1.2rem;
   list-style: none;
-  border-radius: var(--radius-xs);
-  background: var(--background---secondary);
+  border-radius: var(--radius-sm);
+  background: var(--fills---secondary);
+  backdrop-filter: blur(10px);
+    border: 2px solid var(  --separator---white-20);
+
   z-index: 1;
   /* Prepare for magnetic transform driven by JS */
   will-change: transform;

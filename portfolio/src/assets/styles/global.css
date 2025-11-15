@@ -79,13 +79,13 @@
   /* Theme defaults (white baseline) */
   --surface---main: #fcfcfc;
   --background---primary: #fcfcfc;
-  --background---secondary: rgba(211, 211, 211, 0.6);
+  --background---secondary: #d3d3d347;
   --label---primary: #171717;
   --label---secondary: rgba(23, 23, 23, 0.7);
   --label---tertiary: rgba(23, 23, 23, 0.5);
   --label---inverted: rgba(0, 0, 0, 0.9);
   --fills---primary: #c7c7c7;
-  --fills---secondary: #bcbcbc;
+  --fills---secondary: rgba(228, 228, 228, 0.6);
   --fills---non--opaque: rgba(255, 255, 255, 0.5);
   --fills---linear-non--opaque: linear-gradient(180deg, var(--surface---main) 0%, rgba(252, 252, 252, 0) 100%);
   --separator---black-10: rgba(0, 0, 0, 0.1);

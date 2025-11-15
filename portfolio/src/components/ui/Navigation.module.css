@@ -262,7 +262,8 @@
   position: absolute;
   top: 0;
   left: 0;
-  background: var(--background---secondary);
+  background: var(--fills---secondary);
+    backdrop-filter: blur(10px);
   border-radius: var(--radius-xs);
   z-index: 0;
   transform-origin: center;

@@ -74,9 +74,11 @@
   align-items: center;
   justify-content: center;
   padding: 0.6rem 1.8rem;
-  border-radius: var(--radius-xs);
+  border-radius: var(--radius-sm);
   border: none;
-  background: var(--background---secondary);
+  background: var(--fills---secondary);
+  backdrop-filter: blur(10px);
+  border: 2px solid var(  --separator---white-20);
   cursor: pointer;
   color: #171717;
   font-family: var(--type---title-4---family);
@@ -236,7 +238,7 @@
 .supportList {
   display: flex;
   flex-wrap: wrap;
-  gap: 0;
+  gap: var(--stack-gap-sm);
   margin: 0;
   padding: 0;
   list-style: none;

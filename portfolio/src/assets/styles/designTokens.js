@@ -57,7 +57,7 @@ export const palette = {
     labelTertiary: 'rgba(23, 23, 23, 0.5)',
     labelAccent: 'rgba(0, 0, 0, 0.90)',
     fillPrimary: '#C7C7C7',
-    fillSecondary: 'rgba(211, 211, 211, 0.6)',
+    fillSecondary: 'rgba(228, 228, 228, 0.6)',
     fillSemiTransparent: 'rgba(255, 255, 255, 0.5)',
     fillTransparent: 'linear-gradient(180deg, rgba(252, 252, 252, 1) 0%, rgba(252, 252, 252, 0.0) 100%)',
     separatorDark: 'rgba(0, 0, 0, 0.1)',
