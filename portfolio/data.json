@@ -476,9 +476,7 @@
     },
     {
       "title": "Bordeaux Inp",
-      "context": [
-        ""
-      ],
+      "context": [""],
       "created": "2025-05-27",
       "support": ["figma"],
       "primaryImage": ["inp-primary.jpg"],
@@ -497,6 +495,47 @@
       "link": [
         { "label": "View Figma", "url": "https://www.figma.com/community/file/1570704562718253153/bordeaux-inp-icones" }
       ]
+    },
+    {
+      "title": "Icones replica",
+      "context": [""],
+      "created": "2025-10-15",
+      "support": ["figma"],
+      "primaryImage": ["icones-replica-primary.jpg"],
+      "type": "ux_ui",
+      "secondaryImages": [
+        "icones-replica-second1.jpg",
+        "icones-replica-second2.jpg",
+        "icones-replica-second3.jpg",
+        "icones-replica-second4.jpg",
+        "icones-replica-second5.jpg",
+        "icones-replica-second6.jpg",
+        "icones-replica-second7.jpg",
+        "icones-replica-second8.jpg",
+        "icones-replica-second9.jpg"
+      ],
+      "slug": "icones-replica",
+      "link": []
+    },
+    {
+      "title": "Icones",
+      "context": [""],
+      "created": "2025-11-01",
+      "support": ["figma"],
+      "primaryImage": ["icones-primary.jpg"],
+      "type": "ux_ui",
+      "secondaryImages": [
+        "icones-second1.jpg",
+        "icones-second2.jpg",
+        "icones-second3.jpg",
+        "icones-second4.jpg",
+        "icones-second5.jpg",
+        "icones-second6.jpg",
+        "icones-second7.jpg",
+        "icones-second8.jpg"
+      ],
+      "slug": "icones",
+      "link": []
     },
     {
       "title": "Hands",
