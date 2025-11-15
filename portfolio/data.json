@@ -7,7 +7,7 @@
         "I also prepared a tutorial to explore all the main features of Figma.  Then, to let their creativity speak, we offered them to model a music listening app, and given the enthusiasm and investment that students had, it was really worth being fully invested in this activity and internship, I am still very grateful to them! "
       ],
       "created": "2024-06-26",
-      "duration": "1",
+      "duration": "1 weeks",
       "projectDuty": ["UX/UI Design"],
       "support": ["figma"],
       "primaryImage": ["figma-primary.jpg"],
@@ -130,7 +130,7 @@
         "I cannot express how grateful I am to them for giving me the opportunity to participate in such a significant project. I owe them a whole lot!"
       ],
       "created": "2025-02-13",
-      "duration": "3",
+      "duration": "2",
       "projectDuty": ["Logo Design"],
       "support": ["figma"],
       "primaryImage": ["krystal-primary.jpg"],
@@ -173,7 +173,7 @@
         "I had the opportunity to create a logo for the ENSMAC BDE campaigns, which was used on various goodies. My friends already had a very clear idea of what they wanted, they even gave me sketches, which allowed me to advance infinitely faster in the research phase! This project gave me the opportunity to develop my artistic direction and creativity while meeting expectations and deadlines. Thank you to my friends from ENSMAC for giving me such an opportunity, it was so much fun!"
       ],
       "created": "2024-02-15",
-      "duration": "1",
+      "duration": "2 weeks",
       "projectDuty": ["Logo Design"],
       "support": ["procreate"],
       "primaryImage": ["boucaniers-primary.jpg"],
@@ -193,7 +193,7 @@
       "title": "Choralamar",
       "context": "The Choir at my school (ENSC) asked me to design a logo for their Club, and I really appreciated the creative freedom they gave me, as well as the trust they placed in me. Exploring a logo with bright colours was a particularly interesting experience!",
       "created": "2024-02-20",
-      "duration": "1",
+      "duration": "3 weeks",
       "projectDuty": ["Logo Design"],
       "support": ["procreate"],
       "primaryImage": ["choralamar-primary.jpg"],
@@ -236,7 +236,7 @@
       "title": "Dyspraxia",
       "context": [""],
       "created": "2025-03-21",
-      "duration": "",
+      "duration": "1 weeks",
       "projectDuty": ["Poster Design"],
       "support": ["figma"],
       "primaryImage": ["dyspraxia-primary.jpg"],
@@ -312,7 +312,7 @@
       "duration": "3",
       "projectDuty": "UX/UI Design",
       "support": ["figma"],
-      "primaryImage": ["", ""],
+      "primaryImage": [""],
       "type": "ux_ui",
       "secondaryImages": ["", ""],
       "link": [""],
@@ -326,7 +326,7 @@
       "duration": "ongoing",
       "projectDuty": "Brand Design",
       "support": ["paper", "figma"],
-      "primaryImage": ["", ""],
+      "primaryImage": [""],
       "type": "ux_ui",
       "secondaryImages": ["", ""],
       "link": [""],
@@ -505,7 +505,7 @@
     {
       "title": "Icones replica",
       "context": [""],
-      "created": "2025-10-15",
+      "created": "2025-10-26",
       "support": ["figma"],
       "primaryImage": ["icones-replica-primary.jpg"],
       "type": "ux_ui",
@@ -526,7 +526,7 @@
     {
       "title": "Icones",
       "context": [""],
-      "created": "2025-11-01",
+      "created": "2025-11-04",
       "support": ["figma"],
       "primaryImage": ["icones-primary.jpg"],
       "type": "ux_ui",
@@ -546,7 +546,7 @@
     {
       "title": "Hands",
       "context": [],
-      "created": "2024-06",
+      "created": "2024-06-15",
       "support": ["procreate"],
       "primaryImage": ["hands-primary.jpg"],
       "type": "illustration",
@@ -567,9 +567,9 @@
       "link": []
     },
     {
-      "title": "Sketchbook 01",
+      "title": "Sketchbook",
       "context": [],
-      "created": "2025-02",
+      "created": "2025-02-02",
       "support": ["paper"],
       "primaryImage": ["trad1-primary.jpg"],
       "type": "illustration",
@@ -590,9 +590,9 @@
       "link": []
     },
     {
-      "title": "sketchbook 02",
+      "title": "Sketchbook",
       "context": [],
-      "created": "2025-03",
+      "created": "2025-03-01",
       "support": ["paper"],
       "primaryImage": ["trad2-primary.jpg"],
       "type": "illustration",
@@ -613,9 +613,9 @@
       "link": []
     },
     {
-      "title": "Sketchbook 03",
+      "title": "Sketchbook",
       "context": [],
-      "created": "2025-03",
+      "created": "2025-03-14",
       "support": ["paper"],
       "primaryImage": ["trad3-primary.jpg"],
       "type": "illustration",
@@ -637,9 +637,9 @@
       "link": []
     },
     {
-      "title": "planche 01",
+      "title": "Board",
       "context": [],
-      "created": "2023-08",
+      "created": "2023-08-01",
       "support": ["procreate"],
       "primaryImage": ["planche1-primary.jpg"],
       "type": "illustration",
@@ -653,13 +653,13 @@
         "planche1-second7.jpg",
         "planche1-second8.jpg"
       ],
-      "slug": "planche-01",
+      "slug": "board-01",
       "link": []
     },
     {
-      "title": "planche 02",
+      "title": "Board",
       "context": [],
-      "created": "2023-08",
+      "created": "2023-08-15",
       "support": ["procreate"],
       "primaryImage": ["planche2-primary.jpg"],
       "type": "illustration",
@@ -674,13 +674,13 @@
         "planche2-second8.jpg",
         "planche2-second9.jpg"
       ],
-      "slug": "planche-02",
+      "slug": "board-02",
       "link": []
     },
     {
-      "title": "planche 03",
+      "title": "Board",
       "context": [],
-      "created": "2024-07",
+      "created": "2024-07-10",
       "support": ["procreate"],
       "primaryImage": ["planche3-primary.jpg"],
       "type": "illustration",
@@ -695,13 +695,13 @@
         "planche3-second8.jpg",
         "planche3-second9.jpg"
       ],
-      "slug": "planche-03",
+      "slug": "board-03",
       "link": []
     },
     {
-      "title": "planche 04",
+      "title": "Board",
       "context": [],
-      "created": "2025-02",
+      "created": "2025-02-26",
       "support": ["procreate"],
       "primaryImage": ["planche4-primary.jpg"],
       "type": "illustration",
@@ -715,13 +715,13 @@
         "planche4-second7.jpg",
         "planche4-second8.jpg"
       ],
-      "slug": "planche-04",
+      "slug": "board-04",
       "link": []
     },
     {
       "title": "ENSC",
       "context": [],
-      "created": "2024-12",
+      "created": "2024-12-12",
       "support": ["procreate"],
       "primaryImage": ["ensc-primary.jpg"],
       "type": "illustration",
@@ -820,6 +820,165 @@
       ],
       "slug": "mode",
       "link": []
-    }
+    },
+    {
+      "title": "Sketchbook",
+      "context": [],
+      "created": "2025-06-21",
+      "support": ["paper"],
+      "primaryImage": ["trad4-primary.jpg"],
+      "type": "illustration",
+      "secondaryImages": [
+        "trad4-second1.jpg",
+        "trad4-second2.jpg",
+        "trad4-second3.jpg",
+        "trad4-second4.jpg",
+        "trad4-second5.jpg",
+        "trad4-second6.jpg",
+        "trad4-second7.jpg",
+        "trad4-second8.jpg",
+        "trad4-second9.jpg"
+      ],
+      "slug": "sketchbook-04",
+      "link": []
+    },
+    {
+      "title": "Sketchbook",
+      "context": [],
+      "created": "2025-07-31",
+      "support": ["paper"],
+      "primaryImage": ["trad5-primary.jpg"],
+      "type": "illustration",
+      "secondaryImages": [
+        "trad5-second1.jpg",
+        "trad5-second2.jpg",
+        "trad5-second3.jpg",
+        "trad5-second4.jpg",
+        "trad5-second5.jpg",
+        "trad5-second6.jpg",
+        "trad5-second7.jpg",
+        "trad5-second8.jpg",
+        "trad5-second9.jpg"
+      ],
+      "slug": "sketchbook-05",
+      "link": []
+    },
+    {
+      "title": "Stylized portrait",
+      "context": [],
+      "created": "2025-09-14",
+      "support": ["procreate"],
+      "primaryImage": ["stylized-portrait-primary.jpg"],
+      "type": "illustration",
+      "secondaryImages": [
+        "stylized-portrait-second1.jpg",
+        "stylized-portrait-second2.jpg",
+        "stylized-portrait-second3.jpg",
+        "stylized-portrait-second4.jpg",
+        "stylized-portrait-second5.jpg"
+      ],
+      "slug": "stylized-portrait",
+      "link": []
+    },
+    {
+      "title": "Realistic portrait",
+      "context": [],
+      "created": "2025-09-02",
+      "support": ["procreate"],
+      "primaryImage": ["realistic-portrait-primary.jpg"],
+      "type": "illustration",
+      "secondaryImages": [
+        "realistic-portrait-second1.jpg",
+        "realistic-portrait-second2.jpg",
+        "realistic-portrait-second3.jpg"
+      ],
+      "slug": "realistic-portrait",
+      "link": []
+    },
+    {
+      "title": "Mode",
+      "context": [],
+      "created": "2025-04-15",
+      "support": ["procreate"],
+      "primaryImage": ["mode-2-primary.jpg"],
+      "type": "illustration",
+      "secondaryImages": [
+        "mode-2-second1.jpg",
+        "mode-2-second2.jpg",
+        "mode-2-second3.jpg",
+        "mode-2-second4.jpg",
+        "mode-2-second5.jpg",
+        "mode-2-second6.jpg"
+      ],
+      "slug": "mode-02",
+      "link": []
+    },
+    {
+      "title": "Stylized study",
+      "context": [],
+      "created": "2025-10-04",
+      "support": ["procreate"],
+      "primaryImage": ["stylized-study-primary.jpg"],
+      "type": "illustration",
+      "secondaryImages": ["stylized-study-second1.jpg"],
+      "slug": "stylized-study",
+      "link": []
+    },
+    {
+      "title": "Background study",
+      "context": [],
+      "created": "2025-07",
+      "support": ["procreate"],
+      "primaryImage": ["background-study-primary.jpg"],
+      "type": "illustration",
+      "secondaryImages": [
+        "background-study-second1.jpg",
+        "background-study-second2.jpg",
+        "background-study-second3.jpg",
+        "background-study-second4.jpg",
+        "background-study-second5.jpg",
+        "background-study-second6.jpg",
+        "background-study-second7.jpg",
+        "background-study-second8.jpg"
+      ],
+      "slug": "background-study",
+      "link": []
+    },
+      {
+        "title": "Expression study",
+        "context": [],
+        "created": "2025-08",
+        "support": ["procreate"],
+        "primaryImage": ["expression-study-primary.jpg"],
+        "type": "illustration",
+        "secondaryImages": [
+          "expression-study-second1.jpg",
+          "expression-study-second2.jpg",
+          "expression-study-second3.jpg",
+          "expression-study-second4.jpg",
+          "expression-study-second5.jpg",
+          "expression-study-second6.jpg"
+        ],
+        "slug": "expression-study",
+        "link": []
+      },
+        {
+          "title": "Shiho DecTo",
+          "context": [],
+          "created": "2025-03-26",
+          "support": ["procreate"],
+          "primaryImage": ["shiho-primary.jpg"],
+          "type": "illustration",
+          "secondaryImages": [
+            "shiho-second1.jpg",
+            "shiho-second2.jpg",
+            "shiho-second3.jpg",
+            "shiho-second4.jpg",
+            "shiho-second5.jpg",
+            "shiho-second6.jpg"
+          ],
+          "slug": "shiho",
+          "link": []
+        }
   ]
 }

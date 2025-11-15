@@ -5,6 +5,7 @@ import Button from '@/components/ui/Button';
 import { usePortfolio } from '@/contexts/PortfolioContext';
 // useBlurReveal removed
 import formatDate from '@/utils/formatDate';
+import formatDuration from '@/utils/formatDuration';
 import { resolveSupportIcons } from '@/utils/supportIcons';
 import { resolveMediaPath } from '@/utils/media';
 // ThemeSwitcher temporarily hidden. Uncomment import below to re-enable the theme picker.
@@ -170,8 +171,15 @@ const Detail = ({ variant }) => {
     return null;
   }
 
-  const createdLabel = data.created ? formatDate(data.created) : 'Unknown';
-  const durationLabel = data.duration ? `${data.duration} ${Number(data.duration) > 1 ? 'months' : 'month'}` : null;
+  // For works we show the precise launch date (month + day + year when available).
+  // For playgrounds we only want month + year (no precise day), even if a full date exists.
+  const createdLabel = data.created
+    ? variant === 'work'
+      ? formatDate(data.created)
+      : formatDate(data.created, 'en-US', { monthYearOnly: true })
+    : 'Unknown';
+
+  const durationLabel = data.duration ? formatDuration(data.duration) : null;
   return (
     <div className={styles.detailPage}>
       {/* Navigation gradient blur intentionally not rendered on Detail page. */}
@@ -230,9 +238,16 @@ const Detail = ({ variant }) => {
                   To re-enable, uncomment the import at the top and this component:
                   <ThemeSwitcher /> */}
                 <dl className={styles.metaList}>
-                  <div className={styles.metaItem}>
-                    <dd>{createdLabel}</dd>
-                  </div>
+                  {variant === 'work' ? (
+                    <div className={styles.metaItem}>
+                      <dt>launch</dt>
+                      <dd>{createdLabel}</dd>
+                    </div>
+                  ) : (
+                    <div className={styles.metaItem}>
+                      <dd>{createdLabel}</dd>
+                    </div>
+                  )}
                   {durationLabel && (
                     <div className={styles.metaItem}>
                       <dt>duration</dt>
