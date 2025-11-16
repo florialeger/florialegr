@@ -7,7 +7,7 @@
   background: var(--background---primary);
   color: var(--label---primary);
   --work-content-max: 1200px;
-  --work-col-min: 180px;
+  --work-col-min: 145px;
   --work-max-columns: 5;
   /* center the inner containers and make them use the page-local max width */
   align-items: center;
