@@ -14,15 +14,32 @@ import figmaIcon from '@/assets/icons/Figma.png';
 import procreateIcon from '@/assets/icons/Procreate.png';
 import vscodeIcon from '@/assets/icons/Visual Studio.png';
 import useMagneticEffect from '@/hooks/useMagneticEffect';
+import InlineIcon from '@/components/ui/InlineIcon';
 import styles from './About.module.css';
+import inlineIconStyles from '@/components/ui/InlineIcon.module.css';
 
 const aboutTitle = [
   "I'm currently a final-year student at ENSC, a cognitive engineering school in Bordeaux, with a strong passion for UI and UX design, particularly in accessibility.",
 ];
 
 const aboutParagraphs = [
-  "My background has provided me with a solid foundation in user-friendly interface design. I've been drawing for nearly twenty years, drawing inspiration from talented artists to enhance my skills. While I mostly create for myself, I find joy in making art for others. Although my client projects have been informal, they taught me about managing deadlines and handling feedback.",
-  "Lately, I've become increasingly interested in web design, believing my drawing skills will be beneficial in this area. I enjoy exploring new design projects independently and particularly love working with CSS and styling web pages. Outside my academic and artistic pursuits, I've played volleyball for nine years, which has instilled the importance of teamwork and pushing personal limits. I also have a keen interest in photography, videography, and animation, which helps me expand my creative horizons.",
+  <>
+    My background has provided me with a solid foundation in user-friendly interface design. I've been{' '}
+    <span className={inlineIconStyles.inlineWrap}>
+      <InlineIcon name="draw" size="text" />
+      <span className={inlineIconStyles.emphasized}>drawing for nearly twenty years,</span>
+    </span>
+    drawing inspiration from talented artists to enhance my skills. While I mostly create for myself, I find joy in
+    making art for others. Although my client projects have been informal, they taught me about managing deadlines and
+    handling feedback.
+  </>,
+  <>
+    Lately, I've become increasingly interested in web design, believing my drawing skills will be beneficial in this
+    area. I enjoy exploring new design projects independently and particularly love working with CSS and styling web
+    pages. Outside my academic and artistic pursuits, I've played volleyball for nine years, which has instilled the
+    importance of teamwork and pushing personal limits. I also have a keen interest in photography, videography, and
+    animation, which helps me expand my creative horizons.
+  </>,
 ];
 
 const downloadLinks = [

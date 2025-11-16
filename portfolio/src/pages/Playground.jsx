@@ -20,7 +20,7 @@ const playgroundTitle = ["I've been passionate about drawing for eighteen years 
 
 const playgroundParagraphs = [
   "Behind this rather simple word lies a world of incredibly talented artists whom I admire, even if I don't claim to be on their level. I try to progress at my own pace, doing my best. Although I rarely share my work on social networks, for lack of time and because that's not really my thing, I still enjoy drawing on my own whenever I get the chance.",
-  "Over the last four years, I feel I've really progressed, and without pretension, I'm pretty proud of that! But compared with the ease and speed I'd like to achieve, I've still got a long way to go. Until I reach those heights, here are my latest little creations that I'd like to show you! I hope you like them!",
+  "Over the last four years, I feel I've really progressed, and without pretension, I'm pretty proud of that! But compared with the ease and speed I'd like to achieve, I've still got a long way to go. Until I reach those heights, here are my latest little creations that I'd like to show you, I hope you like them.",
 ];
 
 const Playground = () => {

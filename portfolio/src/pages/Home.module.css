@@ -33,7 +33,7 @@
 }
 
 .emailText {
-   font-weight: var(--body-emphasized-weight);
+  font-weight: var(--body-emphasized-weight);
   letter-spacing: var(--body-emphasized-letter-spacing);
   display: inline-block;
 }

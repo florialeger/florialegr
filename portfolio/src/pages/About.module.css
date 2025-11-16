@@ -6,9 +6,6 @@
   color: var(--label---primary);
 }
 
-.aboutPage p {
-  color: var(--label---secondary);
-}
 
 .contactSection {
   padding-top: var(--stack-gap-lg);
@@ -275,3 +272,5 @@
     justify-content: center;
   }
 }
+
+

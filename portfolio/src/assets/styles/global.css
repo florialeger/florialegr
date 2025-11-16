@@ -13,7 +13,7 @@
   --type---title-2---weight-regular: 700;
   --type---title-2---weight-emphasized: 700;
   --type---title-2---letter-spacing: 0;
-  --type---title-2---line-height: 1;
+  --type---title-2---line-height: 1.2;
 
   --type---title-3---family: 'Source Sans 3', system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
   --type---title-3---size: clamp(1.2rem, 2.6vw, 1.3rem);
