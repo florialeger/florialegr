@@ -164,12 +164,16 @@ const Detail = ({ variant }) => {
     return null;
   }
 
-  // For works we show the precise launch date (month + day + year when available).
-  // For playgrounds we only want month + year (no precise day), even if a full date exists.
+  // For works we normally show the precise launch date (month + day + year when available).
+  // For playgrounds we normally show month + year only. However, when a project is ongoing
+  // we want the label to read "created" and show the full created date (start date).
+  const isOngoing = Boolean(data.isOngoing);
   const createdLabel = data.created
-    ? variant === 'work'
+    ? isOngoing
       ? formatDate(data.created)
-      : formatDate(data.created, 'en-US', { monthYearOnly: true })
+      : variant === 'work'
+        ? formatDate(data.created)
+        : formatDate(data.created, 'en-US', { monthYearOnly: true })
     : 'Unknown';
 
   const durationLabel = data.duration ? formatDuration(data.duration) : null;
@@ -179,28 +183,18 @@ const Detail = ({ variant }) => {
 
       {/* Bottom bar that contains the centered Back control (mirrors Playground filter placement). */}
       <div className={styles.bottomBar} role="toolbar" aria-label="Navigation">
-        <div className={styles.bottomShell}>
-          <div className={styles.bottomBackdrop} aria-hidden="true">
-            <span />
-            <span />
-            <span />
-          </div>
-          <div className={styles.bottomList}>
-            <button
-              ref={setBackMag}
-              type="button"
-              onClick={handleClose}
-              className={styles.backTextButton}
-              aria-label="Back"
-              title="Back"
-            >
-              Back
-            </button>
-          </div>
-        </div>
+        <button
+          ref={setBackMag}
+          type="button"
+          onClick={handleClose}
+          className={styles.backTextButton}
+          aria-label="Back"
+          title="Back"
+        >
+          Back
+        </button>
       </div>
       <article className={styles.card}>
-        <div className={styles.scrollArea}>
           <header className={styles.header} data-condensed={isHeaderCondensed}>
             <div className={styles.headerInner}>
               <div className={styles.headerPrimary}>
@@ -231,7 +225,13 @@ const Detail = ({ variant }) => {
                   To re-enable, uncomment the import at the top and this component:
                   <ThemeSwitcher /> */}
                 <dl className={styles.metaList}>
-                  {variant === 'work' ? (
+                  {/* If the project is ongoing, show "created" (start date) instead of "launch" */}
+                  {isOngoing ? (
+                    <div className={styles.metaItem}>
+                      <dt>started</dt>
+                      <dd>{createdLabel}</dd>
+                    </div>
+                  ) : variant === 'work' ? (
                     <div className={styles.metaItem}>
                       <dt>launch</dt>
                       <dd>{createdLabel}</dd>
@@ -241,11 +241,19 @@ const Detail = ({ variant }) => {
                       <dd>{createdLabel}</dd>
                     </div>
                   )}
-                  {durationLabel && (
+
+                  {/* For ongoing projects we display "ongoing" as the duration value without the label. */}
+                  {isOngoing ? (
                     <div className={styles.metaItem}>
-                      <dt>duration</dt>
-                      <dd>{durationLabel}</dd>
+                      <dd>ongoing</dd>
                     </div>
+                  ) : (
+                    durationLabel && (
+                      <div className={styles.metaItem}>
+                        <dt>duration</dt>
+                        <dd>{durationLabel}</dd>
+                      </div>
+                    )
                   )}
                 </dl>
               </div>
@@ -292,7 +300,6 @@ const Detail = ({ variant }) => {
               </ul>
             </section>
           )}
-        </div>
       </article>
     </div>
   );

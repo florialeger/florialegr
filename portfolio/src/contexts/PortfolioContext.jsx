@@ -75,7 +75,10 @@ const normalizeProject = (project) => {
   const slug = slugify(project.slug || project.title);
   const duration = project.duration ?? project.timeframe ?? '';
   const explicitOngoing = typeof project.isOngoing !== 'undefined' ? parseBoolean(project.isOngoing) : undefined;
-  const isOngoing = explicitOngoing ?? /ongoing/i.test(String(duration));
+  // Be generous when detecting ongoing projects from the `duration` field.
+  // Accept common tokens (ongoing, in progress, present, current) and some localized variants.
+  const ongoingRegex = /ongoing|in\s*progress|present|current|en\s*cours|encours|\bnow\b/i;
+  const isOngoing = explicitOngoing ?? ongoingRegex.test(String(duration));
 
   // determine icon: prefer explicit field, otherwise try to find a matching icon asset
   let iconUrl = null;

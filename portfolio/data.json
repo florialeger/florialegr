@@ -300,10 +300,10 @@
       "support": ["paper", "procreate", "figma"],
       "primaryImage": ["", ""],
       "type": "ux_ui",
-      "secondaryImages": ["", ""],
+      "secondaryImages": ["On-going.jpg"],
       "link": [""],
       "slug": "purely",
-      "locked": true
+      "locked": false
     },
     {
       "title": "VMT",
@@ -328,10 +328,10 @@
       "support": ["paper", "figma"],
       "primaryImage": [""],
       "type": "ux_ui",
-      "secondaryImages": ["", ""],
+      "secondaryImages": ["On-going.jpg"],
       "link": [""],
       "slug": "twinkle",
-      "locked": true
+      "locked": false
     }
   ],
   "playgrounds": [

@@ -18,9 +18,9 @@ const EmailMagnet = () => {
 
       <span ref={setMagnet} className={`${styles.magnet} ${styles.magnetIcon}`} aria-hidden>
         <MailIcon className={styles.emailIcon} size={24} title="Adresse e-mail" />
-        <a href="mailto:floria.leger@ensc.fr" className={styles.emailText}>
+        <p className={styles.emailText}>
           floria.leger@ensc.fr
-        </a>
+        </p>
       </span>
     </div>
   );
