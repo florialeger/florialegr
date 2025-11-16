@@ -11,6 +11,8 @@ import AppleSrc from '@/assets/icons/Apple-icone.png';
 import DrawSrc from '@/assets/icons/Draw-icone.png';
 import FlagSrc from '@/assets/icons/Bordeaux-icone.png';
 import ComputerSrc from '@/assets/icons/Computer-icone.png';
+import CSSSrc from '@/assets/icons/CSS-icone.png';
+import VolleySrc from '@/assets/icons/Volley-icone.png';
 import styles from './InlineIcon.module.css';
 
 // Inline SVGs for React and HTML badges (kept small and self-contained)
@@ -44,6 +46,8 @@ const ICON_MAP = {
   draw: { type: 'img', src: DrawSrc, label: 'Drawing' },
   bordeaux: { type: 'img', src: FlagSrc, label: 'Bordeaux' },
   computer: { type: 'img', src: ComputerSrc, label: 'Computer Science' },
+  css: { type: 'img', src: CSSSrc, label: 'CSS' },
+  volley: { type: 'img', src: VolleySrc, label: 'Volleyball' },
 };
 
 const InlineIcon = ({ name, size = 'text', title }) => {

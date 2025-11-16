@@ -27,18 +27,22 @@ const aboutParagraphs = [
     My background has provided me with a solid foundation in user-friendly interface design. I've been{' '}
     <span className={inlineIconStyles.inlineWrap}>
       <InlineIcon name="draw" size="text" />
-      <span className={inlineIconStyles.emphasized}>drawing for nearly twenty years,</span>
+      <span className={inlineIconStyles.emphasized}>drawing </span>
     </span>
-    drawing inspiration from talented artists to enhance my skills. While I mostly create for myself, I find joy in
-    making art for others. Although my client projects have been informal, they taught me about managing deadlines and
-    handling feedback.
+    for nearly twenty years, drawing inspiration from talented artists to enhance my skills. While I mostly create for
+    myself, I find joy in making art for others. Although my client projects have been informal, they taught me about
+    managing deadlines and handling feedback.
   </>,
   <>
     Lately, I've become increasingly interested in web design, believing my drawing skills will be beneficial in this
     area. I enjoy exploring new design projects independently and particularly love working with CSS and styling web
-    pages. Outside my academic and artistic pursuits, I've played volleyball for nine years, which has instilled the
-    importance of teamwork and pushing personal limits. I also have a keen interest in photography, videography, and
-    animation, which helps me expand my creative horizons.
+    pages. Outside my academic and artistic pursuits, I've played{' '}
+    <span className={inlineIconStyles.inlineWrap}>
+      <InlineIcon name="volley" size="text" />
+      <span className={inlineIconStyles.emphasized}>volleyball</span>
+    </span>
+    for nine years, which has instilled the importance of teamwork and pushing personal limits. I also have a keen
+    interest in photography, videography, and animation, which helps me expand my creative horizons.
   </>,
 ];
 

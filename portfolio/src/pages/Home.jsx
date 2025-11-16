@@ -38,7 +38,7 @@ const aboutParagraphs = [
   <>
     I'm 22 and live near Bordeaux, France. I'm in my second year at the Ecole Nationale Supérieure de Cognitique where
     I'm exploring mental processes and human interactions, a fascinating field that combines psychology, technology and
-    design. As a future UX/UI designer and cognitive engineer, I strive to develop my skills, using design tools like
+    design. As a future UX/UI designer and cognitive engineer, I strive to develop my skills, using design tools like{' '}
     <span className={inlineIconStyles.inlineWrap}>
       <InlineIcon name="figma" size="text" />
       <span className={inlineIconStyles.emphasized}>Figma,</span>
@@ -51,13 +51,17 @@ const aboutParagraphs = [
     <span className={inlineIconStyles.inlineWrap}>
       <InlineIcon name="react js" size="text" />
       <span className={inlineIconStyles.emphasized}>React JS</span>
-    </span>{' '}
+    </span>
     with its Vite framework, Node JS, and more broadly web languages and tools such as JavaScript,{' '}
     <span className={inlineIconStyles.inlineWrap}>
       <InlineIcon name="html" size="text" />
       <span className={inlineIconStyles.emphasized}>HTML,</span>
+    </span>{' '}
+    <span className={inlineIconStyles.inlineWrap}>
+      <InlineIcon name="css" size="text" />
+      <span className={inlineIconStyles.emphasized}>CSS3</span>
     </span>
-    CSS3 and JSX, which I've learned to master by working with React.
+    and JSX, which I've learned to master by working with React.
   </>,
   <>
     The experience I've gained in web development helps me think like a developer right from the UX phase, and to better
