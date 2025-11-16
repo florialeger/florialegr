@@ -33,7 +33,7 @@
   width: 100%;
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: calc(var(--stack-gap-lg) * 1.4); 
+  gap: calc(var(--stack-gap-lg) * 1.4);
   justify-items: center;
 }
 
@@ -68,7 +68,7 @@
     opacity 200ms ease;
   opacity: 0;
   pointer-events: none;
-  z-index: 1; /* keep the filter on top */
+  z-index: 1200; /* keep the filter above cards and other content */
   overflow: visible; /* allow the larger pseudo-element to extend upward */
 }
 

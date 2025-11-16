@@ -19,7 +19,7 @@ const Detail = ({ variant }) => {
   const navigate = useNavigate();
   const location = useLocation();
   const { loading, getProjectBySlug, getPlaygroundBySlug } = usePortfolio();
-  const scrollRef = useRef(null);
+  // We no longer use an internal scroll container; track window scroll instead.
   const [isHeaderCondensed, setIsHeaderCondensed] = useState(false);
   const titleRef = useRef(null);
 
@@ -66,18 +66,11 @@ const Detail = ({ variant }) => {
   const hasOverview = (contextParagraphs && contextParagraphs.length > 0) || (links && links.length > 0);
 
   useEffect(() => {
-    const node = scrollRef.current;
-    if (!node) return undefined;
-
-    const handleScroll = () => {
-      setIsHeaderCondensed(node.scrollTop > 32);
-    };
-
+    const handleScroll = () => setIsHeaderCondensed(window.scrollY > 32);
+    // Run once to initialize
     handleScroll();
-    node.addEventListener('scroll', handleScroll, { passive: true });
-    return () => {
-      node.removeEventListener('scroll', handleScroll);
-    };
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   // Align the fixed back arrow with the title position (updates on resize/scroll)
@@ -207,7 +200,7 @@ const Detail = ({ variant }) => {
         </div>
       </div>
       <article className={styles.card}>
-        <div ref={scrollRef} className={styles.scrollArea}>
+        <div className={styles.scrollArea}>
           <header className={styles.header} data-condensed={isHeaderCondensed}>
             <div className={styles.headerInner}>
               <div className={styles.headerPrimary}>

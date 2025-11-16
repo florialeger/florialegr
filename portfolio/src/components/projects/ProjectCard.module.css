@@ -81,15 +81,19 @@
 }
 
 .playground {
-  display: flex;
-  /* Keep the preview area smaller so the overall card remains a manageable square. */
-  min-height: clamp(6rem, 12vw, 8rem);
+  /* Make the playground card a square cell so grid placements remain consistent across devices. */
+  display: block;
+  width: 100%;
+  min-height: auto;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  background: transparent;
 }
 
 .preview {
   position: relative;
   width: 100%;
-  aspect-ratio: 1 / 1;
+  height: 100%; /* fill the square card */
   overflow: hidden;
   background: var(--background---secondary);
 }
@@ -108,8 +112,8 @@
 .preview video {
   display: block;
   width: 100%;
-  height: auto;
-  object-fit: contain; /* preserve video ratio and avoid cropping */
+  height: 100%;
+  object-fit: cover; /* ensure the preview fills the square preview area */
   border-radius: inherit;
   transition: transform 220ms ease;
 }

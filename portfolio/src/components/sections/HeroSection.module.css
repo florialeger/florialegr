@@ -1,6 +1,8 @@
 .hero {
   height: calc(100vh - var(--nav-height) * 2);
   padding-top: 0rem;
+  /* Prevent horizontal overflow caused by large translated visuals on small viewports */
+  overflow-x: hidden;
 }
 
 .heroContainer {

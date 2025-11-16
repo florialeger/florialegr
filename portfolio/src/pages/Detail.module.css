@@ -2,11 +2,12 @@
   /* Force light-theme colors for the Detail page (text and background remain light regardless of theme) */
   display: flex;
   flex-direction: column;
-  position: fixed;
-  left: 0;
-  top: 0;
-  height: 100vh;
-  width: 100vw;
+  /* Allow the detail page to participate in normal document flow so the
+     browser viewport handles scrolling (prevents internal scroll locking).
+     We keep a min-height to preserve the fullscreen impression. */
+  position: relative;
+  min-height: calc(100vh - var(--nav-height));
+  width: 100%;
   color: #171717;
   background: #fcfcfc;
   /* override label colors locally for Detail page to match tokens provided */
@@ -31,12 +32,17 @@
 
 .scrollArea {
   flex: 1;
-  overflow-y: auto;
-  padding: var(--layout-page-padding-top) var(--detail-scroll-padding) var(--layout-page-padding-bottom);
+  -webkit-overflow-scrolling: touch; /* enable momentum scrolling on iOS */
+  touch-action: auto;
+  /* Reserve extra bottom padding to account for the fixed bottom bar and safe-area insets
+     so content does not appear hidden under the bar and to avoid visible blank gaps. */
+  padding: 0 var(--detail-scroll-padding)
+    calc(var(--layout-page-padding-bottom) + var(--nav-height) + env(safe-area-inset-bottom));
   gap: var(--stack-gap-lg);
   display: flex;
   flex-direction: column;
-  scroll-behavior: smooth;
+  /* Contain overscroll and keep scroll gestures on the element (avoid scroll chaining). */
+  overscroll-behavior: contain;
   position: relative;
 }
 
@@ -101,12 +107,12 @@
 .bottomBar {
   height: var(--nav-height);
   position: fixed;
-  left: 50%;
+  left: 0;
   bottom: 0;
-  transform: translate(-50%, 0);
+  transform: none;
   display: flex;
   justify-content: center;
-  width: 100vw;
+  width: 100%;
   transition:
     transform 240ms ease,
     opacity 200ms ease;
@@ -351,6 +357,10 @@
   margin: 0;
   padding: 0 0;
   grid-template-columns: repeat(2, minmax(0, 1fr));
+  /* Keep automatic row sizing so single-row (wide) items can determine their height
+     from their intrinsic image dimensions. Two-column tiles remain square via the
+     `.imageItem` aspect-ratio rule below. */
+  align-items: stretch;
 }
 
 .imageItem {
@@ -359,8 +369,10 @@
   corner-shape: squircle;
 
   overflow: hidden;
-  /* By default, in two-column grid rows we want square items */
-  aspect-ratio: auto;
+  /* By default, in the gallery grid we reserve a square aspect ratio for each tile
+     so the overall page height is stable while images load. Use the `.imageItemSingle`
+     modifier when a tile should preserve its intrinsic ratio. */
+  aspect-ratio: 1 / 1;
   background: transparent;
   cursor: pointer;
 }
@@ -372,8 +384,8 @@
 }
 
 .imageItem img {
-  width: 101%;
-  height: 101%;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
   display: block;
   transition:
@@ -386,8 +398,8 @@
 .imageItem video {
   display: block;
   width: 100%;
-  height: auto;
-  object-fit: contain; /* preserve original ratio and fit width */
+  height: 100%;
+  object-fit: cover; /* fill the reserved square area */
   transition:
     transform 260ms ease,
     filter 260ms ease,
@@ -403,7 +415,19 @@
 
 .imageWide {
   grid-column: 1 / -1;
+}
+
+/* When a grid item is marked as wide (spans both columns), allow its inner
+   `.imageItem` to size naturally from the media's intrinsic dimensions. */
+.imageWide .imageItem {
   aspect-ratio: auto;
+}
+
+.imageWide .imageItem img,
+.imageWide .imageItem video {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
 }
 
 .emptyState {
@@ -421,6 +445,7 @@
 @media (max-width: 900px) {
   .scrollArea {
     margin: var(--stack-gap-md);
+    margin-top: 0;
   }
 
   .header {
@@ -473,6 +498,6 @@
     gap: 0.3rem;
   }
   .scrollArea {
-    padding: var(--layout-page-padding-top) 0 var(--stack-gap-sm);
+    padding: 0 0 var(--stack-gap-sm);
   }
 }
