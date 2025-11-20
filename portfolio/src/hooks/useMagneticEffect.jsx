@@ -1,9 +1,9 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
 
 const DEFAULT_OPTIONS = {
-  maxDistance: 18,
+  maxDistance: 22,
   easing: 0.2,
-  scale: 1.04,
+  scale: 1.08,
   restScale: 1,
   pointerType: 'fine',
   applyOnCoarse: false,

@@ -1,18 +1,25 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import figmaSrc from '@/assets/icons/figma-icone.png';
-import uxSrc from '@/assets/icons/UX-design-icone.png';
-import cognitiveSrc from '@/assets/icons/Cognitive-science-icone.png';
-import reactSrc from '@/assets/icons/React-icone.png';
-import htmlSrc from '@/assets/icons/HTML-icone.png';
-import vscodeSrc from '@/assets/icons/VScode.png';
-import linkedinSrc from '@/assets/icons/Linkedin.png';
 import AppleSrc from '@/assets/icons/Apple-icone.png';
-import DrawSrc from '@/assets/icons/Draw-icone.png';
-import FlagSrc from '@/assets/icons/Bordeaux-icone.png';
+import CognitiveSrc from '@/assets/icons/Cognitive-science-icone.png';
 import ComputerSrc from '@/assets/icons/Computer-icone.png';
 import CSSSrc from '@/assets/icons/CSS-icone.png';
+import DrawSrc from '@/assets/icons/Draw-icone.png';
+import FigmaSrc from '@/assets/icons/figma-icone.png';
+import FlagSrc from '@/assets/icons/Bordeaux-icone.png';
+import HTMLSrc from '@/assets/icons/HTML-icone.png';
+import LinkedinSrc from '@/assets/icons/Linkedin.png';
+import GitHubSrc from '@/assets/icons/GitHub.png';
+import BentoSrc from '@/assets/icons/Bento.png';
+import ArtstationSrc from '@/assets/icons/Artstation.png';
+import LayersSrc from '@/assets/icons/Layers.png';
+import TwitterSrc from '@/assets/icons/twitter.png';
+import Pencil from '@/assets/icons/Paper-icone.png';
+import ProcreateSrc from '@/assets/icons/Procreate-icone.png';
+import ReactSrc from '@/assets/icons/React-icone.png';
+import UXSrc from '@/assets/icons/UX-design-icone.png';
 import VolleySrc from '@/assets/icons/Volley-icone.png';
+import VScodeSrc from '@/assets/icons/VScode-icone.png';
 import styles from './InlineIcon.module.css';
 
 // Inline SVGs for React and HTML badges (kept small and self-contained)
@@ -33,15 +40,21 @@ const HTMLSVG = ({ className }) => (
 );
 
 const ICON_MAP = {
-  figma: { type: 'img', src: figmaSrc, label: 'Figma' },
-  react: { type: 'img', src: reactSrc, label: 'React' },
-  'react js': { type: 'img', src: reactSrc, label: 'React' },
-  html: { type: 'img', src: htmlSrc, label: 'HTML' },
-  'ux/ui': { type: 'img', src: uxSrc, label: 'UX/UI' },
-  ux: { type: 'img', src: uxSrc, label: 'UX/UI' },
-  cognitive: { type: 'img', src: cognitiveSrc, label: 'Cognitive' },
-  vscode: { type: 'img', src: vscodeSrc, label: 'VS Code' },
-  linkedin: { type: 'img', src: linkedinSrc, label: 'LinkedIn' },
+  figma: { type: 'img', src: FigmaSrc, label: 'Figma' },
+  vscode: { type: 'img', src: VScodeSrc, label: 'VS Code' },
+  pencil: { type: 'img', src: Pencil, label: 'Pencil' },
+  procreate: { type: 'img', src: ProcreateSrc, label: 'Procreate' },
+  react: { type: 'img', src: ReactSrc, label: 'React' },
+  'react js': { type: 'img', src: ReactSrc, label: 'React' },
+  html: { type: 'img', src: HTMLSrc, label: 'HTML' },
+  'ux/ui': { type: 'img', src: UXSrc, label: 'UX/UI' },
+  cognitive: { type: 'img', src: CognitiveSrc, label: 'Cognitive' },
+  linkedin: { type: 'img', src: LinkedinSrc, label: 'LinkedIn' },
+  github: { type: 'img', src: GitHubSrc, label: 'GitHub' },
+  bento: { type: 'img', src: BentoSrc, label: 'Bento' },
+  artstation: { type: 'img', src: ArtstationSrc, label: 'ArtStation' },
+  layers: { type: 'img', src: LayersSrc, label: 'Layers' },
+  twitter: { type: 'img', src: TwitterSrc, label: 'Twitter' },
   apple: { type: 'img', src: AppleSrc, label: 'Apple' },
   draw: { type: 'img', src: DrawSrc, label: 'Drawing' },
   bordeaux: { type: 'img', src: FlagSrc, label: 'Bordeaux' },

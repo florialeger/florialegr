@@ -3,8 +3,9 @@
     {
       "title": "Tuto Figma",
       "context": [
-        "During my first-year internship at the Ecole Nationale Supérieure de Cognitique, I was responsible for supervising second-grade students, who were themselves on an internship, in order to introduce them to the school and its fields of study. One of the activities I organized was to make them understand what Figma is and introduce them to its principles. It was a really enriching experience in terms of pedagogy.",
-        "I also prepared a tutorial to explore all the main features of Figma.  Then, to let their creativity speak, we offered them to model a music listening app, and given the enthusiasm and investment that students had, it was really worth being fully invested in this activity and internship, I am still very grateful to them! "
+        "During my first-year internship at the Ecole Nationale Supérieure de Cognitique, I was responsible for supervising second-grade students, who were themselves on an internship, in order to introduce them to the school and its fields of study.",
+        "One of the activities I organized was to make them understand what Figma is and introduce them to its principles. It was a really enriching experience in terms of pedagogy.",
+        "I also prepared a tutorial to explore all the main features of Figma. Then, to let their creativity speak, we offered them to model a music listening app, and given the enthusiasm and investment that students had, it was really worth being fully invested in this activity and internship, I am still very grateful to them."
       ],
       "created": "2024-06-26",
       "duration": "1 weeks",
@@ -33,8 +34,12 @@
       ],
       "link": [
         {
-          "label": "View project",
+          "label": "Slide Deck",
           "url": "https://www.figma.com/community/file/1434630096456807172/slide-deck-figma"
+        },
+        {
+          "label": "Workshop",
+          "url": "https://florialeger.github.io/tuto-Figma/"
         }
       ],
       "icon": "figma-icone.png",
@@ -46,7 +51,7 @@
       "context": [
         "In my school, I had the opportunity to explore the key phases of user-centered design through a concrete project: analysis, mock-up and user tests. At the beginning, each group received a problem to solve and then with each phase change we passed our project to another group.",
         "The design phase was implemented through the DeskFriend project. It was a particularly important step for me, because this is the area that interests me most in this school. ",
-        "That's why, in our team of 4 people, I was fully responsible for the technical part of the design mockup — in other words, I was the one who put into practice the ideas we had thought about together. I have implemented a component-based approach to enhance visual consistency and facilitate edits. I also designed an intuitive and efficient prototype, while providing the artistic direction and technical management on Figma, to ensure a smooth and easily adaptable user experience."
+        "That's why, in our team of 4 people, I was fully responsible for the technical part of the design mockup. In other words, I was the one who put into practice the ideas we had thought about together. I have implemented a component-based approach to enhance visual consistency and facilitate edits. I also designed an intuitive and efficient prototype, while providing the artistic direction and technical management on Figma, to ensure a smooth and easily adaptable user experience."
       ],
       "created": "2025-02-13",
       "duration": "1",
@@ -73,7 +78,7 @@
       ],
       "link": [
         {
-          "label": "View project",
+          "label": "Figma file",
           "url": "https://www.figma.com/community/file/1471512161772048324/deskfriend"
         }
       ],
@@ -86,7 +91,7 @@
       "context": [
         "This group project, conducted in the second year of engineering school between two promotions, was on a free theme. We chose to focus on helping school students in academic difficulty, through an autonomous questionnaire capable of identifying their needs and offering them adapted resources.",
         "For my part, I took care of the entire visual identity: creation of the logo, development of the graphic charter, and design of wireframes and interactive prototypes on Figma, putting a real focus on accessibility and user experience. We also conducted semi-structured interviews with experts, using user-centered design methods to expand our knowledge and verify the consistency of our model for the selected need.  I also had the opportunity to pass on my knowledge about Figma to the first years of the group, which was a super enriching experience.",
-        "My school assigning projects with free themes like this is really cool, as it allows us to explore topics that speak to us and also helps us become more responsible!"
+        "My school assigning projects with free themes like this is really cool, as it allows us to explore topics that speak to us and also helps us become more responsible."
       ],
       "created": "2024-12-19",
       "duration": "4",
@@ -110,7 +115,7 @@
       ],
       "link": [
         {
-          "label": "View project",
+          "label": "Figma file",
           "url": "https://www.figma.com/community/file/1566766538190470734/tout-va-bien"
         },
         {
@@ -126,8 +131,8 @@
       "title": "Krystal",
       "context": [
         "The Krystal is THE sports tournament organized by the AS de Bordeaux INP for the 7 engineering schools of Bordeaux INP and the preparation of the INP.",
-        "A friend who was in charge of the event offered me to make the logos, I accepted without hesitation! The project was super fun to do! For this KRYSTAL, they decided to assign film themes to each school. So it was necessary to adapt each logo to its respective film, which took more work but was the most fun part of the project in the end! ",
-        "I cannot express how grateful I am to them for giving me the opportunity to participate in such a significant project. I owe them a whole lot!"
+        " The people in charge of the event asked me to create the logos, and I accepted without hesitation. The project was a real challenge, because for this edition of Krystal, they had decided to assign movie themes to each school. So each logo had to be adapted to its respective movie, which required more work, but turned out to be the most fun part of the project in the end.",
+        "I cannot express how grateful I am to them for giving me the opportunity to participate in such a significant project, I owe them a whole lot."
       ],
       "created": "2025-02-13",
       "duration": "2",
@@ -160,17 +165,19 @@
       ],
       "link": [
         {
-          "label": "View project",
+          "label": "Figma file",
           "url": "https://www.figma.com/community/file/1566485113832295881/logo-design-krystal"
         }
       ],
+      "icon": "krystal-icone.png",
       "slug": "krystal",
       "locked": false
     },
     {
       "title": "Boucaniers",
       "context": [
-        "I had the opportunity to create a logo for the ENSMAC BDE campaigns, which was used on various goodies. My friends already had a very clear idea of what they wanted, they even gave me sketches, which allowed me to advance infinitely faster in the research phase! This project gave me the opportunity to develop my artistic direction and creativity while meeting expectations and deadlines. Thank you to my friends from ENSMAC for giving me such an opportunity, it was so much fun!"
+        "I had the opportunity to create a logo for the ENSMAC BDE campaigns, which was used on various goodies. My friends already had a very clear idea of what they wanted, they even gave me sketches, which allowed me to advance infinitely faster in the research phase.",
+        "This project gave me the opportunity to develop my artistic direction and creativity while meeting expectations and deadlines. Thank you to my friends from ENSMAC for giving me such an opportunity, it was so much fun!"
       ],
       "created": "2024-02-15",
       "duration": "2 weeks",
@@ -186,12 +193,13 @@
         "boucaniers-second5.jpg"
       ],
       "link": [],
+      "icon": "boucaniers-icone.png",
       "slug": "les-boucaniers",
       "locked": false
     },
     {
       "title": "Choralamar",
-      "context": "The Choir at my school (ENSC) asked me to design a logo for their Club, and I really appreciated the creative freedom they gave me, as well as the trust they placed in me. Exploring a logo with bright colours was a particularly interesting experience!",
+      "context": "The Choir at my school (ENSC) asked me to design a logo for their Club, and I really appreciated the creative freedom they gave me, as well as the trust they placed in me. Exploring a logo with bright colours was a particularly interesting experience.",
       "created": "2024-02-20",
       "duration": "3 weeks",
       "projectDuty": ["Logo Design"],
@@ -200,13 +208,14 @@
       "type": "illustration",
       "secondaryImages": ["choralamar-second1.jpg"],
       "link": [],
+      "icon": "choralamar-icone.png",
       "slug": "choralamar",
       "locked": false
     },
     {
       "title": "Disco Loco",
       "context": [
-        "Disco Loco is Maëlie, Guillaume and Clara, friends who have traveled around Europe several times thanks to Interrail, and who share their adventures on Instagram. When they asked me if I could do a logo for them, I was so happy, it was a chance for me to thank them for being my friends!",
+        "Disco Loco is Maëlie, Guillaume and Clara, friends who have traveled around Europe several times thanks to Interrail, and who share their adventures on Instagram. When they asked me if I could do a logo for them, I was so happy, it was a chance for me to thank them for being my friends.",
         "It's the kind of project where I can take artistic liberties, but know that they trust me completely, and that's really satisfying."
       ],
       "created": "2025-04-18",
@@ -229,12 +238,16 @@
           "url": "https://www.instagram.com/disco_loco_?igsh=MW45dmhpaGhydGk4dg=="
         }
       ],
+      "icon": "disco-icone.png",
       "slug": "disco-loco",
       "locked": false
     },
     {
       "title": "Dyspraxia",
-      "context": [""],
+      "context": [
+        "I designed this infographic from start to finish. Creating the assets felt like making an illustration, but on Figma. ",
+        "This poster was a really interesting way to talk about a very serious topic while giving a look that totally matched this neurodevelopmental disorder that is dyspraxia. It also took a lot of thought in terms of the hierarchy and layout of the elements to make everything as understandable as possible."
+      ],
       "created": "2025-03-21",
       "duration": "1 weeks",
       "projectDuty": ["Poster Design"],
@@ -255,12 +268,16 @@
           "url": "https://www.figma.com/community/file/1570788918790254567/infographie-dyspraxie"
         }
       ],
+      "icon": "dyspraxia-icone.png",
       "slug": "dyspraxia",
       "locked": false
     },
     {
       "title": "Mates",
-      "context": [""],
+      "context": [
+        "On this project, I worked on the Logo, Brand, and Flyer Design for people in my school. It was really interesting to be challenged on creating a full, coherent design, not just for an app, but for an entire brand.",
+        "I tried to let my creativity flow freely, while still following the well-structured guidelines they gave me, and I’m really thankful for that."
+      ],
       "created": "2025-03-31",
       "duration": "2",
       "projectDuty": ["Brand Design"],
@@ -288,20 +305,25 @@
         "mates-second18.jpg"
       ],
       "link": [],
+      "icon": "mates-icone.png",
       "slug": "mates",
       "locked": false
     },
     {
       "title": "Purely",
-      "context": "",
+      "context": [
+        "I’m currently working on this mobile application project. I get to co-lead the creative direction, which implies applying user-centered design, UX research, and even a bit of competitive analysis to help shape the product strategy. I also dove into a big survey of more than 300 users, and translated all that data into something meaningful, actual personas and real product priorities.",
+        "And since the product is mobile-focused, I’m also building a scalable UI system in Figma. Creating solid components that make future design sprints faster while keeping the brand consistent feels a bit like crafting a toolbox that the whole team can rely on"
+      ],
       "created": "2025-04-29",
       "duration": "ongoing",
       "projectDuty": "UX/UI Design",
       "support": ["paper", "procreate", "figma"],
       "primaryImage": ["", ""],
       "type": "ux_ui",
-      "secondaryImages": ["On-going.jpg"],
+      "secondaryImages": ["Ongoing.jpg"],
       "link": [""],
+      "icon": "purely-icone.png",
       "slug": "purely",
       "locked": false
     },
@@ -314,7 +336,7 @@
       "support": ["figma"],
       "primaryImage": [""],
       "type": "ux_ui",
-      "secondaryImages": ["", ""],
+      "secondaryImages": ["Locked.jpg"],
       "link": [""],
       "slug": "vmt",
       "locked": true
@@ -328,8 +350,9 @@
       "support": ["paper", "figma"],
       "primaryImage": [""],
       "type": "ux_ui",
-      "secondaryImages": ["On-going.jpg"],
+      "secondaryImages": ["Ongoing.jpg"],
       "link": [""],
+      "icon": "twinkle-icone.png",
       "slug": "twinkle",
       "locked": false
     }
@@ -337,7 +360,7 @@
   "playgrounds": [
     {
       "title": "GameBoy Replica",
-      "context": ["I love retro designs!"],
+      "context": ["I love retro designs."],
       "created": "2025-02-15",
       "support": ["figma"],
       "primaryImage": ["gameboy-primary.jpg"],
@@ -426,7 +449,7 @@
     {
       "title": "USTVB",
       "context": [
-        "I had fun redesigning the logo of my volleyball club (Union Sportive de Talence Volley Ball) for Movember and Christmas!"
+        "I had fun redesigning the logo of my volleyball club (Union Sportive de Talence Volley Ball) for Movember and Christmas."
       ],
       "created": "2024-11-28",
       "support": ["figma"],
@@ -445,7 +468,7 @@
     },
     {
       "title": "MP3 Replica",
-      "context": ["The icons on the screen were torture to make but I like the result!"],
+      "context": ["The icons on the screen were torture to make but I like the result."],
       "created": "2025-03-05",
       "support": ["figma"],
       "primaryImage": ["mp3-primary.jpg"],
@@ -457,7 +480,7 @@
     {
       "title": "Stickers",
       "context": [
-        "I love stickers, there's something really satisfying about creating them, and they're so easy to make, I almost feel like I'm drawing!"
+        "I love stickers, there's something really satisfying about creating them, and they're so easy to make, I almost feel like I'm drawing."
       ],
       "created": "2025-01-25",
       "support": ["figma"],
@@ -756,7 +779,13 @@
       "support": ["procreate"],
       "primaryImage": ["mii-primary.jpg"],
       "type": "illustration",
-      "secondaryImages": ["mii-second1.jpg"],
+      "secondaryImages": [
+        "mii-second1.jpg",
+        "mii-second2.jpg",
+        "mii-second3.jpg",
+        "mii-second4.jpg",
+        "mii-second5.jpg"
+      ],
       "slug": "mii",
       "link": []
     },
@@ -944,41 +973,41 @@
       "slug": "background-study",
       "link": []
     },
-      {
-        "title": "Expression study",
-        "context": ["Characters from the novel \"The Rise of Kyoshi\" expression study"],
-        "created": "2025-08",
-        "support": ["procreate"],
-        "primaryImage": ["expression-study-primary.jpg"],
-        "type": "illustration",
-        "secondaryImages": [
-          "expression-study-second1.jpg",
-          "expression-study-second2.jpg",
-          "expression-study-second3.jpg",
-          "expression-study-second4.jpg",
-          "expression-study-second5.jpg",
-          "expression-study-second6.jpg"
-        ],
-        "slug": "expression-study-02",
-        "link": []
-      },
-        {
-          "title": "Shiho",
-          "context": ["Shiho (Haibara Ai) from \"Detective Conan\" study "],
-          "created": "2025-03-26",
-          "support": ["procreate"],
-          "primaryImage": ["shiho-primary.jpg"],
-          "type": "illustration",
-          "secondaryImages": [
-            "shiho-second1.jpg",
-            "shiho-second2.jpg",
-            "shiho-second3.jpg",
-            "shiho-second4.jpg",
-            "shiho-second5.jpg",
-            "shiho-second6.jpg"
-          ],
-          "slug": "shiho",
-          "link": []
-        }
+    {
+      "title": "Expression study",
+      "context": ["Characters from the novel \"The Rise of Kyoshi\" expression study"],
+      "created": "2025-08",
+      "support": ["procreate"],
+      "primaryImage": ["expression-study-primary.jpg"],
+      "type": "illustration",
+      "secondaryImages": [
+        "expression-study-second1.jpg",
+        "expression-study-second2.jpg",
+        "expression-study-second3.jpg",
+        "expression-study-second4.jpg",
+        "expression-study-second5.jpg",
+        "expression-study-second6.jpg"
+      ],
+      "slug": "expression-study-02",
+      "link": []
+    },
+    {
+      "title": "Shiho",
+      "context": ["Shiho (Haibara Ai) from \"Detective Conan\" study "],
+      "created": "2025-03-26",
+      "support": ["procreate"],
+      "primaryImage": ["shiho-primary.jpg"],
+      "type": "illustration",
+      "secondaryImages": [
+        "shiho-second1.jpg",
+        "shiho-second2.jpg",
+        "shiho-second3.jpg",
+        "shiho-second4.jpg",
+        "shiho-second5.jpg",
+        "shiho-second6.jpg"
+      ],
+      "slug": "shiho",
+      "link": []
+    }
   ]
 }

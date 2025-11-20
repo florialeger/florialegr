@@ -9,10 +9,6 @@
 
 .pageHeader {
   display: flex;
-}
-
-.introContainer {
-  display: flex;
   flex-direction: column;
   align-items: start;
   justify-content: start;
@@ -22,9 +18,10 @@
   padding-top: clamp(5rem, 13vw, 8rem);
   padding-bottom: var(--layout-page-padding-bottom);
 }
+
 .gridContainer {
   width: 100%;
-  max-width: min(calc(var(--copy-block-max-width) * 1.4), 80vw);
+  max-width: min(calc(var(--copy-block-max-width) * 1.4), 95vw);
   margin: 0 auto;
   position: relative;
 }

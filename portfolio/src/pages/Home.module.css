@@ -64,6 +64,17 @@
   }
 
   .emailRow {
+    width: 100%;
+    flex-direction: column;
+    gap: 0;
     justify-content: center;
+  }
+
+  .magnet {
+    padding: 0;
+  }
+
+  .emailIcon {
+    display: none;
   }
 }

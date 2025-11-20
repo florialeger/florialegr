@@ -1,63 +1,22 @@
 .contactContainer {
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: start;
-  gap: clamp(3rem, 6vw, 3.5rem);
-  padding-inline: clamp(1.5rem, 4vw, 3rem);
+  width: var(--copy-block-max-width);
+  margin: var(--layout-page-padding-top) auto 0 auto;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--stack-gap-md);
   flex-wrap: wrap;
 }
 
-.buttonRow {
+.buttonColumn {
   display: flex;
-  flex-wrap: wrap;
-  gap: clamp(0.85rem, 2.6vw, 1.2rem);
-}
-
-.copyColumn {
-  display: grid;
-  gap: clamp(2rem, 5vw, 2.75rem);
-  max-width: var(--copy-block-max-width);
-  justify-items: start;
-}
-
-.paragraphs {
-  display: grid;
-  gap: var(--copy-block-gap);
-  max-width: 100%;
-  text-align: left;
-}
-
-.paragraphs p {
-  margin: 0;
-  max-width: none;
-}
-
-.actionButton {
-  --button-background: var(--fills---secondary);
-  --button-color: var(--label---accent);
-  --button-font-weight: 400;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.65rem;
-  text-transform: none;
-}
-
-.actionButton:hover:not(:disabled):not([aria-disabled='true']) {
-  --button-background: var(--fills---secondary);
-}
-
-.actionButton:focus-visible {
-  outline-offset: 3px;
-}
-
-.downloadIcon {
-  transform: rotate(-45deg);
+  flex-direction: column;
+  gap: var(--stack-gap-sm);
 }
 
 .portrait {
   margin: 0;
-  width: 240px;
+  width: 56px;
   display: grid;
   place-items: center;
 }
@@ -65,8 +24,7 @@
 .portrait img {
   display: block;
   width: 100%;
-  border-radius: var(--radius-lg);
-  corner-shape: squircle;
+  border-radius: var(--radius-pill);
   object-fit: cover;
 }
 
@@ -83,25 +41,24 @@
   transform: translateZ(0) scale(1.01);
 }
 
-@media (max-width: 960px) {
-  .contactContainer {
-    justify-content: center;
-    text-align: center;
-  }
-
-  .copyColumn {
-    justify-items: center;
-    text-align: left;
-  }
-
-  .paragraphs {
-    justify-items: center;
-  }
+.header {
+  display: flex;
+  flex-direction: row;
+  gap: var(--stack-gap-sm);
+  padding: var(--stack-gap-sm) 0;
+  cursor: pointer;
 }
 
-@media (max-width: 640px) {
-  .buttonRow {
-    flex-direction: column;
-    align-items: stretch;
-  }
+.pseudo {
+  display: flex;
+  gap: 0.2rem;
+}
+.pseudo p {
+  font-weight: var(--body-emphasized-weight);
+  letter-spacing: var(--body-emphasized-letter-spacing);
+}
+
+.cdIcon {
+  width: 26px;
+  height: auto;
 }

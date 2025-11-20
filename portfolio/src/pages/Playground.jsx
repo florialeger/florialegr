@@ -14,13 +14,9 @@ const formatCategoryLabel = (category) => {
   return category.replace(/_/g, ' ').replace(/\b\w/g, (char) => char.toUpperCase());
 };
 
-/* gradient blur overlay intentionally removed in favor of a CSS pseudo-element */
-
-const playgroundTitle = ["I've been passionate about drawing for eighteen years now."];
-
 const playgroundParagraphs = [
-  "Behind this rather simple word lies a world of incredibly talented artists whom I admire, even if I don't claim to be on their level. I try to progress at my own pace, doing my best. Although I rarely share my work on social networks, for lack of time and because that's not really my thing, I still enjoy drawing on my own whenever I get the chance.",
-  "Over the last four years, I feel I've really progressed, and without pretension, I'm pretty proud of that! But compared with the ease and speed I'd like to achieve, I've still got a long way to go. Until I reach those heights, here are my latest little creations that I'd like to show you, I hope you like them.",
+  "Drawing has always been a part of me, more than a hobby, it just feels right. Eighteen years in, I keep growing at my own pace, always striving for more. I don't post much online, but I create whenever I can. ",
+  "Lately, I've been channeling that energy into UX/UI design, another canvas for balance, structure, and emotion. The process, the curiosity, the joy of making, that's what drives me.",
 ];
 
 const Playground = () => {
@@ -142,15 +138,10 @@ const Playground = () => {
   return (
     <div className={styles.playgroundPage}>
       <Container className={`${styles.pageHeader} reveal-hero ${headerVisible ? 'is-visible' : ''}`}>
-        <Container className={`${styles.introContainer}`.trim()}>
-          {playgroundTitle.map((t) => (
-            <h2 key={t}>{t}</h2>
-          ))}
-
+        
           {playgroundParagraphs.map((p) => (
             <p key={p}>{p}</p>
           ))}
-        </Container>
       </Container>
 
       <Container className={styles.gridContainer}>

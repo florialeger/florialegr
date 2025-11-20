@@ -1,8 +1,5 @@
 .hero {
   height: calc(100vh - var(--nav-height) * 2);
-  padding-top: 0rem;
-  /* Prevent horizontal overflow caused by large translated visuals on small viewports */
-  overflow-x: hidden;
 }
 
 .heroContainer {
@@ -11,8 +8,7 @@
   align-items: center;
   justify-content: center;
   height: 100%;
-  gap: clamp(2rem, 8vw, 4rem);
-  text-align: start;
+  gap: var(--stack-gap-lg);
 }
 
 .heroVisual {
@@ -21,7 +17,7 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  width: min(36rem, 100%);
+  width: min(36rem, 90vw);
   min-height: clamp(16rem, 36vw, 18rem);
   margin-inline: auto;
   --pointer-x: 0;
@@ -34,7 +30,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: clamp(9rem, 18vw, 12rem);
+  width: clamp(8rem, 18vw, 12rem);
   aspect-ratio: 1;
   transform: translate3d(
       calc(var(--base-x, 0rem) + var(--pointer-x) * var(--pointer-strength, 0.45rem)),
@@ -65,6 +61,7 @@
     filter 200ms ease,
     opacity 200ms ease;
   pointer-events: none;
+  z-index: 1;
 }
 
 .heroImageWrapper[data-active='true'] {
@@ -78,7 +75,8 @@
 .hero[data-hovered='ux'] [data-type='illustration'] .heroImageMedia,
 .hero[data-hovered='illustration'] [data-type='ux'] .heroImageMedia {
   filter: grayscale(1) saturate(0.2);
-  opacity: 0.45;
+  opacity: 0.5;
+  z-index: 0;
 }
 
 .heroImagePrimary {
@@ -107,13 +105,6 @@
   --base-y: 1.35rem;
   --base-rotate: 5deg;
   --pointer-strength: 0.4rem;
-}
-
-.heroCopy {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: clamp(0.75rem, 3vw, 1rem);
 }
 
 .heroTitle {
@@ -154,7 +145,7 @@
   }
 
   .heroContainer {
-    gap: clamp(2rem, 8vw, 2.8rem);
+    gap: clamp(4rem, 8vw, 2.8rem);
   }
 
   .heroVisual {
@@ -166,19 +157,45 @@
 @media (max-width: 680px) {
   .hero {
     padding-bottom: 10rem;
-    padding-top: 12rem;
+    padding-top: 18rem;
   }
 
   .heroVisual {
     min-height: 10rem;
     padding-bottom: 2.5rem;
-    --stack-gap: clamp(6rem, 10vw, 12rem);
+    --stack-gap: clamp(4.5rem, 10vw, 12rem);
   }
 
-  
   .heroImageWrapper {
-    scale: 0.9;
     margin: 0;
+  }
+
+  .heroImagePrimary {
+    --base-x: calc(-1 * var(--stack-gap));
+    --base-y: -6rem;
+    --base-rotate: -3deg;
+    --pointer-strength: 0.45rem;
+  }
+
+  .heroImageSecondary {
+    --base-x: calc(1 * var(--stack-gap));
+    --base-y: -6rem;
+    --base-rotate: 5deg;
+    --pointer-strength: 0.55rem;
+  }
+
+  .heroImageTertiary {
+    --base-x: calc(1 * var(--stack-gap));
+    --base-y: 3rem;
+    --base-rotate: 5deg;
+    --pointer-strength: 0.4rem;
+  }
+
+  .heroImageQuaternary {
+    --base-x: calc(-1 * var(--stack-gap));
+    --base-y: 3rem;
+    --base-rotate: 4deg;
+    --pointer-strength: 0.5rem;
   }
 
   .heroImageWrapper + .heroImageWrapper {

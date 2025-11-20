@@ -3,16 +3,14 @@ import PropTypes from 'prop-types';
 import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import Button from '@/components/ui/Button';
 import { usePortfolio } from '@/contexts/PortfolioContext';
-// useBlurReveal removed
 import formatDate from '@/utils/formatDate';
 import formatDuration from '@/utils/formatDuration';
 import { resolveSupportIcons } from '@/utils/supportIcons';
 import { resolveMediaPath } from '@/utils/media';
-// ThemeSwitcher temporarily hidden. Uncomment import below to re-enable the theme picker.
-// import ThemeSwitcher from '@/components/ui/ThemeSwitcher';
 import styles from './Detail.module.css';
 import useMagneticEffect from '@/hooks/useMagneticEffect';
 import Media from '@/components/ui/Media';
+import ArrowIcon from '@/components/ui/icons/ArrowIcon';
 
 const Detail = ({ variant }) => {
   const { slug } = useParams();
@@ -72,9 +70,6 @@ const Detail = ({ variant }) => {
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-
-  // Align the fixed back arrow with the title position (updates on resize/scroll)
-  // Back button is now centered in a bottom bar; no dynamic alignment needed.
 
   // Small wrapper component that magnetizes media elements
   const MagneticImage = ({ src, alt, className, children, ...props }) => {
@@ -183,123 +178,123 @@ const Detail = ({ variant }) => {
 
       {/* Bottom bar that contains the centered Back control (mirrors Playground filter placement). */}
       <div className={styles.bottomBar} role="toolbar" aria-label="Navigation">
-        <button
-          ref={setBackMag}
-          type="button"
-          onClick={handleClose}
-          className={styles.backTextButton}
-          aria-label="Back"
-          title="Back"
-        >
-          Back
-        </button>
+        <Button ref={setBackMag} label="Go Back" onClick={handleClose} className={styles.backTextButton} />
       </div>
       <article className={styles.card}>
-          <header className={styles.header} data-condensed={isHeaderCondensed}>
-            <div className={styles.headerInner}>
-              <div className={styles.headerPrimary}>
-                <div className={styles.headerRow}>
-                  <div className={styles.titleBlock}>
-                    <h3 ref={titleRef}>{data.title}</h3>
-                  </div>
-                  {duties.length > 0 && (
-                    <ul className={styles.badgeList}>
-                      {duties.map((duty) => (
-                        <li key={duty}>{duty}</li>
-                      ))}
-                    </ul>
-                  )}{' '}
+        <header className={styles.header} data-condensed={isHeaderCondensed}>
+          <div className={styles.headerColumn}>
+            <h3 ref={titleRef}>{data.title}</h3>
+            {duties.length > 0 && (
+              <ul className={styles.badgeList}>
+                {duties.map((duty) => (
+                  <li key={duty}>{duty}</li>
+                ))}
+              </ul>
+            )}{' '}
+          </div>
+
+          <div className={styles.metaColumn}>
+            <dl className={styles.metaList}>
+              {/* If the project is ongoing, show "created" (start date) instead of "launch" */}
+              {isOngoing ? (
+                <div className={styles.metaItem}>
+                  <dt>started</dt>
+                  <dd>{createdLabel}</dd>
                 </div>
-                {supports.length > 0 && (
-                  <ul className={styles.supportList}>
-                    {supports.map(({ src, label }) => (
-                      <li key={label}>
-                        <img src={src} alt={label} />
-                      </li>
-                    ))}
-                  </ul>
-                )}
+              ) : variant === 'work' ? (
+                <div className={styles.metaItem}>
+                  <dt>launch</dt>
+                  <dd>{createdLabel}</dd>
+                </div>
+              ) : (
+                <div className={styles.metaItem}>
+                  <dd>{createdLabel}</dd>
+                </div>
+              )}
+
+              {/* For ongoing projects we display "ongoing" as the duration value without the label. */}
+              {isOngoing ? (
+                <div className={styles.metaItem}>
+                  <dd>ongoing</dd>
+                </div>
+              ) : (
+                durationLabel && (
+                  <div className={styles.metaItem}>
+                    <dt>duration</dt>
+                    <dd>{durationLabel}</dd>
+                  </div>
+                )
+              )}
+            </dl>
+          </div>
+        </header>
+
+        {heroImage && <MagneticImage className={styles.heroMedia} src={heroImage} alt="" />}
+
+        {hasOverview && (
+          <section className={styles.overview}>
+            <div className={styles.overviewInner}>
+              <div className={styles.context}>
+                {contextParagraphs.map((paragraph, index) => (
+                  <p key={index}>{paragraph}</p>
+                ))}
               </div>
-              <div className={styles.metaColumn}>
-                {/* Theme wheel temporarily hidden to force light mode.
-                  To re-enable, uncomment the import at the top and this component:
-                  <ThemeSwitcher /> */}
-                <dl className={styles.metaList}>
-                  {/* If the project is ongoing, show "created" (start date) instead of "launch" */}
-                  {isOngoing ? (
-                    <div className={styles.metaItem}>
-                      <dt>started</dt>
-                      <dd>{createdLabel}</dd>
-                    </div>
-                  ) : variant === 'work' ? (
-                    <div className={styles.metaItem}>
-                      <dt>launch</dt>
-                      <dd>{createdLabel}</dd>
-                    </div>
-                  ) : (
-                    <div className={styles.metaItem}>
-                      <dd>{createdLabel}</dd>
-                    </div>
-                  )}
-
-                  {/* For ongoing projects we display "ongoing" as the duration value without the label. */}
-                  {isOngoing ? (
-                    <div className={styles.metaItem}>
-                      <dd>ongoing</dd>
-                    </div>
-                  ) : (
-                    durationLabel && (
-                      <div className={styles.metaItem}>
-                        <dt>duration</dt>
-                        <dd>{durationLabel}</dd>
-                      </div>
-                    )
-                  )}
-                </dl>
-              </div>
-            </div>
-          </header>
-
-          {heroImage && <MagneticImage className={styles.heroMedia} src={heroImage} alt="" />}
-
-          {hasOverview && (
-            <section className={styles.overview}>
-              <div className={styles.overviewInner}>
-                <div className={styles.context}>
-                  {contextParagraphs.map((paragraph, index) => (
-                    <p key={index}>{paragraph}</p>
+              {links.length > 0 && (
+                <div className={styles.links}>
+                  {links.map((link) => (
+                    <Button
+                      key={link.url}
+                      label={link.label}
+                      icon={<ArrowIcon />}
+                      href={link.url}
+                      target="_blank"
+                      rel="noreferrer"
+                    />
                   ))}
                 </div>
-                {links.length > 0 && (
-                  <div className={styles.links}>
-                    {links.map((link) => (
-                      <Button key={link.url} label={link.label} href={link.url} target="_blank" rel="noreferrer" />
-                    ))}
-                  </div>
-                )}
-              </div>
-            </section>
-          )}
+              )}
+            </div>
+          </section>
+        )}
 
-          {galleryImages.length > 0 && (
-            <section className={styles.gallery}>
-              <ul ref={imageGridRef} className={styles.imageGrid}>
-                {(() => {
-                  const isSingleInGrid = galleryImages.length === 1;
-                  return galleryImages.map((image, index) => {
-                    const wideClass = isSingleInGrid || index % 3 === 2 ? styles.imageWide : '';
-                    return (
-                      <li key={`${image}-${index}`} className={`${wideClass}`.trim()}>
-                        <MagneticImage className={styles.imageItem} src={image} alt="">
-                          <Media src={image} alt="" className={styles.imageItem} />
-                        </MagneticImage>
-                      </li>
-                    );
-                  });
-                })()}
-              </ul>
-            </section>
-          )}
+        {galleryImages.length > 0 && (
+          <section className={styles.gallery}>
+            <ul ref={imageGridRef} className={styles.imageGrid}>
+              {(() => {
+                const isSingleInGrid = galleryImages.length === 1;
+                return galleryImages.map((image, index) => {
+                  const wideClass = isSingleInGrid || index % 3 === 2 ? styles.imageWide : '';
+                  return (
+                    <li key={`${image}-${index}`} className={`${wideClass}`.trim()}>
+                      <MagneticImage className={styles.imageItem} src={image} alt="">
+                        <Media src={image} alt="" className={styles.imageItem} />
+                      </MagneticImage>
+                    </li>
+                  );
+                });
+              })()}
+            </ul>
+          </section>
+        )}
+        {supports.length > 0 && (
+          <section className={styles.supportRow} aria-label="Support">
+            <div className={styles.metaColumn}>
+              <dl className={styles.metaList}>
+                <div className={styles.metaItem}>
+                  <dt>support </dt>
+                  <dd>
+                    {supports.map((s, i) => (
+                      <span key={s.label} className={styles.supportLabel}>
+                        {s.label}
+                        {i < supports.length - 1 ? ', ' : ''}
+                      </span>
+                    ))}
+                  </dd>
+                </div>
+              </dl>
+            </div>
+          </section>
+        )}
       </article>
     </div>
   );

@@ -6,9 +6,69 @@
   color: var(--label---primary);
 }
 
-
 .contactSection {
   padding-top: var(--stack-gap-lg);
+}
+
+.contactContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--stack-gap-md);
+  width: 100%;
+}
+
+.emailRow {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.emailText {
+  font-family: var(---type---body---family);
+}
+
+.magnet {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.contactParagraph {
+  margin: 0;
+  text-align: center;
+}
+
+.socialGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--stack-gap-sm);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  width: min(80%, var(--detail-content-width));
+}
+
+.socialGrid :global(.inlineWrap) {
+  gap: 10rem;
+}
+
+.socialItem {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.socialLink {
+  display: inline-flex;
+  align-items: center;
+  color: inherit;
+  text-decoration: none;
+}
+
+.linkLabel {
+  font-size: var(--type---title-3---size);
+  display: inline-block;
 }
 
 .contactContainer {
@@ -28,136 +88,16 @@
   width: 100%;
 }
 
-.contactIntro,
-.contactMessage {
-  margin: 0;
-  white-space: nowrap;
-}
-
-.contactMessage {
-  position: relative;
-  min-width: clamp(15rem, 24vw, 19rem);
-  display: flex;
-  justify-content: start;
-  align-items: start;
-}
-
-.message {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  opacity: 0;
-  transform: translateY(8px);
-  transition:
-    opacity 180ms ease,
-    transform 220ms ease;
-}
-
-.message[data-visible='true'] {
-  opacity: 1;
-  transform: translateY(0);
-  z-index: 1;
-}
-
-.iconList {
-  display: flex;
-  align-items: center;
-  padding: 0;
-  margin: 0;
-  list-style: none;
-  /* Use a responsive gap by default; switch to overlapping layout on wider screens */
-  --icon-gap: clamp(1rem, 4vw, 1.2rem);
-  --icon-overlap: clamp(-0.5rem, -3.8vw, -1.9rem);
-  gap: var(--icon-gap);
-}
-
-.iconItem {
-  --tilt: 5deg;
-  margin: 0;
-  padding: 0;
-  transition:
-    transform 220ms ease,
-    box-shadow 220ms ease,
-    margin 220ms ease;
-  will-change: transform;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-}
-
-/* Overlap icons on wider screens for the stacked visual */
-@media (min-width: 720px) {
-  .iconList {
-    gap: 0;
-  }
-
-  .iconItem + .iconItem {
-    margin-left: var(--icon-overlap);
-  }
-}
-
-.iconItem:nth-child(even) {
-  --tilt: -5deg;
-}
-
-.iconLink {
-  width: clamp(3rem, 6vw, 4em);
-  display: block;
-  border-radius: 100%;
-  transform: rotate(var(--tilt));
-  transition:
-    transform 220ms ease,
-    box-shadow 220ms ease,
-    filter 180ms ease,
-    opacity 180ms ease;
-  display: inline-grid;
-  place-items: center;
-}
-
-.socialIconImage {
-  display: block;
-  width: 100%;
-  height: auto;
-}
-
-/* When the icon list has an active hover, dim non-active icons */
-.iconList[data-hovered='true'] .iconItem:not([data-active='true']) .socialIconImage {
-  filter: grayscale(0.9) contrast(0.85);
-  opacity: 0.35;
-}
-
-.iconItem[data-active='true'] .socialIconImage {
-  filter: none;
-  opacity: 1;
-}
-
-/* On hover or focus, the individual icon lifts slightly and becomes more prominent */
-.iconItem:hover,
-.iconItem:focus-within,
-.iconItem[data-active='true'] {
-  transform: translateY(-6px) translateX(-5px) scale(1.1);
-  margin: 2rem 0;
-  z-index: 5;
-}
-
-.srOnly {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  border: 0;
-}
-
 @media (max-width: 720px) {
-  .contactRow {
+  .contactContainer {
+    gap: calc(var(--stack-gap-lg) * 1.5);
+  }
+  .emailRow {
     flex-direction: column;
-    gap: var(--stack-gap-lg);
-    padding: var(--stack-gap-sm);
+  }
+
+  .socialGrid {
+    row-gap: var(--stack-gap-md);
   }
 
   .contactIntro,
@@ -272,5 +212,3 @@
     justify-content: center;
   }
 }
-
-

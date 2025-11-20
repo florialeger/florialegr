@@ -107,7 +107,6 @@ const HeroSection = () => {
           ))}
         </div>
 
-        <div className={styles.heroCopy}>
           <h1 id="hero-title" className={styles.heroTitle}>
             <span className={styles.heroTitleUpper}>UX/UI Designer</span>
             <span className={styles.heroTitleAmpersand} aria-hidden="true">
@@ -115,7 +114,6 @@ const HeroSection = () => {
             </span>
             <span className={styles.heroTitleLower}>Digital Illustrator</span>
           </h1>
-        </div>
       </Container>
     </section>
   );

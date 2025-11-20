@@ -1,27 +1,16 @@
 .detailPage {
-  /* Force light-theme colors for the Detail page (text and background remain light regardless of theme) */
   display: flex;
   flex-direction: column;
-  /* Allow the detail page to participate in normal document flow so the
-     browser viewport handles scrolling (prevents internal scroll locking).
-     We keep a min-height to preserve the fullscreen impression. */
-  position: relative;
-  min-height: calc(100vh - var(--nav-height));
   width: 100%;
-  color: #171717;
-  background: #fcfcfc;
-  /* override label colors locally for Detail page to match tokens provided */
-  --label---secondary: rgba(23, 23, 23, 0.7);
-  --label---tertiary: rgba(23, 23, 23, 0.5);
-  --detail-content-width: clamp(20rem, 80vw, 34.375rem);
-  --detail-scroll-padding: var(--stack-gap-lg);
 }
 
 .card {
-  width: min(90vw, 84rem);
+  width: var(--copy-block-max-width);
   display: flex;
   flex-direction: column;
-  margin: var(--layout-page-padding-top) auto var(--layout-page-padding-bottom);
+  margin: 0 auto;
+  padding: var(--layout-page-padding-top) var(--container-padding-x) var(--layout-page-padding-bottom)
+    var(--container-padding-x);
   gap: var(--stack-gap-lg);
 }
 
@@ -31,36 +20,9 @@
 }
 
 .backTextButton {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0.6rem 3rem;
   margin-bottom: var(--stack-gap-sm);
-  border-radius: var(--radius-sm);
-  background: var(--fills---secondary);
-  backdrop-filter: blur(10px);
-  border: 2px solid var(--separator---white-20);
-  cursor: pointer;
-  color: #171717;
-  font-family: var(--type---title-3---family);
-  font-size: var(--type---title-3---size);
-  line-height: var(--type---title-3---line-height);
-  font-weight: var(--type---title-3---weight-emphasized);
-  text-transform: none;
-  /* allow both color and transform animations for magnetic interactions */
-  will-change: transform, color;
-  transform-origin: center;
-  transition:
-    color 160ms ease,
-    transform 220ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-.backTextButton:focus-visible {
-  outline: 3px solid color-mix(in srgb, var(--label---primary) 20%, transparent);
-  outline-offset: 6px;
-}
-
-/* Bottom bar (centered) that mirrors Playground.filterBar placement */
 .bottomBar {
   position: fixed;
   left: 0;
@@ -69,62 +31,29 @@
   display: flex;
   justify-content: center;
   width: 100%;
-  transition:
-    transform 240ms ease,
-    opacity 200ms ease;
-  opacity: 1;
-  pointer-events: auto;
   z-index: 5;
-  overflow: visible;
 }
 
 .header {
-  background: transparent;
-  border-bottom: none;
   display: flex;
-  justify-content: center;
-  transition: box-shadow 200ms ease;
-}
-
-.headerInner {
-  width: min(100%, var(--detail-content-width));
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
-  align-items: start;
+  justify-content: space-between;
+  width: 100%;
 }
 
 .header[data-condensed='true'] .headerInner {
   gap: var(--stack-gap-sm);
 }
 
-.headerPrimary {
+.headerColumn {
   display: flex;
   flex-direction: column;
-  align-content: start;
-  gap: 0.4rem;
-}
-
-.headerRow {
-  display: flex;
   justify-content: start;
-  /* center the h3 vertically within the header row */
-  align-items: center;
-  min-height: 2rem;
-  gap: 0.6rem;
+  align-items: start;
+  gap: 0.2rem;
 }
 
-/* Keep badges visually aligned to the text baseline when present */
-.badgeList {
-  align-self: baseline;
-}
-
-.titleBlock {
-  display: flex;
-}
-
-.titleBlock h3 {
+.headerColumn h3 {
   font-weight: var(--type---title-3---weight-emphasized);
-  align-self: center;
 }
 
 .metaColumn {
@@ -132,16 +61,10 @@
   justify-content: flex-end;
 }
 
-/* Ensure ThemeSwitcher (color wheel) sits nicely inside the meta column */
-.metaColumn :global(.theme-switcher) {
-  margin-left: 0.5rem;
-  margin-right: 0;
-}
-
 .metaList {
   display: flex;
   flex-direction: column;
-  gap: 0.4rem;
+  gap: 0;
   margin: 0;
 }
 
@@ -172,49 +95,12 @@
 }
 
 .badgeList li {
-  /* Render badges as body italic text (use exported body variables) */
   font-family: var(--type---body---family);
   font-size: var(--type---title-3---size);
   font-style: italic;
   font-weight: var(--body-italic-weight);
   letter-spacing: var(--body-italic-letter-spacing);
-  color: var(--label---tertiary);
-}
-
-.supportList {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.4rem;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-.supportList li {
-  margin: 0;
-  transition:
-    margin 220ms ease,
-    transform 200ms ease;
-}
-
-.supportList li + li {
-  margin-left: var(--stack-offset);
-}
-
-.supportList img {
-  width: 2rem;
-  height: 2rem;
-  object-fit: contain;
-  display: block;
-  transition:
-    transform 220ms ease,
-    filter 180ms ease,
-    opacity 180ms ease;
-}
-
-.supportList li:hover img {
-  transform: translateY(-6px) scale(1.05);
-  filter: saturate(1.05);
+  color: var(--label---secondary);
 }
 
 .heroMedia {
@@ -241,7 +127,7 @@
 }
 
 .overview {
-  width: min(100%, var(--detail-content-width));
+  width: 100%;
   margin: 0 auto;
 }
 
@@ -253,7 +139,8 @@
 }
 
 .context {
-  display: grid;
+  display: flex;
+  flex-direction: column;
   width: 100%;
   gap: calc(var(--copy-block-gap) * 0.5);
 }
@@ -261,8 +148,6 @@
 .context p {
   margin: 0;
   max-width: 100%;
-
-  width: 100%;
 }
 
 .links {
@@ -290,9 +175,6 @@
   margin: 0;
   padding: 0 0;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  /* Keep automatic row sizing so single-row (wide) items can determine their height
-     from their intrinsic image dimensions. Two-column tiles remain square via the
-     `.imageItem` aspect-ratio rule below. */
   align-items: stretch;
 }
 
@@ -301,16 +183,11 @@
   border-radius: var(--radius-lg);
   corner-shape: squircle;
   overflow: hidden;
-  /* By default, in the gallery grid we reserve a square aspect ratio for each tile
-     so the overall page height is stable while images load. Use the `.imageItemSingle`
-     modifier when a tile should preserve its intrinsic ratio. */
   aspect-ratio: 1 / 1;
   background: transparent;
   cursor: pointer;
 }
 
-/* When a single item ends up alone in its row on multi-column layouts,
-   apply this class to preserve the image's intrinsic aspect ratio. */
 .imageItemSingle {
   aspect-ratio: auto;
 }
@@ -349,8 +226,6 @@
   grid-column: 1 / -1;
 }
 
-/* When a grid item is marked as wide (spans both columns), allow its inner
-   `.imageItem` to size naturally from the media's intrinsic dimensions. */
 .imageWide .imageItem {
   aspect-ratio: auto;
 }
@@ -374,33 +249,22 @@
   margin: 0;
 }
 
+.supportRow {
+  width: min(100%, var(--detail-content-width));
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  margin-top: var(--stack-gap-md);
+}
+
+.supportLabel {
+  white-space: nowrap;
+}
+
 @media (max-width: 900px) {
-
-  .header {
-    position: static;
-    margin: 0;
-    padding: 0 0 var(--stack-gap-md);
-    box-shadow: none;
-  }
-
-  .headerInner {
-    grid-template-columns: 1fr;
-    gap: var(--stack-gap-md);
-  }
-
-  .metaColumn {
-    justify-content: flex-start;
-  }
-
-  .metaItem {
-    justify-content: flex-start;
-    text-align: left;
-  }
-
   .links {
     justify-content: flex-start;
   }
-
   .imageGrid {
     grid-template-columns: 1fr;
   }
@@ -416,7 +280,14 @@
 }
 
 @media (max-width: 640px) {
-  .headerRow {
-    gap: 0.3rem;
+  .header {
+    flex-direction: column;
+    align-items: start;
+    gap: var(--stack-gap-sm);
+  }
+
+  .metaItem {
+    justify-content: start;
+    text-align: left;
   }
 }

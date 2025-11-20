@@ -2,12 +2,11 @@
   display: flex;
   flex-direction: column;
   gap: var(--layout-page-gap);
-  padding: var(--layout-page-padding-top) clamp(0.8rem, 8vw, 1rem) var(--layout-page-padding-bottom)
-    clamp(0.8rem, 8vw, 1rem);
+  padding: var(--layout-page-padding-top) 0 var(--layout-page-padding-bottom) 0;
   background: var(--background---primary);
   color: var(--label---primary);
   --work-content-max: 1200px;
-  --work-col-min: 145px;
+  --work-col-min: 130px;
   --work-max-columns: 5;
   /* center the inner containers and make them use the page-local max width */
   align-items: center;
@@ -104,11 +103,24 @@
 }
 
 .inlineIcon {
-  width: 1.5em;
-  height: 1.5em;
+  width: 1.1em;
+  height: 1.1em;
   object-fit: contain;
 }
 
 .locked {
   color: var(--label---tertiary);
+}
+
+/* Dim non-hovered project items when one item is hovered */
+.projectList li[data-dimmed='true'] .projectItem {
+  filter: grayscale(1);
+  transition:
+    filter 200ms ease,
+    opacity 180ms ease;
+}
+
+.projectList li[data-dimmed='true'] .inlineIcon,
+.projectList li[data-dimmed='true'] svg {
+  filter: grayscale(1);
 }

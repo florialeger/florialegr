@@ -46,8 +46,8 @@ const extractYear = (value) => {
   return String(date.getFullYear());
 };
 
-const ProjectListItem = ({ project, typeLabel, locked, targetState }) => {
-  const setMagneticNode = useMagneticEffect({ maxDistance: locked ? 8 : 14, scale: locked ? 1.015 : 1.04 });
+const ProjectListItem = ({ project, typeLabel, locked, targetState, hoveredSlug, setHoveredSlug }) => {
+  const setMagneticNode = useMagneticEffect({ maxDistance: locked ? 4 : 14, scale: locked ? 1.05 : 1.1 });
 
   const assignRef = useCallback(
     (node) => {
@@ -63,22 +63,31 @@ const ProjectListItem = ({ project, typeLabel, locked, targetState }) => {
     [setMagneticNode]
   );
 
+  const isDimmed = hoveredSlug && hoveredSlug !== project.slug;
+
   return (
-    <li ref={assignRef} data-locked={locked || undefined}>
+    <li
+      ref={assignRef}
+      data-locked={locked || undefined}
+      data-dimmed={isDimmed || undefined}
+      onMouseEnter={() => setHoveredSlug && setHoveredSlug(project.slug)}
+      onMouseLeave={() => setHoveredSlug && setHoveredSlug(null)}
+    >
       {locked ? (
         <div className={`${styles.projectItem} ${styles.locked}`.trim()}>
           <p className={styles.projectType + ' text-body-italic'}>{typeLabel}</p>
           <div className={styles.projectTitleContent}>
+            <LockIcon size={14} />
             <p>{project.title}</p>
-            <LockIcon size={18} />
           </div>
         </div>
       ) : (
         <Link to={`/work/${project.slug}`} state={targetState} className={styles.projectItem}>
           <p className={styles.projectType + ' text-body-italic'}>{typeLabel}</p>
           <div className={styles.projectTitleContent}>
+            {project.icon ? <img src={project.icon} alt="" className={styles.inlineIcon} /> : <ArrowIcon size={14} />}
+
             <p>{project.title}</p>
-            {project.icon ? <img src={project.icon} alt="" className={styles.inlineIcon} /> : <ArrowIcon size={18} />}
           </div>
         </Link>
       )}
@@ -89,6 +98,7 @@ const ProjectListItem = ({ project, typeLabel, locked, targetState }) => {
 const Work = () => {
   const { projects, loading, error } = usePortfolio();
   const location = useLocation();
+  const [hoveredSlug, setHoveredSlug] = useState(null);
 
   const groupedProjects = useMemo(() => {
     if (!projects?.length) return [];
@@ -158,6 +168,8 @@ const Work = () => {
                         typeLabel={typeLabel}
                         locked={locked}
                         targetState={targetState}
+                        hoveredSlug={hoveredSlug}
+                        setHoveredSlug={setHoveredSlug}
                       />
                     );
                   })}

@@ -10,11 +10,11 @@ import useMagneticEffect from '@/hooks/useMagneticEffect';
 
 const EmailMagnet = () => {
   // Use the shared hook for consistent magnetic behavior
-  const setMagnet = useMagneticEffect({ maxDistance: 20, easing: 0.18, scale: 1.03 });
+  const setMagnet = useMagneticEffect({ maxDistance: 18, easing: 0.18, scale: 1.03 });
 
   return (
     <div className={styles.emailRow}>
-      <p className={styles.emailText}>get in touch at</p>
+      <p className={styles.emailText}>Get in touch at</p>
 
       <span ref={setMagnet} className={`${styles.magnet} ${styles.magnetIcon}`} aria-hidden>
         <MailIcon className={styles.emailIcon} size={24} title="Adresse e-mail" />
@@ -29,7 +29,7 @@ const EmailMagnet = () => {
 // Text content is rendered with inline icon wrappers for specific keywords.
 const aboutTitle = [
   <>
-    Hi, I'm Floria, a final-year Master's student in UX/UI Design, Cognitive and Computer Sciences with a passion for
+    Hi, I'm Floria, a final-year Master's student in UIX Design, Cognitive and Computer Sciences with a passion for
     creating intuitive, user-friendly digital experiences.
   </>,
 ];

@@ -115,6 +115,5 @@ export const radii = {
   sm: '0.6rem',
   md: 'clamp(0.6rem, 1.6vw, 1.1rem)',
   lg: 'clamp(0.9rem, 2.5vw, 1.6rem)',
-  playground: 'clamp(1rem, 2.5vw, 1.55rem)',
   pill: '999px',
 };

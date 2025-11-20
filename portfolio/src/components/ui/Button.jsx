@@ -30,7 +30,7 @@ const isExternalUrl = (value) => /^https?:\/\//i.test(value);
 const ButtonBase = (
   {
     label,
-    icon = 'arrow',
+    icon = '',
     iconSize = 20,
     className = '',
     onClick,
@@ -95,12 +95,12 @@ const ButtonBase = (
     }
   };
 
-  const iconElement = resolveIcon(icon, iconSize, iconProps);
+  const iconElement = icon ? resolveIcon(icon, iconSize, iconProps) : null;
 
   const content = (
     <span className={styles.inner}>
-      <span className={styles.label}>{label}</span>
-      <span className={styles.iconWrapper}>{iconElement}</span>
+      <h3 className={styles.label}>{label}</h3>
+      {iconElement ? <span className={styles.iconWrapper}>{iconElement}</span> : null}
     </span>
   );
 
