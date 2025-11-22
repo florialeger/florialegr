@@ -91,7 +91,7 @@ const Home = () => {
       <HeroSection />
 
       <section>
-        <Container className={`${pageLayout.paragraph}`.trim()}>
+        <Container className={`${pageLayout.paragraph} ${styles.paragraph}`.trim()}>
           <RevealAnimation cascade damping={0.05} delay={200} fraction={0.5} triggerOnce>
             {aboutTitle.map((title, index) => (
               <h2 key={index}>{title}</h2>

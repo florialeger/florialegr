@@ -32,6 +32,10 @@
 }
 
 @media (max-width: 960px) {
+  .paragraph {
+    align-items: center !important;
+  }
+
   .introContainer {
     justify-items: center;
   }
@@ -41,7 +45,7 @@
   }
 
   .emailRow {
-    width: 100%;
+    display: flex;
     flex-direction: column;
     gap: 0;
     justify-content: center;
