@@ -8,7 +8,7 @@ import DrawSrc from '@/assets/icons/Draw-icone.png';
 import FigmaSrc from '@/assets/icons/figma-icone.png';
 import FlagSrc from '@/assets/icons/Bordeaux-icone.png';
 import HTMLSrc from '@/assets/icons/HTML-icone.png';
-import LinkedinSrc from '@/assets/icons/Linkedin.png';
+import LinkedinSrc from '@/assets/icons/linkedin.png';
 import GitHubSrc from '@/assets/icons/GitHub.png';
 import BentoSrc from '@/assets/icons/Bento.png';
 import ArtstationSrc from '@/assets/icons/Artstation.png';
