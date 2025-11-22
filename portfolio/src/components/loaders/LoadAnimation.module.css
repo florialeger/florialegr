@@ -1,0 +1,30 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(8px);
+  background: var(--background---primary);
+  z-index: 9999;
+  opacity: 1;
+  animation: fade-in 180ms ease-out;
+  color: var(--label---primary);
+}
+
+.wordmark {
+  font-family: var(--type---title-2---family);
+  font-size: clamp(2rem, 6vw, 3rem);
+  line-height: var(--type---title-2---line-height);
+  font-weight: var(--type---title-2---weight-emphasized);
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}

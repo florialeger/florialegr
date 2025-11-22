@@ -141,3 +141,14 @@ out
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
+
+# Project-specific ignores from portfolio/.gitignore
+# Firebase debug logs and cache
+firebase-debug.log*
+firebase-debug.*.log*
+
+# Firebase cache
+.firebase/
+
+# dataconnect generated files
+.dataconnect

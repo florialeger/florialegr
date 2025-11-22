@@ -2,9 +2,6 @@ import { createElement, memo } from 'react';
 import PropTypes from 'prop-types';
 import styles from './Container.module.css';
 
-/**
- * A layout component to wrap content, providing consistent max-width and padding.
- */
 const Container = ({ children, className = '', as, ...props }) => {
   const combinedClassName = `${styles.container} ${className}`.trim();
 

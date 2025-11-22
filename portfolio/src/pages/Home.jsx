@@ -1,9 +1,10 @@
-import { useEffect, useState } from 'react';
 import HeroSection from '@/components/sections/HeroSection';
 import Container from '@/components/ui/Container';
 import { MailIcon } from '@/components/ui/icons';
 import InlineIcon from '@/components/ui/InlineIcon';
+import RevealAnimation from '@/components/utility/RevealAnimation';
 import styles from './Home.module.css';
+import pageLayout from '@/components/ui/PageLayout.module.css';
 import inlineIconStyles from '@/components/ui/InlineIcon.module.css';
 
 import useMagneticEffect from '@/hooks/useMagneticEffect';
@@ -18,9 +19,7 @@ const EmailMagnet = () => {
 
       <span ref={setMagnet} className={`${styles.magnet} ${styles.magnetIcon}`} aria-hidden>
         <MailIcon className={styles.emailIcon} size={24} title="Adresse e-mail" />
-        <p className={styles.emailText}>
-          floria.leger@ensc.fr
-        </p>
+        <p className={styles.emailText}>floria.leger@ensc.fr</p>
       </span>
     </div>
   );
@@ -87,28 +86,23 @@ const aboutParagraphs = [
 ];
 
 const Home = () => {
-  // reveal on mount for intro section
-  const [introVisible, setIntroVisible] = useState(false);
-  useEffect(() => {
-    const id = requestAnimationFrame(() => setIntroVisible(true));
-    return () => cancelAnimationFrame(id);
-  }, []);
-
   return (
-    <div className={styles.home}>
+    <div className={pageLayout.page}>
       <HeroSection />
 
-      <section className={`${styles.introSection} reveal-hero ${introVisible ? 'is-visible' : ''}`}>
-        <Container className={`${styles.introContainer}`.trim()}>
-          {aboutTitle.map((title) => (
-            <h2 key={title}>{title}</h2>
-          ))}
+      <section>
+        <Container className={`${pageLayout.paragraph}`.trim()}>
+          <RevealAnimation cascade damping={0.05} delay={200} fraction={0.5} triggerOnce>
+            {aboutTitle.map((title, index) => (
+              <h2 key={index}>{title}</h2>
+            ))}
 
-          {aboutParagraphs.map((paragraph) => (
-            <p key={paragraph}>{paragraph}</p>
-          ))}
+            {aboutParagraphs.map((paragraph, index) => (
+              <p key={index}>{paragraph}</p>
+            ))}
 
-          <EmailMagnet />
+            <EmailMagnet />
+          </RevealAnimation>
         </Container>
       </section>
     </div>

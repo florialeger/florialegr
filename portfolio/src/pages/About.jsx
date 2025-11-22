@@ -1,6 +1,6 @@
-import { useEffect, useState } from 'react';
 import Container from '@/components/ui/Container';
 import AboutSection from '@/components/sections/AboutSection';
+import RevealAnimation from '@/components/utility/RevealAnimation';
 import portraitImage from '@/assets/images/profil-picture.png';
 import resumePdf from '@/assets/pdf/floria-cv.pdf';
 import resumefrPdf from '@/assets/pdf/floria-cv-fr.pdf';
@@ -9,6 +9,7 @@ import useMagneticEffect from '@/hooks/useMagneticEffect';
 import { MailIcon } from '@/components/ui/icons';
 import InlineIcon from '@/components/ui/InlineIcon';
 import styles from './About.module.css';
+import pageLayout from '@/components/ui/PageLayout.module.css';
 import inlineIconStyles from '@/components/ui/InlineIcon.module.css';
 
 const aboutParagraphs = [
@@ -88,18 +89,6 @@ const contactLinks = [
 ];
 
 const About = () => {
-  const [aboutVisible, setAboutVisible] = useState(false);
-  const [contactVisible, setContactVisible] = useState(false);
-
-  useEffect(() => {
-    const id = requestAnimationFrame(() => {
-      setAboutVisible(true);
-      setContactVisible(true);
-    });
-    return () => cancelAnimationFrame(id);
-  }, []);
-
-  // Email magnet component (reuses Home's classes for identical behavior)
   const EmailMagnet = () => {
     const setMagnet = useMagneticEffect({ maxDistance: 18, easing: 0.18, scale: 1.03 });
     return (
@@ -115,18 +104,19 @@ const About = () => {
   };
 
   return (
-    <div className={styles.aboutPage}>
-      <AboutSection
-        className={`reveal-hero ${aboutVisible ? 'is-visible' : ''}`}
-        paragraphs={aboutParagraphs}
-        downloads={downloadLinks}
-        portraitSrc={portraitImage}
-        portraitAlt="Floria Leger"
-      />
+    <div className={pageLayout.page}>
+          <AboutSection
+            paragraphs={aboutParagraphs}
+            downloads={downloadLinks}
+            portraitSrc={portraitImage}
+            portraitAlt="Floria Leger"
+          />
+     
+     
 
-      <section className={`${styles.contactSection} reveal-hero ${contactVisible ? 'is-visible' : ''}`}>
-        <Container className={styles.contactContainer}>
-         
+      <section>
+        <Container className={pageLayout.container}>
+          <RevealAnimation cascade damping={0.08} triggerOnce>
             <p className={styles.contactParagraph}>
               <EmailMagnet />
             </p>
@@ -143,7 +133,7 @@ const About = () => {
                 </li>
               ))}
             </ul>
-       
+          </RevealAnimation>
         </Container>
       </section>
     </div>

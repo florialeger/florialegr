@@ -1,11 +1,13 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import useRevealOnView from '@/hooks/useRevealOnView';
+import RevealAnimation from '@/components/utility/RevealAnimation';
 import Container from '@/components/ui/Container';
 import CardGrid from '@/components/projects/CardGrid';
 import ProjectCard from '@/components/projects/ProjectCard';
 import { usePortfolio } from '@/contexts/PortfolioContext';
 import styles from './Playground.module.css';
-import useMagneticEffect from '@/hooks/useMagneticEffect';
+import pageLayout from '@/components/ui/PageLayout.module.css';
+import Button from '@/components/ui/Button';
 
 const ALL_CATEGORY = 'all';
 
@@ -113,15 +115,6 @@ const Playground = () => {
     },
     [filterVisible, recomputeThreshold, selectedCategory]
   );
-  const [headerVisible, setHeaderVisible] = useState(false);
-
-  useEffect(() => {
-    const id = requestAnimationFrame(() => setHeaderVisible(true));
-    return () => cancelAnimationFrame(id);
-  }, []);
-
-  // Magnetic effect for the filter list (subtle translate + scale when pointer moves)
-  const setFilterMag = useMagneticEffect({ maxDistance: 14, scale: 1.02 });
 
   // Reveal playground cards when they enter the viewport.
   // We target the inner visual wrapper with [data-reveal-target] so
@@ -136,12 +129,13 @@ const Playground = () => {
   });
 
   return (
-    <div className={styles.playgroundPage}>
-      <Container className={`${styles.pageHeader} reveal-hero ${headerVisible ? 'is-visible' : ''}`}>
-        
-          {playgroundParagraphs.map((p) => (
-            <p key={p}>{p}</p>
+    <div className={pageLayout.page}>
+      <Container className={pageLayout.pageHeader}>
+        <RevealAnimation cascade damping={0.1} triggerOnce>
+          {playgroundParagraphs.map((p, i) => (
+            <p key={i}>{p}</p>
           ))}
+        </RevealAnimation>
       </Container>
 
       <Container className={styles.gridContainer}>
@@ -149,15 +143,17 @@ const Playground = () => {
         {error && !loading && <p className={styles.stateMessage}>Unable to load playgrounds right now.</p>}
         {!loading && !error && (
           <CardGrid ref={gridRef} className={styles.grid} data-hovered={hoveredSlug || 'none'}>
-            {filteredPlaygrounds.map((item) => (
-              <ProjectCard
-                key={item.id || item.slug}
-                item={item}
-                variant="playground"
-                onHoverChange={handleHoverChange}
-                className={`${hoveredSlug && hoveredSlug !== item.slug ? styles.dimmed : ''}`.trim()}
-              />
-            ))}
+            <RevealAnimation triggerOnce={false} duration={400}>
+              {filteredPlaygrounds.map((item) => (
+                <ProjectCard
+                  key={item.id || item.slug}
+                  item={item}
+                  variant="playground"
+                  onHoverChange={handleHoverChange}
+                  className={`${hoveredSlug && hoveredSlug !== item.slug ? styles.dimmed : ''}`.trim()}
+                />
+              ))}
+            </RevealAnimation>
           </CardGrid>
         )}
       </Container>
@@ -167,31 +163,22 @@ const Playground = () => {
         role="toolbar"
         aria-label="Filtrer les playgrounds"
       >
-        <div className={styles.filterShell}>
-          <div className={styles.filterBackdrop} aria-hidden="true">
-            <span />
-            <span />
-            <span />
-          </div>
-          <ul ref={setFilterMag} className={styles.filterList}>
-            {categories.map((category) => {
-              const isActive = category === selectedCategory;
-              return (
-                <li key={category}>
-                  <button
-                    type="button"
-                    onClick={() => handleCategoryChange(category)}
-                    className={`${styles.filterButton} ${isActive ? styles.active : ''}`.trim()}
-                    aria-pressed={isActive}
-                  >
-                    {formatCategoryLabel(category)}
-                  </button>
-                </li>
-              );
-            })}
-          </ul>
-        </div>
-        {/* CSS pseudo-element on .filterBar renders the mirrored gradient – no extra DOM node needed */}
+        <ul className={styles.filterList}>
+          {categories.map((category) => {
+            const isActive = category === selectedCategory;
+            return (
+              <li key={category}>
+                <Button
+                  type="button"
+                  label={formatCategoryLabel(category)}
+                  onClick={() => handleCategoryChange(category)}
+                  className={`${styles.filterButton} ${isActive ? styles.active : ''}`.trim()}
+                  aria-pressed={isActive}
+                />
+              </li>
+            );
+          })}
+        </ul>
       </div>
     </div>
   );

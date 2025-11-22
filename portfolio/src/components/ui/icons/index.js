@@ -4,8 +4,3 @@ export { default as LockIcon } from './LockIcon';
 export { default as MailIcon } from './MailIcon';
 export { default as CloseIcon } from './CloseIcon';
 export { default as BackArrow } from './BackArrow';
-export { default as ArtstationIcon } from './ArtstationIcon';
-export { default as BentoIcon } from './BentoIcon';
-export { default as GithubIcon } from './GithubIcon';
-export { default as LinkedinIcon } from './LinkedinIcon';
-export { default as LayersIcon } from './LayersIcon';

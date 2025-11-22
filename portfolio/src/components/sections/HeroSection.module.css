@@ -6,7 +6,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: start;
   height: 100%;
   gap: var(--stack-gap-lg);
 }
@@ -51,9 +51,9 @@
   width: 100%;
   height: 100%;
   border-radius: var(--radius-md);
-  border: clamp(0.65rem, 1.6vw, 0.85rem) solid var(--fills---non--opaque);
+  border: clamp(0.65rem, 1.6vw, 0.9rem) solid var(--fills---non--opaque);
   box-shadow: var(--shadows--small);
-  backdrop-filter: blur(3px);
+  backdrop-filter: blur(4px);
 
   object-fit: cover;
   transition:
@@ -61,22 +61,36 @@
     filter 200ms ease,
     opacity 200ms ease;
   pointer-events: none;
-  z-index: 1;
 }
 
 .heroImageWrapper[data-active='true'] {
-  z-index: 5;
+  z-index: 10;
 }
 
 .heroImageWrapper[data-active='true'] .heroImageMedia {
   transform: scale(1.1);
+  box-shadow: var(--shadows--normal);
+}
+
+/* Bring all matching type images to the front when hovered */
+.hero[data-hovered='illustration'] .heroImageWrapper[data-type='illustration'] {
+  z-index: 5;
+}
+
+.hero[data-hovered='ux'] .heroImageWrapper[data-type='ux'] {
+  z-index: 5;
+}
+
+/* Push non-matching type images to the back and dim them */
+.hero[data-hovered='ux'] .heroImageWrapper[data-type='illustration'],
+.hero[data-hovered='illustration'] .heroImageWrapper[data-type='ux'] {
+  z-index: 1;
 }
 
 .hero[data-hovered='ux'] [data-type='illustration'] .heroImageMedia,
 .hero[data-hovered='illustration'] [data-type='ux'] .heroImageMedia {
   filter: grayscale(1) saturate(0.2);
   opacity: 0.5;
-  z-index: 0;
 }
 
 .heroImagePrimary {
@@ -139,13 +153,8 @@
 }
 
 @media (max-width: 960px) {
-  .hero {
-    padding-bottom: 10rem;
-    padding-top: 0rem;
-  }
-
   .heroContainer {
-    gap: clamp(4rem, 8vw, 2.8rem);
+    gap: clamp(1rem, 8vw, 2.8rem);
   }
 
   .heroVisual {
@@ -155,14 +164,8 @@
 }
 
 @media (max-width: 680px) {
-  .hero {
-    padding-bottom: 10rem;
-    padding-top: 18rem;
-  }
-
   .heroVisual {
-    min-height: 10rem;
-    padding-bottom: 2.5rem;
+    min-height: 16rem;
     --stack-gap: clamp(4.5rem, 10vw, 12rem);
   }
 

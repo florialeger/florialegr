@@ -1,13 +1,3 @@
-.contactContainer {
-  display: flex;
-  width: var(--copy-block-max-width);
-  margin: var(--layout-page-padding-top) auto 0 auto;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: var(--stack-gap-md);
-  flex-wrap: wrap;
-}
-
 .buttonColumn {
   display: flex;
   flex-direction: column;
@@ -28,19 +18,6 @@
   object-fit: cover;
 }
 
-/* Make portrait slightly more saturated on hover and animate smoothly. */
-.portrait img {
-  transition:
-    transform 220ms ease,
-    filter 180ms ease;
-}
-
-.portrait:hover img,
-.portrait:focus-within img {
-  filter: saturate(1.18);
-  transform: translateZ(0) scale(1.01);
-}
-
 .header {
   display: flex;
   flex-direction: row;
@@ -54,8 +31,10 @@
   gap: 0.2rem;
 }
 .pseudo p {
+  font-family: var(--type---body---accent);
   font-weight: var(--body-emphasized-weight);
   letter-spacing: var(--body-emphasized-letter-spacing);
+
 }
 
 .cdIcon {

@@ -28,7 +28,7 @@
   --type---title-4---letter-spacing: 0;
 
   /* Body (EB Garamond) */
-  --type---body---family: 'EB Garamond', Georgia, 'Times New Roman', serif;
+  --type---body---family: 'Source Sans 3', 'EB Garamond', Georgia, 'Times New Roman', serif;
   --type---body---size: 1rem;
   --type---body---weight: 500;
   --type---body---line-height: 1.5;
@@ -41,10 +41,11 @@
 
   --body-italic-weight: 700;
   --body-italic-style: italic;
-  --body-italic-letter-spacing: 0.01em; /* ~1% */
+  --body-italic-letter-spacing: 0.01em;
+  --body-emphasized-weight: 700;
+  --body-emphasized-letter-spacing: -0.01em;
 
-  --body-emphasized-weight: 800;
-  --body-emphasized-letter-spacing: 0.01em; /* ~1% */
+  --type---body---accent: 'EB Garamond', Georgia, 'Times New Roman', serif;
 
   /* Layout */
   --nav-height: 104px;
@@ -58,6 +59,8 @@
   --stack-gap-lg: clamp(2.5rem, 6vw, 4rem);
   --stack-gap-md: clamp(1.6rem, 4vw, 2.6rem);
   --stack-gap-sm: clamp(0.75rem, 3vw, 1.25rem);
+  --stack-gap-xs: clamp(0.5rem, 2vw, 0.75rem);
+  --stack-gap-xxs: clamp(0.25rem, 1vw, 0.5rem);
 
   /* Motion and effects */
   --animate-spin: spin 1s linear infinite;
@@ -79,33 +82,26 @@
   /* Theme defaults (white baseline) */
   --surface---main: #fcfcfc;
   --background---primary: #fcfcfc;
-  --background---secondary: #d3d3d347;
+  --background---secondary: #EBEBEB;
   --label---primary: #171717;
   --label---secondary: rgba(23, 23, 23, 0.7);
   --label---tertiary: rgba(23, 23, 23, 0.5);
   --label---inverted: rgba(0, 0, 0, 0.9);
   --fills---primary: #c7c7c7;
   --fills---secondary: rgba(228, 228, 228, 0.6);
-  --fills---non--opaque: rgba(255, 255, 255, 0.5);
+  --fills---non--opaque: rgba(255, 255, 255, 0.7);
   --fills---linear-non--opaque: linear-gradient(180deg, var(--surface---main) 0%, rgba(252, 252, 252, 0) 100%);
   --separator---black-10: rgba(0, 0, 0, 0.1);
   --separator---white-20: rgba(255, 255, 255, 0.2);
 
   /* Effects */
-  --sticker--normal:
-    0px 0px 0px 0px rgba(0, 0, 0, 0.06), 0px 1px 1px 0px rgba(0, 0, 0, 0.06), 0px 3px 3px 0px rgba(0, 0, 0, 0.06),
-    0px 0px 1.600000023841858px 0px rgba(0, 0, 0, 0.25);
-  --shadows--extra_small: 0px 0px 0px 1px rgba(0, 0, 0, 0.06), 0px 1px 1px -0.5px rgba(0, 0, 0, 0.06);
   --shadows--small:
     0px 0px 0px 1px rgba(0, 0, 0, 0.06), 0px 1px 1px -0.5px rgba(0, 0, 0, 0.06), 0px 3px 3px -1.5px rgba(0, 0, 0, 0.06);
   --shadows--normal:
     0px 0px 0px 1px rgba(0, 0, 0, 0.06), 0px 1px 1px -0.5px rgba(0, 0, 0, 0.06), 0px 3px 3px -1.5px rgba(0, 0, 0, 0.06),
     0px 6px 6px -3px rgba(0, 0, 0, 0.06), 0px 12px 12px -6px rgba(0, 0, 0, 0.05),
     0px 24px 24px -12px rgba(0, 0, 0, 0.05);
-  --shadows--3d:
-    0px 0px 0px 10px rgba(0, 0, 0, 0.06), 0px 10px 10px -5px rgba(0, 0, 0, 0.06),
-    0px 30px 30px -15px rgba(0, 0, 0, 0.06), 0px 60px 60px -30px rgba(0, 0, 0, 0.06),
-    0px 120px 120px -60px rgba(0, 0, 0, 0.05), 0px 240px 240px -120px rgba(0, 0, 0, 0.05);
+  
 
   font-size: 19px;
   font-family: var(--type---body---family);
@@ -136,7 +132,6 @@ body,
 }
 
 html {
-  scroll-behavior: smooth;
   text-size-adjust: 100%;
 }
 
@@ -210,9 +205,6 @@ p {
   text-wrap: stable;
 }
 
-/* Utility classes exposing body italic / emphasized styles for use in CSS modules
-   Other files should consume the --body-italic-* and --body-emphasized-* variables
-   via these helper classes or by reading the variables directly. */
 .text-body-italic {
   font-family: var(--type---body---family);
   font-weight: var(--body-italic-weight);
@@ -226,7 +218,6 @@ p {
   letter-spacing: var(--body-emphasized-letter-spacing);
 }
 
-/* h3/h4 interactive emphasis: regular by default, emphasized on hover/active or when given .emphasized/.is-active */
 h3 {
   transition:
     font-weight 120ms ease,
@@ -299,7 +290,7 @@ ol {
 }
 
 .container {
-  max-width: var(--container-max-width);
+  max-width: min(var(--container-max-width), 100%);
   margin: 0 auto;
   padding: 0 var(--container-padding-x);
 }
@@ -328,7 +319,8 @@ ol {
   animation: shimmer 8s infinite;
 }
 
-.reveal-hero {
+/* Reveal animation classes - used with useReveal hook */
+.reveal {
   filter: blur(4px);
   opacity: 0;
   transform: translateY(4px);
@@ -339,15 +331,16 @@ ol {
   will-change: opacity, transform, filter;
 }
 
-.reveal-hero.is-visible {
+.reveal.is-visible {
   filter: blur(0);
   opacity: 1;
-  transform: none;
+  transform: translateY(0);
 }
 
+/* Accessibility: disable animations for users who prefer reduced motion */
 @media (prefers-reduced-motion: reduce) {
-  .reveal-hero,
-  .reveal-hero.is-visible {
+  .reveal,
+  .reveal.is-visible {
     transition: none !important;
     filter: none !important;
     opacity: 1 !important;

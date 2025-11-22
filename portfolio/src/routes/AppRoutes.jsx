@@ -17,8 +17,8 @@ const ScrollToTop = () => {
 
     if (hash) return;
 
-    // synchronous jump to top to avoid visible scroll-before-reset on navigation
-    window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+    // Instant scroll to top with no animation
+    window.scrollTo(0, 0);
   }, [pathname, hash]);
 
   return null;

@@ -1,4 +1,5 @@
 import { memo, useCallback, useEffect, useRef, useState } from 'react';
+import RevealAnimation from '@/components/utility/RevealAnimation';
 import Container from '@/components/ui/Container';
 import heroImageOne from '@/assets/images/home-1.png';
 import heroImageTwo from '@/assets/images/home-2.png';
@@ -16,11 +17,8 @@ const heroImages = [
 const HeroSection = () => {
   const [hoveredType, setHoveredType] = useState(null);
   const [activeIndex, setActiveIndex] = useState(null);
-  const [mountedVisible, setMountedVisible] = useState(false);
   const visualRef = useRef(null);
   const animationFrameRef = useRef(null);
-  // useBlurReveal removed — no-op ref setter
-  const setRevealNode = () => {};
 
   const applyPointer = useCallback((x, y) => {
     if (!visualRef.current) return;
@@ -69,43 +67,33 @@ const HeroSection = () => {
     setActiveIndex(null);
   }, []);
 
-  useEffect(() => {
-    // trigger a CSS-driven mount animation on next frame
-    const id = requestAnimationFrame(() => setMountedVisible(true));
-    return () => cancelAnimationFrame(id);
-  }, []);
-
   return (
-    <section
-      ref={setRevealNode}
-      className={`${styles.hero} reveal-hero ${mountedVisible ? 'is-visible' : ''}`}
-      aria-labelledby="hero-title"
-      data-hovered={hoveredType || 'none'}
-    >
+    <section className={styles.hero} aria-labelledby="hero-title" data-hovered={hoveredType || 'none'}>
       <Container className={styles.heroContainer}>
-        <div
-          className={styles.heroVisual}
-          ref={visualRef}
-          aria-hidden="true"
-          onPointerMove={handlePointerMove}
-          onPointerLeave={() => {
-            handleImageLeave();
-            resetPointer();
-          }}
-        >
-          {heroImages.map(({ id, src, type, className }, index) => (
-            <div
-              key={id}
-              className={`${styles.heroImageWrapper} ${className}`.trim()}
-              data-type={type}
-              data-active={activeIndex === index}
-              onPointerEnter={() => handleImageEnter(index, type)}
-              onPointerLeave={handleImageLeave}
-            >
-              <img src={src} alt="" loading="lazy" className={styles.heroImageMedia} />
-            </div>
-          ))}
-        </div>
+        <RevealAnimation cascade damping={0.12} delay={0} triggerOnce>
+          <div
+            className={styles.heroVisual}
+            ref={visualRef}
+            aria-hidden="true"
+            onPointerMove={handlePointerMove}
+            onPointerLeave={() => {
+              handleImageLeave();
+              resetPointer();
+            }}
+          >
+            {heroImages.map(({ id, src, type, className }, index) => (
+              <div
+                key={id}
+                className={`${styles.heroImageWrapper} ${className}`.trim()}
+                data-type={type}
+                data-active={activeIndex === index}
+                onPointerEnter={() => handleImageEnter(index, type)}
+                onPointerLeave={handleImageLeave}
+              >
+                <img src={src} alt="" loading="lazy" className={styles.heroImageMedia} />
+              </div>
+            ))}
+          </div>
 
           <h1 id="hero-title" className={styles.heroTitle}>
             <span className={styles.heroTitleUpper}>UX/UI Designer</span>
@@ -114,6 +102,7 @@ const HeroSection = () => {
             </span>
             <span className={styles.heroTitleLower}>Digital Illustrator</span>
           </h1>
+        </RevealAnimation>
       </Container>
     </section>
   );

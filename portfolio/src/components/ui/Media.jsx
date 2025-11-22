@@ -1,12 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 
-// Lightweight media component that renders either an <img> or a <video>.
-// Performance improvements:
-// - Images use `loading="lazy"` and `decoding="async"`.
-// - Videos do NOT set their `src` immediately; they are loaded only when
-//   the element enters the viewport (IntersectionObserver). This prevents
-//   video network activity on initial page load and reduces main-thread work.
 const isVideoSrc = (src) => {
   if (!src) return false;
   try {

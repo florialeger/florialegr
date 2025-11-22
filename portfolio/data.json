@@ -319,7 +319,7 @@
       "duration": "ongoing",
       "projectDuty": "UX/UI Design",
       "support": ["paper", "procreate", "figma"],
-      "primaryImage": ["", ""],
+      "primaryImage": ["purely-primary.jpg"],
       "type": "ux_ui",
       "secondaryImages": ["Ongoing.jpg"],
       "link": [""],
@@ -348,7 +348,7 @@
       "duration": "ongoing",
       "projectDuty": "Brand Design",
       "support": ["paper", "figma"],
-      "primaryImage": [""],
+      "primaryImage": ["twinkle-primary.jpg"],
       "type": "ux_ui",
       "secondaryImages": ["Ongoing.jpg"],
       "link": [""],
@@ -564,6 +564,39 @@
         "icones-second8.jpg"
       ],
       "slug": "icones-assets",
+      "link": []
+    },
+    {
+      "title": "Tags",
+      "context": [""],
+      "created": "2025-10-24",
+      "support": ["figma"],
+      "primaryImage": ["tags-primary.jpg"],
+      "type": "ux_ui",
+      "secondaryImages": [
+        "tags-second1.jpg",
+        "tags-second2.jpg",
+        "tags-second3.jpg",
+        "tags-second4.jpg",
+        "tags-second5.jpg",
+        "tags-second6.jpg",
+        "tags-second7.jpg",
+        "tags-second8.jpg"
+      ],
+      "slug": "tags",
+      "link": []
+    },
+    {
+      "title": "Transition",
+      "context": [],
+      "created": "2022-02-26",
+      "support": ["procreate"],
+      "primaryImage": ["transition-primary.jpg"],
+      "type": "illustration",
+      "secondaryImages": [
+        "transition-second1.mp4"
+      ],
+      "slug": "transition",
       "link": []
     },
     {
@@ -956,7 +989,7 @@
     {
       "title": "Background study",
       "context": [],
-      "created": "2025-07",
+      "created": "2025-09-04",
       "support": ["procreate"],
       "primaryImage": ["background-study-primary.jpg"],
       "type": "illustration",
@@ -971,6 +1004,24 @@
         "background-study-second8.jpg"
       ],
       "slug": "background-study",
+      "link": []
+    },
+    {
+      "title": "Avatar",
+      "context": ["Characters from the novel \"The Rise of Kyoshi\" expression study"],
+      "created": "2025-07-08",
+      "support": ["procreate"],
+      "primaryImage": ["Avatar-primary.jpg"],
+      "type": "illustration",
+      "secondaryImages": [
+        "Avatar-second1.jpg",
+        "Avatar-second2.jpg",
+        "Avatar-second3.jpg",
+        "Avatar-second4.jpg",
+        "Avatar-second5.jpg",
+        "Avatar-second6.jpg"
+      ],
+      "slug": "avatar",
       "link": []
     },
     {

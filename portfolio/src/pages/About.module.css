@@ -1,37 +1,13 @@
-.aboutPage {
-  display: flex;
-  flex-direction: column;
-  gap: var(--layout-page-gap);
-  padding: var(--layout-page-padding-top) 0 var(--layout-page-padding-bottom);
-  color: var(--label---primary);
-}
-
-.contactSection {
-  padding-top: var(--stack-gap-lg);
-}
-
-.contactContainer {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: var(--stack-gap-md);
-  width: 100%;
-}
-
 .emailRow {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
-}
-
-.emailText {
-  font-family: var(---type---body---family);
+  gap: clamp(0.5rem, 1.5vw, 0.75rem);
 }
 
 .magnet {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
+  gap: clamp(0.5rem, 1.5vw, 0.75rem);
 }
 
 .contactParagraph {
@@ -71,13 +47,6 @@
   display: inline-block;
 }
 
-.contactContainer {
-  display: flex;
-  justify-content: center;
-  height: calc(100vh - var(--nav-height) - var(--layout-page-padding-top) - var(--layout-page-padding-bottom));
-  width: 100vw;
-  padding: var(--stack-gap-lg);
-}
 
 .contactRow {
   display: flex;
@@ -89,126 +58,7 @@
 }
 
 @media (max-width: 720px) {
-  .contactContainer {
-    gap: calc(var(--stack-gap-lg) * 1.5);
-  }
   .emailRow {
     flex-direction: column;
-  }
-
-  .socialGrid {
-    row-gap: var(--stack-gap-md);
-  }
-
-  .contactIntro,
-  .contactMessage {
-    white-space: normal;
-    text-align: center;
-  }
-
-  .contactMessage {
-    min-width: clamp(9rem, 40vw, 12rem);
-  }
-}
-
-.softwareSection {
-  padding-top: var(--stack-gap-lg);
-}
-
-.softwareContainer {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  width: 100vw;
-  height: fit-content;
-  padding: var(--stack-gap-lg);
-}
-
-.softwareInner {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  margin-inline: auto;
-  gap: var(--stack-gap-lg);
-}
-
-.softwareTitle {
-  text-align: start;
-}
-
-.softwareList {
-  display: flex;
-  flex-direction: row;
-  gap: var(--stack-gap-md);
-  list-style: none;
-  padding: 0;
-  justify-content: start;
-  align-items: center;
-  /* allow animated children to overflow their layout box (no clipping) */
-  overflow: visible;
-}
-
-.softwareItem {
-  margin: 0;
-  display: inline-flex;
-  align-items: center;
-  /* ensure each item keeps its own layout slot while allowing the element to be translated */
-  min-width: max-content;
-  will-change: transform;
-  transform-origin: center center;
-}
-
-.softwareButton {
-  display: flex;
-  align-items: center;
-  gap: 0.6rem;
-  cursor: pointer;
-  transition:
-    transform 220ms ease,
-    box-shadow 220ms ease,
-    filter 180ms ease;
-  will-change: transform;
-}
-
-.softwareButton:hover,
-.softwareButton:focus {
-  transform: saturate(1.1) scale(1.05);
-}
-.softwareButton:hover h4,
-.softwareButton:focus h4 {
-  font-weight: var(--type---title-4---weight-emphasized);
-}
-
-.softwareIcon {
-  display: inline-grid;
-  place-items: center;
-  --software-icon-size: clamp(2.2rem, 3.2vw, 2.2rem);
-  width: var(--software-icon-size);
-  height: var(--software-icon-size);
-}
-
-.softwareImg {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  display: block;
-}
-
-.softwareLabel {
-  font-weight: 600;
-  color: var(--label---primary);
-  white-space: nowrap; /* keep label on a single line */
-}
-
-@media (max-width: 520px) {
-  .softwareList {
-    gap: var(--stack-gap-sm);
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .softwareButton {
-    width: 100%;
-    justify-content: center;
   }
 }

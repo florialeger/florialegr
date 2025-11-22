@@ -3,12 +3,9 @@
   flex-direction: column;
   gap: var(--layout-page-gap);
   padding: var(--layout-page-padding-top) 0 var(--layout-page-padding-bottom) 0;
-  background: var(--background---primary);
-  color: var(--label---primary);
   --work-content-max: 1200px;
   --work-col-min: 130px;
   --work-max-columns: 5;
-  /* center the inner containers and make them use the page-local max width */
   align-items: center;
   margin-inline: auto;
   max-width: min(
@@ -18,9 +15,10 @@
 }
 
 .pageHeader {
-  display: flex;
-  flex-direction: column;
-  gap: var(--stack-gap-sm);
+  width: 100%;
+  max-width: var(--work-content-max);
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .listContainer {
@@ -46,6 +44,7 @@
 .yearSection h3 {
   font-weight: var(--type---title-3---weight-emphasized);
 }
+
 .projectList {
   list-style: none;
   display: grid;
@@ -55,13 +54,6 @@
   row-gap: var(--stack-gap-md);
   margin: var(--stack-gap-md) 0;
   padding: 0;
-}
-
-.pageHeader {
-  width: 100%;
-  max-width: var(--work-content-max);
-  margin-left: auto;
-  margin-right: auto;
 }
 
 .projectItem {
@@ -75,7 +67,7 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  gap: calc(var(--stack-gap-sm) * 0.5);
+  gap: var(--stack-gap-xxs);
   transition:
     color 180ms ease,
     transform 180ms ease;
@@ -84,6 +76,7 @@
 
 .projectType {
   color: var(--label---tertiary);
+  opacity: 0.8;
 }
 
 .projectTitleContent p {
@@ -103,8 +96,8 @@
 }
 
 .inlineIcon {
-  width: 1.1em;
-  height: 1.1em;
+  width: 1.2em;
+  height: 1.2em;
   object-fit: contain;
 }
 
@@ -112,7 +105,6 @@
   color: var(--label---tertiary);
 }
 
-/* Dim non-hovered project items when one item is hovered */
 .projectList li[data-dimmed='true'] .projectItem {
   filter: grayscale(1);
   transition:

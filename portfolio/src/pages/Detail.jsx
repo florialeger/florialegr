@@ -1,13 +1,16 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
+import RevealAnimation from '@/components/utility/RevealAnimation';
 import PropTypes from 'prop-types';
 import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import Button from '@/components/ui/Button';
+import CardGrid from '@/components/projects/CardGrid';
+import Container from '@/components/ui/Container';
 import { usePortfolio } from '@/contexts/PortfolioContext';
 import formatDate from '@/utils/formatDate';
 import formatDuration from '@/utils/formatDuration';
-import { resolveSupportIcons } from '@/utils/supportIcons';
 import { resolveMediaPath } from '@/utils/media';
 import styles from './Detail.module.css';
+import pageLayout from '@/components/ui/PageLayout.module.css';
 import useMagneticEffect from '@/hooks/useMagneticEffect';
 import Media from '@/components/ui/Media';
 import ArrowIcon from '@/components/ui/icons/ArrowIcon';
@@ -25,25 +28,6 @@ const Detail = ({ variant }) => {
     return variant === 'work' ? getProjectBySlug(slug) : getPlaygroundBySlug(slug);
   }, [getPlaygroundBySlug, getProjectBySlug, slug, variant]);
 
-  const supports = useMemo(() => {
-    const raw = resolveSupportIcons(data?.support || []);
-    // always prefer to show Procreate, Figma, Paper in that order when present
-    const preferred = ['Procreate', 'Figma', 'Paper'];
-    const ordered = [];
-
-    // push preferred in order if present
-    preferred.forEach((label) => {
-      const found = raw.find((s) => s.label === label);
-      if (found) ordered.push(found);
-    });
-
-    // append remaining icons preserving their original order
-    raw.forEach((s) => {
-      if (!ordered.includes(s)) ordered.push(s);
-    });
-
-    return ordered;
-  }, [data]);
   const duties = useMemo(() => data?.projectDuty?.filter(Boolean) ?? [], [data]);
   const contextParagraphs = useMemo(() => {
     if (!data?.context) return [];
@@ -143,8 +127,8 @@ const Detail = ({ variant }) => {
 
   if (!loading && !data) {
     return (
-      <div className={styles.detailPage}>
-        <article className={styles.card} data-empty>
+      <div className={`${pageLayout.page} ${styles.detailPage}`.trim()}>
+        <article className={`${pageLayout.container} ${styles.card}`.trim()} data-empty>
           <div className={styles.emptyState}>
             <h1>Nothing to see here yet.</h1>
             <p>The requested {variant === 'work' ? 'project' : 'playground'} could not be found.</p>
@@ -173,129 +157,119 @@ const Detail = ({ variant }) => {
 
   const durationLabel = data.duration ? formatDuration(data.duration) : null;
   return (
-    <div className={styles.detailPage}>
-      {/* Navigation gradient blur intentionally not rendered on Detail page. */}
-
-      {/* Bottom bar that contains the centered Back control (mirrors Playground filter placement). */}
+    <div className={`${pageLayout.page}`.trim()}>
       <div className={styles.bottomBar} role="toolbar" aria-label="Navigation">
         <Button ref={setBackMag} label="Go Back" onClick={handleClose} className={styles.backTextButton} />
       </div>
-      <article className={styles.card}>
-        <header className={styles.header} data-condensed={isHeaderCondensed}>
-          <div className={styles.headerColumn}>
-            <h3 ref={titleRef}>{data.title}</h3>
-            {duties.length > 0 && (
-              <ul className={styles.badgeList}>
-                {duties.map((duty) => (
-                  <li key={duty}>{duty}</li>
-                ))}
-              </ul>
-            )}{' '}
-          </div>
-
-          <div className={styles.metaColumn}>
-            <dl className={styles.metaList}>
-              {/* If the project is ongoing, show "created" (start date) instead of "launch" */}
-              {isOngoing ? (
-                <div className={styles.metaItem}>
-                  <dt>started</dt>
-                  <dd>{createdLabel}</dd>
-                </div>
-              ) : variant === 'work' ? (
-                <div className={styles.metaItem}>
-                  <dt>launch</dt>
-                  <dd>{createdLabel}</dd>
-                </div>
-              ) : (
-                <div className={styles.metaItem}>
-                  <dd>{createdLabel}</dd>
-                </div>
-              )}
-
-              {/* For ongoing projects we display "ongoing" as the duration value without the label. */}
-              {isOngoing ? (
-                <div className={styles.metaItem}>
-                  <dd>ongoing</dd>
-                </div>
-              ) : (
-                durationLabel && (
-                  <div className={styles.metaItem}>
-                    <dt>duration</dt>
-                    <dd>{durationLabel}</dd>
-                  </div>
-                )
-              )}
-            </dl>
-          </div>
-        </header>
-
-        {heroImage && <MagneticImage className={styles.heroMedia} src={heroImage} alt="" />}
-
-        {hasOverview && (
-          <section className={styles.overview}>
-            <div className={styles.overviewInner}>
-              <div className={styles.context}>
-                {contextParagraphs.map((paragraph, index) => (
-                  <p key={index}>{paragraph}</p>
-                ))}
-              </div>
-              {links.length > 0 && (
-                <div className={styles.links}>
-                  {links.map((link) => (
-                    <Button
-                      key={link.url}
-                      label={link.label}
-                      icon={<ArrowIcon />}
-                      href={link.url}
-                      target="_blank"
-                      rel="noreferrer"
-                    />
+      <RevealAnimation cascade damping={0.2} triggerOnce>
+        <article className={`${pageLayout.container} ${styles.card}`.trim()}>
+          <header className={styles.header} data-condensed={isHeaderCondensed}>
+            <div className={styles.headerColumn}>
+              <h3 ref={titleRef}>{data.title}</h3>
+              {duties.length > 0 && (
+                <ul className={styles.badgeList}>
+                  {duties.map((duty) => (
+                    <li key={duty}>{duty}</li>
                   ))}
-                </div>
-              )}
+                </ul>
+              )}{' '}
             </div>
-          </section>
-        )}
 
-        {galleryImages.length > 0 && (
-          <section className={styles.gallery}>
-            <ul ref={imageGridRef} className={styles.imageGrid}>
-              {(() => {
-                const isSingleInGrid = galleryImages.length === 1;
-                return galleryImages.map((image, index) => {
-                  const wideClass = isSingleInGrid || index % 3 === 2 ? styles.imageWide : '';
-                  return (
-                    <li key={`${image}-${index}`} className={`${wideClass}`.trim()}>
-                      <MagneticImage className={styles.imageItem} src={image} alt="">
-                        <Media src={image} alt="" className={styles.imageItem} />
-                      </MagneticImage>
-                    </li>
-                  );
-                });
-              })()}
-            </ul>
-          </section>
-        )}
-        {supports.length > 0 && (
-          <section className={styles.supportRow} aria-label="Support">
             <div className={styles.metaColumn}>
               <dl className={styles.metaList}>
-                <div className={styles.metaItem}>
-                  <dt>support </dt>
-                  <dd>
-                    {supports.map((s, i) => (
-                      <span key={s.label} className={styles.supportLabel}>
-                        {s.label}
-                        {i < supports.length - 1 ? ', ' : ''}
-                      </span>
-                    ))}
-                  </dd>
-                </div>
+                {isOngoing ? (
+                  <div className={styles.metaItem}>
+                    <dt>started</dt>
+                    <dd>{createdLabel}</dd>
+                  </div>
+                ) : variant === 'work' ? (
+                  <div className={styles.metaItem}>
+                    <dt>launch</dt>
+                    <dd>{createdLabel}</dd>
+                  </div>
+                ) : (
+                  <div className={styles.metaItem}>
+                    <dd>{createdLabel}</dd>
+                  </div>
+                )}
+
+                {/* For ongoing projects we display "ongoing" as the duration value without the label. */}
+                {isOngoing ? (
+                  <div className={styles.metaItem}>
+                    <dd>ongoing</dd>
+                  </div>
+                ) : (
+                  durationLabel && (
+                    <div className={styles.metaItem}>
+                      <dt>duration</dt>
+                      <dd>{durationLabel}</dd>
+                    </div>
+                  )
+                )}
               </dl>
             </div>
-          </section>
-        )}
-      </article>
+          </header>
+
+          {heroImage && <MagneticImage className={styles.heroMedia} src={heroImage} alt="" />}
+
+          {hasOverview && (
+            <section className={styles.overview}>
+              <div className={styles.overviewInner}>
+                <div className={styles.context}>
+                  {contextParagraphs.map((paragraph, index) => (
+                    <p key={index}>{paragraph}</p>
+                  ))}
+                </div>
+                {links.length > 0 && (
+                  <div className={styles.links}>
+                    {links.map((link) => (
+                      <Button
+                        key={link.url}
+                        label={link.label}
+                        icon={<ArrowIcon />}
+                        href={link.url}
+                        target="_blank"
+                        rel="noreferrer"
+                      />
+                    ))}
+                  </div>
+                )}
+              </div>
+            </section>
+          )}
+
+          {galleryImages.length > 0 && (
+            <Container className={styles.gridContainer}>
+              <CardGrid ref={imageGridRef} className={styles.imageGrid}>
+                {(() => {
+                  const isSingleInGrid = galleryImages.length === 1;
+                  return galleryImages.map((image, index) => {
+                    const wideClass = isSingleInGrid || index % 3 === 2 ? styles.imageWide : '';
+                    return (
+                      <div key={`${image}-${index}`} className={`${wideClass}`.trim()}>
+                        <div className={styles.imageItem}>
+                          <Media src={image} alt="" className={styles.imageItem} />
+                        </div>
+                      </div>
+                    );
+                  });
+                })()}
+              </CardGrid>
+            </Container>
+          )}
+
+          {data.support && data.support.length > 0 && (
+            <div className={styles.supportRow}>
+              <p className={styles.supportLabel}>support</p>
+              {data.support.map((s) => (
+                <p key={s} className={`${styles.supportLabel} ${styles.supportValue}`}>
+                  {s}
+                </p>
+              ))}
+            </div>
+          )}
+        </article>
+      </RevealAnimation>
     </div>
   );
 };

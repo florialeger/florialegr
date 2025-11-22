@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-// Optional: Add styling
-// import styles from './ErrorBoundary.module.css';
 
 /**
  * Catches JavaScript errors anywhere in its child component tree,
@@ -59,17 +57,3 @@ ErrorBoundary.propTypes = {
 };
 
 export default ErrorBoundary;
-
-/* --- ErrorBoundary.module.css (Example) ---
-.errorBoundary {
-   padding: 2rem;
-   border: 1px solid var(--error-border-color, red);
-   background-color: var(--error-bg-color, #fff5f5);
-   color: var(--error-color, red);
-  border-radius: var(--radius-md);
-   text-align: center;
-}
- .errorBoundary h2 { margin-bottom: 1rem; }
- .errorBoundary details { text-align: left; color: #666; font-size: 0.9em; }
- .errorBoundary summary { cursor: pointer; font-weight: bold; }
-*/

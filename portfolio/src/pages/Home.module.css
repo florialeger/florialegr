@@ -1,25 +1,3 @@
-.home {
-  display: flex;
-  flex-direction: column;
-  gap: calc(3 * var(--layout-page-gap));
-  padding-bottom: var(--layout-page-padding-bottom);
-  background: var(--background---primary);
-}
-
-.introSection {
-  display: flex;
-}
-
-.introContainer {
-  display: flex;
-  flex-direction: column;
-  align-items: start;
-  justify-content: start;
-  gap: var(--copy-block-gap);
-  width: 100%;
-  max-width: var(--copy-block-max-width);
-}
-
 .emailRow {
   display: inline-flex;
   align-items: center;
@@ -38,7 +16,6 @@
   display: inline-block;
 }
 
-/* Magnetized targets (icon + email) */
 .magnet {
   display: inline-block;
   padding: 1rem 0;

@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import Container from '@/components/ui/Container';
+import RevealAnimation from '@/components/utility/RevealAnimation';
 import { ArrowIcon, LockIcon } from '@/components/ui/icons';
 import { usePortfolio } from '@/contexts/PortfolioContext';
 import useMagneticEffect from '@/hooks/useMagneticEffect';
@@ -125,24 +126,15 @@ const Work = () => {
       });
   }, [projects]);
 
-  const [headerVisible, setHeaderVisible] = useState(false);
-  const [listVisible, setListVisible] = useState(false);
-
-  useEffect(() => {
-    const id = requestAnimationFrame(() => {
-      setHeaderVisible(true);
-      setListVisible(true);
-    });
-    return () => cancelAnimationFrame(id);
-  }, []);
-
   return (
     <div className={styles.workPage}>
-      <Container className={`${styles.pageHeader} reveal-hero ${headerVisible ? 'is-visible' : ''}`}>
-        <h2>Recent projects</h2>
+      <Container className={styles.pageHeader}>
+        <RevealAnimation triggerOnce>
+          <h2>Recent projects</h2>
+        </RevealAnimation>
       </Container>
 
-      <Container className={`${styles.listContainer} reveal-hero ${listVisible ? 'is-visible' : ''}`}>
+      <Container className={styles.listContainer}>
         {loading && <p className={styles.stateMessage}>Loading projects…</p>}
         {error && !loading && <p className={styles.stateMessage}>Unable to load projects right now.</p>}
 
@@ -152,30 +144,32 @@ const Work = () => {
 
         {!loading && !error && groupedProjects.length > 0 && (
           <div className={styles.yearList}>
-            {groupedProjects.map(({ year, items }) => (
-              <section key={year} className={styles.yearSection}>
-                <h3>{year}</h3>
-                <ul className={styles.projectList}>
-                  {items.map((project) => {
-                    const typeLabel = normalizeDuty(project.projectDuty);
-                    const locked = isProjectLocked(project);
-                    const targetState = { from: `${location.pathname}${location.search}${location.hash}` };
+            <RevealAnimation cascade damping={0.2} triggerOnce>
+              {groupedProjects.map(({ year, items }) => (
+                <section key={year} className={styles.yearSection}>
+                  <h3>{year}</h3>
+                  <ul className={styles.projectList}>
+                    {items.map((project) => {
+                      const typeLabel = normalizeDuty(project.projectDuty);
+                      const locked = isProjectLocked(project);
+                      const targetState = { from: `${location.pathname}${location.search}${location.hash}` };
 
-                    return (
-                      <ProjectListItem
-                        key={project.slug}
-                        project={project}
-                        typeLabel={typeLabel}
-                        locked={locked}
-                        targetState={targetState}
-                        hoveredSlug={hoveredSlug}
-                        setHoveredSlug={setHoveredSlug}
-                      />
-                    );
-                  })}
-                </ul>
-              </section>
-            ))}
+                      return (
+                        <ProjectListItem
+                          key={project.slug}
+                          project={project}
+                          typeLabel={typeLabel}
+                          locked={locked}
+                          targetState={targetState}
+                          hoveredSlug={hoveredSlug}
+                          setHoveredSlug={setHoveredSlug}
+                        />
+                      );
+                    })}
+                  </ul>
+                </section>
+              ))}
+            </RevealAnimation>
           </div>
         )}
       </Container>

@@ -6,7 +6,6 @@
   width: 100%;
 }
 
-/* Optional: ensure items stretch to fill the column and keep consistent heights */
 .cardGrid > * {
   align-self: start;
 }

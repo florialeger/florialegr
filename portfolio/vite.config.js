@@ -5,6 +5,15 @@ import { dirname, resolve } from 'node:path';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
+let __useBackend = false;
+try {
+  if (import.meta && import.meta.env && import.meta.env.VITE_USE_BACKEND === 'true') {
+    __useBackend = true;
+  }
+} catch {
+  /* ignore if import.meta is unavailable */
+}
+
 export default defineConfig({
   plugins: [react()],
   resolve: {
@@ -20,11 +29,25 @@ export default defineConfig({
       '@ui': resolve(__dirname, './src/components/ui'),
     },
   },
-  assetsInclude: ['**/*.png', '**/*.mp4'],
+  assetsInclude: ['**/*.png', '**/*.mp4', '**/*.MP4'],
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          // Split React and related libs into separate chunk
+          'react-vendor': ['react', 'react-dom', 'react-router-dom'],
+          // Split animation libraries
+          'animation-vendor': ['react-awesome-reveal', '@emotion/react'],
+          // Split other third-party libraries if present
+          // Add more chunking strategies as needed
+        },
+      },
+    },
+    // Increase chunk size warning limit to 1000 kB if needed
+    chunkSizeWarningLimit: 1000,
+  },
   server: {
-    // Only enable proxying to the backend when explicitly requested via Vite env var
-    // Set VITE_USE_BACKEND=true to enable the /api proxy during development.
-    ...(process.env.VITE_USE_BACKEND === 'true'
+    ...(__useBackend
       ? {
           proxy: {
             '/api': {

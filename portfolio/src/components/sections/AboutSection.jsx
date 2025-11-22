@@ -1,15 +1,17 @@
 import { memo } from 'react';
 import useMagneticEffect from '@/hooks/useMagneticEffect';
+import RevealAnimation from '@/components/utility/RevealAnimation';
 import PropTypes from 'prop-types';
 import Container from '@/components/ui/Container';
 import Button from '@/components/ui/Button';
 import CD from '@/assets/icons/CD.png';
 import styles from './AboutSection.module.css';
+import pageLayout from '@/components/ui/PageLayout.module.css';
 
-const AboutSection = ({ title = [], paragraphs, downloads, portraitSrc, portraitAlt = 'Portrait', className = '' }) => (
-  <section className={`${styles.section} ${className}`.trim()}>
-    <Container className={styles.contactContainer}>
-      <div className={styles.header} ref={useMagneticEffect({ maxDistance:24, scale: 1.05 })}>
+const AboutSection = ({ title = [], paragraphs, downloads, portraitSrc, portraitAlt = 'Portrait' }) => (
+  <Container className={pageLayout.pageHeader}>
+          <RevealAnimation cascade damping={0.1} delay={100} triggerOnce>
+      <div className={styles.header} ref={useMagneticEffect({ maxDistance: 24, scale: 1.05 })}>
         <figure className={styles.portrait}>
           <img src={portraitSrc} alt={portraitAlt} loading="lazy" />
         </figure>
@@ -18,7 +20,15 @@ const AboutSection = ({ title = [], paragraphs, downloads, portraitSrc, portrait
             <p>@florialeger</p>
             <img src={CD} className={styles.cdIcon} alt="CD Icon" />
           </div>
-          <p style={{ color: 'var(--label---tertiary)' }}>9h41</p>
+          <p
+            style={{
+              color: 'var(--label---tertiary)',
+              fontFamily: 'var(--type---body---accent)',
+              fontWeight: 'var( --body-emphasized-weight)',
+            }}
+          >
+            9h41
+          </p>
         </div>
       </div>
 
@@ -37,8 +47,8 @@ const AboutSection = ({ title = [], paragraphs, downloads, portraitSrc, portrait
           ))}
         </div>
       ) : null}
-    </Container>
-  </section>
+    </RevealAnimation>
+  </Container>
 );
 
 AboutSection.propTypes = {
@@ -53,14 +63,12 @@ AboutSection.propTypes = {
   ),
   portraitSrc: PropTypes.string.isRequired,
   portraitAlt: PropTypes.string,
-  className: PropTypes.string,
 };
 
 AboutSection.defaultProps = {
   title: [],
   downloads: [],
   portraitAlt: 'Portrait',
-  className: '',
 };
 
 export default memo(AboutSection);
