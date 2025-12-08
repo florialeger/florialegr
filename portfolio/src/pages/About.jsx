@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import Container from '@/components/ui/Container';
 import AboutSection from '@/components/sections/AboutSection';
 import RevealAnimation from '@/components/utility/RevealAnimation';
@@ -8,9 +9,55 @@ import portfolioPdf from '@/assets/pdf/floria-portfolio.pdf';
 import useMagneticEffect from '@/hooks/useMagneticEffect';
 import { MailIcon } from '@/components/ui/icons';
 import InlineIcon from '@/components/ui/InlineIcon';
+import SwipeableStack from '@/components/utility/SwipeableStack';
 import styles from './About.module.css';
 import pageLayout from '@/components/ui/PageLayout.module.css';
 import inlineIconStyles from '@/components/ui/InlineIcon.module.css';
+
+// Calculate years since September 2023, rounded to nearest half year
+const calculateYearsSince = () => {
+  const startDate = new Date(2023, 8, 1); // September 2023 (month is 0-indexed)
+  const today = new Date();
+  const diffInMonths = (today.getFullYear() - startDate.getFullYear()) * 12 + (today.getMonth() - startDate.getMonth());
+  const years = Math.floor(diffInMonths / 12);
+  const remainingMonths = diffInMonths % 12;
+
+  // Round to nearest half year
+  if (remainingMonths < 3) {
+    return years === 0 ? 'a few months' : years === 1 ? 'one year' : `${years} years`;
+  } else if (remainingMonths < 9) {
+    return years === 0 ? 'half a year' : `${years} and a half years`;
+  } else {
+    return years === 0 ? 'one year' : `${years + 1} years`;
+  }
+};
+
+// Calculate years since 2015 (volleyball start date)
+const calculateVolleyballYears = () => {
+  const startYear = 2015;
+  const currentYear = new Date().getFullYear();
+  const years = currentYear - startYear;
+
+  const numberWords = [
+    '',
+    'one',
+    'two',
+    'three',
+    'four',
+    'five',
+    'six',
+    'seven',
+    'eight',
+    'nine',
+    'ten',
+    'eleven',
+    'twelve',
+    'thirteen',
+    'fourteen',
+    'fifteen',
+  ];
+  return years <= 15 ? numberWords[years] : years.toString();
+};
 
 const aboutParagraphs = [
   <>
@@ -35,8 +82,8 @@ const aboutParagraphs = [
       <InlineIcon name="apple" size="text" />
       <span className={inlineIconStyles.emphasized}>Apple</span>
     </span>
-    creates such intuitive and seamless user experiences, even though at the time I couldn't put it into words. I’ve
-    been practicing it ever since I got my own computer, it’s been two and a half years now. When I started using{' '}
+    creates such intuitive and seamless user experiences, even though at the time I couldn't put it into words. I've
+    been practicing it ever since I got my own computer, it's been {calculateYearsSince()} now. When I started using{' '}
     <span className={inlineIconStyles.inlineWrap}>
       <InlineIcon name="figma" size="text" />
       <span className={inlineIconStyles.emphasized}>Figma,</span>
@@ -56,8 +103,8 @@ const aboutParagraphs = [
       <InlineIcon name="volley" size="text" />
       <span className={inlineIconStyles.emphasized}>volleyball</span>
     </span>
-    for nine years, which has instilled the importance of teamwork and pushing personal limits. I also have a keen
-    interest in photography, videography, and animation, which helps me expand my creative horizons.
+    for {calculateVolleyballYears()} years, which has instilled the importance of teamwork and pushing personal limits.
+    I also have a keen interest in photography, videography, and animation, which helps me expand my creative horizons.
   </>,
 ];
 
@@ -89,15 +136,44 @@ const contactLinks = [
 ];
 
 const About = () => {
+  const [copied, setCopied] = useState(false);
+
+  const handleEmailCopy = async () => {
+    const email = 'floria.leger@ensc.fr';
+    try {
+      await navigator.clipboard.writeText(email);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 1200);
+    } catch (err) {
+      console.error('Failed to copy email:', err);
+    }
+  };
+
   const EmailMagnet = () => {
-    const setMagnet = useMagneticEffect({ maxDistance: 18, easing: 0.18, scale: 1.03 });
+    const setMagnet = useMagneticEffect({ maxDistance: 4, easing: 0.18, scale: 1.02 });
     return (
       <div className={styles.emailRow}>
         <h2 className={styles.emailText}>Get in touch at</h2>
 
-        <span ref={setMagnet} className={`${styles.magnet} ${styles.magnetIcon}`} aria-hidden>
-          <MailIcon size={44} title="Adresse e-mail" />
+        <span
+          ref={setMagnet}
+          className={`${styles.magnet} ${styles.magnetIcon} ${styles.clickable} ${styles.tooltipContainer}`}
+          onClick={handleEmailCopy}
+          role="button"
+          tabIndex={0}
+          onKeyDown={(e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+              e.preventDefault();
+              handleEmailCopy();
+            }
+          }}
+          aria-label="Click to copy email address"
+        >
+          <MailIcon size={32} title="Adresse e-mail" />
           <h2 className={styles.emailText}>floria.leger@ensc.fr</h2>
+          <p className={`${styles.tooltip} ${copied ? styles.tooltipVisible : ''}`}>
+            {copied ? 'Copied!' : 'Click to copy'}
+          </p>
         </span>
       </div>
     );
@@ -105,17 +181,23 @@ const About = () => {
 
   return (
     <div className={pageLayout.page}>
-          <AboutSection
-            paragraphs={aboutParagraphs}
-            downloads={downloadLinks}
-            portraitSrc={portraitImage}
-            portraitAlt="Floria Leger"
-          />
-     
-     
+      <AboutSection
+        paragraphs={aboutParagraphs}
+        downloads={downloadLinks}
+        portraitSrc={portraitImage}
+        portraitAlt="Floria Leger"
+      />
 
-      <section>
-        <Container className={pageLayout.container}>
+      <section className={styles.stackSection}>
+        <div className={styles.stackContainer}>
+          <RevealAnimation cascade damping={0.08} triggerOnce>
+            <SwipeableStack />
+          </RevealAnimation>
+        </div>
+      </section>
+
+      <section className={pageLayout.container} style={{ paddingTop: 0 }}>
+        <div className={styles.contactContainer}>
           <RevealAnimation cascade damping={0.08} triggerOnce>
             <p className={styles.contactParagraph}>
               <EmailMagnet />
@@ -134,7 +216,7 @@ const About = () => {
               ))}
             </ul>
           </RevealAnimation>
-        </Container>
+        </div>
       </section>
     </div>
   );

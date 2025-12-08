@@ -1,0 +1,22 @@
+.followImage {
+  position: fixed;
+  pointer-events: none;
+  z-index: 9999;
+  will-change: transform, opacity;
+  transform-style: preserve-3d;
+}
+
+.followImage img {
+  width: clamp(6rem, 15vw, 8rem);
+  height: auto;
+  object-fit: cover;
+  border-radius: var(--radius-xs);
+  box-shadow: var(--shadows--small);
+  will-change: transform;
+}
+
+@media (max-width: 720px) {
+  .followImage {
+    display: none;
+  }
+}

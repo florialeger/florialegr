@@ -1,30 +1,28 @@
 :root {
-  /* Cleaned typography tokens: only title-1..title-4 + body + exported body variants */
-
   /* Headings (Source Sans 3) */
-  --type---title-1---family: 'Source Sans 3', system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
-  --type---title-1---size: clamp(2.2rem, 5.2vw, 2.8rem);
-  --type---title-1---weight-regular: 900;
-  --type---title-1---weight-emphasized: 900;
+  --type---title-1---family:
+    'EB Garamond', 'Source Sans 3', system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
+  --type---title-1---size: clamp(2rem, 5.2vw, 2.5rem);
+  --type---title-1---weight-regular: 800;
   --type---title-1---letter-spacing: -2px;
 
   --type---title-2---family: 'Source Sans 3', system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
-  --type---title-2---size: clamp(1.3rem, 3vw, 1.7em);
-  --type---title-2---weight-regular: 700;
+  --type---title-2---size: clamp(1.2rem, 3vw, 1.4em);
+  --type---title-2---weight-regular: 500;
   --type---title-2---weight-emphasized: 700;
   --type---title-2---letter-spacing: 0;
   --type---title-2---line-height: 1.2;
 
   --type---title-3---family: 'Source Sans 3', system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
-  --type---title-3---size: clamp(1.2rem, 2.6vw, 1.3rem);
-  --type---title-3---weight-regular: 600;
-  --type---title-3---weight-emphasized: 800;
+  --type---title-3---size: clamp(1.1rem, 2.6vw, 1.2rem);
+  --type---title-3---weight-regular: 500;
+  --type---title-3---weight-emphasized: 700;
   --type---title-3---letter-spacing: 0;
 
   --type---title-4---family: 'Source Sans 3', system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
   --type---title-4---size: clamp(1rem, 2vw, 1.1rem);
-  --type---title-4---weight-regular: 600;
-  --type---title-4---weight-emphasized: 800;
+  --type---title-4---weight-regular: 500;
+  --type---title-4---weight-emphasized: 700;
   --type---title-4---letter-spacing: 0;
 
   /* Body (EB Garamond) */
@@ -34,15 +32,14 @@
   --type---body---line-height: 1.5;
   --type---body---letter-spacing: 0;
 
-  /* Exported body style variables for other modules */
   --body-regular-weight: 500;
   --body-regular-size: 1rem;
   --body-regular-letter-spacing: 0;
 
-  --body-italic-weight: 700;
+  --body-italic-weight: 600;
   --body-italic-style: italic;
   --body-italic-letter-spacing: 0.01em;
-  --body-emphasized-weight: 700;
+  --body-emphasized-weight: 650;
   --body-emphasized-letter-spacing: -0.01em;
 
   --type---body---accent: 'EB Garamond', Georgia, 'Times New Roman', serif;
@@ -51,16 +48,16 @@
   --nav-height: 104px;
   --container-max-width: 1200px;
   --container-padding-x: 1.5rem;
-  --copy-block-gap: clamp(1.6rem, 3vw, 2.2rem);
-  --copy-block-max-width: clamp(30rem, 68vw, 38rem);
+  --copy-block-gap: clamp(1rem, 3vw, 1.5rem);
+  --copy-block-max-width: min(clamp(30rem, 68vw, 38rem), 100%);
   --layout-page-gap: clamp(3.5rem, 8vw, 5.5rem);
   --layout-page-padding-top: clamp(4rem, 10vw, 6rem);
   --layout-page-padding-bottom: clamp(6rem, 12vw, 9rem);
-  --stack-gap-lg: clamp(2.5rem, 6vw, 4rem);
-  --stack-gap-md: clamp(1.6rem, 4vw, 2.6rem);
-  --stack-gap-sm: clamp(0.75rem, 3vw, 1.25rem);
-  --stack-gap-xs: clamp(0.5rem, 2vw, 0.75rem);
-  --stack-gap-xxs: clamp(0.25rem, 1vw, 0.5rem);
+  --stack-gap-lg: clamp(2rem, 6vw, 3rem);
+  --stack-gap-md: clamp(1rem, 4vw, 1.6rem);
+  --stack-gap-sm: clamp(0.6rem, 3vw, 0.1rem);
+  --stack-gap-xs: clamp(0.3rem, 2vw, 0.6rem);
+  --stack-gap-xxs: clamp(0.25rem, 1vw, 0.3rem);
 
   /* Motion and effects */
   --animate-spin: spin 1s linear infinite;
@@ -72,6 +69,7 @@
   /* Corner radius tokens (scalable & responsive)
     - values use rem (root font-size = 18px) so px ~= rem * 18
     - --border-radius-medium kept as an alias for compatibility */
+  --radius-xxs: 0.4rem; /* ~6.75px */
   --radius-xs: 0.9rem; /* ~6.75px */
   --radius-sm: 1.4rem; /* ~10.8px */
   --radius-md: clamp(1.4rem, 2.5vw, 2rem); /* ~10.8px - 19.8px */
@@ -82,7 +80,7 @@
   /* Theme defaults (white baseline) */
   --surface---main: #fcfcfc;
   --background---primary: #fcfcfc;
-  --background---secondary: #EBEBEB;
+  --background---secondary: #f7f7f7;
   --label---primary: #171717;
   --label---secondary: rgba(23, 23, 23, 0.7);
   --label---tertiary: rgba(23, 23, 23, 0.5);
@@ -91,7 +89,7 @@
   --fills---secondary: rgba(228, 228, 228, 0.6);
   --fills---non--opaque: rgba(255, 255, 255, 0.7);
   --fills---linear-non--opaque: linear-gradient(180deg, var(--surface---main) 0%, rgba(252, 252, 252, 0) 100%);
-  --separator---black-10: rgba(0, 0, 0, 0.1);
+  --separator---black-10: rgba(0, 0, 0, 0.05);
   --separator---white-20: rgba(255, 255, 255, 0.2);
 
   /* Effects */
@@ -101,9 +99,8 @@
     0px 0px 0px 1px rgba(0, 0, 0, 0.06), 0px 1px 1px -0.5px rgba(0, 0, 0, 0.06), 0px 3px 3px -1.5px rgba(0, 0, 0, 0.06),
     0px 6px 6px -3px rgba(0, 0, 0, 0.06), 0px 12px 12px -6px rgba(0, 0, 0, 0.05),
     0px 24px 24px -12px rgba(0, 0, 0, 0.05);
-  
 
-  font-size: 19px;
+  font-size: 17px;
   font-family: var(--type---body---family);
   line-height: var(--type---body---line-height);
   font-weight: var(--type---body---weight);
@@ -186,6 +183,7 @@ h3 {
   line-height: var(--type---title-3---line-height, 1);
   text-box: trim-both cap alphabetic;
   width: fit-content;
+  
 }
 
 h4 {
@@ -194,6 +192,7 @@ h4 {
   font-weight: var(--type---title-4---weight-regular);
   letter-spacing: var(--type---title-4---letter-spacing);
   text-box: trim-both cap alphabetic;
+  
 }
 
 p {

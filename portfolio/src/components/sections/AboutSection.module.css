@@ -1,7 +1,7 @@
 .buttonColumn {
   display: flex;
   flex-direction: column;
-  gap: var(--stack-gap-sm);
+  gap: calc(var(--stack-gap-md) * 0.8);
 }
 
 .portrait {
@@ -29,15 +29,16 @@
 .pseudo {
   display: flex;
   gap: 0.2rem;
+  align-items: center;
 }
 .pseudo p {
   font-family: var(--type---body---accent);
   font-weight: var(--body-emphasized-weight);
   letter-spacing: var(--body-emphasized-letter-spacing);
-
+  font-size: var(--type---title-3---size);
 }
 
 .cdIcon {
-  width: 26px;
-  height: auto;
+  width: 1.4rem;
+  height: 1.4rem;
 }

@@ -18,11 +18,11 @@
   justify-content: center;
   align-items: center;
   width: min(36rem, 90vw);
-  min-height: clamp(16rem, 36vw, 18rem);
+  min-height: clamp(10rem, 12vw, 16rem);
   margin-inline: auto;
   --pointer-x: 0;
   --pointer-y: 0;
-  --stack-gap: clamp(8rem, 12vw, 9rem);
+  --stack-gap: clamp(7.5rem, 8.5vw, 12rem);
 }
 
 .heroImageWrapper {
@@ -30,7 +30,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: clamp(8rem, 18vw, 12rem);
+  width: clamp(8.5rem, 11vw, 10rem);
   aspect-ratio: 1;
   transform: translate3d(
       calc(var(--base-x, 0rem) + var(--pointer-x) * var(--pointer-strength, 0.45rem)),
@@ -50,8 +50,7 @@
 .heroImageMedia {
   width: 100%;
   height: 100%;
-  border-radius: var(--radius-md);
-  border: clamp(0.65rem, 1.6vw, 0.9rem) solid var(--fills---non--opaque);
+  border-radius: var(--radius-xs);
   box-shadow: var(--shadows--small);
   backdrop-filter: blur(4px);
 
@@ -153,10 +152,6 @@
 }
 
 @media (max-width: 960px) {
-  .heroContainer {
-    gap: clamp(1rem, 8vw, 2.8rem);
-  }
-
   .heroVisual {
     width: min(30rem, 100%);
     --stack-gap: clamp(7rem, 8vw, 11rem);
@@ -164,12 +159,17 @@
 }
 
 @media (max-width: 680px) {
+  .heroContainer {
+    gap: var(--stack-gap-sm);
+  }
+
   .heroVisual {
-    min-height: 16rem;
+    min-height: clamp(16rem, 16vw, 16rem);
     --stack-gap: clamp(4.5rem, 10vw, 12rem);
   }
 
   .heroImageWrapper {
+    width: clamp(8rem, 11vw, 12rem);
     margin: 0;
   }
 

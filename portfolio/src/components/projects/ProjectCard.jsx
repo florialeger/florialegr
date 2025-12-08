@@ -1,8 +1,7 @@
-import { memo, useCallback, useEffect, useMemo } from 'react';
+import { memo, useCallback, useEffect, useMemo, useRef } from 'react';
 import PropTypes from 'prop-types';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { resolveMediaPath } from '@/utils/media';
-import { ArrowIcon, LockIcon } from '@/components/ui/icons';
 import useMagneticEffect from '@/hooks/useMagneticEffect';
 import styles from './ProjectCard.module.css';
 import Media from '@/components/ui/Media';
@@ -10,6 +9,7 @@ import Media from '@/components/ui/Media';
 const WorkCard = memo(({ item, className, onHoverChange }) => {
   const navigate = useNavigate();
   const location = useLocation();
+  const cardRef = useRef(null);
   const fromPath = useMemo(
     () => `${location.pathname}${location.search}${location.hash}`,
     [location.hash, location.pathname, location.search]
@@ -38,8 +38,19 @@ const WorkCard = memo(({ item, className, onHoverChange }) => {
 
   const handleClick = useCallback(() => {
     if (item.isLocked) return;
+
+    // Store card position for scroll restoration
+    let cardPosition = null;
+    if (cardRef.current) {
+      const rect = cardRef.current.getBoundingClientRect();
+      cardPosition = {
+        top: rect.top + window.scrollY,
+        slug: item.slug,
+      };
+    }
+
     navigate(`/work/${item.slug}`, {
-      state: { from: fromPath },
+      state: { from: fromPath, filter: 'all', scrollTo: cardPosition },
     });
   }, [fromPath, item.isLocked, item.slug, navigate]);
 
@@ -66,6 +77,16 @@ const WorkCard = memo(({ item, className, onHoverChange }) => {
     };
   }, [setMagneticNode, shouldMagnetize]);
 
+  const handleRef = useCallback(
+    (node) => {
+      cardRef.current = node;
+      if (shouldMagnetize) {
+        setMagneticNode(node);
+      }
+    },
+    [setMagneticNode, shouldMagnetize]
+  );
+
   return (
     <article
       className={`${styles.card} ${styles.work} ${className}`.trim()}
@@ -74,26 +95,21 @@ const WorkCard = memo(({ item, className, onHoverChange }) => {
       aria-disabled={item.isLocked}
       data-locked={item.isLocked}
       data-slug={item.slug}
+      data-created={item.created}
       onClick={handleClick}
       onKeyDown={handleKeyDown}
       onPointerEnter={handlePointerEnter}
       onPointerLeave={handlePointerLeave}
       onFocus={() => onHoverChange?.(item.slug)}
       onBlur={() => onHoverChange?.(null)}
-      ref={shouldMagnetize ? setMagneticNode : undefined}
+      ref={handleRef}
     >
       <div className={styles.inner} data-reveal-target>
-        <p className={styles.category + ' text-body-italic'}>{categoryLabel}</p>
+        <p className={styles.category}>{categoryLabel}</p>
         <div className={styles.titleRow}>
           <h4>{item.title}</h4>
           <span className={styles.statusIcon} aria-hidden="true">
-            {item.isLocked ? (
-              <LockIcon size={22} />
-            ) : item.icon ? (
-              <img src={item.icon} alt="" className={styles.iconImage} />
-            ) : (
-              <ArrowIcon size={22} />
-            )}
+            <img src={item.icon} alt="" className={styles.iconImage} />
           </span>
         </div>
       </div>
@@ -102,9 +118,10 @@ const WorkCard = memo(({ item, className, onHoverChange }) => {
 });
 WorkCard.displayName = 'WorkCard';
 
-const PlaygroundCard = memo(({ item, className, onHoverChange }) => {
+const PlaygroundCard = memo(({ item, className, onHoverChange, currentFilter }) => {
   const navigate = useNavigate();
   const location = useLocation();
+  const cardRef = useRef(null);
   const primaryImage = useMemo(() => resolveMediaPath(item.primaryImage?.[0]), [item.primaryImage]);
   const fromPath = useMemo(
     () => `${location.pathname}${location.search}${location.hash}`,
@@ -112,10 +129,20 @@ const PlaygroundCard = memo(({ item, className, onHoverChange }) => {
   );
 
   const handleClick = useCallback(() => {
+    // Store card position for scroll restoration
+    let cardPosition = null;
+    if (cardRef.current) {
+      const rect = cardRef.current.getBoundingClientRect();
+      cardPosition = {
+        top: rect.top + window.scrollY,
+        slug: item.slug,
+      };
+    }
+
     navigate(`/playground/${item.slug}`, {
-      state: { from: fromPath },
+      state: { from: fromPath, filter: currentFilter || 'all', scrollTo: cardPosition },
     });
-  }, [fromPath, item.slug, navigate]);
+  }, [currentFilter, fromPath, item.slug, navigate]);
 
   const handleKeyDown = useCallback(
     (event) => {
@@ -136,8 +163,16 @@ const PlaygroundCard = memo(({ item, className, onHoverChange }) => {
     [setMagneticNode]
   );
 
+  const handleRef = useCallback(
+    (node) => {
+      cardRef.current = node;
+      setMagneticNode(node);
+    },
+    [setMagneticNode]
+  );
+
   return (
-    <div className={styles.playgroundWrapper} ref={setMagneticNode}>
+    <div className={styles.playgroundWrapper} ref={handleRef}>
       <h2 className={styles.ghostTitle} aria-hidden="true">
         {item.title}
       </h2>
@@ -147,6 +182,7 @@ const PlaygroundCard = memo(({ item, className, onHoverChange }) => {
         tabIndex={0}
         role="button"
         data-slug={item.slug}
+        data-created={item.created}
         onClick={handleClick}
         onKeyDown={handleKeyDown}
         onPointerEnter={() => onHoverChange?.(item.slug)}
@@ -187,6 +223,7 @@ ProjectCard.propTypes = {
   variant: PropTypes.oneOf(['work', 'playground']),
   onHoverChange: PropTypes.func,
   className: PropTypes.string,
+  currentFilter: PropTypes.string,
 };
 
 ProjectCard.defaultProps = {

@@ -76,7 +76,17 @@ const Media = ({ src, alt = '', className = '', poster }) => {
     );
   }
 
-  return <img className={className} src={src} alt={alt} loading="lazy" decoding="async" fetchPriority="low" />;
+  return (
+    <img
+      className={className}
+      src={src}
+      alt={alt}
+      loading="eager"
+      decoding="async"
+      fetchPriority="high"
+      style={{ contentVisibility: 'auto' }}
+    />
+  );
 };
 
 Media.propTypes = {

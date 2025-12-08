@@ -96,6 +96,31 @@ export const fetchPlaygrounds = async () => {
   }
 };
 
+// Fetch all work experiences
+export const fetchWork = async () => {
+  if (!USE_BACKEND) {
+    try {
+      const dataModule = await import('../../data.json');
+      return dataModule.work || dataModule.default?.work || [];
+    } catch {
+      return [];
+    }
+  }
+  try {
+    const response = await api.get('/work');
+    if (Array.isArray(response.data)) return response.data;
+    if (response.data && Array.isArray(response.data.work)) return response.data.work;
+    return [];
+  } catch {
+    try {
+      const dataModule = await import('../../data.json');
+      return dataModule.work || dataModule.default?.work || [];
+    } catch {
+      return [];
+    }
+  }
+};
+
 // Fetch a single playground by ID
 export const fetchPlaygroundById = async (id) => {
   if (!USE_BACKEND) {

@@ -329,15 +329,23 @@
     },
     {
       "title": "VMT",
-      "context": "",
-      "created": "2025-05-01",
+      "context": [
+        "• Overhauled a critical user workflow using a corrective design methodology to resolve key usability pain points and simplify the user journey.",
+        "• Designed and administered user testing protocols to identify and address barriers to usage for a more seamless product interaction.",
+        "• Conducted in-depth thematic analysis of user data, applying Colombo & Pasch's heuristics for a precise interpretation of UX issues.",
+        "• Defined strategic recommendations for intuitive interfaces in Figma, significantly improving the quality of the learning experience.",
+        "• Aligned divergent expectations between two major stakeholders through transparent communication, earning praise and sign-off on the final deliverable."
+      ],
+      "created": "2025-07-25",
       "duration": "3",
       "projectDuty": "UX/UI Design",
       "support": ["figma"],
-      "primaryImage": [""],
+      "primaryImage": ["vmt-primary.jpg"],
       "type": "ux_ui",
       "secondaryImages": ["Locked.jpg"],
       "link": [""],
+      "icon": "locked-icone.png",
+
       "slug": "vmt",
       "locked": true
     },
@@ -526,7 +534,7 @@
       ]
     },
     {
-      "title": "Icones replica",
+      "title": "Icons replica",
       "context": [""],
       "created": "2025-10-26",
       "support": ["figma"],
@@ -547,9 +555,9 @@
       "link": []
     },
     {
-      "title": "Icones & Assets",
+      "title": "Icons & Assets",
       "context": [""],
-      "created": "2025-11-04",
+      "created": "2025-04-22",
       "support": ["figma"],
       "primaryImage": ["icones-primary.jpg"],
       "type": "ux_ui",
@@ -559,17 +567,74 @@
         "icones-second3.jpg",
         "icones-second4.jpg",
         "icones-second5.jpg",
-        "icones-second6.jpg",
-        "icones-second7.jpg",
-        "icones-second8.jpg"
+        "icones-second6.jpg"
       ],
-      "slug": "icones-assets",
+      "slug": "icones-assets-01",
+      "link": []
+    },
+    {
+      "title": "Icons & Assets",
+      "context": [""],
+      "created": "2025-04-24",
+      "support": ["figma"],
+      "primaryImage": ["icones2-primary.jpg"],
+      "type": "ux_ui",
+      "secondaryImages": [
+        "icones2-second1.jpg",
+        "icones2-second2.jpg",
+        "icones2-second3.jpg",
+        "icones2-second4.jpg",
+        "icones2-second5.jpg",
+        "icones2-second6.jpg",
+        "icones2-second7.jpg",
+        "icones2-second8.jpg",
+        "icones2-second9.jpg"
+      ],
+      "slug": "icones-assets-02",
+      "link": []
+    },
+    {
+      "title": "Icons & Assets",
+      "context": [""],
+      "created": "2025-11-01",
+      "support": ["figma"],
+      "primaryImage": ["icones3-primary.jpg"],
+      "type": "ux_ui",
+      "secondaryImages": [
+        "icones3-second1.jpg",
+        "icones3-second2.jpg",
+        "icones3-second3.jpg",
+        "icones3-second4.jpg",
+        "icones3-second5.jpg",
+        "icones3-second6.jpg",
+        "icones3-second7.jpg",
+        "icones3-second8.jpg"
+      ],
+      "slug": "icones-assets-03",
+      "link": []
+    },
+    {
+      "title": "Icons & Assets",
+      "context": [""],
+      "created": "2025-10-26",
+      "support": ["figma"],
+      "primaryImage": ["icones4-primary.jpg"],
+      "type": "ux_ui",
+      "secondaryImages": [
+        "icones4-second1.jpg",
+        "icones4-second2.jpg",
+        "icones4-second3.jpg",
+        "icones4-second4.jpg",
+        "icones4-second5.jpg",
+        "icones4-second6.jpg"
+      ],
+      "slug": "icones-assets-04",
       "link": []
     },
     {
       "title": "Tags",
       "context": [""],
-      "created": "2025-10-24",
+      "created": "2025-10-31",
       "support": ["figma"],
       "primaryImage": ["tags-primary.jpg"],
       "type": "ux_ui",
@@ -593,9 +658,7 @@
       "support": ["procreate"],
       "primaryImage": ["transition-primary.jpg"],
       "type": "illustration",
-      "secondaryImages": [
-        "transition-second1.mp4"
-      ],
+      "secondaryImages": ["transition-second1.mp4"],
       "slug": "transition",
       "link": []
     },
@@ -1026,8 +1089,8 @@
     },
     {
       "title": "Expression study",
-      "context": ["Characters from the novel \"The Rise of Kyoshi\" expression study"],
-      "created": "2025-08",
+      "context": ["Rangi from the novel \"The Rise of Kyoshi\" expression study"],
+      "created": "2025-07-14",
       "support": ["procreate"],
       "primaryImage": ["expression-study-primary.jpg"],
       "type": "illustration",
@@ -1037,9 +1100,65 @@
         "expression-study-second3.jpg",
         "expression-study-second4.jpg",
         "expression-study-second5.jpg",
-        "expression-study-second6.jpg"
+        "expression-study-second6.jpg",
+        "expression-study-second7.jpg",
+        "expression-study-second8.jpg",
+        "expression-study-second9.jpg"
       ],
       "slug": "expression-study-02",
+      "link": []
+    },
+    {
+      "title": "Expression study",
+      "context": ["Rangi from the novel \"The Rise of Kyoshi\" expression study"],
+      "created": "2025-07-24",
+      "support": ["procreate"],
+      "primaryImage": ["expression-study2-primary.jpg"],
+      "type": "illustration",
+      "secondaryImages": [
+        "expression-study2-second1.jpg",
+        "expression-study2-second2.jpg",
+        "expression-study2-second3.jpg",
+        "expression-study2-second4.jpg",
+        "expression-study2-second5.jpg",
+        "expression-study2-second6.jpg"
+      ],
+      "slug": "expression-study-03",
+      "link": []
+    },
+    {
+      "title": "Expression study",
+      "context": ["Kyoshi from the novel \"The Rise of Kyoshi\" expression study"],
+      "created": "2025-07-28",
+      "support": ["procreate"],
+      "primaryImage": ["expression-study3-primary.jpg"],
+      "type": "illustration",
+      "secondaryImages": [
+        "expression-study3-second1.jpg",
+        "expression-study3-second2.jpg",
+        "expression-study3-second3.jpg",
+        "expression-study3-second4.jpg",
+        "expression-study3-second5.jpg",
+        "expression-study3-second6.jpg",
+        "expression-study3-second7.jpg",
+        "expression-study3-second8.jpg"
+      ],
+      "slug": "expression-study-04",
+      "link": []
+    },
+    {
+      "title": "Expression study",
+      "context": ["Characters from the novel \"The Rise of Kyoshi\" expression study"],
+      "created": "2025-08-05",
+      "support": ["procreate"],
+      "primaryImage": ["expression-study4-primary.jpg"],
+      "type": "illustration",
+      "secondaryImages": [
+        "expression-study4-second1.jpg",
+        "expression-study4-second2.jpg",
+        "expression-study4-second3.jpg"
+      ],
+      "slug": "expression-study-05",
       "link": []
     },
     {
@@ -1059,6 +1178,102 @@
       ],
       "slug": "shiho",
       "link": []
+    },
+    {
+      "title": "Stylized portrait",
+      "context": [],
+      "created": "2025-11-23",
+      "support": ["procreate"],
+      "primaryImage": ["stylized-portrait2-primary.jpg"],
+      "type": "illustration",
+      "secondaryImages": [
+        "stylized-portrait2-second1.jpg",
+        "stylized-portrait2-second2.jpg",
+        "stylized-portrait2-second3.jpg"
+      ],
+      "slug": "stylized-portrait-02",
+      "link": []
+    }
+  ],
+  "work": [
+    {
+      "company": "Purely",
+      "role": "UX/UI Designer",
+      "description": "Reimagining social discovery",
+      "context": [
+        "I’m currently working on this mobile application project. I get to co-lead the creative direction, which implies applying user-centered design, UX research, and even a bit of competitive analysis to help shape the product strategy. I also dove into a big survey of more than 300 users, and translated all that data into something meaningful, actual personas and real product priorities.",
+        "And since the product is mobile-focused, I’m also building a scalable UI system in Figma. Creating solid components that make future design sprints faster while keeping the brand consistent feels a bit like crafting a toolbox that the whole team can rely on"
+      ],
+      "startDate": "2025-04-01",
+      "endDate": null,
+      "primaryImage": ["purely-primary.jpg"],
+      "secondaryImages": ["Ongoing.jpg"],
+      "icon": "purely-icone.png",
+      "slug": "purely",
+      "link": []
+    },
+    {
+      "company": "Airbus",
+      "role": "UX/UI Consultant Intern",
+      "description": "Revitalizing critical learning tools (VMT)",
+      "context": [
+        "• Overhauled a critical user workflow using a corrective design methodology to resolve key usability pain points and simplify the user journey.",
+        "• Designed and administered user testing protocols to identify and address barriers to usage for a more seamless product interaction.",
+        "• Conducted in-depth thematic analysis of user data, applying Colombo & Pasch's heuristics for a precise interpretation of UX issues.",
+        "• Defined strategic recommendations for intuitive interfaces in Figma, significantly improving the quality of the learning experience.",
+        "• Aligned divergent expectations between two major stakeholders through transparent communication, earning praise and sign-off on the final deliverable."
+      ],
+      "startDate": "2025-05-01",
+      "endDate": "2025-07-25",
+      "primaryImage": ["vmt-primary.jpg"],
+      "secondaryImages": ["Locked.jpg"],
+      "icon": "locked-icone.png",
+      "slug": "vmt",
+      "link": []
+    },
+    {
+      "company": "ENSC",
+      "role": "UX/UI Design Instructor Intern",
+      "description": "Democratizing design education",
+      "context": [
+        "During my first-year internship at the Ecole Nationale Supérieure de Cognitique, I was responsible for supervising second-grade students, who were themselves on an internship, in order to introduce them to the school and its fields of study.",
+        "One of the activities I organized was to make them understand what Figma is and introduce them to its principles. It was a really enriching experience in terms of pedagogy.",
+        "I also prepared a tutorial to explore all the main features of Figma. Then, to let their creativity speak, we offered them to model a music listening app, and given the enthusiasm and investment that students had, it was really worth being fully invested in this activity and internship, I am still very grateful to them."
+      ],
+      "startDate": "2024-06-01",
+      "endDate": "2024-06-28",
+      "primaryImage": ["figma-primary.jpg"],
+      "secondaryImages": [
+        "figma-second1.jpg",
+        "figma-second2.jpg",
+        "figma-second3.mp4",
+        "figma-second4.jpg",
+        "figma-second5.jpg",
+        "figma-second6.jpg",
+        "figma-second7.jpg",
+        "figma-second8.jpg",
+        "figma-second9.jpg",
+        "figma-second10.jpg",
+        "figma-second11.jpg",
+        "figma-second12.jpg",
+        "figma-second13.jpg",
+        "figma-second14.jpg",
+        "figma-second15.jpg",
+        "figma-second16.jpg",
+        "figma-second17.jpg"
+      ],
+      "icon": "figma-icone.png",
+      "slug": "tuto-figma",
+      "link": [
+        {
+          "label": "Slide Deck",
+          "url": "https://www.figma.com/community/file/1434630096456807172/slide-deck-figma"
+        },
+        {
+          "label": "Workshop",
+          "url": "https://florialeger.github.io/tuto-Figma/"
+        }
+      ]
     }
   ]
 }

@@ -1,10 +1,13 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
-import RevealAnimation from '@/components/utility/RevealAnimation';
+import { keyframes } from '@emotion/react';
+import { Reveal } from 'react-awesome-reveal';
 import PropTypes from 'prop-types';
 import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import Button from '@/components/ui/Button';
+import Link from '@/components/ui/Link';
 import CardGrid from '@/components/projects/CardGrid';
 import Container from '@/components/ui/Container';
+import LoadAnimation from '@/components/loaders/LoadAnimation';
 import { usePortfolio } from '@/contexts/PortfolioContext';
 import formatDate from '@/utils/formatDate';
 import formatDuration from '@/utils/formatDuration';
@@ -13,20 +16,114 @@ import styles from './Detail.module.css';
 import pageLayout from '@/components/ui/PageLayout.module.css';
 import useMagneticEffect from '@/hooks/useMagneticEffect';
 import Media from '@/components/ui/Media';
-import ArrowIcon from '@/components/ui/icons/ArrowIcon';
+import { ExternalLinkIcon, GoBackIcon, ArrowPreviousIcon, ArrowNextIcon } from '@/components/ui/icons';
+
+// Subtle slide animations (20-30px with blur)
+const slideInFromLeft = keyframes`
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+    filter: blur(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+    filter: blur(0);
+  }
+`;
+
+const slideInFromRight = keyframes`
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+    filter: blur(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+    filter: blur(0);
+  }
+`;
 
 const Detail = ({ variant }) => {
   const { slug } = useParams();
   const navigate = useNavigate();
   const location = useLocation();
-  const { loading, getProjectBySlug, getPlaygroundBySlug } = usePortfolio();
-  // We no longer use an internal scroll container; track window scroll instead.
+  const {
+    loading,
+    getProjectBySlug,
+    getPlaygroundBySlug,
+    getWorkBySlug,
+    projects,
+    playgrounds,
+    work,
+    imagesPreloaded,
+  } = usePortfolio();
   const [isHeaderCondensed, setIsHeaderCondensed] = useState(false);
   const titleRef = useRef(null);
 
+  // Get filter from location state or default to 'all'
+  const currentFilter = location.state?.filter || 'all';
+
+  // Track animation direction for slide transitions
+  const [animationKey, setAnimationKey] = useState(0);
+  const [currentAnimation, setCurrentAnimation] = useState(slideInFromLeft);
+
   const data = useMemo(() => {
-    return variant === 'work' ? getProjectBySlug(slug) : getPlaygroundBySlug(slug);
-  }, [getPlaygroundBySlug, getProjectBySlug, slug, variant]);
+    if (variant === 'work') {
+      // Check if it's a work experience first
+      const workItem = getWorkBySlug(slug);
+      if (workItem) return { ...workItem, isWorkExperience: true };
+      // Otherwise return project
+      return getProjectBySlug(slug);
+    }
+    return getPlaygroundBySlug(slug);
+  }, [getPlaygroundBySlug, getProjectBySlug, getWorkBySlug, slug, variant]);
+
+  // Get filtered list based on variant and filter
+  const filteredItems = useMemo(() => {
+    if (variant === 'work') {
+      // Determine if current item is a work experience
+      const isCurrentWorkExp = data?.isWorkExperience;
+
+      if (isCurrentWorkExp) {
+        // Return only work experiences
+        return [...work].sort((a, b) => {
+          const aOngoing = !a.endDate;
+          const bOngoing = !b.endDate;
+          if (aOngoing && !bOngoing) return -1;
+          if (!aOngoing && bOngoing) return 1;
+          return new Date(b.startDate || 0) - new Date(a.startDate || 0);
+        });
+      } else {
+        // Return only projects (filter out work experience slugs)
+        const workSlugs = new Set(work.map((w) => w.slug));
+        return [...projects]
+          .filter((p) => !workSlugs.has(p.slug))
+          .sort((a, b) => {
+            const aOngoing = a.duration === 'ongoing';
+            const bOngoing = b.duration === 'ongoing';
+            if (aOngoing && !bOngoing) return -1;
+            if (!aOngoing && bOngoing) return 1;
+            return new Date(b.created || 0) - new Date(a.created || 0);
+          });
+      }
+    }
+    // For playground, apply filter
+    if (currentFilter === 'all') {
+      return playgrounds;
+    }
+    return playgrounds.filter((item) => item.type === currentFilter);
+  }, [currentFilter, playgrounds, projects, work, variant, data]);
+
+  // Find current index and calculate prev/next
+  const currentIndex = useMemo(() => {
+    return filteredItems.findIndex((item) => item.slug === slug);
+  }, [filteredItems, slug]);
+
+  const prevItem = currentIndex > 0 ? filteredItems[currentIndex - 1] : null;
+  const nextItem =
+    currentIndex >= 0 && currentIndex < filteredItems.length - 1 ? filteredItems[currentIndex + 1] : null;
 
   const duties = useMemo(() => data?.projectDuty?.filter(Boolean) ?? [], [data]);
   const contextParagraphs = useMemo(() => {
@@ -57,7 +154,7 @@ const Detail = ({ variant }) => {
 
   // Small wrapper component that magnetizes media elements
   const MagneticImage = ({ src, alt, className, children, ...props }) => {
-    const setMag = useMagneticEffect({ maxDistance: 18, scale: 1.025 });
+    const setMag = useMagneticEffect({ maxDistance: 10, scale: 1.02 });
     return (
       <div ref={setMag} className={className} {...props}>
         {children || <img src={src} alt={alt} loading="lazy" />}
@@ -117,11 +214,46 @@ const Detail = ({ variant }) => {
     const returnTo =
       typeof location.state?.from === 'string' && location.state.from ? location.state.from : fallbackPath;
 
-    navigate(returnTo, { replace: true });
+    navigate(returnTo, {
+      replace: true,
+      state: { scrollTo: location.state?.scrollTo },
+    });
   };
 
-  // Magnetic effect for the bottom "Back" control
-  const setBackMag = useMagneticEffect({ maxDistance: 18, scale: 1.03 });
+  const handlePrevious = () => {
+    if (!prevItem) return;
+    setCurrentAnimation(slideInFromLeft);
+    setAnimationKey((prev) => prev + 1);
+    const path = variant === 'work' ? `/work/${prevItem.slug}` : `/playground/${prevItem.slug}`;
+    navigate(path, {
+      state: {
+        from: location.state?.from,
+        filter: currentFilter,
+        scrollTo: { slug: prevItem.slug },
+      },
+      replace: true,
+    });
+  };
+
+  const handleNext = () => {
+    if (!nextItem) return;
+    setCurrentAnimation(slideInFromRight);
+    setAnimationKey((prev) => prev + 1);
+    const path = variant === 'work' ? `/work/${nextItem.slug}` : `/playground/${nextItem.slug}`;
+    navigate(path, {
+      state: {
+        from: location.state?.from,
+        filter: currentFilter,
+        scrollTo: { slug: nextItem.slug },
+      },
+      replace: true,
+    });
+  };
+
+  // Magnetic effect for navigation buttons
+  const setBackMag = useMagneticEffect({ maxDistance: 4, scale: 1.02 });
+  const setPrevMag = useMagneticEffect({ maxDistance: 4, scale: 1.02 });
+  const setNextMag = useMagneticEffect({ maxDistance: 4, scale: 1.02 });
 
   // legacy reveal hooks removed; we now use viewport reveal + magnetic interactions
 
@@ -147,6 +279,15 @@ const Detail = ({ variant }) => {
   // For playgrounds we normally show month + year only. However, when a project is ongoing
   // we want the label to read "created" and show the full created date (start date).
   const isOngoing = Boolean(data.isOngoing);
+  const isWorkExperience = Boolean(data.isWorkExperience);
+
+  // Format dates for work experiences
+  const formatWorkDate = (dateString) => {
+    if (!dateString) return 'Present';
+    const date = new Date(dateString);
+    return date.toLocaleDateString('en-US', { month: 'short', year: 'numeric' });
+  };
+
   const createdLabel = data.created
     ? isOngoing
       ? formatDate(data.created)
@@ -156,59 +297,86 @@ const Detail = ({ variant }) => {
     : 'Unknown';
 
   const durationLabel = data.duration ? formatDuration(data.duration) : null;
+
   return (
     <div className={`${pageLayout.page}`.trim()}>
-      <div className={styles.bottomBar} role="toolbar" aria-label="Navigation">
-        <Button ref={setBackMag} label="Go Back" onClick={handleClose} className={styles.backTextButton} />
-      </div>
-      <RevealAnimation cascade damping={0.2} triggerOnce>
+      <Reveal keyframes={currentAnimation} triggerOnce={false} duration={800} key={`${slug}-${animationKey}`}>
         <article className={`${pageLayout.container} ${styles.card}`.trim()}>
           <header className={styles.header} data-condensed={isHeaderCondensed}>
             <div className={styles.headerColumn}>
-              <h3 ref={titleRef}>{data.title}</h3>
-              {duties.length > 0 && (
-                <ul className={styles.badgeList}>
-                  {duties.map((duty) => (
-                    <li key={duty}>{duty}</li>
-                  ))}
-                </ul>
-              )}{' '}
+              {isWorkExperience ? (
+                <>
+                  <h3 ref={titleRef}>{data.company}</h3>
+                  {data.role && <p className={styles.badgeList}>{data.role}</p>}
+                </>
+              ) : (
+                <>
+                  <h3 ref={titleRef}>{data.title}</h3>
+                  {duties.length > 0 && <p className={styles.badgeList}>{duties.join(', ')}</p>}
+                </>
+              )}
             </div>
 
             <div className={styles.metaColumn}>
               <dl className={styles.metaList}>
-                {isOngoing ? (
-                  <div className={styles.metaItem}>
-                    <dt>started</dt>
-                    <dd>{createdLabel}</dd>
-                  </div>
-                ) : variant === 'work' ? (
-                  <div className={styles.metaItem}>
-                    <dt>launch</dt>
-                    <dd>{createdLabel}</dd>
-                  </div>
-                ) : (
-                  <div className={styles.metaItem}>
-                    <dd>{createdLabel}</dd>
-                  </div>
-                )}
-
-                {/* For ongoing projects we display "ongoing" as the duration value without the label. */}
-                {isOngoing ? (
-                  <div className={styles.metaItem}>
-                    <dd>ongoing</dd>
-                  </div>
-                ) : (
-                  durationLabel && (
+                {isWorkExperience ? (
+                  <>
                     <div className={styles.metaItem}>
-                      <dt>duration</dt>
-                      <dd>{durationLabel}</dd>
+                      <dd>
+                        {formatWorkDate(data.startDate)} - {formatWorkDate(data.endDate)}
+                      </dd>
                     </div>
-                  )
+                    {data.endDate && (
+                      <div className={styles.metaItem}>
+                        <dt>duration</dt>
+                        <dd>
+                          {(() => {
+                            const start = new Date(data.startDate);
+                            const end = new Date(data.endDate);
+                            const months = Math.round((end - start) / (1000 * 60 * 60 * 24 * 30));
+                            return months === 1 ? '1 month' : `${months} months`;
+                          })()}
+                        </dd>
+                      </div>
+                    )}
+                  </>
+                ) : (
+                  <>
+                    {isOngoing ? (
+                      <div className={styles.metaItem}>
+                        <dt>started</dt>
+                        <dd>{createdLabel}</dd>
+                      </div>
+                    ) : variant === 'work' ? (
+                      <div className={styles.metaItem}>
+                        <dt>launch</dt>
+                        <dd>{createdLabel}</dd>
+                      </div>
+                    ) : (
+                      <div className={styles.metaItem}>
+                        <dd>{createdLabel}</dd>
+                      </div>
+                    )}
+
+                    {isOngoing ? (
+                      <div className={styles.metaItem}>
+                        <dd>ongoing</dd>
+                      </div>
+                    ) : (
+                      durationLabel && (
+                        <div className={styles.metaItem}>
+                          <dt>duration</dt>
+                          <dd>{durationLabel}</dd>
+                        </div>
+                      )
+                    )}
+                  </>
                 )}
               </dl>
             </div>
           </header>
+
+          {isWorkExperience && data.description && <p className={styles.shortDescription}>{data.description}</p>}
 
           {heroImage && <MagneticImage className={styles.heroMedia} src={heroImage} alt="" />}
 
@@ -223,10 +391,10 @@ const Detail = ({ variant }) => {
                 {links.length > 0 && (
                   <div className={styles.links}>
                     {links.map((link) => (
-                      <Button
+                      <Link
                         key={link.url}
                         label={link.label}
-                        icon={<ArrowIcon />}
+                        icon={<ExternalLinkIcon />}
                         href={link.url}
                         target="_blank"
                         rel="noreferrer"
@@ -240,7 +408,12 @@ const Detail = ({ variant }) => {
 
           {galleryImages.length > 0 && (
             <Container className={styles.gridContainer}>
-              <CardGrid ref={imageGridRef} className={styles.imageGrid}>
+              {!imagesPreloaded && <LoadAnimation />}
+              <CardGrid
+                ref={imageGridRef}
+                className={styles.imageGrid}
+                style={{ opacity: imagesPreloaded ? 1 : 0, transition: 'opacity 400ms ease' }}
+              >
                 {(() => {
                   const isSingleInGrid = galleryImages.length === 1;
                   return galleryImages.map((image, index) => {
@@ -268,8 +441,32 @@ const Detail = ({ variant }) => {
               ))}
             </div>
           )}
+
+          {(prevItem || nextItem) && (
+            <nav className={styles.navigationSection}>
+              {prevItem && (
+                <button ref={setPrevMag} onClick={handlePrevious} className={styles.navItem}>
+                  <ArrowPreviousIcon className={styles.navArrow} />
+                  <p className={styles.navTitle}>{prevItem.company || prevItem.title}</p>
+                </button>
+              )}
+              {nextItem && (
+                <button ref={setNextMag} onClick={handleNext} className={`${styles.navItem} ${styles.navItemRight}`}>
+                  <p className={styles.navTitle}>{nextItem.company || nextItem.title}</p>
+                  <ArrowNextIcon className={styles.navArrow} />
+                </button>
+              )}
+            </nav>
+          )}
         </article>
-      </RevealAnimation>
+      </Reveal>
+      <Button
+        ref={setBackMag}
+        label="Go Back"
+        icon={<GoBackIcon />}
+        onClick={handleClose}
+        className={styles.goBackButton}
+      />
     </div>
   );
 };

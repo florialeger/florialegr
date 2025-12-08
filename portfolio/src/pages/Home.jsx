@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import HeroSection from '@/components/sections/HeroSection';
 import Container from '@/components/ui/Container';
 import { MailIcon } from '@/components/ui/icons';
@@ -9,17 +10,59 @@ import inlineIconStyles from '@/components/ui/InlineIcon.module.css';
 
 import useMagneticEffect from '@/hooks/useMagneticEffect';
 
+// Calculate age based on birth date (February 9, 2003)
+const calculateAge = () => {
+  const birthDate = new Date(2003, 1, 9); // Month is 0-indexed (1 = February)
+  const today = new Date();
+  let age = today.getFullYear() - birthDate.getFullYear();
+  const monthDiff = today.getMonth() - birthDate.getMonth();
+
+  // Adjust if birthday hasn't occurred yet this year
+  if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthDate.getDate())) {
+    age--;
+  }
+
+  return age;
+};
+
 const EmailMagnet = () => {
-  // Use the shared hook for consistent magnetic behavior
-  const setMagnet = useMagneticEffect({ maxDistance: 18, easing: 0.18, scale: 1.03 });
+  const [copied, setCopied] = useState(false);
+  const setMagnet = useMagneticEffect({ maxDistance: 4, easing: 0.18, scale: 1.02 });
+
+  const handleEmailCopy = async () => {
+    const email = 'floria.leger@ensc.fr';
+    try {
+      await navigator.clipboard.writeText(email);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 1200);
+    } catch (err) {
+      console.error('Failed to copy email:', err);
+    }
+  };
 
   return (
     <div className={styles.emailRow}>
       <p className={styles.emailText}>Get in touch at</p>
 
-      <span ref={setMagnet} className={`${styles.magnet} ${styles.magnetIcon}`} aria-hidden>
-        <MailIcon className={styles.emailIcon} size={24} title="Adresse e-mail" />
+      <span
+        ref={setMagnet}
+        className={`${styles.magnet} ${styles.magnetIcon} ${styles.clickable} ${styles.tooltipContainer}`}
+        onClick={handleEmailCopy}
+        role="button"
+        tabIndex={0}
+        onKeyDown={(e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            handleEmailCopy();
+          }
+        }}
+        aria-label="Click to copy email address"
+      >
+        <MailIcon className={styles.emailIcon} size={20} title="Adresse e-mail" />
         <p className={styles.emailText}>floria.leger@ensc.fr</p>
+        <p className={`${styles.tooltip} ${copied ? styles.tooltipVisible : ''}`}>
+          {copied ? 'Copied!' : 'Click to copy'}
+        </p>
       </span>
     </div>
   );
@@ -35,9 +78,10 @@ const aboutTitle = [
 
 const aboutParagraphs = [
   <>
-    I'm 22 and live near Bordeaux, France. I'm in my second year at the Ecole Nationale Supérieure de Cognitique where
-    I'm exploring mental processes and human interactions, a fascinating field that combines psychology, technology and
-    design. As a future UX/UI designer and cognitive engineer, I strive to develop my skills, using design tools like{' '}
+    I'm {calculateAge()} and live near Bordeaux, France. I'm in my second year at the Ecole Nationale Supérieure de
+    Cognitique where I'm exploring mental processes and human interactions, a fascinating field that combines
+    psychology, technology and design. As a future UX/UI designer and cognitive engineer, I strive to develop my skills,
+    using design tools like{' '}
     <span className={inlineIconStyles.inlineWrap}>
       <InlineIcon name="figma" size="text" />
       <span className={inlineIconStyles.emphasized}>Figma,</span>
@@ -69,9 +113,10 @@ const aboutParagraphs = [
     combining creativity and technical skill. But that's my goal: to bring my ideas to life from A to Z.
   </>,
   <>
-    I'm currently looking for a 5–6 month<strong> international internship in UX/UI</strong> starting in February for my
-    final year of studies. It's the perfect chance to dive deeper into the world of UX design and to add my own creative
-    touch to it. Feel free to reach out below or connect with me on{' '}
+    As an incoming <strong>UX design intern at Ubisoft</strong>, I will be able to put into practice the methods and
+    skills I acquired during my studies, applying the principles of cognitive engineering to concrete projects. This is
+    the perfect opportunity to immerse myself further in the world of UX design and bring my creative touch to it. Feel
+    free to connect with me on{' '}
     <span className={inlineIconStyles.inlineWrap}>
       <InlineIcon name="Linkedin" size="text" />
       <span className={inlineIconStyles.emphasized}>

@@ -4,13 +4,13 @@
   gap: var(--layout-page-gap);
   padding: var(--layout-page-padding-top) 0 var(--layout-page-padding-bottom) 0;
   --work-content-max: 1200px;
-  --work-col-min: 130px;
-  --work-max-columns: 5;
+  --work-col-min: 200px;
+  --work-max-columns: 3;
   align-items: center;
   margin-inline: auto;
   max-width: min(
     var(--work-content-max),
-    calc((var(--work-col-min) * var(--work-max-columns)) + (var(--stack-gap-sm) * (var(--work-max-columns) - 1)))
+    calc((var(--work-col-min) * var(--work-max-columns)) + (var(--stack-gap-md) * (var(--work-max-columns) - 1)))
   );
 }
 
@@ -21,98 +21,117 @@
   margin-right: auto;
 }
 
-.listContainer {
+.workContainer,
+.projectsContainer {
   display: flex;
   flex-direction: column;
   gap: var(--stack-gap-lg);
+  margin-top: var(--layout-page-padding-top);
   width: 100%;
   margin-left: auto;
   margin-right: auto;
 }
 
+.workContainer {
+  margin-top: 0;
+}
+/* Timeline styles for work experience */
+.timeline {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  padding-left: var(--stack-gap-lg);
+  gap: var(--stack-gap-lg);
+}
+
+/* Timeline vertical line */
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 0.5rem;
+  top: 0.5rem;
+  bottom: 0.5rem;
+  width: 2px;
+  background: var(--fills---secondary);
+}
+
+.timelineItem {
+  display: flex;
+  gap: var(--stack-gap-md);
+  position: relative;
+  margin-bottom: var(--stack-gap-md);
+}
+
+.timelineItem:last-child {
+  margin-bottom: 0;
+}
+
+/* Gradient line for the first (bottom-most) timeline item */
+.timelineItem:first-child::before {
+  content: '';
+  position: absolute;
+  left: calc(-1 * var(--stack-gap-lg) + 0.5rem);
+  top: 0.75rem;
+  bottom: calc(-1 * var(--stack-gap-md) - 0.5rem);
+  width: 2px;
+  background: linear-gradient(to bottom, var(--fills---secondary), transparent);
+  z-index: 0;
+}
+
+.timelineDot {
+  position: absolute;
+  left: calc(-1 * var(--stack-gap-lg) + 0.27rem);
+  top: 0.3rem;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--fills---primary);
+  z-index: 1;
+  flex-shrink: 0;
+}
+
 .yearList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--stack-gap-xl);
+}
+
+.yearList > *:not(:first-child) {
+  margin-top: var(--stack-gap-lg);
+}
+
+.yearSection {
   display: flex;
   flex-direction: column;
   gap: var(--stack-gap-md);
 }
 
-.yearSection {
-  display: grid;
-  gap: var(--stack-gap-sm);
-}
-
-.yearSection h3 {
+.yearHeading {
   font-weight: var(--type---title-3---weight-emphasized);
+  color: var(--label---secondary);
+  margin: 0;
 }
 
-.projectList {
-  list-style: none;
+.projectGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(var(--work-col-min), 1fr));
-  justify-content: stretch;
-  gap: var(--stack-gap-sm);
-  row-gap: var(--stack-gap-md);
-  margin: var(--stack-gap-md) 0;
-  padding: 0;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--stack-gap-md);
 }
 
-.projectItem {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  min-width: 0;
+@media (max-width: 900px) {
+  .projectGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
-.projectTitleContent {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: var(--stack-gap-xxs);
-  transition:
-    color 180ms ease,
-    transform 180ms ease;
-  text-decoration: none;
+@media (max-width: 600px) {
+  .projectGrid {
+    grid-template-columns: 1fr;
+  }
 }
 
-.projectType {
+.stateMessage {
   color: var(--label---tertiary);
-  opacity: 0.8;
-}
-
-.projectTitleContent p {
-  font-weight: var(--body-emphasized-weight);
-}
-
-.projectItem:hover,
-.projectItem:focus-visible {
-  color: color-mix(in srgb, var(--label---secondary) 88%, black 12%);
-}
-
-.projectItem svg,
-.projectTitleContent svg {
-  width: 1.5em;
-  height: 1.5em;
-  color: inherit;
-}
-
-.inlineIcon {
-  width: 1.2em;
-  height: 1.2em;
-  object-fit: contain;
-}
-
-.locked {
-  color: var(--label---tertiary);
-}
-
-.projectList li[data-dimmed='true'] .projectItem {
-  filter: grayscale(1);
-  transition:
-    filter 200ms ease,
-    opacity 180ms ease;
-}
-
-.projectList li[data-dimmed='true'] .inlineIcon,
-.projectList li[data-dimmed='true'] svg {
-  filter: grayscale(1);
+  text-align: center;
+  padding: var(--stack-gap-lg) 0;
 }

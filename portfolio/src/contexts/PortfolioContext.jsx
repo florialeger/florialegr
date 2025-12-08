@@ -1,6 +1,6 @@
 /* eslint-disable react-refresh/only-export-components */
 import { createContext, useCallback, useContext, useEffect, useMemo, useState } from 'react';
-import { fetchProjects, fetchPlaygrounds } from '@/services/api';
+import { fetchProjects, fetchPlaygrounds, fetchWork } from '@/services/api';
 import slugify from '@/utils/slugify';
 import { findIconForProject, resolveIconPath } from '@/utils/icons';
 
@@ -123,28 +123,117 @@ const normalizePlayground = (playground) => {
   };
 };
 
+const normalizeWork = (work) => {
+  const slug = slugify(work.slug || work.company);
+  const startDate = work.startDate || null;
+  const endDate = work.endDate || null;
+  const isOngoing = !endDate;
+
+  let iconUrl = null;
+  const originalIcon = work.icon; // Preserve original icon filename
+  if (work.icon) {
+    iconUrl = resolveIconPath(work.icon);
+  } else {
+    const found = findIconForProject({ title: work.company, slug });
+    iconUrl = found || null;
+  }
+
+  return {
+    ...work,
+    id: work._id || work.id || slug,
+    slug,
+    startDate,
+    endDate,
+    startDateObj: startDate ? new Date(startDate) : null,
+    endDateObj: endDate ? new Date(endDate) : null,
+    isOngoing,
+    link: normalizeLinks(work.link),
+    primaryImage: ensureArray(work.primaryImage),
+    icon: iconUrl,
+    iconFilename: originalIcon, // Add original filename for locked check
+  };
+};
+
 export const PortfolioProvider = ({ children }) => {
   const [projects, setProjects] = useState([]);
   const [playgrounds, setPlaygrounds] = useState([]);
+  const [work, setWork] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [imagesPreloaded, setImagesPreloaded] = useState(false);
+
+  const preloadAllImages = useCallback((projectsData, playgroundsData, workData) => {
+    const allImages = [];
+
+    // Collect all images from projects
+    projectsData.forEach((project) => {
+      if (project.primaryImage) allImages.push(...project.primaryImage);
+      if (project.secondaryImages) allImages.push(...project.secondaryImages);
+    });
+
+    // Collect all images from playgrounds
+    playgroundsData.forEach((playground) => {
+      if (playground.primaryImage) allImages.push(...playground.primaryImage);
+      if (playground.secondaryImages) allImages.push(...playground.secondaryImages);
+    });
+
+    // Collect all images from work
+    workData.forEach((w) => {
+      if (w.primaryImage) allImages.push(...w.primaryImage);
+    });
+
+    // Filter out empty/null values
+    const validImages = allImages.filter(Boolean);
+
+    if (validImages.length === 0) {
+      setImagesPreloaded(true);
+      return Promise.resolve();
+    }
+
+    // Preload all images
+    const imagePromises = validImages.map((src) => {
+      return new Promise((resolve) => {
+        const img = new Image();
+        img.onload = () => resolve();
+        img.onerror = () => resolve(); // Continue even if image fails
+        img.src = typeof src === 'string' ? src : src.url || src.path || '';
+      });
+    });
+
+    return Promise.all(imagePromises).then(() => {
+      setImagesPreloaded(true);
+    });
+  }, []);
 
   const loadData = useCallback(async () => {
     try {
       setLoading(true);
       setError(null);
-      const [projectsData, playgroundsData] = await Promise.all([fetchProjects(), fetchPlaygrounds()]);
-      setProjects(projectsData.map(normalizeProject));
-      setPlaygrounds(playgroundsData.map(normalizePlayground));
+      const [projectsData, playgroundsData, workData] = await Promise.all([
+        fetchProjects(),
+        fetchPlaygrounds(),
+        fetchWork(),
+      ]);
+      const normalizedProjects = projectsData.map(normalizeProject);
+      const normalizedPlaygrounds = playgroundsData.map(normalizePlayground);
+      const normalizedWork = workData.map(normalizeWork);
+
+      setProjects(normalizedProjects);
+      setPlaygrounds(normalizedPlaygrounds);
+      setWork(normalizedWork);
+
+      // Preload all images in background
+      preloadAllImages(normalizedProjects, normalizedPlaygrounds, normalizedWork);
     } catch (err) {
       console.error('Failed to load portfolio data', err);
       setError(err);
       setProjects([]);
       setPlaygrounds([]);
+      setWork([]);
     } finally {
       setLoading(false);
     }
-  }, []);
+  }, [preloadAllImages]);
 
   useEffect(() => {
     let isMounted = true;
@@ -177,6 +266,26 @@ export const PortfolioProvider = ({ children }) => {
     });
     return map;
   }, [playgrounds]);
+
+  const workBySlug = useMemo(() => {
+    const map = new Map();
+    work.forEach((w) => {
+      map.set(w.slug, w);
+    });
+    return map;
+  }, [work]);
+
+  const sortedWork = useMemo(() => {
+    return [...work].sort((a, b) => {
+      // ongoing work first
+      if (a.isOngoing && !b.isOngoing) return -1;
+      if (!a.isOngoing && b.isOngoing) return 1;
+
+      const dateA = a.startDateObj ? a.startDateObj.getTime() : 0;
+      const dateB = b.startDateObj ? b.startDateObj.getTime() : 0;
+      return dateB - dateA;
+    });
+  }, [work]);
 
   const uniqueDuties = useMemo(() => {
     const duties = new Set();
@@ -218,24 +327,30 @@ export const PortfolioProvider = ({ children }) => {
     () => ({
       projects: sortedProjects,
       playgrounds: sortedPlaygrounds,
+      work: sortedWork,
       loading,
       error,
+      imagesPreloaded,
       refresh: loadData,
       uniqueDuties,
       uniquePlaygroundCategories,
       getProjectBySlug: (slug) => projectsBySlug.get(slug),
       getPlaygroundBySlug: (slug) => playgroundsBySlug.get(slug),
+      getWorkBySlug: (slug) => workBySlug.get(slug),
     }),
     [
       sortedProjects,
       sortedPlaygrounds,
+      sortedWork,
       loading,
       error,
+      imagesPreloaded,
       loadData,
       uniqueDuties,
       uniquePlaygroundCategories,
       projectsBySlug,
       playgroundsBySlug,
+      workBySlug,
     ]
   );
 

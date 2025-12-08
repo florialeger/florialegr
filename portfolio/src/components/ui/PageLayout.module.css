@@ -14,7 +14,7 @@
   gap: var(--copy-block-gap);
   width: 100%;
   max-width: var(--copy-block-max-width);
-  padding-bottom: var(--layout-page-padding-bottom);
+  padding-bottom: 0;
 }
 
 .paragraph {

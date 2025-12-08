@@ -1,9 +1,9 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
 
 const DEFAULT_OPTIONS = {
-  maxDistance: 22,
+  maxDistance: 8,
   easing: 0.2,
-  scale: 1.08,
+  scale: 1.04,
   restScale: 1,
   pointerType: 'fine',
   applyOnCoarse: false,
@@ -13,6 +13,21 @@ const isReducedMotion = () =>
   typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 const isPointerType = (type) => typeof window !== 'undefined' && window.matchMedia(`(pointer: ${type})`).matches;
+
+const isMobileDevice = () => {
+  if (typeof window === 'undefined') return false;
+
+  // Check for touch capability
+  const hasTouch = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+
+  // Check for small screen size (typically phones)
+  const isSmallScreen = window.matchMedia('(max-width: 768px)').matches;
+
+  // Check for coarse pointer (typically touch devices)
+  const hasCoarsePointer = window.matchMedia('(pointer: coarse)').matches;
+
+  return hasTouch && (isSmallScreen || hasCoarsePointer);
+};
 
 function useMagneticEffect(options = {}) {
   const [element, setElement] = useState(null);
@@ -96,6 +111,10 @@ function useMagneticEffect(options = {}) {
     }
 
     if (isReducedMotion()) {
+      return undefined;
+    }
+
+    if (isMobileDevice()) {
       return undefined;
     }
 

@@ -31,7 +31,7 @@ const ButtonBase = (
   {
     label,
     icon = '',
-    iconSize = 20,
+    iconSize = 14,
     className = '',
     onClick,
     to,
@@ -99,7 +99,7 @@ const ButtonBase = (
 
   const content = (
     <span className={styles.inner}>
-      <h3 className={styles.label}>{label}</h3>
+      <h3 className={styles.label}>{typeof label === 'string' ? label : label}</h3>
       {iconElement ? <span className={styles.iconWrapper}>{iconElement}</span> : null}
     </span>
   );
@@ -147,7 +147,7 @@ const Button = memo(forwardRef(ButtonBase));
 Button.displayName = 'Button';
 
 Button.propTypes = {
-  label: PropTypes.string.isRequired,
+  label: PropTypes.oneOfType([PropTypes.string, PropTypes.node]).isRequired,
   icon: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
   iconSize: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   iconProps: PropTypes.object,

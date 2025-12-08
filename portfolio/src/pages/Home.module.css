@@ -6,8 +6,8 @@
 
 .emailIcon {
   flex-shrink: 0;
-  width: 1.65rem;
-  height: 1.65rem;
+  width: 1.3rem;
+  height: 1.3rem;
 }
 
 .emailText {
@@ -29,6 +29,49 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
+}
+
+.clickable {
+  cursor: pointer;
+  user-select: none;
+  transition: opacity 200ms ease;
+}
+
+.clickable:hover {
+  opacity: 0.8;
+}
+
+.clickable:active {
+  opacity: 0.6;
+}
+
+.tooltipContainer {
+  position: relative;
+}
+
+.tooltip {
+  position: absolute;
+  top: calc(100% - 8px);
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--fills---secondary);
+  padding: var(--stack-gap-xxs) var(--stack-gap-xs);
+  border-radius: var(--radius-xxs);
+  font-size: var(--type---title-4---size);
+  font-weight: var(--type---title-4---weight-regular);
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 150ms ease;
+  z-index: 1000;
+}
+
+.tooltipContainer:hover .tooltip:not(.tooltipVisible) {
+  opacity: 1;
+}
+
+.tooltipVisible {
+  opacity: 1 !important;
 }
 
 @media (max-width: 960px) {

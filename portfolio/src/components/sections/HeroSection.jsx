@@ -67,6 +67,13 @@ const HeroSection = () => {
     setActiveIndex(null);
   }, []);
 
+  useEffect(
+    () => () => {
+      if (animationFrameRef.current) cancelAnimationFrame(animationFrameRef.current);
+    },
+    []
+  );
+
   return (
     <section className={styles.hero} aria-labelledby="hero-title" data-hovered={hoveredType || 'none'}>
       <Container className={styles.heroContainer}>

@@ -16,7 +16,7 @@ const Icon = ({
   title, // For accessibility
   ...props
 }) => {
-  const setMagnet = useMagneticEffect({ maxDistance: 10, scale: 1.03 });
+  const setMagnet = useMagneticEffect({ maxDistance: 4, scale: 1.02 });
   const IconComponent = AllIcons[name]; // Find the component by name
   const combinedClassName = `${styles.icon} ${className}`.trim();
 

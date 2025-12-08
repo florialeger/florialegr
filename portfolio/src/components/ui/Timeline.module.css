@@ -1,0 +1,93 @@
+.timelineContainer {
+  position: fixed;
+  right: var(--container-padding-x);
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 100;
+  pointer-events: all;
+}
+
+.timelineTrack {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  align-items: flex-end;
+}
+
+.timelineItem {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  height: 0.4rem;
+  padding: 0.4rem 0;
+  margin: -0.2rem 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: opacity 200ms ease;
+  flex-shrink: 0;
+}
+
+.timelineItem:hover {
+  opacity: 0.8;
+}
+
+.timelineItem.disabled {
+  cursor: not-allowed;
+  opacity: 0.3;
+}
+
+.timelineMark {
+  display: block;
+  width: 2rem;
+  height: 0.1rem;
+  border-radius: var(--radius-pill);
+  background: var(--fills---primary);
+  transform-origin: right center;
+  transition:
+    transform 300ms cubic-bezier(0.34, 1.56, 0.64, 1),
+    background-color 200ms ease;
+  flex-shrink: 0;
+  will-change: transform;
+}
+
+.timelineMark.active {
+  background: var(--label---primary);
+}
+
+.timelineLabel {
+  position: absolute;
+  right: calc(100% + 0.75rem);
+  font-size: var(--type---title-4---size);
+  font-weight: var(--type---title-4---weight-regular);
+  color: var(--fills---primary);
+  white-space: nowrap;
+  opacity: 0;
+  animation: fadeInLabel 150ms ease forwards;
+  animation-delay: 100ms;
+}
+
+.timelineLabel.active {
+  color: var(--label---primary);
+  font-weight: var(--type---title-4---weight-emphasized);
+}
+
+@keyframes fadeInLabel {
+  from {
+    opacity: 0;
+    filter: blur(4px);
+    transform: scale(0.4);
+  }
+  to {
+    opacity: 1;
+    filter: blur(0px);
+    transform: scale(1);
+  }
+}
+
+@media (max-width: 960px) {
+  .timelineContainer {
+    display: none;
+  }
+}

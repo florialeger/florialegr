@@ -1,6 +1,9 @@
 export { default as ArrowIcon } from './ArrowIcon';
+export { default as ArrowNextIcon } from './ArrowNextIcon';
+export { default as ArrowPreviousIcon } from './ArrowPreviousIcon';
 export { default as DownloadIcon } from './DownloadIcon';
-export { default as LockIcon } from './LockIcon';
 export { default as MailIcon } from './MailIcon';
 export { default as CloseIcon } from './CloseIcon';
 export { default as BackArrow } from './BackArrow';
+export { default as ExternalLinkIcon } from './ExternalLinkIcon';
+export { default as GoBackIcon } from './GoBackIcon';

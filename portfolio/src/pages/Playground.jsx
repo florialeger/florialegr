@@ -1,9 +1,11 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import useRevealOnView from '@/hooks/useRevealOnView';
 import RevealAnimation from '@/components/utility/RevealAnimation';
 import Container from '@/components/ui/Container';
 import CardGrid from '@/components/projects/CardGrid';
 import ProjectCard from '@/components/projects/ProjectCard';
+import Timeline from '@/components/ui/Timeline';
 import { usePortfolio } from '@/contexts/PortfolioContext';
 import styles from './Playground.module.css';
 import pageLayout from '@/components/ui/PageLayout.module.css';
@@ -13,7 +15,14 @@ const ALL_CATEGORY = 'all';
 
 const formatCategoryLabel = (category) => {
   if (category === ALL_CATEGORY) return 'All';
+  if (category === 'illustration') return 'Illust';
+  if (category === 'ux_ui') return 'UIX';
   return category.replace(/_/g, ' ').replace(/\b\w/g, (char) => char.toUpperCase());
+};
+
+const getCategoryCount = (playgrounds, category) => {
+  if (category === ALL_CATEGORY) return playgrounds.length;
+  return playgrounds.filter((item) => item.type === category).length;
 };
 
 const playgroundParagraphs = [
@@ -22,6 +31,7 @@ const playgroundParagraphs = [
 ];
 
 const Playground = () => {
+  const location = useLocation();
   const { playgrounds, uniquePlaygroundCategories, loading, error } = usePortfolio();
   const [selectedCategory, setSelectedCategory] = useState(ALL_CATEGORY);
   const [hoveredSlug, setHoveredSlug] = useState(null);
@@ -35,6 +45,29 @@ const Playground = () => {
     if (selectedCategory === ALL_CATEGORY) return playgrounds;
     return playgrounds.filter((item) => item.type === selectedCategory);
   }, [playgrounds, selectedCategory]);
+
+  // Scroll restoration when returning from detail page
+  useEffect(() => {
+    const scrollTo = location.state?.scrollTo;
+    if (scrollTo && gridRef.current) {
+      // Wait for cards to render
+      setTimeout(() => {
+        const targetCard = gridRef.current.querySelector(`[data-slug="${scrollTo.slug}"]`);
+        if (targetCard) {
+          const rect = targetCard.getBoundingClientRect();
+          const elementTop = rect.top + window.scrollY;
+          const elementHeight = rect.height;
+          const viewportHeight = window.innerHeight;
+          const scrollPosition = elementTop - viewportHeight / 2 + elementHeight / 2;
+
+          window.scrollTo({
+            top: Math.max(0, scrollPosition),
+            behavior: 'smooth',
+          });
+        }
+      }, 100);
+    }
+  }, [location.state?.scrollTo]);
 
   const recomputeThreshold = useCallback(() => {
     if (!gridRef.current) return;
@@ -74,19 +107,25 @@ const Playground = () => {
   useEffect(() => {
     if (typeof window === 'undefined') return undefined;
 
+    let ticking = false;
     const handleScroll = () => {
-      if (!thresholdRef.current.thresholdY) {
-        recomputeThreshold();
-      }
-      const { thresholdY } = thresholdRef.current;
-      if (!thresholdY) {
-        setFilterVisible(false);
-        return;
-      }
-      const viewportBottom = window.scrollY + window.innerHeight;
-      setFilterVisible((prev) => {
+      if (ticking) return;
+
+      ticking = true;
+      requestAnimationFrame(() => {
+        if (!thresholdRef.current.thresholdY) {
+          recomputeThreshold();
+        }
+        const { thresholdY } = thresholdRef.current;
+        if (!thresholdY) {
+          setFilterVisible(false);
+          ticking = false;
+          return;
+        }
+        const viewportBottom = window.scrollY + window.innerHeight;
         const shouldShow = viewportBottom >= thresholdY;
-        return prev === shouldShow ? prev : shouldShow;
+        setFilterVisible((prev) => (prev === shouldShow ? prev : shouldShow));
+        ticking = false;
       });
     };
 
@@ -150,13 +189,17 @@ const Playground = () => {
                   item={item}
                   variant="playground"
                   onHoverChange={handleHoverChange}
+                  currentFilter={selectedCategory}
                   className={`${hoveredSlug && hoveredSlug !== item.slug ? styles.dimmed : ''}`.trim()}
+                  data-created={item.created}
                 />
               ))}
             </RevealAnimation>
           </CardGrid>
         )}
       </Container>
+
+      <Timeline playgrounds={playgrounds} />
 
       <div
         className={`${styles.filterBar} ${filterVisible ? styles.visible : ''}`}
@@ -166,11 +209,20 @@ const Playground = () => {
         <ul className={styles.filterList}>
           {categories.map((category) => {
             const isActive = category === selectedCategory;
+            const count = getCategoryCount(playgrounds, category);
+            const label = (
+              <>
+                <span className={isActive ? styles.filterLabel : ''}>{formatCategoryLabel(category)}</span>
+                <span className={styles.filterCount}>
+                  <sup>{count}</sup>
+                </span>
+              </>
+            );
             return (
               <li key={category}>
                 <Button
                   type="button"
-                  label={formatCategoryLabel(category)}
+                  label={label}
                   onClick={() => handleCategoryChange(category)}
                   className={`${styles.filterButton} ${isActive ? styles.active : ''}`.trim()}
                   aria-pressed={isActive}

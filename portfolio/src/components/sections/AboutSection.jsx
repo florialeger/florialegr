@@ -3,31 +3,31 @@ import useMagneticEffect from '@/hooks/useMagneticEffect';
 import RevealAnimation from '@/components/utility/RevealAnimation';
 import PropTypes from 'prop-types';
 import Container from '@/components/ui/Container';
-import Button from '@/components/ui/Button';
+import Link from '@/components/ui/Link';
 import CD from '@/assets/icons/CD.png';
 import styles from './AboutSection.module.css';
 import pageLayout from '@/components/ui/PageLayout.module.css';
 
 const AboutSection = ({ title = [], paragraphs, downloads, portraitSrc, portraitAlt = 'Portrait' }) => (
   <Container className={pageLayout.pageHeader}>
-          <RevealAnimation cascade damping={0.1} delay={100} triggerOnce>
-      <div className={styles.header} ref={useMagneticEffect({ maxDistance: 24, scale: 1.05 })}>
+    <RevealAnimation cascade damping={0.1} delay={100} triggerOnce>
+      <div className={styles.header} ref={useMagneticEffect({ maxDistance: 4, scale: 1.03 })}>
         <figure className={styles.portrait}>
           <img src={portraitSrc} alt={portraitAlt} loading="lazy" />
         </figure>
         <div className={styles.headerContent}>
           <div className={styles.pseudo}>
-            <p>@florialeger</p>
+            <a href="https://www.instagram.com/floria.leger/" target="_blank" rel="noreferrer">
+              <p>@florialeger</p>
+            </a>
             <img src={CD} className={styles.cdIcon} alt="CD Icon" />
           </div>
           <p
             style={{
               color: 'var(--label---tertiary)',
-              fontFamily: 'var(--type---body---accent)',
-              fontWeight: 'var( --body-emphasized-weight)',
             }}
           >
-            9h41
+            UX Designer
           </p>
         </div>
       </div>
@@ -43,7 +43,7 @@ const AboutSection = ({ title = [], paragraphs, downloads, portraitSrc, portrait
       {downloads.length > 0 ? (
         <div className={styles.buttonColumn}>
           {downloads.map(({ label: actionLabel, href, fileName }) => (
-            <Button key={actionLabel} label={actionLabel} href={href} download={fileName} icon="download" />
+            <Link key={actionLabel} label={actionLabel} href={href} download={fileName} icon="download" />
           ))}
         </div>
       ) : null}
