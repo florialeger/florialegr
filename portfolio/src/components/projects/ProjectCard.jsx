@@ -173,9 +173,10 @@ const PlaygroundCard = memo(({ item, className, onHoverChange, currentFilter }) 
 
   return (
     <div className={styles.playgroundWrapper} ref={handleRef}>
-      <h2 className={styles.ghostTitle} aria-hidden="true">
-        {item.title}
-      </h2>
+      <div className={styles.ghostHeader} aria-hidden="true">
+        <h2 className={styles.ghostTitle}>{item.title}</h2>
+      
+      </div>
 
       <article
         className={`${styles.card} ${styles.playground} ${className}`.trim()}

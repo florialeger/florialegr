@@ -25,8 +25,8 @@
 }
 
 .dimmed {
-  filter: grayscale(1) brightness(0.8);
-  opacity: 0.8;
+  filter: grayscale(1) brightness(0.95);
+  opacity: 0.6;
 }
 
 .filterBar {
@@ -43,11 +43,6 @@
 
   margin-bottom: 0.55rem;
   padding: 0.4rem 0;
-
-  border-radius: var(--radius-xs);
-  background: var(--fills---secondary);
-  border: 2px solid var(--separator---white-20);
-  backdrop-filter: blur(10px) saturate(150%);
   transition:
     transform 180ms ease-out,
     opacity 180ms ease-out;
@@ -67,30 +62,31 @@
 }
 
 .filterButton {
-  border: none;
-  color: var(--label---tertiary);
+  /* No fills, no background - just padding from button secondary big variant */
+  background: var(--fills---secondary);
+  border: 1px solid var(--separator---black-10);
+}
+
+.filterButton .label {
+  /* Plain text styling with label-primary color */
+  color: var(--label---primary);
+  font-family: var(--type---body---family);
+  font-size: var(--type---body---size);
+  font-weight: var(--body-regular-weight);
   letter-spacing: 0;
   text-transform: none;
   backface-visibility: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  transform: translateZ(0);
-  will-change: color;
 }
 
-.filterButton:hover,
-.filterButton:focus-visible {
-  background: none;
+.filterButton:hover .label,
+.filterButton:focus-visible .label {
+  font-weight: var(--body-emphasized-weight);
 }
 
-.filterButton:hover:not([aria-disabled='true']):not([data-disabled='true']) {
-  color: var(--label---primary);
-  background: none;
-}
-
-.active {
-  color: var(--label---primary);
-  font-weight: var(--type---title-3---weight-emphasized);
+.active .label {
+  font-weight: var(--body-emphasized-weight);
 }
 
 .filterLabel {
@@ -102,4 +98,23 @@
 .filterCount {
   padding-left: 0.2rem;
   display: inline-block;
+}
+
+.filterLabelButton {
+  all: unset;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.2rem;
+  color: var(--label---primary);
+  font-family: var(--type---body---family);
+  font-size: var(--type---body---size);
+  font-weight: var(--body-regular-weight);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.filterLabelButton:hover,
+.filterLabelButton:focus-visible {
+  font-weight: var(--body-emphasized-weight);
 }

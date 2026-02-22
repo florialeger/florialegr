@@ -7,6 +7,7 @@ const DEFAULT_OPTIONS = {
   restScale: 1,
   pointerType: 'fine',
   applyOnCoarse: false,
+  disabled: false,
 };
 
 const isReducedMotion = () =>
@@ -43,6 +44,7 @@ function useMagneticEffect(options = {}) {
     restScale = DEFAULT_OPTIONS.restScale,
     pointerType = DEFAULT_OPTIONS.pointerType,
     applyOnCoarse = DEFAULT_OPTIONS.applyOnCoarse,
+    disabled = DEFAULT_OPTIONS.disabled,
   } = options;
 
   const cleanupFrame = useCallback(() => {
@@ -110,6 +112,10 @@ function useMagneticEffect(options = {}) {
       return undefined;
     }
 
+    if (disabled) {
+      return undefined;
+    }
+
     if (isReducedMotion()) {
       return undefined;
     }
@@ -161,7 +167,7 @@ function useMagneticEffect(options = {}) {
       node.removeEventListener('pointerleave', handlePointerLeave);
       node.removeEventListener('pointerenter', handlePointerEnter);
     };
-  }, [element, maxDistance, easing, scale, restScale, pointerType, applyOnCoarse, cleanupFrame, setTarget]);
+  }, [element, maxDistance, easing, scale, restScale, pointerType, applyOnCoarse, disabled, cleanupFrame, setTarget]);
 
   const setNode = useCallback((node) => {
     setElement(node || null);

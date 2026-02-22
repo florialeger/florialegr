@@ -1,0 +1,52 @@
+/* NDA Badge - Circle expanding to pill on hover */
+.ndaBadge {
+  display: inline-flex;
+  align-items: center;
+  border-radius: var(--radius-pill);
+  background: #fedada;
+  position: relative;
+  overflow: hidden;
+  cursor: default;
+  user-select: none;
+  flex-shrink: 0;
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+  padding-left: 0.4rem;
+  margin-bottom: 0.5rem;
+}
+
+.content {
+  display: flex;
+  align-items: center;
+  gap: 0.2rem;
+  white-space: nowrap;
+}
+
+.lockIcon {
+  width: 1.2rem;
+  height: 1.2rem;
+  padding-bottom: 0.1rem;
+  object-fit: contain;
+  display: block;
+  flex-shrink: 0;
+  /* Bright red from Figma: #ec1717 */
+  filter: brightness(0) saturate(100%) invert(24%) sepia(95%) saturate(6493%) hue-rotate(356deg) brightness(101%)
+    contrast(98%);
+}
+
+.text {
+  font-family: 'Source Sans Pro', var(--type---body---family);
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1;
+  /* Bright red from Figma: #ec1717 */
+  color: #ec1717;
+  overflow: hidden;
+}
+
+/* Animation polish */
+@media (prefers-reduced-motion: reduce) {
+  .ndaBadge {
+    transition: none;
+  }
+}

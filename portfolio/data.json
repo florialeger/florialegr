@@ -1,37 +1,89 @@
 {
-  "projects": [
+  "work": [
     {
-      "title": "Tuto Figma",
+      "company": "Ubisoft",
+      "role": "UX/UI Designer Assistant",
+      "description": "Interface design and improvement",
+      "context": [
+        "My responsibilities are as follows:",
+        "• Identify end-user needs.\n• Collaborate with design and development teams to ensure a user-centered approach.\n• Conduct user research: surveys, interviews, usability tests, etc.\n• Analyze user feedback and make concrete recommendations. \n• Design wireframes and user journeys. \n• Collaborate on documentation and follow-up for UX projects.\n• Monitor trends and best practices in UX."
+      ],
+      "startDate": "2026-02-02",
+      "endDate": null,
+      "primaryImage": ["ubisoft-primary.jpg"],
+      "secondaryImages": ["Locked.jpg"],
+      "icon": "locked-icone.png",
+      "slug": "ubisoft",
+      "companyUrl": "https://www.ubisoft.com/en-us",
+      "link": []
+    },
+    {
+      "company": "Stealth Startup",
+      "role": "UX/UI Designer",
+      "description": "Reimagining social discovery",
+      "context": [
+        "My responsibilities are as follows:",
+        "• Co-lead creative direction by applying user-centered design, UX research, and competitive analysis to guide product strategy. \n• Analyzed and translated data from a comprehensive survey of over 300 users to refine user personas and inform key product development priorities.\n• Manage end-to-end user testing cycles, from design and execution to analysis, to continuously optimize the product experience.\n• Architect a scalable mobile UI in Figma with a robust component system to accelerate future design sprints and reinforce brand consistency."
+      ],
+      "startDate": "2025-04-01",
+      "endDate": null,
+      "primaryImage": ["purely-primary.jpg"],
+      "secondaryImages": ["Ongoing.jpg"],
+      "icon": "purely-icone.png",
+      "slug": "purely",
+      "companyUrl": null,
+      "link": []
+    },
+    {
+      "company": "Airbus",
+      "role": "UX/UI Consultant Intern",
+      "description": "Revitalizing critical learning tools",
+      "context": [
+        "My responsibilities were as follows:",
+        "• Overhauled a critical user workflow using a corrective design methodology to resolve key <strong>usability pain points</strong> and simplify the <strong>user journey</strong>.\n• Designed and administered user testing protocols to identify and address barriers to usage for a more seamless product interaction.\n• Conducted in-depth thematic analysis of user data, applying <strong>Colombo & Pasch's heuristics</strong> for a precise interpretation of UX issues.\n• Defined strategic recommendations for intuitive interfaces in Figma, significantly improving the quality of the learning experience.\n• Aligned divergent expectations between two major stakeholders through transparent communication, earning praise and sign-off on the final deliverable."
+      ],
+      "startDate": "2025-05-01",
+      "endDate": "2025-07-25",
+      "primaryImage": ["vmt-primary.jpg"],
+      "secondaryImages": ["Locked.jpg"],
+      "icon": "locked-icone.png",
+      "slug": "vmt",
+      "companyUrl": "https://www.airbus.com/en",
+      "link": []
+    },
+    {
+      "company": "ENSC",
+      "role": "UX/UI Design Instructor Intern",
+      "description": "Democratizing design education",
       "context": [
         "During my first-year internship at the Ecole Nationale Supérieure de Cognitique, I was responsible for supervising second-grade students, who were themselves on an internship, in order to introduce them to the school and its fields of study.",
-        "One of the activities I organized was to make them understand what Figma is and introduce them to its principles. It was a really enriching experience in terms of pedagogy.",
-        "I also prepared a tutorial to explore all the main features of Figma. Then, to let their creativity speak, we offered them to model a music listening app, and given the enthusiasm and investment that students had, it was really worth being fully invested in this activity and internship, I am still very grateful to them."
+        "• Developed and led interactive workshops introducing high school students to UX/UI design, wireframing, and prototyping using Figma.\n• Taught accessibility principles and human-centered design techniques to foster an inclusive design mindset in young learners.\n• Balanced technical content with hands-on activities to enhance participant engagement and improve learning outcomes.\n• Simplified complex design concepts into beginner-friendly lessons, improving communication and teaching skills."
       ],
-      "created": "2024-06-26",
-      "duration": "1 weeks",
-      "projectDuty": ["UX/UI Design"],
-      "support": ["figma"],
+      "startDate": "2024-06-01",
+      "endDate": "2024-06-28",
       "primaryImage": ["figma-primary.jpg"],
-      "type": "ux_ui",
       "secondaryImages": [
-        "figma-second1.jpg",
-        "figma-second2.jpg",
-        "figma-second3.mp4",
-        "figma-second4.jpg",
-        "figma-second5.jpg",
-        "figma-second6.jpg",
-        "figma-second7.jpg",
-        "figma-second8.jpg",
-        "figma-second9.jpg",
-        "figma-second10.jpg",
-        "figma-second11.jpg",
-        "figma-second12.jpg",
-        "figma-second13.jpg",
-        "figma-second14.jpg",
-        "figma-second15.jpg",
-        "figma-second16.jpg",
-        "figma-second17.jpg"
+        "figma-1.jpg",
+        "figma-2.jpg",
+        "figma-3.mp4",
+        "figma-4.jpg",
+        "figma-5.jpg",
+        "figma-6.jpg",
+        "figma-7.jpg",
+        "figma-8.jpg",
+        "figma-9.jpg",
+        "figma-10.jpg",
+        "figma-11.jpg",
+        "figma-12.jpg",
+        "figma-13.jpg",
+        "figma-14.jpg",
+        "figma-15.jpg",
+        "figma-16.jpg",
+        "figma-17.jpg"
       ],
+      "icon": "figma-icone.png",
+      "slug": "tuto-figma",
+      "companyUrl": "https://ensc.bordeaux-inp.fr/fr",
       "link": [
         {
           "label": "Slide Deck",
@@ -41,50 +93,35 @@
           "label": "Workshop",
           "url": "https://florialeger.github.io/tuto-Figma/"
         }
-      ],
-      "icon": "figma-icone.png",
-      "slug": "tuto-figma",
-      "locked": false
-    },
+      ]
+    }
+  ],
+  "projects": [
     {
-      "title": "DeskFriend",
+      "title": "Boucaniers",
       "context": [
-        "In my school, I had the opportunity to explore the key phases of user-centered design through a concrete project: analysis, mock-up and user tests. At the beginning, each group received a problem to solve and then with each phase change we passed our project to another group.",
-        "The design phase was implemented through the DeskFriend project. It was a particularly important step for me, because this is the area that interests me most in this school. ",
-        "That's why, in our team of 4 people, I was fully responsible for the technical part of the design mockup. In other words, I was the one who put into practice the ideas we had thought about together. I have implemented a component-based approach to enhance visual consistency and facilitate edits. I also designed an intuitive and efficient prototype, while providing the artistic direction and technical management on Figma, to ensure a smooth and easily adaptable user experience."
+        "I had the opportunity to create a logo for the ENSMAC BDE campaigns, which was used on various goodies. My friends already had a very clear idea of what they wanted, they even gave me sketches, which allowed me to advance infinitely faster in the research phase.",
+        "This project gave me the opportunity to develop my artistic direction and creativity while meeting expectations and deadlines. Thank you to my friends from ENSMAC for giving me such an opportunity, it was so much fun!"
       ],
-      "created": "2025-02-13",
-      "duration": "1",
-      "projectDuty": ["UX/UI Design"],
-      "support": ["figma"],
-      "primaryImage": ["desk-primary.jpg"],
-      "type": "ux_ui",
+      "created": "2024-02-01",
+      "endDate": "2024-02-15",
+      "duration": "2 weeks",
+      "projectDuty": ["Logo Design"],
+      "support": ["procreate"],
+      "primaryImage": ["boucaniers-primary.jpg"],
+      "type": "illustration",
       "secondaryImages": [
-        "desk-second1.jpg",
-        "desk-second2.jpg",
-        "desk-second3.mp4",
-        "desk-second4.jpg",
-        "desk-second5.jpg",
-        "desk-second6.jpg",
-        "desk-second7.jpg",
-        "desk-second8.jpg",
-        "desk-second9.jpg",
-        "desk-second10.jpg",
-        "desk-second11.jpg",
-        "desk-second12.jpg",
-        "desk-second13.jpg",
-        "desk-second14.jpg",
-        "desk-second15.jpg"
+        "boucaniers-1.jpg",
+        "boucaniers-2.jpg",
+        "boucaniers-3.jpg",
+        "boucaniers-4.jpg",
+        "boucaniers-5.jpg"
       ],
-      "link": [
-        {
-          "label": "Figma file",
-          "url": "https://www.figma.com/community/file/1471512161772048324/deskfriend"
-        }
-      ],
-      "icon": "desk-icone.png",
-      "slug": "desk-friend",
-      "locked": false
+      "link": [],
+      "icon": "boucaniers-icone.png",
+      "slug": "les-boucaniers",
+      "locked": false,
+      "shortDescription": "campaign branding for student elections"
     },
     {
       "title": "Tout va bien",
@@ -93,25 +130,26 @@
         "For my part, I took care of the entire visual identity: creation of the logo, development of the graphic charter, and design of wireframes and interactive prototypes on Figma, putting a real focus on accessibility and user experience. We also conducted semi-structured interviews with experts, using user-centered design methods to expand our knowledge and verify the consistency of our model for the selected need.  I also had the opportunity to pass on my knowledge about Figma to the first years of the group, which was a super enriching experience.",
         "My school assigning projects with free themes like this is really cool, as it allows us to explore topics that speak to us and also helps us become more responsible."
       ],
-      "created": "2024-12-19",
+      "created": "2024-09-15",
+      "endDate": "2024-12-19",
       "duration": "4",
       "projectDuty": ["UX/UI Design"],
       "support": ["figma"],
       "primaryImage": ["TVB-primary.jpg"],
       "type": "ux_ui",
       "secondaryImages": [
-        "TVB-second1.jpg",
-        "TVB-second2.jpg",
-        "TVB-second3.jpg",
-        "TVB-second4.jpg",
-        "TVB-second5.jpg",
-        "TVB-second6.jpg",
-        "TVB-second7.jpg",
-        "TVB-second8.jpg",
-        "TVB-second9.jpg",
-        "TVB-second10.jpg",
-        "TVB-second11.jpg",
-        "TVB-second12.jpg"
+        "TVB-1.jpg",
+        "TVB-2.jpg",
+        "TVB-3.jpg",
+        "TVB-4.jpg",
+        "TVB-5.jpg",
+        "TVB-6.jpg",
+        "TVB-7.jpg",
+        "TVB-8.jpg",
+        "TVB-9.jpg",
+        "TVB-10.jpg",
+        "TVB-11.jpg",
+        "TVB-12.jpg"
       ],
       "link": [
         {
@@ -125,43 +163,182 @@
       ],
       "icon": "tvb-icone.png",
       "slug": "tout-va-bien",
-      "locked": false
+      "locked": false,
+      "shortDescription": "accessible interface for academic support"
     },
     {
-      "title": "Krystal",
+      "title": "DeskFriend",
+      "context": [
+        "This project was part of the User-Centered Design (UCD) module at the <strong>École Supérieure de Cognitique</strong> (Graduate School of Cognitive Engineering). It was structured into three distinct phases, each focusing on a different product. This organization simulated a high-pressure professional environment: the ability to rapidly immerse oneself in a new problem, take over specifications from another team, or test a concept designed by someone else.",
+        "Throughout the process, we followed the <strong>Double Diamond</strong> methodology: Discover (Immersion), Define, Ideate, and Prototype."
+      ],
+      "created": "2025-01-05",
+      "endDate": "2025-02-13",
+      "duration": "1",
+      "projectDuty": ["UX/UI Design"],
+      "support": ["figma"],
+      "primaryImage": ["desk-primary.jpg"],
+      "type": "ux_ui",
+      "secondaryImages": [
+        "desk-1.jpg",
+        "desk-2.jpg",
+        "desk-3.mp4",
+        "desk-4.jpg",
+        "desk-5.jpg",
+        "desk-6.jpg",
+        "desk-7.jpg",
+        "desk-8.jpg",
+        "desk-9.jpg",
+        "desk-10.jpg",
+        "desk-11.jpg",
+        "desk-12.jpg",
+        "desk-13.jpg",
+        "desk-14.jpg",
+        "desk-15.jpg"
+      ],
+      "sections": [
+        {
+          "images": ["desk-3.mp4"]
+        },
+        {
+          "title": "Discovery, Definition & idéation (Project Ridar)",
+          "description": "The goal was to reduce bicycle theft. We began with a competitor benchmark and a literature review to identify major market trends."
+        },
+        {
+          "title": "What the data tells us",
+          "description": [
+            "Bicycle theft is primarily an urban, daytime phenomenon (48% occur between 8:00 AM and 6:00 PM) and happens quickly: 50% of thefts occur during stops lasting less than 30 minutes. A striking figure: 87% of stolen bikes were actually locked to a fixed point.",
+            "<strong>Target Audience</strong> Based on this data, we defined our target as regular urban cyclists making frequent, short stops during the day."
+          ]
+        },
+        {
+          "title": "Field Research",
+          "description": [
+            "We conducted observations and interviews in Bordeaux (Bergonié and Victoire districts) to cross-reference our data with real-world behavior.",
+            "<strong>Observation Key Findings</strong> Out of 18 profiles observed, 56% of bikes were locked. The average locking time was extremely short: 23 seconds. We also noted a high reliance on proximity: 93% of cyclists stayed within 10 meters of their bike. \n<strong>Interview Key Findings</strong> The price of the bike radically influences the protection strategy: an old bike is locked carelessly, while an expensive one generates high anxiety. 50% of respondents reported feeling uneasy leaving their bike, even for a minute. The primary need identified was the ability to keep an eye on the bike without the hassle of a heavy lock for 'flash' stops."
+          ]
+        },
+        {
+          "title": "Ideation through The Purge",
+          "description": [
+            "To generate innovative solutions, we used the <strong>Purge</strong> method. This individual exercise allowed us to clear out all obvious or preconceived ideas in 15 minutes. We then evaluated and ranked the remaining ideas based on five criteria: feasibility, originality, innovation, efficiency, and cost. From this process, <strong>RIDAR</strong> was born: a discreet 'phygital' device integrated directly into the seat post."
+          ],
+          "images": ["ridar-1.jpg"]
+        },
+        {
+          "title": "Technical Specifications",
+          "description": [
+            "To ensure a smooth handover to the next team, we documented our findings in a detailed specification sheet, including:",
+            "• <strong>Three User Personas:</strong> Rayan (the delivery driver), Julien (the hurried dad), and Marc (the committed environmentalist), detailing their specific needs and pain points.\n• <strong>System Architecture:</strong> GPS, BLE, GSM modules, and an audible alarm.\n• <strong>The Handover:</strong> A crucial point where we specified that the app should remain a secondary, discreet support tool to avoid cluttering the user’s workflow (especially for delivery drivers)."
+          ],
+          "images": ["ridar-2.jpg", "ridar-3.jpg", "ridar-4.jpg"]
+        },
+        {
+          "title": "Design & Prototyping (Project Deskfriend)",
+          "description": [
+            "In this phase, we pivoted to a new topic by taking over the specifications for a 'Smart Desk' designed by another group."
+          ]
+        },
+        {
+          "title": "The Challenge",
+          "description": [
+            "The initial specifications lacked detail and consistency. To build on a solid foundation, we held a supplementary brainstorming session to re-scope the need: improving the physical well-being (posture) and productivity (focus) of remote workers."
+          ]
+        },
+        {
+          "title": "My Role (Design Lead)",
+          "description": [
+            "I took full responsibility for the UI design and prototyping in Figma. Beyond the visual design, I mentored my teammates on best practices, including the use of <strong>Auto Layout</strong> and <strong>Component-based design</strong> to ensure global consistency."
+          ]
+        },
+        {
+          "title": "The Solution",
+          "description": [
+            "A remote-control application to manage the workspace: real-time posture analysis, 'move' reminders, acoustic isolation management via physical panels, and a 'Focus Mode' to limit mobile distractions."
+          ],
+          "images": [ "desk-1.jpg",
+        "desk-2.jpg",
+        "desk-3.jpg",
+        "desk-4.jpg",
+        "desk-5.jpg",
+        "desk-6.jpg",
+        "desk-7.jpg",
+        "desk-8.jpg",
+        "desk-9.jpg",
+        "desk-10.jpg",
+        "desk-11.jpg",
+        "desk-12.jpg",
+        "desk-13.jpg",
+        "desk-14.jpg",
+        "desk-15.jpg"]
+        },
+        {
+          "title": "User testing (Project Smart cart)",
+          "description": [
+            "The final phase involved testing the prototype of a third project: an autonomous, connected supermarket cart.",
+            "<strong>Testing Protocol (Guerrilla Method):</strong> We conducted <strong>guerrilla testing</strong> at a local supermarket (Leclerc Pessac) with 9 participants. The objective was to validate the usability of key features: connecting to the cart via QR code, managing the shopping list, and mobile payment."
+          ]
+          },
+           {
+             "title": "Test Results",
+             "description": [
+               "The final phase involved testing the prototype of a third project: an autonomous, connected supermarket cart.",
+               "• <strong>User Flow Validation:</strong> 9/9 tasks successfully completed for connecting to the cart. \n• <strong>Friction Point:</strong> The 'Connect' button had low visibility because it was drowned out by promotional visual clutter. \n• <strong>User Behavior:</strong> A strong desire for 'paper mimicry'—the ability to check off items as they go, similar to a physical list.\n• <strong>The Human Factor:</strong> Despite the innovation, 5 out of 9 testers still preferred the traditional checkout line to maintain social contact."
+             ]
+           },
+            {
+              "title": "Project Conclusion",
+              "description": [
+                "This module taught me how to navigate uncertainty and remain flexible. Moving from urban security to productivity tools, and finally to retail solutions, reinforced a core truth: while the subject matter changes, the rigor of the <strong>User-Centered Design</strong> methodology remains the only guarantee of a successful product."              ]
+            }
+      ],
+      "link": [
+        {
+          "label": "Figma file",
+          "url": "https://www.figma.com/community/file/1471512161772048324/deskfriend"
+        }
+      ],
+      "icon": "desk-icone.png",
+      "slug": "desk-friend",
+      "locked": false,
+      "shortDescription": "component-based design system and prototype"
+    },
+    {
+      "title": "Krystal 2025",
       "context": [
         "The Krystal is THE sports tournament organized by the AS de Bordeaux INP for the 7 engineering schools of Bordeaux INP and the preparation of the INP.",
-        " The people in charge of the event asked me to create the logos, and I accepted without hesitation. The project was a real challenge, because for this edition of Krystal, they had decided to assign movie themes to each school. So each logo had to be adapted to its respective movie, which required more work, but turned out to be the most fun part of the project in the end.",
+        "The people in charge of the event asked me to create the logos, and I accepted without hesitation. The project was a real challenge, because for this edition of Krystal, they had decided to assign movie themes to each school. So each logo had to be adapted to its respective movie, which required more work, but turned out to be the most fun part of the project in the end.",
         "I cannot express how grateful I am to them for giving me the opportunity to participate in such a significant project, I owe them a whole lot."
       ],
-      "created": "2025-02-13",
+      "created": "2024-12-01",
+      "endDate": "2025-02-13",
       "duration": "2",
       "projectDuty": ["Logo Design"],
       "support": ["figma"],
-      "primaryImage": ["krystal-primary.jpg"],
+      "primaryImage": ["krystal2025-primary.jpg"],
       "type": "illustration",
       "secondaryImages": [
-        "krystal-second1.jpg",
-        "krystal-second2.jpg",
-        "krystal-second3.jpg",
-        "krystal-second4.jpg",
-        "krystal-second5.jpg",
-        "krystal-second6.jpg",
-        "krystal-second7.jpg",
-        "krystal-second8.jpg",
-        "krystal-second9.jpg",
-        "krystal-second10.jpg",
-        "krystal-second11.jpg",
-        "krystal-second12.jpg",
-        "krystal-second13.jpg",
-        "krystal-second14.jpg",
-        "krystal-second15.jpg",
-        "krystal-second16.jpg",
-        "krystal-second17.jpg",
-        "krystal-second18.jpg",
-        "krystal-second19.jpg",
-        "krystal-second20.jpg",
-        "krystal-second21.jpg"
+        "krystal2025-1.jpg",
+        "krystal2025-2.jpg",
+        "krystal2025-3.jpg",
+        "krystal2025-4.jpg",
+        "krystal2025-5.jpg",
+        "krystal2025-6.jpg",
+        "krystal2025-7.jpg",
+        "krystal2025-8.jpg",
+        "krystal2025-9.jpg",
+        "krystal2025-10.jpg",
+        "krystal2025-11.jpg",
+        "krystal2025-12.jpg",
+        "krystal2025-13.jpg",
+        "krystal2025-14.jpg",
+        "krystal2025-15.jpg",
+        "krystal2025-16.jpg",
+        "krystal2025-17.jpg",
+        "krystal2025-18.jpg",
+        "krystal2025-19.jpg",
+        "krystal2025-20.jpg",
+        "krystal2025-21.jpg"
       ],
       "link": [
         {
@@ -170,47 +347,26 @@
         }
       ],
       "icon": "krystal-icone.png",
-      "slug": "krystal",
-      "locked": false
-    },
-    {
-      "title": "Boucaniers",
-      "context": [
-        "I had the opportunity to create a logo for the ENSMAC BDE campaigns, which was used on various goodies. My friends already had a very clear idea of what they wanted, they even gave me sketches, which allowed me to advance infinitely faster in the research phase.",
-        "This project gave me the opportunity to develop my artistic direction and creativity while meeting expectations and deadlines. Thank you to my friends from ENSMAC for giving me such an opportunity, it was so much fun!"
-      ],
-      "created": "2024-02-15",
-      "duration": "2 weeks",
-      "projectDuty": ["Logo Design"],
-      "support": ["procreate"],
-      "primaryImage": ["boucaniers-primary.jpg"],
-      "type": "illustration",
-      "secondaryImages": [
-        "boucaniers-second1.jpg",
-        "boucaniers-second2.jpg",
-        "boucaniers-second3.jpg",
-        "boucaniers-second4.jpg",
-        "boucaniers-second5.jpg"
-      ],
-      "link": [],
-      "icon": "boucaniers-icone.png",
-      "slug": "les-boucaniers",
-      "locked": false
+      "slug": "krystal-2025",
+      "locked": false,
+      "shortDescription": "cinematic visual identity for sports events"
     },
     {
       "title": "Choralamar",
       "context": "The Choir at my school (ENSC) asked me to design a logo for their Club, and I really appreciated the creative freedom they gave me, as well as the trust they placed in me. Exploring a logo with bright colours was a particularly interesting experience.",
-      "created": "2024-02-20",
+      "created": "2024-02-01",
+      "endDate": "2024-02-20",
       "duration": "3 weeks",
       "projectDuty": ["Logo Design"],
       "support": ["procreate"],
       "primaryImage": ["choralamar-primary.jpg"],
       "type": "illustration",
-      "secondaryImages": ["choralamar-second1.jpg"],
+      "secondaryImages": ["choralamar-1.jpg"],
       "link": [],
       "icon": "choralamar-icone.png",
       "slug": "choralamar",
-      "locked": false
+      "locked": false,
+      "shortDescription": "vibrant visual identity for a music club"
     },
     {
       "title": "Disco Loco",
@@ -218,20 +374,14 @@
         "Disco Loco is Maëlie, Guillaume and Clara, friends who have traveled around Europe several times thanks to Interrail, and who share their adventures on Instagram. When they asked me if I could do a logo for them, I was so happy, it was a chance for me to thank them for being my friends.",
         "It's the kind of project where I can take artistic liberties, but know that they trust me completely, and that's really satisfying."
       ],
-      "created": "2025-04-18",
-      "duration": "1",
+      "created": "2025-03-18",
+      "endDate": "2025-04-18",
+      "duration": "1 month",
       "projectDuty": ["Graphic Design"],
       "support": ["procreate"],
       "primaryImage": ["disco-primary.jpg"],
       "type": "illustration",
-      "secondaryImages": [
-        "disco-second1.jpg",
-        "disco-second2.jpg",
-        "disco-second3.jpg",
-        "disco-second4.jpg",
-        "disco-second5.jpg",
-        "disco-second6.jpg"
-      ],
+      "secondaryImages": ["disco-1.jpg", "disco-2.jpg", "disco-3.jpg", "disco-4.jpg", "disco-5.jpg", "disco-6.jpg"],
       "link": [
         {
           "label": "Their Instagram",
@@ -240,7 +390,47 @@
       ],
       "icon": "disco-icone.png",
       "slug": "disco-loco",
-      "locked": false
+      "locked": false,
+      "shortDescription": "logo design for travel creators"
+    },
+    {
+      "title": "Mates",
+      "context": [
+        "On this project, I worked on the Logo, Brand, and Flyer Design for people in my school. It was really interesting to be challenged on creating a full, coherent design, not just for an app, but for an entire brand.",
+        "I tried to let my creativity flow freely, while still following the well-structured guidelines they gave me, and I’m really thankful for that."
+      ],
+      "created": "2025-01-31",
+      "endDate": "2025-03-31",
+      "duration": "2 months",
+      "projectDuty": ["Brand Design"],
+      "support": ["paper", "procreate", "figma"],
+      "primaryImage": ["mates-primary.jpg"],
+      "type": "illustration",
+      "secondaryImages": [
+        "mates-1.jpg",
+        "mates-2.jpg",
+        "mates-3.jpg",
+        "mates-4.jpg",
+        "mates-5.jpg",
+        "mates-6.jpg",
+        "mates-7.jpg",
+        "mates-8.jpg",
+        "mates-9.jpg",
+        "mates-10.jpg",
+        "mates-11.jpg",
+        "mates-12.jpg",
+        "mates-13.jpg",
+        "mates-14.jpg",
+        "mates-15.jpg",
+        "mates-16.jpg",
+        "mates-17.jpg",
+        "mates-18.jpg"
+      ],
+      "link": [],
+      "icon": "mates-icone.png",
+      "slug": "mates",
+      "locked": false,
+      "shortDescription": "comprehensive brand ecosystem and print assets"
     },
     {
       "title": "Dyspraxia",
@@ -248,19 +438,20 @@
         "I designed this infographic from start to finish. Creating the assets felt like making an illustration, but on Figma. ",
         "This poster was a really interesting way to talk about a very serious topic while giving a look that totally matched this neurodevelopmental disorder that is dyspraxia. It also took a lot of thought in terms of the hierarchy and layout of the elements to make everything as understandable as possible."
       ],
-      "created": "2025-03-21",
+      "created": "2025-03-14",
+      "endDate": "2025-03-21",
       "duration": "1 weeks",
       "projectDuty": ["Poster Design"],
       "support": ["figma"],
       "primaryImage": ["dyspraxia-primary.jpg"],
       "type": "illustration",
       "secondaryImages": [
-        "dyspraxia-second1.jpg",
-        "dyspraxia-second2.jpg",
-        "dyspraxia-second3.jpg",
-        "dyspraxia-second4.jpg",
-        "dyspraxia-second5.jpg",
-        "dyspraxia-second6.jpg"
+        "dyspraxia-1.jpg",
+        "dyspraxia-2.jpg",
+        "dyspraxia-3.jpg",
+        "dyspraxia-4.jpg",
+        "dyspraxia-5.jpg",
+        "dyspraxia-6.jpg"
       ],
       "link": [
         {
@@ -270,220 +461,250 @@
       ],
       "icon": "dyspraxia-icone.png",
       "slug": "dyspraxia",
-      "locked": false
+      "locked": false,
+      "shortDescription": "educational infographic on neurodiversity"
     },
     {
-      "title": "Mates",
-      "context": [
-        "On this project, I worked on the Logo, Brand, and Flyer Design for people in my school. It was really interesting to be challenged on creating a full, coherent design, not just for an app, but for an entire brand.",
-        "I tried to let my creativity flow freely, while still following the well-structured guidelines they gave me, and I’m really thankful for that."
-      ],
-      "created": "2025-03-31",
-      "duration": "2",
-      "projectDuty": ["Brand Design"],
-      "support": ["paper", "procreate", "figma"],
-      "primaryImage": ["mates-primary.jpg"],
+      "title": "Krystal 2026",
+      "context": [" ", ""],
+      "created": "2026-01-01",
+      "endDate": "2026-01-17",
+      "duration": "2 weeks",
+      "projectDuty": ["Logo Design"],
+      "support": ["figma"],
+      "primaryImage": ["krystal2026-primary.jpg"],
       "type": "illustration",
       "secondaryImages": [
-        "mates-second1.jpg",
-        "mates-second2.jpg",
-        "mates-second3.jpg",
-        "mates-second4.jpg",
-        "mates-second5.jpg",
-        "mates-second6.jpg",
-        "mates-second7.jpg",
-        "mates-second8.jpg",
-        "mates-second9.jpg",
-        "mates-second10.jpg",
-        "mates-second11.jpg",
-        "mates-second12.jpg",
-        "mates-second13.jpg",
-        "mates-second14.jpg",
-        "mates-second15.jpg",
-        "mates-second16.jpg",
-        "mates-second17.jpg",
-        "mates-second18.jpg"
+        "krystal2026-1.jpg",
+        "krystal2026-2.jpg",
+        "krystal2026-3.jpg",
+        "krystal2026-4.jpg",
+        "krystal2026-5.jpg",
+        "krystal2026-6.jpg",
+        "krystal2026-7.jpg",
+        "krystal2026-8.jpg",
+        "krystal2026-9.jpg",
+        "krystal2026-10.jpg",
+        "krystal2026-11.jpg",
+        "krystal2026-12.jpg",
+        "krystal2026-13.jpg",
+        "krystal2026-14.jpg",
+        "krystal2026-15.jpg",
+        "krystal2026-16.jpg",
+        "krystal2026-17.jpg",
+        "krystal2026-18.jpg",
+        "krystal2026-19.jpg"
+      ],
+      "link": [
+        {
+          "label": "View Figma",
+          "url": "https://www.figma.com/community/file/1607107101909827807"
+        }
+      ],
+      "icon": "krystal-icone.png",
+      "slug": "krystal-2026",
+      "locked": false,
+      "shortDescription": "elements visual identity for sports events"
+    },
+    {
+      "title": "ENSCxSTAPS",
+      "context": [
+        "This intensive five-day sprint was the result of a collaboration between the ENSC (Cognitive Engineering School) and the STAPS (Sports Science Department).",
+        "The challenge was to collect emotional and cognitive data via non-invasive sensors to provide a reliable, actionable diagnostic tool. Our goal was to design a solution capable of accurately distinguishing between a worker's state of fatigue and stress during a specific task."
+      ],
+      "created": "2026-01-19",
+      "endDate": "2026-01-26",
+      "duration": "1 weeks",
+      "projectDuty": ["UX Design"],
+      "support": ["figma"],
+      "primaryImage": ["ENSCxSTAPS-primary.jpg"],
+      "type": "ux_ui",
+      "secondaryImages": [
+        "ENSCxSTAPS-1.jpg",
+        "ENSCxSTAPS-2.jpg",
+        "ENSCxSTAPS-3.jpg",
+        "ENSCxSTAPS-4.jpg",
+        "ENSCxSTAPS-5.jpg",
+        "ENSCxSTAPS-6.jpg",
+        "ENSCxSTAPS-7.jpg",
+        "ENSCxSTAPS-8.jpg",
+        "ENSCxSTAPS-9.jpg",
+        "ENSCxSTAPS-10.jpg",
+        "ENSCxSTAPS-11.jpg",
+        "ENSCxSTAPS-12.jpg"
+      ],
+      "sections": [
+        {
+          "images": ["ENSCxSTAPS-13.mp4"]
+        },
+        {
+          "title": "My Role",
+
+          "description": "While I contributed to the literature review, my primary responsibility was leading the entire wireframing and prototyping process. As the team's Figma Lead, I oversaw both the visual and technical design to ensure a rapidly testable prototype, while guiding my teammates on UI/UX best practices.",
+
+          "images": [""]
+        },
+
+        {
+          "title": "The Team",
+
+          "description": "A multidisciplinary group of six members (STAPS and ENSC), combining expertise in sports physiology and cognitive engineering.",
+
+          "images": [""]
+        },
+
+        {
+          "title": "Methodology",
+
+          "description": "We followed the Double Diamond framework (Discover, Define, Ideate, and Prototype). Due to the tight deadline, we performed a major design iteration immediately following our user testing phase.",
+
+          "images": ["double-diamond.png"]
+        },
+        {
+          "title": "Discovery & definition",
+
+          "description": [
+            "The first day was dedicated to literature reviews and benchmarking. We analyzed theoretical models (Ekman, Izard, Russell) to understand how to differentiate emotion from cognition—two processes that trigger very similar physiological signals.",
+            "We defined a specific target audience: ergonomists. The identified need was to assist them in evaluating the real-time state of office workers through objective data (source data) to supplement their clinical interviews."
+          ],
+
+          "images": ["russell.png"]
+        },
+        {
+          "title": "The Concept",
+
+          "description": "Equipping workers with textile sensors (socks for electrodermal activity, a T-shirt for heart rate) and an eye-tracker to transmit real-time data to a dedicated tablet application for the ergonomist.",
+
+          "images": [""]
+        },
+        {
+          "title": "Idéation & prototyping",
+
+          "description": [
+            "I designed an interface structured around four core modules: Analytics, Equipment Management, History, and Reporting. The main challenge was visually representing the distinction between cognitive states (Flow and Overload charts) and emotional states (Russell’s Circumplex Model, mapping valence vs. arousal).",
+            "I integrated advanced features to build user trust in the tool:",
+            "• <strong>Hybrid Labeling System</strong> Used terms like Productive Focus and Critical Overload for immediate readability.\n• <strong>Reliability Indicator</strong> A feature that grays out charts if a sensor signal becomes too 'noisy'. \n• <strong>FaceID Authentication</strong> To switch from anonymous to identified mode, ensuring GDPR compliance and data security."
+          ],
+
+          "images": [
+            "ENSCxSTAPS-1.jpg",
+            "ENSCxSTAPS-2.jpg",
+            "ENSCxSTAPS-3.jpg",
+            "ENSCxSTAPS-4.jpg",
+            "ENSCxSTAPS-5.jpg",
+            "ENSCxSTAPS-6.jpg",
+            "ENSCxSTAPS-7.jpg",
+            "ENSCxSTAPS-8.jpg",
+            "ENSCxSTAPS-9.jpg",
+            "ENSCxSTAPS-10.jpg",
+            "ENSCxSTAPS-11.jpg",
+            "ENSCxSTAPS-12.jpg"
+          ]
+        },
+        {
+          "title": "User testing, analysis & iteration",
+
+          "description": [
+            "On the third day, we conducted usability testing with ENSC faculty and PhD students using a rigorous protocol: targeted tasks, qualitative feedback (verbatims), and the Attrakdiff questionnaire.",
+            "<strong>Attrakdiff Results</strong>",
+            "• <strong>Stimulation, Identification, and Attractiveness</strong> Very positive scores (1.5; 1.1; 1.6). The interface was perceived as professional, reassuring, and engaging..\n• <strong>Pragmatic Quality</strong> Slightly negative score (-0.5). The interface was judged as too dense and occasionally confusing for first-time users.",
+            "<strong>Major Iteration</strong> The emotional state diagram, originally presented as a heatmap, was completely misunderstood by testers. To resolve this critical pain point, I simplified the visualization to show only the current state while adding a much more intuitive'time slider' to review past data."
+          ],
+
+          "images": ["ENSCxSTAPS-improvement1.jpg", "ENSCxSTAPS-improvement2.jpg", "ENSCxSTAPS-improvement3.jpg"]
+        },
+        {
+          "title": "Conclusion",
+
+          "description": [
+            "This project highlighted the complexity of distinguishing emotion from cognition—a challenge that remains at the forefront of research. From a UX perspective, it proved that when dealing with abstract data, visual simplicity is the only way to ensure user comprehension. Moving forward, testing with practicing ergonomists would be essential to further refine the relevance of the proposed biometric indicators."
+          ],
+
+          "images": [""]
+        }
+      ],
+      "link": [{ "label": "View Figma", "url": "https://www.figma.com/community/file/1607410782626990891" }],
+      "icon": "ENSCxSTAPS-icone.png",
+      "slug": "ENSCxSTAPS",
+      "locked": false,
+      "shortDescription": "mobile app to disassociate cognition from emotion"
+    },
+    {
+      "title": "Figma Course",
+      "context": [" ", ""],
+      "created": "2025-10-03",
+      "endDate": "2026-02-07",
+      "duration": "4 months",
+      "projectDuty": ["UX Design"],
+      "support": ["figma"],
+      "primaryImage": ["figma-course-primary.jpg"],
+      "type": "ux_ui",
+      "secondaryImages": [
+        "figma-course-1.jpg",
+        "figma-course-2.jpg",
+        "figma-course-3.jpg",
+        "figma-course-4.jpg",
+        "figma-course-5.jpg",
+        "figma-course-6.jpg",
+        "figma-course-7.jpg",
+        "figma-course-8.jpg"
       ],
       "link": [],
-      "icon": "mates-icone.png",
-      "slug": "mates",
-      "locked": false
+      "icon": "figma-course-icone.png",
+      "slug": "figma-course",
+      "locked": false,
+      "shortDescription": "full course on Figma covering all the basics and more"
     },
     {
-      "title": "Purely",
-      "context": [
-        "I’m currently working on this mobile application project. I get to co-lead the creative direction, which implies applying user-centered design, UX research, and even a bit of competitive analysis to help shape the product strategy. I also dove into a big survey of more than 300 users, and translated all that data into something meaningful, actual personas and real product priorities.",
-        "And since the product is mobile-focused, I’m also building a scalable UI system in Figma. Creating solid components that make future design sprints faster while keeping the brand consistent feels a bit like crafting a toolbox that the whole team can rely on"
-      ],
-      "created": "2025-04-29",
-      "duration": "ongoing",
-      "projectDuty": "UX/UI Design",
-      "support": ["paper", "procreate", "figma"],
-      "primaryImage": ["purely-primary.jpg"],
-      "type": "ux_ui",
-      "secondaryImages": ["Ongoing.jpg"],
-      "link": [""],
-      "icon": "purely-icone.png",
-      "slug": "purely",
-      "locked": false
-    },
-    {
-      "title": "VMT",
-      "context": [
-        "• Overhauled a critical user workflow using a corrective design methodology to resolve key usability pain points and simplify the user journey.",
-        "• Designed and administered user testing protocols to identify and address barriers to usage for a more seamless product interaction.",
-        "• Conducted in-depth thematic analysis of user data, applying Colombo & Pasch's heuristics for a precise interpretation of UX issues.",
-        "• Defined strategic recommendations for intuitive interfaces in Figma, significantly improving the quality of the learning experience.",
-        "• Aligned divergent expectations between two major stakeholders through transparent communication, earning praise and sign-off on the final deliverable."
-      ],
-      "created": "2025-07-25",
-      "duration": "3",
-      "projectDuty": "UX/UI Design",
+      "title": "KFÉ",
+      "context": [" ", ""],
+      "created": "2025-12-18",
+      "endDate": "2025-12-20",
+      "duration": "2 days",
+      "projectDuty": ["UX Design"],
       "support": ["figma"],
-      "primaryImage": ["vmt-primary.jpg"],
+      "primaryImage": ["KFÉ-primary.jpg"],
       "type": "ux_ui",
-      "secondaryImages": ["Locked.jpg"],
-      "link": [""],
-      "icon": "locked-icone.png",
-
-      "slug": "vmt",
-      "locked": true
-    },
-    {
-      "title": "Twinkle",
-      "context": "",
-      "created": "2025-10-12",
-      "duration": "ongoing",
-      "projectDuty": "Brand Design",
-      "support": ["paper", "figma"],
-      "primaryImage": ["twinkle-primary.jpg"],
-      "type": "ux_ui",
-      "secondaryImages": ["Ongoing.jpg"],
-      "link": [""],
-      "icon": "twinkle-icone.png",
-      "slug": "twinkle",
-      "locked": false
+      "secondaryImages": [
+        "KFÉ-1.jpg",
+        "KFÉ-2.jpg",
+        "KFÉ-3.jpg",
+        "KFÉ-4.jpg",
+        "KFÉ-5.jpg",
+        "KFÉ-6.jpg",
+        "KFÉ-7.jpg",
+        "KFÉ-8.jpg",
+        "KFÉ-9.jpg",
+        "KFÉ-10.jpg",
+        "KFÉ-11.jpg"
+      ],
+      "link": [],
+      "icon": "KFÉ-icone.png",
+      "slug": "KFÉ",
+      "locked": false,
+      "shortDescription": "Redesign of a coffee shop's mobile app"
     }
   ],
   "playgrounds": [
-    {
-      "title": "GameBoy Replica",
-      "context": ["I love retro designs."],
-      "created": "2025-02-15",
-      "support": ["figma"],
-      "primaryImage": ["gameboy-primary.jpg"],
-      "type": "ux_ui",
-      "secondaryImages": [
-        "gameboy-second1.jpg",
-        "gameboy-second2.jpg",
-        "gameboy-second3.jpg",
-        "gameboy-second4.jpg",
-        "gameboy-second5.jpg",
-        "gameboy-second6.jpg",
-        "gameboy-second7.jpg",
-        "gameboy-second8.jpg",
-        "gameboy-second9.jpg"
-      ],
-      "slug": "gameboy",
-      "link": []
-    },
-    {
-      "title": "Game console",
-      "context": [],
-      "created": "2025-02-27",
-      "support": ["figma"],
-      "primaryImage": ["pocket-primary.jpg"],
-      "type": "ux_ui",
-      "secondaryImages": [
-        "pocket-second1.jpg",
-        "pocket-second2.jpg",
-        "pocket-second3.mp4",
-        "pocket-second4.jpg",
-        "pocket-second5.jpg",
-        "pocket-second6.jpg",
-        "pocket-second7.jpg",
-        "pocket-second8.jpg",
-        "pocket-second9.jpg"
-      ],
-      "slug": "game-console",
-      "link": []
-    },
-    {
-      "title": "MIDI controller",
-      "context": [],
-      "created": "2025-02-07",
-      "support": ["figma"],
-      "primaryImage": ["music-primary.jpg"],
-      "type": "ux_ui",
-      "secondaryImages": ["music-second1.jpg", "music-second2.jpg", "music-second3.mp4"],
-      "slug": "midi-controller",
-      "link": []
-    },
-    {
-      "title": "Buttons",
-      "context": [],
-      "created": "2025-02-05",
-      "support": ["figma"],
-      "primaryImage": ["buttons-primary.jpg"],
-      "type": "ux_ui",
-      "secondaryImages": [
-        "buttons-second1.jpg",
-        "buttons-second2.jpg",
-        "buttons-second3.mp4",
-        "buttons-second4.jpg",
-        "buttons-second5.jpg",
-        "buttons-second6.mp4"
-      ],
-      "slug": "buttons",
-      "link": []
-    },
-    {
-      "title": "File Replica",
-      "context": [],
-      "created": "2025-02-18",
-      "support": ["figma"],
-      "primaryImage": ["folder-primary.jpg"],
-      "type": "ux_ui",
-      "secondaryImages": [
-        "folder-second1.jpg",
-        "folder-second2.jpg",
-        "folder-second3.jpg",
-        "folder-second4.jpg",
-        "folder-second5.jpg"
-      ],
-      "slug": "file",
-      "link": []
-    },
     {
       "title": "USTVB",
       "context": [
         "I had fun redesigning the logo of my volleyball club (Union Sportive de Talence Volley Ball) for Movember and Christmas."
       ],
-      "created": "2024-11-28",
+      "created": "2024-11-24",
       "support": ["figma"],
       "primaryImage": ["talence-primary.jpg"],
       "type": "ux_ui",
       "secondaryImages": [
-        "talence-second1.jpg",
-        "talence-second2.jpg",
-        "talence-second3.jpg",
-        "talence-second4.jpg",
-        "talence-second5.jpg",
-        "talence-second6.jpg"
+        "talence-1.jpg",
+        "talence-2.jpg",
+        "talence-3.jpg",
+        "talence-4.jpg",
+        "talence-5.jpg",
+        "talence-6.jpg"
       ],
       "slug": "ustvb",
       "link": [{ "label": "View Figma", "url": "https://www.figma.com/community/file/1570699960534572076/logo-ustvb" }]
-    },
-    {
-      "title": "MP3 Replica",
-      "context": ["The icons on the screen were torture to make but I like the result."],
-      "created": "2025-03-05",
-      "support": ["figma"],
-      "primaryImage": ["mp3-primary.jpg"],
-      "type": "ux_ui",
-      "secondaryImages": ["mp3-second1.jpg", "mp3-second2.jpg", "mp3-second3.jpg"],
-      "slug": "mp3",
-      "link": []
     },
     {
       "title": "Stickers",
@@ -495,20 +716,153 @@
       "primaryImage": ["sticker-primary.jpg"],
       "type": "ux_ui",
       "secondaryImages": [
-        "sticker-second1.jpg",
-        "sticker-second2.jpg",
-        "sticker-second3.jpg",
-        "sticker-second4.jpg",
-        "sticker-second5.jpg",
-        "sticker-second6.jpg",
-        "sticker-second7.jpg",
-        "sticker-second8.jpg",
-        "sticker-second9.jpg",
-        "sticker-second10.jpg",
-        "sticker-second11.jpg",
-        "sticker-second12.jpg"
+        "sticker-1.jpg",
+        "sticker-2.jpg",
+        "sticker-3.jpg",
+        "sticker-4.jpg",
+        "sticker-5.jpg",
+        "sticker-6.jpg",
+        "sticker-7.jpg",
+        "sticker-8.jpg",
+        "sticker-9.jpg",
+        "sticker-10.jpg",
+        "sticker-11.jpg",
+        "sticker-12.jpg"
       ],
       "slug": "stickers",
+      "link": []
+    },
+    {
+      "title": "MIDI controller",
+      "context": [],
+      "created": "2025-02-07",
+      "support": ["figma"],
+      "primaryImage": ["music-primary.jpg"],
+      "type": "ux_ui",
+      "secondaryImages": ["music-1.jpg", "music-2.jpg", "music-3.mp4"],
+      "slug": "midi-controller",
+      "link": []
+    },
+    {
+      "title": "Buttons",
+      "context": [],
+      "created": "2025-02-05",
+      "support": ["figma"],
+      "primaryImage": ["buttons-primary.jpg"],
+      "type": "ux_ui",
+      "secondaryImages": [
+        "buttons-1.jpg",
+        "buttons-2.jpg",
+        "buttons-3.mp4",
+        "buttons-4.jpg",
+        "buttons-5.jpg",
+        "buttons-6.mp4"
+      ],
+      "slug": "buttons",
+      "link": []
+    },
+    {
+      "title": "GameBoy Replica",
+      "context": ["I love retro designs."],
+      "created": "2025-02-15",
+      "support": ["figma"],
+      "primaryImage": ["gameboy-primary.jpg"],
+      "type": "ux_ui",
+      "secondaryImages": [
+        "gameboy-1.jpg",
+        "gameboy-2.jpg",
+        "gameboy-3.jpg",
+        "gameboy-4.jpg",
+        "gameboy-5.jpg",
+        "gameboy-6.jpg",
+        "gameboy-7.jpg",
+        "gameboy-8.jpg",
+        "gameboy-9.jpg"
+      ],
+      "slug": "gameboy",
+      "link": []
+    },
+    {
+      "title": "File Replica",
+      "context": [],
+      "created": "2025-02-18",
+      "support": ["figma"],
+      "primaryImage": ["folder-primary.jpg"],
+      "type": "ux_ui",
+      "secondaryImages": ["folder-1.jpg", "folder-2.jpg", "folder-3.jpg", "folder-4.jpg", "folder-5.jpg"],
+      "slug": "file",
+      "link": []
+    },
+    {
+      "title": "Game console",
+      "context": [],
+      "created": "2025-02-27",
+      "support": ["figma"],
+      "primaryImage": ["pocket-primary.jpg"],
+      "type": "ux_ui",
+      "secondaryImages": [
+        "pocket-1.jpg",
+        "pocket-2.jpg",
+        "pocket-3.mp4",
+        "pocket-4.jpg",
+        "pocket-5.jpg",
+        "pocket-6.jpg",
+        "pocket-7.jpg",
+        "pocket-8.jpg",
+        "pocket-9.jpg"
+      ],
+      "slug": "game-console",
+      "link": []
+    },
+    {
+      "title": "MP3 Replica",
+      "context": ["The icons on the screen were torture to make but I like the result."],
+      "created": "2025-03-05",
+      "support": ["figma"],
+      "primaryImage": ["mp3-primary.jpg"],
+      "type": "ux_ui",
+      "secondaryImages": ["mp3-1.jpg", "mp3-2.jpg", "mp3-3.jpg"],
+      "slug": "mp3",
+      "link": []
+    },
+    {
+      "title": "Icons & Assets",
+      "context": [""],
+      "created": "2025-04-25",
+      "support": ["figma"],
+      "primaryImage": ["icons-primary.jpg"],
+      "type": "ux_ui",
+      "secondaryImages": [
+        "icons-1.jpg",
+        "icons-2.jpg",
+        "icons-3.jpg",
+        "icons-4.jpg",
+        "icons-5.jpg",
+        "icons-6.jpg",
+        "icons-7.jpg"
+      ],
+      "slug": "icons-assets-01",
+      "link": []
+    },
+    {
+      "title": "Icons & Assets",
+      "context": [""],
+      "created": "2025-04-25",
+      "support": ["figma"],
+      "primaryImage": ["icons2-primary.jpg"],
+      "type": "ux_ui",
+      "secondaryImages": [
+        "icons2-1.jpg",
+        "icons2-2.jpg",
+        "icons2-3.jpg",
+        "icons2-4.jpg",
+        "icons2-5.jpg",
+        "icons2-6.jpg",
+        "icons2-7.jpg",
+        "icons2-8.jpg",
+        "icons2-9.jpg"
+      ],
+      "slug": "icons-assets-02",
       "link": []
     },
     {
@@ -518,16 +872,7 @@
       "support": ["figma"],
       "primaryImage": ["inp-primary.jpg"],
       "type": "ux_ui",
-      "secondaryImages": [
-        "inp-second1.jpg",
-        "inp-second2.jpg",
-        "inp-second3.jpg",
-        "inp-second4.jpg",
-        "inp-second5.jpg",
-        "inp-second6.jpg",
-        "inp-second7.jpg",
-        "inp-second8.jpg"
-      ],
+      "secondaryImages": ["inp-1.jpg", "inp-2.jpg", "inp-3.jpg", "inp-4.jpg", "inp-5.jpg", "inp-6.jpg", "inp-7.jpg"],
       "slug": "bordeaux-inp",
       "link": [
         { "label": "View Figma", "url": "https://www.figma.com/community/file/1570704562718253153/bordeaux-inp-icones" }
@@ -538,79 +883,20 @@
       "context": [""],
       "created": "2025-10-26",
       "support": ["figma"],
-      "primaryImage": ["icones-replica-primary.jpg"],
+      "primaryImage": ["icons-replica-primary.jpg"],
       "type": "ux_ui",
       "secondaryImages": [
-        "icones-replica-second1.jpg",
-        "icones-replica-second2.jpg",
-        "icones-replica-second3.jpg",
-        "icones-replica-second4.jpg",
-        "icones-replica-second5.jpg",
-        "icones-replica-second6.jpg",
-        "icones-replica-second7.jpg",
-        "icones-replica-second8.jpg",
-        "icones-replica-second9.jpg"
+        "icons-replica-1.jpg",
+        "icons-replica-2.jpg",
+        "icons-replica-3.jpg",
+        "icons-replica-4.jpg",
+        "icons-replica-5.jpg",
+        "icons-replica-6.jpg",
+        "icons-replica-7.jpg",
+        "icons-replica-8.jpg",
+        "icons-replica-9.jpg"
       ],
-      "slug": "icones-replica",
-      "link": []
-    },
-    {
-      "title": "Icons & Assets",
-      "context": [""],
-      "created": "2025-04-22",
-      "support": ["figma"],
-      "primaryImage": ["icones-primary.jpg"],
-      "type": "ux_ui",
-      "secondaryImages": [
-        "icones-second1.jpg",
-        "icones-second2.jpg",
-        "icones-second3.jpg",
-        "icones-second4.jpg",
-        "icones-second5.jpg",
-        "icones-second6.jpg"
-      ],
-      "slug": "icones-assets-01",
-      "link": []
-    },
-    {
-      "title": "Icons & Assets",
-      "context": [""],
-      "created": "2025-04-24",
-      "support": ["figma"],
-      "primaryImage": ["icones2-primary.jpg"],
-      "type": "ux_ui",
-      "secondaryImages": [
-        "icones2-second1.jpg",
-        "icones2-second2.jpg",
-        "icones2-second3.jpg",
-        "icones2-second4.jpg",
-        "icones2-second5.jpg",
-        "icones2-second6.jpg",
-        "icones2-second7.jpg",
-        "icones2-second8.jpg",
-        "icones2-second9.jpg"
-      ],
-      "slug": "icones-assets-02",
-      "link": []
-    },
-    {
-      "title": "Icons & Assets",
-      "context": [""],
-      "created": "2025-11-01",
-      "support": ["figma"],
-      "primaryImage": ["icones3-primary.jpg"],
-      "type": "ux_ui",
-      "secondaryImages": [
-        "icones3-second1.jpg",
-        "icones3-second2.jpg",
-        "icones3-second3.jpg",
-        "icones3-second4.jpg",
-        "icones3-second5.jpg",
-        "icones3-second6.jpg",
-        "icones3-second7.jpg",
-        "icones3-second8.jpg"
-      ],
-      "slug": "icones-assets-03",
+      "slug": "icons-replica",
       "link": []
     },
     {
@@ -618,17 +904,10 @@
       "context": [""],
       "created": "2025-10-26",
       "support": ["figma"],
-      "primaryImage": ["icones4-primary.jpg"],
+      "primaryImage": ["icons4-primary.jpg"],
       "type": "ux_ui",
-      "secondaryImages": [
-        "icones4-second1.jpg",
-        "icones4-second2.jpg",
-        "icones4-second3.jpg",
-        "icones4-second4.jpg",
-        "icones4-second5.jpg",
-        "icones4-second6.jpg"
-      ],
-      "slug": "icones-assets-04",
+      "secondaryImages": ["icons4-1.jpg", "icons4-2.jpg", "icons4-3.jpg", "icons4-4.jpg"],
+      "slug": "icons-assets-04",
       "link": []
     },
     {
@@ -639,27 +918,242 @@
       "primaryImage": ["tags-primary.jpg"],
       "type": "ux_ui",
       "secondaryImages": [
-        "tags-second1.jpg",
-        "tags-second2.jpg",
-        "tags-second3.jpg",
-        "tags-second4.jpg",
-        "tags-second5.jpg",
-        "tags-second6.jpg",
-        "tags-second7.jpg",
-        "tags-second8.jpg"
+        "tags-1.jpg",
+        "tags-2.jpg",
+        "tags-3.jpg",
+        "tags-4.jpg",
+        "tags-5.jpg",
+        "tags-6.jpg",
+        "tags-7.jpg",
+        "tags-8.jpg"
       ],
       "slug": "tags",
       "link": []
     },
     {
-      "title": "Transition",
+      "title": "Icons & Assets",
+      "context": [""],
+      "created": "2025-11-01",
+      "support": ["figma"],
+      "primaryImage": ["icons3-primary.jpg"],
+      "type": "ux_ui",
+      "secondaryImages": [
+        "icons3-1.jpg",
+        "icons3-2.jpg",
+        "icons3-3.jpg",
+        "icons3-4.jpg",
+        "icons3-5.jpg",
+        "icons3-6.jpg",
+        "icons3-7.jpg",
+        "icons3-8.jpg"
+      ],
+      "slug": "icons-assets-03",
+      "link": []
+    },
+    {
+      "title": "Pokeball",
       "context": [],
-      "created": "2022-02-26",
+      "created": "2025-12-12",
+      "support": ["figma"],
+      "primaryImage": ["balls-primary.jpg"],
+      "type": "ux_ui",
+      "secondaryImages": ["balls-1.jpg", "balls-2.jpg"],
+      "slug": "pokeball",
+      "link": []
+    },
+    {
+      "title": "VoiceMemo",
+      "context": [],
+      "created": "2025-12-15",
+      "support": ["figma"],
+      "primaryImage": ["VoiceMemo-primary.jpg"],
+      "type": "ux_ui",
+      "secondaryImages": [
+        "VoiceMemo-1.jpg",
+        "VoiceMemo-2.jpg",
+        "VoiceMemo-3.jpg",
+        "VoiceMemo-4.jpg",
+        "VoiceMemo-5.jpg"
+      ],
+      "slug": "voicememo",
+      "link": []
+    },
+    {
+      "title": "Meteo",
+      "context": [],
+      "created": "2025-12-15",
+      "support": ["figma"],
+      "primaryImage": ["Meteo-primary.jpg"],
+      "type": "ux_ui",
+      "secondaryImages": [
+        "Meteo-1.jpg",
+        "Meteo-2.jpg",
+        "Meteo-3.jpg",
+        "Meteo-4.jpg",
+        "Meteo-5.jpg",
+        "Meteo-6.jpg",
+        "Meteo-7.jpg",
+        "Meteo-8.jpg",
+        "Meteo-9.jpg",
+        "Meteo-10.jpg"
+      ],
+      "slug": "meteo",
+      "link": []
+    },
+    {
+      "title": "Thermostat",
+      "context": [],
+      "created": "2025-12-16",
+      "support": ["figma"],
+      "primaryImage": ["Thermostat-primary.jpg"],
+      "type": "ux_ui",
+      "secondaryImages": [
+        "Thermostat-1.jpg",
+        "Thermostat-2.jpg",
+        "Thermostat-3.jpg",
+        "Thermostat-4.jpg",
+        "Thermostat-5.jpg",
+        "Thermostat-6.jpg",
+        "Thermostat-7.jpg",
+        "Thermostat-8.jpg"
+      ],
+      "slug": "thermostat",
+      "link": []
+    },
+    {
+      "title": "Configurator",
+      "context": [],
+      "created": "2025-12-16",
+      "support": ["figma"],
+      "primaryImage": ["Configurator-primary.jpg"],
+      "type": "ux_ui",
+      "secondaryImages": [
+        "Configurator-1.jpg",
+        "Configurator-2.jpg",
+        "Configurator-3.jpg",
+        "Configurator-4.jpg",
+        "Configurator-5.jpg",
+        "Configurator-6.jpg",
+        "Configurator-7.jpg"
+      ],
+      "slug": "configurator",
+      "link": []
+    },
+    {
+      "title": "Subscription",
+      "context": [],
+      "created": "2025-12-17",
+      "support": ["figma"],
+      "primaryImage": ["Subscription-primary.jpg"],
+      "type": "ux_ui",
+      "secondaryImages": [
+        "Subscription-1.jpg",
+        "Subscription-2.jpg",
+        "Subscription-3.jpg",
+        "Subscription-4.jpg",
+        "Subscription-5.jpg",
+        "Subscription-6.jpg"
+      ],
+      "slug": "subscription",
+      "link": []
+    },
+    {
+      "title": "DatePicker",
+      "context": [],
+      "created": "2025-12-18",
+      "support": ["figma"],
+      "primaryImage": ["DatePicker-primary.jpg"],
+      "type": "ux_ui",
+      "secondaryImages": [
+        "DatePicker-1.jpg",
+        "DatePicker-2.jpg",
+        "DatePicker-3.jpg",
+        "DatePicker-4.jpg",
+        "DatePicker-5.jpg"
+      ],
+      "slug": "date-picker",
+      "link": []
+    },
+    {
+      "title": "AI chat",
+      "context": [],
+      "created": "2025-12-19",
+      "support": ["figma"],
+      "primaryImage": ["AI-chat-primary.jpg"],
+      "type": "ux_ui",
+      "secondaryImages": [
+        "AI-chat-1.jpg",
+        "AI-chat-2.jpg",
+        "AI-chat-3.jpg",
+        "AI-chat-4.jpg",
+        "AI-chat-5.jpg",
+        "AI-chat-6.jpg"
+      ],
+      "slug": "ai-chat",
+      "link": []
+    },
+
+    {
+      "title": "Ellie",
+      "context": ["Ellie from \"The last of us\" Ian Woods style."],
+      "created": "2023-06",
       "support": ["procreate"],
-      "primaryImage": ["transition-primary.jpg"],
+      "primaryImage": ["ellie-primary.jpg"],
       "type": "illustration",
-      "secondaryImages": ["transition-second1.mp4"],
-      "slug": "transition",
+      "secondaryImages": ["ellie-1.jpg"],
+      "slug": "ellie",
+      "link": []
+    },
+    {
+      "title": "Digital Board",
+      "context": [],
+      "created": "2023-08-01",
+      "support": ["procreate"],
+      "primaryImage": ["planche-primary.jpg"],
+      "type": "illustration",
+      "secondaryImages": [
+        "planche-1.jpg",
+        "planche-2.jpg",
+        "planche-3.jpg",
+        "planche-4.jpg",
+        "planche-5.jpg",
+        "planche-6.jpg",
+        "planche-7.jpg",
+        "planche-8.jpg"
+      ],
+      "slug": "digital-board-01",
+      "link": []
+    },
+    {
+      "title": "Digital Board",
+      "context": [],
+      "created": "2023-08-23",
+      "support": ["procreate"],
+      "primaryImage": ["planche2-primary.jpg"],
+      "type": "illustration",
+      "secondaryImages": [
+        "planche2-1.jpg",
+        "planche2-2.jpg",
+        "planche2-3.jpg",
+        "planche2-4.jpg",
+        "planche2-5.jpg",
+        "planche2-6.jpg",
+        "planche2-7.jpg",
+        "planche2-8.jpg",
+        "planche2-9.jpg"
+      ],
+      "slug": "digital-board-02",
+      "link": []
+    },
+    {
+      "title": "Self portrait",
+      "context": [],
+      "created": "2024-01",
+      "support": ["procreate"],
+      "primaryImage": ["me-primary.jpg"],
+      "type": "illustration",
+      "secondaryImages": ["me-1.jpg"],
+      "slug": "self-portrait",
       "link": []
     },
     {
@@ -667,22 +1161,85 @@
       "context": [],
       "created": "2024-06-15",
       "support": ["procreate"],
-      "primaryImage": ["hands-primary.jpg"],
+      "primaryImage": ["hand-primary.jpg"],
       "type": "illustration",
       "secondaryImages": [
-        "hands-second1.jpg",
-        "hands-second2.jpg",
-        "hands-second3.jpg",
-        "hands-second4.jpg",
-        "hands-second5.jpg",
-        "hands-second6.jpg",
-        "hands-second7.jpg",
-        "hands-second8.jpg",
-        "hands-second9.jpg",
-        "hands-second10.jpg",
-        "hands-second11.jpg"
+        "hand-1.jpg",
+        "hand-2.jpg",
+        "hand-3.jpg",
+        "hand-4.jpg",
+        "hand-5.jpg",
+        "hand-6.jpg",
+        "hand-7.jpg",
+        "hand-8.jpg",
+        "hand-9.jpg",
+        "hand-10.jpg",
+        "hand-11.jpg"
       ],
       "slug": "anatomy-study",
+      "link": []
+    },
+    {
+      "title": "Digital Board",
+      "context": [],
+      "created": "2024-07-10",
+      "support": ["procreate"],
+      "primaryImage": ["planche3-primary.jpg"],
+      "type": "illustration",
+      "secondaryImages": [
+        "planche3-1.jpg",
+        "planche3-2.jpg",
+        "planche3-3.jpg",
+        "planche3-4.jpg",
+        "planche3-5.jpg",
+        "planche3-6.jpg",
+        "planche3-7.jpg",
+        "planche3-8.jpg",
+        "planche3-9.jpg"
+      ],
+      "slug": "digital-board-03",
+      "link": []
+    },
+    {
+      "title": "Mii",
+      "context": ["My siblings, mii style."],
+      "created": "2024-10",
+      "support": ["procreate"],
+      "primaryImage": ["mii-primary.jpg"],
+      "type": "illustration",
+      "secondaryImages": ["mii-1.jpg", "mii-2.jpg", "mii-3.jpg", "mii-4.jpg", "mii-5.jpg"],
+      "slug": "mii",
+      "link": []
+    },
+    {
+      "title": "Logo ENSC",
+      "context": [],
+      "created": "2024-12-12",
+      "support": ["procreate"],
+      "primaryImage": ["ensc-primary.jpg"],
+      "type": "illustration",
+      "secondaryImages": [
+        "ensc-1.jpg",
+        "ensc-2.jpg",
+        "ensc-3.jpg",
+        "ensc-4.jpg",
+        "ensc-5.jpg",
+        "ensc-6.jpg",
+        "ensc-7.jpg",
+        "ensc-8.jpg"
+      ],
+      "slug": "logo-ensc",
+      "link": []
+    },
+    {
+      "title": "Marcy",
+      "context": ["Marcy from \"Adventure Time\" stylized."],
+      "created": "2025-01",
+      "support": ["procreate"],
+      "primaryImage": ["marcy-primary.jpg"],
+      "type": "illustration",
+      "secondaryImages": ["marcy-1.jpg"],
+      "slug": "marcy",
       "link": []
     },
     {
@@ -690,22 +1247,42 @@
       "context": [],
       "created": "2025-02-02",
       "support": ["paper"],
-      "primaryImage": ["trad1-primary.jpg"],
+      "primaryImage": ["trad-primary.jpg"],
       "type": "illustration",
       "secondaryImages": [
-        "trad1-second1.jpg",
-        "trad1-second2.jpg",
-        "trad1-second3.jpg",
-        "trad1-second4.jpg",
-        "trad1-second5.jpg",
-        "trad1-second6.jpg",
-        "trad1-second7.jpg",
-        "trad1-second8.jpg",
-        "trad1-second9.jpg",
-        "trad1-second10.jpg",
-        "trad1-second11.jpg"
+        "trad-1.jpg",
+        "trad-2.jpg",
+        "trad-3.jpg",
+        "trad-4.jpg",
+        "trad-5.jpg",
+        "trad-6.jpg",
+        "trad-7.jpg",
+        "trad-8.jpg",
+        "trad-9.jpg",
+        "trad-10.jpg",
+        "trad-11.jpg"
       ],
       "slug": "moleskine-sketch-01",
+      "link": []
+    },
+    {
+      "title": "Digital Board",
+      "context": [],
+      "created": "2025-02-26",
+      "support": ["procreate"],
+      "primaryImage": ["planche4-primary.jpg"],
+      "type": "illustration",
+      "secondaryImages": [
+        "planche4-1.jpg",
+        "planche4-2.jpg",
+        "planche4-3.jpg",
+        "planche3-4.jpg",
+        "planche4-5.jpg",
+        "planche4-6.jpg",
+        "planche4-7.jpg",
+        "planche4-8.jpg"
+      ],
+      "slug": "digital-board-04",
       "link": []
     },
     {
@@ -716,17 +1293,17 @@
       "primaryImage": ["trad2-primary.jpg"],
       "type": "illustration",
       "secondaryImages": [
-        "trad2-second1.jpg",
-        "trad2-second2.jpg",
-        "trad2-second3.jpg",
-        "trad2-second4.jpg",
-        "trad2-second5.jpg",
-        "trad2-second6.jpg",
-        "trad2-second7.jpg",
-        "trad2-second8.jpg",
-        "trad2-second9.jpg",
-        "trad2-second10.jpg",
-        "trad2-second11.jpg"
+        "trad2-1.jpg",
+        "trad2-2.jpg",
+        "trad2-3.jpg",
+        "trad2-4.jpg",
+        "trad2-5.jpg",
+        "trad2-6.jpg",
+        "trad2-7.jpg",
+        "trad2-8.jpg",
+        "trad2-9.jpg",
+        "trad2-10.jpg",
+        "trad2-11.jpg"
       ],
       "slug": "moleskine-sketch-02",
       "link": []
@@ -739,210 +1316,41 @@
       "primaryImage": ["trad3-primary.jpg"],
       "type": "illustration",
       "secondaryImages": [
-        "trad3-second1.jpg",
-        "trad3-second2.jpg",
-        "trad3-second3.jpg",
-        "trad3-second4.jpg",
-        "trad3-second5.jpg",
-        "trad3-second6.jpg",
-        "trad3-second7.jpg",
-        "trad3-second8.jpg",
-        "trad3-second9.jpg",
-        "trad3-second10.jpg",
-        "trad3-second11.jpg",
-        "trad3-second12.jpg"
+        "trad3-1.jpg",
+        "trad3-2.jpg",
+        "trad3-3.jpg",
+        "trad3-4.jpg",
+        "trad3-5.jpg",
+        "trad3-6.jpg",
+        "trad3-7.jpg",
+        "trad3-8.jpg",
+        "trad3-9.jpg",
+        "trad3-10.jpg",
+        "trad3-11.jpg",
+        "trad3-12.jpg"
       ],
       "slug": "moleskine-sketch-03",
       "link": []
     },
     {
-      "title": "Digital Board",
-      "context": [],
-      "created": "2023-08-01",
+      "title": "Shiho",
+      "context": ["Shiho (Haibara Ai) from \"Detective Conan\" study."],
+      "created": "2025-03-26",
       "support": ["procreate"],
-      "primaryImage": ["planche1-primary.jpg"],
+      "primaryImage": ["shiho-primary.jpg"],
       "type": "illustration",
-      "secondaryImages": [
-        "planche1-second1.jpg",
-        "planche1-second2.jpg",
-        "planche1-second3.jpg",
-        "planche1-second4.jpg",
-        "planche1-second5.jpg",
-        "planche1-second6.jpg",
-        "planche1-second7.jpg",
-        "planche1-second8.jpg"
-      ],
-      "slug": "digital-board-01",
-      "link": []
-    },
-    {
-      "title": "Digital Board",
-      "context": [],
-      "created": "2023-08-15",
-      "support": ["procreate"],
-      "primaryImage": ["planche2-primary.jpg"],
-      "type": "illustration",
-      "secondaryImages": [
-        "planche2-second1.jpg",
-        "planche2-second2.jpg",
-        "planche2-second3.jpg",
-        "planche2-second4.jpg",
-        "planche2-second5.jpg",
-        "planche2-second6.jpg",
-        "planche2-second7.jpg",
-        "planche2-second8.jpg",
-        "planche2-second9.jpg"
-      ],
-      "slug": "digital-board-02",
-      "link": []
-    },
-    {
-      "title": "Digital Board",
-      "context": [],
-      "created": "2024-07-10",
-      "support": ["procreate"],
-      "primaryImage": ["planche3-primary.jpg"],
-      "type": "illustration",
-      "secondaryImages": [
-        "planche3-second1.jpg",
-        "planche3-second2.jpg",
-        "planche3-second3.jpg",
-        "planche3-second4.jpg",
-        "planche3-second5.jpg",
-        "planche3-second6.jpg",
-        "planche3-second7.jpg",
-        "planche3-second8.jpg",
-        "planche3-second9.jpg"
-      ],
-      "slug": "digital-board-03",
-      "link": []
-    },
-    {
-      "title": "Digital Board",
-      "context": [],
-      "created": "2025-02-26",
-      "support": ["procreate"],
-      "primaryImage": ["planche4-primary.jpg"],
-      "type": "illustration",
-      "secondaryImages": [
-        "planche4-second1.jpg",
-        "planche4-second2.jpg",
-        "planche4-second3.jpg",
-        "planche3-second4.jpg",
-        "planche4-second5.jpg",
-        "planche4-second6.jpg",
-        "planche4-second7.jpg",
-        "planche4-second8.jpg"
-      ],
-      "slug": "digital-board-04",
-      "link": []
-    },
-    {
-      "title": "Logo ENSC",
-      "context": [],
-      "created": "2024-12-12",
-      "support": ["procreate"],
-      "primaryImage": ["ensc-primary.jpg"],
-      "type": "illustration",
-      "secondaryImages": [
-        "ensc-second1.jpg",
-        "ensc-second2.jpg",
-        "ensc-second3.jpg",
-        "ensc-second4.jpg",
-        "ensc-second5.jpg",
-        "ensc-second6.jpg",
-        "ensc-second7.jpg",
-        "ensc-second8.jpg"
-      ],
-      "slug": "logo-ensc",
-      "link": []
-    },
-    {
-      "title": "Ellie",
-      "context": ["Ellie from \"The last of us\" Ian Woods style"],
-      "created": "2023-06",
-      "support": ["procreate"],
-      "primaryImage": ["ellie-primary.jpg"],
-      "type": "illustration",
-      "secondaryImages": ["ellie-second1.jpg"],
-      "slug": "ellie",
-      "link": []
-    },
-    {
-      "title": "Mii",
-      "context": ["My siblings, mii style"],
-      "created": "2024-10",
-      "support": ["procreate"],
-      "primaryImage": ["mii-primary.jpg"],
-      "type": "illustration",
-      "secondaryImages": [
-        "mii-second1.jpg",
-        "mii-second2.jpg",
-        "mii-second3.jpg",
-        "mii-second4.jpg",
-        "mii-second5.jpg"
-      ],
-      "slug": "mii",
-      "link": []
-    },
-    {
-      "title": "Self portrait",
-      "context": [],
-      "created": "2024-01",
-      "support": ["procreate"],
-      "primaryImage": ["me-primary.jpg"],
-      "type": "illustration",
-      "secondaryImages": ["me-second1.jpg"],
-      "slug": "self-portrait",
-      "link": []
-    },
-    {
-      "title": "Marcy",
-      "context": ["Marcy from \"Adventure Time\" stylized"],
-      "created": "2025-01",
-      "support": ["procreate"],
-      "primaryImage": ["marcy-primary.jpg"],
-      "type": "illustration",
-      "secondaryImages": ["marcy-second1.jpg"],
-      "slug": "marcy",
-      "link": []
-    },
-    {
-      "title": "Expression study",
-      "context": ["Vi from \"Arcane\" expression study"],
-      "created": "2023-06",
-      "support": ["procreate"],
-      "primaryImage": ["arcane-primary.jpg"],
-      "type": "illustration",
-      "secondaryImages": [
-        "arcane-second1.jpg",
-        "arcane-second2.jpg",
-        "arcane-second3.jpg",
-        "arcane-second4.jpg",
-        "arcane-second5.jpg",
-        "arcane-second6.jpg"
-      ],
-      "slug": "expression-study-01",
+      "secondaryImages": ["shiho-1.jpg", "shiho-2.jpg", "shiho-3.jpg", "shiho-4.jpg", "shiho-5.jpg", "shiho-6.jpg"],
+      "slug": "shiho",
       "link": []
     },
     {
       "title": "Fashion",
       "context": [],
-      "created": "2023-09",
+      "created": "2025-04-15",
       "support": ["procreate"],
       "primaryImage": ["mode-primary.jpg"],
       "type": "illustration",
-      "secondaryImages": [
-        "mode-second1.jpg",
-        "mode-second2.jpg",
-        "mode-second3.jpg",
-        "mode-second4.jpg",
-        "mode-second5.jpg",
-        "mode-second6.jpg",
-        "mode-second7.jpg",
-        "mode-second8.jpg",
-        "mode-second9.jpg"
-      ],
+      "secondaryImages": ["mode-1.jpg", "mode-2.jpg", "mode-3.jpg", "mode-4.jpg", "mode-5.jpg", "mode-6.jpg"],
       "slug": "fashion-01",
       "link": []
     },
@@ -954,17 +1362,94 @@
       "primaryImage": ["trad4-primary.jpg"],
       "type": "illustration",
       "secondaryImages": [
-        "trad4-second1.jpg",
-        "trad4-second2.jpg",
-        "trad4-second3.jpg",
-        "trad4-second4.jpg",
-        "trad4-second5.jpg",
-        "trad4-second6.jpg",
-        "trad4-second7.jpg",
-        "trad4-second8.jpg",
-        "trad4-second9.jpg"
+        "trad4-1.jpg",
+        "trad4-2.jpg",
+        "trad4-3.jpg",
+        "trad4-4.jpg",
+        "trad4-5.jpg",
+        "trad4-6.jpg",
+        "trad4-7.jpg",
+        "trad4-8.jpg",
+        "trad4-9.jpg"
       ],
       "slug": "moleskine-sketch-04",
+      "link": []
+    },
+    {
+      "title": "Expression study",
+      "context": ["Rangi from the novel \"The Rise of Kyoshi\" expression study."],
+      "created": "2025-07-14",
+      "support": ["procreate"],
+      "primaryImage": ["expression-study-primary.jpg"],
+      "type": "illustration",
+      "secondaryImages": [
+        "expression-study-1.jpg",
+        "expression-study-2.jpg",
+        "expression-study-3.jpg",
+        "expression-study-4.jpg",
+        "expression-study-5.jpg",
+        "expression-study-6.jpg",
+        "expression-study-7.jpg",
+        "expression-study-8.jpg",
+        "expression-study-9.jpg"
+      ],
+      "slug": "expression-study-02",
+      "link": []
+    },
+    {
+      "title": "Expression study",
+      "context": ["Kyoshi from the novel \"The Rise of Kyoshi\" expression study."],
+      "created": "2025-07-21",
+      "support": ["procreate"],
+      "primaryImage": ["expression-study3-primary.jpg"],
+      "type": "illustration",
+      "secondaryImages": [
+        "expression-study3-1.jpg",
+        "expression-study3-2.jpg",
+        "expression-study3-3.jpg",
+        "expression-study3-4.jpg",
+        "expression-study3-5.jpg",
+        "expression-study3-6.jpg",
+        "expression-study3-7.jpg",
+        "expression-study3-8.jpg"
+      ],
+      "slug": "expression-study-04",
+      "link": []
+    },
+    {
+      "title": "Expression study",
+      "context": ["Rangi from the novel \"The Rise of Kyoshi\" expression study."],
+      "created": "2025-07-24",
+      "support": ["procreate"],
+      "primaryImage": ["expression-study2-primary.jpg"],
+      "type": "illustration",
+      "secondaryImages": [
+        "expression-study2-1.jpg",
+        "expression-study2-2.jpg",
+        "expression-study2-3.jpg",
+        "expression-study2-4.jpg",
+        "expression-study2-5.jpg",
+        "expression-study2-6.jpg"
+      ],
+      "slug": "expression-study-03",
+      "link": []
+    },
+    {
+      "title": "Avatar",
+      "context": ["Characters from the novel \"The Rise of Kyoshi\" expression study."],
+      "created": "2025-07-28",
+      "support": ["procreate"],
+      "primaryImage": ["Avatar-primary.jpg"],
+      "type": "illustration",
+      "secondaryImages": [
+        "Avatar-1.jpg",
+        "Avatar-2.jpg",
+        "Avatar-3.jpg",
+        "Avatar-4.jpg",
+        "Avatar-5.jpg",
+        "Avatar-6.jpg"
+      ],
+      "slug": "avatar",
       "link": []
     },
     {
@@ -975,34 +1460,28 @@
       "primaryImage": ["trad5-primary.jpg"],
       "type": "illustration",
       "secondaryImages": [
-        "trad5-second1.jpg",
-        "trad5-second2.jpg",
-        "trad5-second3.jpg",
-        "trad5-second4.jpg",
-        "trad5-second5.jpg",
-        "trad5-second6.jpg",
-        "trad5-second7.jpg",
-        "trad5-second8.jpg",
-        "trad5-second9.jpg"
+        "trad5-1.jpg",
+        "trad5-2.jpg",
+        "trad5-3.jpg",
+        "trad5-4.jpg",
+        "trad5-5.jpg",
+        "trad5-6.jpg",
+        "trad5-7.jpg",
+        "trad5-8.jpg",
+        "trad5-9.jpg"
       ],
       "slug": "moleskine-sketch-05",
       "link": []
     },
     {
-      "title": "Stylized portrait",
-      "context": [],
-      "created": "2025-09-14",
+      "title": "Expression study",
+      "context": ["Characters from the novel \"The Rise of Kyoshi\" expression study."],
+      "created": "2025-08-07",
       "support": ["procreate"],
-      "primaryImage": ["stylized-portrait-primary.jpg"],
+      "primaryImage": ["expression-study4-primary.jpg"],
       "type": "illustration",
-      "secondaryImages": [
-        "stylized-portrait-second1.jpg",
-        "stylized-portrait-second2.jpg",
-        "stylized-portrait-second3.jpg",
-        "stylized-portrait-second4.jpg",
-        "stylized-portrait-second5.jpg"
-      ],
-      "slug": "stylized-portrait",
+      "secondaryImages": ["expression-study4-1.jpg", "expression-study4-2.jpg", "expression-study4-3.jpg"],
+      "slug": "expression-study-05",
       "link": []
     },
     {
@@ -1012,41 +1491,8 @@
       "support": ["procreate"],
       "primaryImage": ["realistic-portrait-primary.jpg"],
       "type": "illustration",
-      "secondaryImages": [
-        "realistic-portrait-second1.jpg",
-        "realistic-portrait-second2.jpg",
-        "realistic-portrait-second3.jpg"
-      ],
+      "secondaryImages": ["realistic-portrait-1.jpg", "realistic-portrait-2.jpg", "realistic-portrait-3.jpg"],
       "slug": "portrait",
-      "link": []
-    },
-    {
-      "title": "Fashion",
-      "context": [],
-      "created": "2025-04-15",
-      "support": ["procreate"],
-      "primaryImage": ["mode-2-primary.jpg"],
-      "type": "illustration",
-      "secondaryImages": [
-        "mode-2-second1.jpg",
-        "mode-2-second2.jpg",
-        "mode-2-second3.jpg",
-        "mode-2-second4.jpg",
-        "mode-2-second5.jpg",
-        "mode-2-second6.jpg"
-      ],
-      "slug": "fashion-02",
-      "link": []
-    },
-    {
-      "title": "Stylized study",
-      "context": [],
-      "created": "2025-10-04",
-      "support": ["procreate"],
-      "primaryImage": ["stylized-study-primary.jpg"],
-      "type": "illustration",
-      "secondaryImages": ["stylized-study-second1.jpg"],
-      "slug": "stylized-study",
       "link": []
     },
     {
@@ -1057,223 +1503,224 @@
       "primaryImage": ["background-study-primary.jpg"],
       "type": "illustration",
       "secondaryImages": [
-        "background-study-second1.jpg",
-        "background-study-second2.jpg",
-        "background-study-second3.jpg",
-        "background-study-second4.jpg",
-        "background-study-second5.jpg",
-        "background-study-second6.jpg",
-        "background-study-second7.jpg",
-        "background-study-second8.jpg"
+        "background-study-1.jpg",
+        "background-study-2.jpg",
+        "background-study-3.jpg",
+        "background-study-4.jpg",
+        "background-study-5.jpg",
+        "background-study-6.jpg",
+        "background-study-7.jpg",
+        "background-study-8.jpg"
       ],
       "slug": "background-study",
       "link": []
     },
     {
-      "title": "Avatar",
-      "context": ["Characters from the novel \"The Rise of Kyoshi\" expression study"],
-      "created": "2025-07-08",
+      "title": "Stylized portrait",
+      "context": [],
+      "created": "2025-09-14",
       "support": ["procreate"],
-      "primaryImage": ["Avatar-primary.jpg"],
+      "primaryImage": ["stylized-portrait-primary.jpg"],
       "type": "illustration",
       "secondaryImages": [
-        "Avatar-second1.jpg",
-        "Avatar-second2.jpg",
-        "Avatar-second3.jpg",
-        "Avatar-second4.jpg",
-        "Avatar-second5.jpg",
-        "Avatar-second6.jpg"
+        "stylized-portrait-1.jpg",
+        "stylized-portrait-2.jpg",
+        "stylized-portrait-3.jpg",
+        "stylized-portrait-4.jpg",
+        "stylized-portrait-5.jpg"
       ],
-      "slug": "avatar",
+      "slug": "stylized-portrait",
       "link": []
     },
     {
-      "title": "Expression study",
-      "context": ["Rangi from the novel \"The Rise of Kyoshi\" expression study"],
-      "created": "2025-07-14",
+      "title": "Stylized study",
+      "context": [],
+      "created": "2025-10-04",
       "support": ["procreate"],
-      "primaryImage": ["expression-study-primary.jpg"],
+      "primaryImage": ["stylized-study-primary.jpg"],
       "type": "illustration",
-      "secondaryImages": [
-        "expression-study-second1.jpg",
-        "expression-study-second2.jpg",
-        "expression-study-second3.jpg",
-        "expression-study-second4.jpg",
-        "expression-study-second5.jpg",
-        "expression-study-second6.jpg",
-        "expression-study-second7.jpg",
-        "expression-study-second8.jpg",
-        "expression-study-second9.jpg"
-      ],
-      "slug": "expression-study-02",
-      "link": []
-    },
-    {
-      "title": "Expression study",
-      "context": ["Rangi from the novel \"The Rise of Kyoshi\" expression study"],
-      "created": "2025-07-24",
-      "support": ["procreate"],
-      "primaryImage": ["expression-study2-primary.jpg"],
-      "type": "illustration",
-      "secondaryImages": [
-        "expression-study2-second1.jpg",
-        "expression-study2-second2.jpg",
-        "expression-study2-second3.jpg",
-        "expression-study2-second4.jpg",
-        "expression-study2-second5.jpg",
-        "expression-study2-second6.jpg"
-      ],
-      "slug": "expression-study-03",
-      "link": []
-    },
-    {
-      "title": "Expression study",
-      "context": ["Kyoshi from the novel \"The Rise of Kyoshi\" expression study"],
-      "created": "2025-07-28",
-      "support": ["procreate"],
-      "primaryImage": ["expression-study3-primary.jpg"],
-      "type": "illustration",
-      "secondaryImages": [
-        "expression-study3-second1.jpg",
-        "expression-study3-second2.jpg",
-        "expression-study3-second3.jpg",
-        "expression-study3-second4.jpg",
-        "expression-study3-second5.jpg",
-        "expression-study3-second6.jpg",
-        "expression-study3-second7.jpg",
-        "expression-study3-second8.jpg"
-      ],
-      "slug": "expression-study-04",
-      "link": []
-    },
-    {
-      "title": "Expression study",
-      "context": ["Characters from the novel \"The Rise of Kyoshi\" expression study"],
-      "created": "2025-08-05",
-      "support": ["procreate"],
-      "primaryImage": ["expression-study4-primary.jpg"],
-      "type": "illustration",
-      "secondaryImages": [
-        "expression-study4-second1.jpg",
-        "expression-study4-second2.jpg",
-        "expression-study4-second3.jpg"
-      ],
-      "slug": "expression-study-05",
-      "link": []
-    },
-    {
-      "title": "Shiho",
-      "context": ["Shiho (Haibara Ai) from \"Detective Conan\" study "],
-      "created": "2025-03-26",
-      "support": ["procreate"],
-      "primaryImage": ["shiho-primary.jpg"],
-      "type": "illustration",
-      "secondaryImages": [
-        "shiho-second1.jpg",
-        "shiho-second2.jpg",
-        "shiho-second3.jpg",
-        "shiho-second4.jpg",
-        "shiho-second5.jpg",
-        "shiho-second6.jpg"
-      ],
-      "slug": "shiho",
+      "secondaryImages": ["stylized-study-1.jpg"],
+      "slug": "stylized-study",
       "link": []
     },
     {
       "title": "Stylized portrait",
       "context": [],
-      "created": "2025-11-23",
+      "created": "2025-11-25",
       "support": ["procreate"],
       "primaryImage": ["stylized-portrait2-primary.jpg"],
       "type": "illustration",
-      "secondaryImages": [
-        "stylized-portrait2-second1.jpg",
-        "stylized-portrait2-second2.jpg",
-        "stylized-portrait2-second3.jpg"
-      ],
+      "secondaryImages": ["stylized-portrait2-1.jpg", "stylized-portrait2-2.jpg", "stylized-portrait2-3.jpg"],
       "slug": "stylized-portrait-02",
       "link": []
-    }
-  ],
-  "work": [
+    },
     {
-      "company": "Purely",
-      "role": "UX/UI Designer",
-      "description": "Reimagining social discovery",
-      "context": [
-        "I’m currently working on this mobile application project. I get to co-lead the creative direction, which implies applying user-centered design, UX research, and even a bit of competitive analysis to help shape the product strategy. I also dove into a big survey of more than 300 users, and translated all that data into something meaningful, actual personas and real product priorities.",
-        "And since the product is mobile-focused, I’m also building a scalable UI system in Figma. Creating solid components that make future design sprints faster while keeping the brand consistent feels a bit like crafting a toolbox that the whole team can rely on"
-      ],
-      "startDate": "2025-04-01",
-      "endDate": null,
-      "primaryImage": ["purely-primary.jpg"],
-      "secondaryImages": ["Ongoing.jpg"],
-      "icon": "purely-icone.png",
-      "slug": "purely",
+      "title": "Expression study",
+      "context": ["Young Vi (Arcane) facial expression study."],
+      "created": "2025-12-09",
+      "support": ["procreate"],
+      "primaryImage": ["arcane-primary.jpg"],
+      "type": "illustration",
+      "secondaryImages": ["arcane-1.jpg", "arcane-2.jpg", "arcane-3.jpg", "arcane-4.jpg", "arcane-5.jpg"],
+      "slug": "expression-study-01",
       "link": []
     },
     {
-      "company": "Airbus",
-      "role": "UX/UI Consultant Intern",
-      "description": "Revitalizing critical learning tools (VMT)",
-      "context": [
-        "• Overhauled a critical user workflow using a corrective design methodology to resolve key usability pain points and simplify the user journey.",
-        "• Designed and administered user testing protocols to identify and address barriers to usage for a more seamless product interaction.",
-        "• Conducted in-depth thematic analysis of user data, applying Colombo & Pasch's heuristics for a precise interpretation of UX issues.",
-        "• Defined strategic recommendations for intuitive interfaces in Figma, significantly improving the quality of the learning experience.",
-        "• Aligned divergent expectations between two major stakeholders through transparent communication, earning praise and sign-off on the final deliverable."
-      ],
-      "startDate": "2025-05-01",
-      "endDate": "2025-07-25",
-      "primaryImage": ["vmt-primary.jpg"],
-      "secondaryImages": ["Locked.jpg"],
-      "icon": "locked-icone.png",
-      "slug": "vmt",
+      "title": "Stylized portrait",
+      "context": [],
+      "created": "2025-12-13",
+      "support": ["procreate"],
+      "primaryImage": ["stylized-portrait3-primary.jpg"],
+      "type": "illustration",
+      "secondaryImages": ["stylized-portrait3-1.jpg", "stylized-portrait3-2.jpg", "stylized-portrait3-3.jpg"],
+      "slug": "stylized-portrait-03",
       "link": []
     },
     {
-      "company": "ENSC",
-      "role": "UX/UI Design Instructor Intern",
-      "description": "Democratizing design education",
-      "context": [
-        "During my first-year internship at the Ecole Nationale Supérieure de Cognitique, I was responsible for supervising second-grade students, who were themselves on an internship, in order to introduce them to the school and its fields of study.",
-        "One of the activities I organized was to make them understand what Figma is and introduce them to its principles. It was a really enriching experience in terms of pedagogy.",
-        "I also prepared a tutorial to explore all the main features of Figma. Then, to let their creativity speak, we offered them to model a music listening app, and given the enthusiasm and investment that students had, it was really worth being fully invested in this activity and internship, I am still very grateful to them."
-      ],
-      "startDate": "2024-06-01",
-      "endDate": "2024-06-28",
-      "primaryImage": ["figma-primary.jpg"],
+      "title": "Stylized portrait",
+      "context": [],
+      "created": "2025-12-21",
+      "support": ["procreate"],
+      "primaryImage": ["stylized-portrait4-primary.jpg"],
+      "type": "illustration",
       "secondaryImages": [
-        "figma-second1.jpg",
-        "figma-second2.jpg",
-        "figma-second3.mp4",
-        "figma-second4.jpg",
-        "figma-second5.jpg",
-        "figma-second6.jpg",
-        "figma-second7.jpg",
-        "figma-second8.jpg",
-        "figma-second9.jpg",
-        "figma-second10.jpg",
-        "figma-second11.jpg",
-        "figma-second12.jpg",
-        "figma-second13.jpg",
-        "figma-second14.jpg",
-        "figma-second15.jpg",
-        "figma-second16.jpg",
-        "figma-second17.jpg"
+        "stylized-portrait4-1.jpg",
+        "stylized-portrait4-2.jpg",
+        "stylized-portrait4-3.jpg",
+        "stylized-portrait4-4.jpg",
+        "stylized-portrait4-5.jpg"
       ],
-      "icon": "figma-icone.png",
-      "slug": "tuto-figma",
-      "link": [
-        {
-          "label": "Slide Deck",
-          "url": "https://www.figma.com/community/file/1434630096456807172/slide-deck-figma"
-        },
-        {
-          "label": "Workshop",
-          "url": "https://florialeger.github.io/tuto-Figma/"
-        }
-      ]
+      "slug": "stylized-portrait-04",
+      "link": []
+    },
+    {
+      "title": "Expression study",
+      "context": [],
+      "created": "2025-12-23",
+      "support": ["procreate"],
+      "primaryImage": ["expression-study5-primary.jpg"],
+      "type": "illustration",
+      "secondaryImages": ["expression-study5-1.jpg"],
+      "slug": "expression-study-05",
+      "link": []
+    },
+    {
+      "title": "Expression study",
+      "context": [],
+      "created": "2025-12-30",
+      "support": ["procreate"],
+      "primaryImage": ["expression-study6-primary.jpg"],
+      "type": "illustration",
+      "secondaryImages": ["expression-study6-1.jpg", "expression-study6-2.jpg", "expression-study6-3.jpg"],
+      "slug": "expression-study-06",
+      "link": []
+    },
+    {
+      "title": "Expression study",
+      "context": [],
+      "created": "2025-12-30",
+      "support": ["procreate"],
+      "primaryImage": ["expression-study7-primary.jpg"],
+      "type": "illustration",
+      "secondaryImages": ["expression-study7-1.jpg"],
+      "slug": "expression-study-07",
+      "link": []
+    },
+    {
+      "title": "Stylized portrait",
+      "context": [],
+      "created": "2025-12-30",
+      "support": ["procreate"],
+      "primaryImage": ["stylized-portrait5-primary.jpg"],
+      "type": "illustration",
+      "secondaryImages": ["stylized-portrait5-1.jpg"],
+      "slug": "stylized-portrait-05",
+      "link": []
+    },
+    {
+      "title": "Fashion",
+      "context": [],
+      "created": "2025-12-31",
+      "support": ["procreate"],
+      "primaryImage": ["mode2-primary.jpg"],
+      "type": "illustration",
+      "secondaryImages": ["mode2-1.jpg", "mode2-2.jpg", "mode2-3.jpg", "mode2-4.jpg"],
+      "slug": "fashion-02",
+      "link": []
+    },
+    {
+      "title": "Stylized",
+      "context": [],
+      "created": "2025-12-31",
+      "support": ["procreate"],
+      "primaryImage": ["stylized-primary.jpg"],
+      "type": "illustration",
+      "secondaryImages": ["stylized-1.jpg", "stylized-2.jpg", "stylized-3.jpg", "stylized-4.jpg"],
+      "slug": "stylized-01",
+      "link": []
+    },
+    {
+      "title": "Stylized",
+      "context": [],
+      "created": "2026-01-24",
+      "support": ["procreate"],
+      "primaryImage": ["expression-study8-primary.jpg"],
+      "type": "illustration",
+      "secondaryImages": [
+        "expression-study8-1.jpg",
+        "expression-study8-2.jpg",
+        "expression-study8-3.jpg",
+        "expression-study8-4.jpg",
+        "expression-study8-5.jpg"
+      ],
+      "slug": "expression-study-08",
+      "link": []
+    },
+    {
+      "title": "Stylized portrait",
+      "context": [],
+      "created": "2026-02-06",
+      "support": ["procreate"],
+      "primaryImage": ["stylized-portrait6-primary.jpg"],
+      "type": "illustration",
+      "secondaryImages": [
+        "stylized-portrait6-1.jpg",
+        "stylized-portrait6-2.jpg",
+        "stylized-portrait6-3.jpg",
+        "stylized-portrait6-4.jpg",
+        "stylized-portrait6-5.jpg"
+      ],
+      "slug": "stylized-portrait-06",
+      "link": []
+    },
+    {
+      "title": "Expression study",
+      "context": [],
+      "created": "2026-02-07",
+      "support": ["procreate"],
+      "primaryImage": ["expression-study9-primary.jpg"],
+      "type": "illustration",
+      "secondaryImages": ["expression-study9-1.jpg", "expression-study9-2.jpg"],
+      "slug": "expression-study-09",
+      "link": []
+    },
+    {
+      "title": "Stylized portrait",
+      "context": [],
+      "created": "2026-02-09",
+      "support": ["procreate"],
+      "primaryImage": ["stylized-portrait7-primary.jpg"],
+      "type": "illustration",
+      "secondaryImages": [
+        "stylized-portrait7-1.jpg",
+        "stylized-portrait7-2.jpg",
+        "stylized-portrait7-3.jpg",
+        "stylized-portrait7-4.jpg",
+        "stylized-portrait7-5.jpg",
+        "stylized-portrait7-6.jpg"
+      ],
+      "slug": "stylized-portrait-07",
+      "link": []
     }
   ]
 }

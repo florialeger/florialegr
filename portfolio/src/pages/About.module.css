@@ -4,6 +4,18 @@
   gap: clamp(0.5rem, 1.5vw, 0.75rem);
 }
 
+.emailText {
+  font-weight: var(--body-emphasized-weight);
+  letter-spacing: var(--body-emphasized-letter-spacing);
+  display: inline-block;
+}
+
+.emailIcon {
+  flex-shrink: 0;
+  width: 1.3rem;
+  height: 1.3rem;
+}
+
 .magnet {
   display: flex;
   align-items: center;
@@ -34,8 +46,8 @@
   left: 50%;
   transform: translateX(-50%);
   background: var(--fills---secondary);
-  padding: var(--stack-gap-xxs) var(--stack-gap-xs);
-  border-radius: var(--radius-xxs);
+  padding: 0 var(--stack-gap-xs);
+  border-radius: var(--radius-xs);
   font-size: var(--type---title-4---size);
   font-weight: var(--type---title-4---weight-regular);
   white-space: nowrap;
@@ -55,52 +67,87 @@
 
 .contactContainer {
   width: 100%;
-  height: 100%;
   padding: calc(var(--stack-gap-lg) * 0.8) 0 calc(var(--stack-gap-lg) * 0.8) 0;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: calc(var(--stack-gap-lg) * 0.8) ;
-  background-color: var(--background---secondary);
+  gap: calc(var(--stack-gap-lg) * 0.8);
+  background-color: var(--fills---quaternuary);
   border: 1px solid var(--separator---black-10);
-  border-radius: var(--radius-xxs);
+  border-radius: var(--radius-xs);
+  corner-shape: squircle;
 }
 .contactParagraph {
   margin: 0;
   text-align: center;
 }
 
-.socialGrid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: calc(var(--stack-gap-md) * 0.8);
+.socialList {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: var(--stack-gap-xs);
   list-style: none;
   margin: 0;
   padding: 0;
-  width: min(80%, var(--detail-content-width));
-}
-
-.socialGrid :global(.inlineWrap) {
-  gap: 10rem;
+  width: 100%;
+  flex-wrap: wrap;
 }
 
 .socialItem {
   display: flex;
   align-items: center;
-  justify-content: flex-start;
+  padding: var(--stack-gap-sm);
+  gap: calc(var(--stack-gap-md) * 0.6);
+  position: relative;
+  transition: opacity 200ms ease;
+  z-index: 1;
 }
 
-.socialLink {
-  display: inline-flex;
-  align-items: center;
-  color: inherit;
-  text-decoration: none;
+.socialItem:hover {
+  z-index: 100;
+}
+
+.iconWrapper {
+  flex-shrink: 0;
+  transition: transform 200ms ease;
+  position: relative;
+  z-index: 1;
+}
+
+.socialItem:hover .iconWrapper {
+  transform: scale(1.1);
 }
 
 .linkLabel {
-  font-size: var(--type---title-3---size);
-  display: inline-block;
+  text-decoration: none;
+  background-size: 4.5px 6px;
+  background-position: 0 100%;
+  background-repeat: repeat-x;
+  transition: opacity 200ms ease;
+  position: relative;
+  z-index: 1;
+}
+
+.linkLabel:hover {
+  opacity: 0.8;
+}
+
+.followCaption {
+  pointer-events: none;
+  position: fixed;
+  background: var(--background---primary);
+  color: var(--label---primary);
+  border: 1px solid var(--separator---black-10);
+  box-shadow: var(--shadow---normal);
+  padding: 0.25rem 0.5rem;
+  border-radius: var(--radius-xxs);
+  white-space: nowrap;
+  z-index: 9999;
+  transform: translate(-50%, -100%);
+  margin-top: -8px;
 }
 
 .contactRow {
@@ -110,6 +157,41 @@
   gap: var(--stack-gap-sm);
   padding: var(--stack-gap-md);
   width: 100%;
+}
+
+.socialItem:hover .iconWrapper {
+  transform: scale(1.1);
+}
+
+.linkContent {
+  flex: 1;
+  min-width: 0;
+  margin: 0;
+  font-size: var(--type---body---size);
+  font-weight: var(--body-regular-weight);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.linkLabel {
+  color: var(--label---primary);
+  font-weight: var(--body-regular-weight);
+  text-decoration: none;
+  background-image: radial-gradient(circle, var(--fills---primary) 1px, transparent 1px);
+  background-size: 4.5px 6px;
+  background-position: 0 100%;
+  background-repeat: repeat-x;
+  transition: opacity 200ms ease;
+}
+
+.linkLabel:hover {
+  opacity: 0.7;
+}
+
+.linkDescription {
+  color: var(--label---secondary);
+  font-weight: var(--body-regular-weight);
 }
 
 .stackSection {
@@ -122,18 +204,30 @@
   width: 100%;
   height: 100%;
   aspect-ratio: 16/9;
-  background-color: var(--background---secondary);
-  background: url('/src/assets/images/wallpaper_mac.jpg') center/cover no-repeat;
-  border-radius: var(--radius-xxs);
+  background: url('/src/assets/images/wallpaper_mac.JPEG') center/cover no-repeat;
+  background: var(--fills---quaternuary);
+  border: 1px solid var(--separator---black-10);
+  border-radius: var(--radius-xs);
+  corner-shape: squircle;
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
 }
 
-@media (max-width: 720px) {
+@media (max-width: 960px) {
   .emailRow {
     flex-direction: column;
+    gap: 0;
+    justify-content: center;
+  }
+
+  .magnet {
+    padding: 0;
+  }
+
+  .emailIcon {
+    display: none;
   }
 
   .stackContainer {

@@ -1,6 +1,7 @@
 import React, { forwardRef, memo, useCallback, useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { Link as RouterLink } from 'react-router-dom';
+import Button from '@/components/ui/Button';
 import { ArrowIcon, DownloadIcon } from '@/components/ui/icons';
 import useMagneticEffect from '@/hooks/useMagneticEffect';
 import styles from './Link.module.css';
@@ -33,8 +34,8 @@ const isExternalUrl = (value) => /^https?:\/\//i.test(value);
 const LinkBase = (
   {
     label,
-    icon = '',
-    iconSize = 12,
+    icon = 'arrow',
+    iconSize = 14,
     className = '',
     onClick,
     to,
@@ -46,6 +47,8 @@ const LinkBase = (
     iconProps = {},
     magnetic = true,
     magneticOptions,
+    variant = 'primary', // Use primary variant by default for downloads
+    size = 'small',
     ...props
   },
   ref
@@ -83,6 +86,26 @@ const LinkBase = (
     },
     [ref, setMagneticNode, shouldMagnetize]
   );
+
+  // If this is a download link, use Button component for proper styling
+  if (download) {
+    return (
+      <Button
+        ref={ref}
+        label={label}
+        icon={icon}
+        iconPosition="right"
+        href={href}
+        download={download}
+        variant={variant}
+        size={size}
+        className={className}
+        magnetic={magnetic}
+        magneticOptions={magneticOptions}
+        {...props}
+      />
+    );
+  }
 
   const computedTarget = isAnchor && !download ? target || (isExternalUrl(href) ? '_blank' : undefined) : target;
   const computedRel = rel || (computedTarget === '_blank' ? 'noopener noreferrer' : undefined);

@@ -11,7 +11,6 @@ const springValues = {
 
 const MouseFollowImage = ({ imageSrc, isVisible }) => {
   const [position, setPosition] = useState({ x: 0, y: 0 });
-  const [isReady, setIsReady] = useState(false);
   const lastPositionRef = useRef({ x: 0, y: 0 });
   const imageRef = useRef(null);
 
@@ -20,7 +19,19 @@ const MouseFollowImage = ({ imageSrc, isVisible }) => {
     damping: 30,
     mass: 1,
   });
-  const scale = useSpring(1, springValues);
+  const scale = useSpring(1, {
+    damping: 20,
+    stiffness: 200,
+    mass: 0.5,
+  });
+
+  // Preload image for instant appearance
+  useEffect(() => {
+    if (imageSrc) {
+      const img = new Image();
+      img.src = imageSrc;
+    }
+  }, [imageSrc]);
 
   useEffect(() => {
     const handleMouseMove = (e) => {
@@ -28,7 +39,6 @@ const MouseFollowImage = ({ imageSrc, isVisible }) => {
       const newY = e.clientY;
 
       setPosition({ x: newX, y: newY });
-      if (!isReady) setIsReady(true);
 
       if (isVisible) {
         // Calculate velocity based on Y movement
@@ -42,13 +52,13 @@ const MouseFollowImage = ({ imageSrc, isVisible }) => {
 
     window.addEventListener('mousemove', handleMouseMove);
     return () => window.removeEventListener('mousemove', handleMouseMove);
-  }, [isReady, isVisible, rotate]);
+  }, [isVisible, rotate]);
 
   useEffect(() => {
     if (isVisible) {
-      scale.set(1);
+      scale.jump(1);
     } else {
-      scale.set(0.8);
+      scale.jump(0.8);
       rotate.set(0);
     }
   }, [isVisible, scale, rotate]);
@@ -62,7 +72,7 @@ const MouseFollowImage = ({ imageSrc, isVisible }) => {
       style={{
         left: `${position.x}px`,
         top: `${position.y}px`,
-        opacity: isVisible && isReady ? 1 : 0,
+        opacity: isVisible ? 1 : 0,
         rotate,
         scale,
         translateX: '10px',

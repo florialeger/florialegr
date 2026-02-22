@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import PropTypes from 'prop-types';
 
+import ShinyText from '../ui/ShinyText';
 import styles from './LoadAnimation.module.css';
 
 const DEFAULT_DURATION = null;
@@ -22,7 +23,20 @@ const LoadAnimation = ({ onFinished, duration = DEFAULT_DURATION }) => {
 
   return (
     <div className={styles.overlay} role="status" aria-live="polite">
-      <span className={styles.wordmark}>Loading...</span>
+      <h3 className={styles.wordmark}>
+        <ShinyText
+          text="Loading..."
+          speed={2}
+          delay={0}
+          color="var(--label---tertiary)"
+          shineColor="var(--label---primary)"
+          spread={120}
+          direction="left"
+          yoyo={false}
+          pauseOnHover={false}
+          disabled={false}
+        />
+      </h3>
     </div>
   );
 };

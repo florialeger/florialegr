@@ -18,7 +18,7 @@ const AboutSection = ({ title = [], paragraphs, downloads, portraitSrc, portrait
         <div className={styles.headerContent}>
           <div className={styles.pseudo}>
             <a href="https://www.instagram.com/floria.leger/" target="_blank" rel="noreferrer">
-              <p>@florialeger</p>
+              <p>Floria Leger</p>
             </a>
             <img src={CD} className={styles.cdIcon} alt="CD Icon" />
           </div>
@@ -42,8 +42,15 @@ const AboutSection = ({ title = [], paragraphs, downloads, portraitSrc, portrait
 
       {downloads.length > 0 ? (
         <div className={styles.buttonColumn}>
-          {downloads.map(({ label: actionLabel, href, fileName }) => (
-            <Link key={actionLabel} label={actionLabel} href={href} download={fileName} icon="download" />
+          {downloads.map(({ label: actionLabel, href, fileName, variant }) => (
+            <Link
+              key={actionLabel}
+              label={actionLabel}
+              href={href}
+              download={fileName}
+              icon="download"
+              variant={variant}
+            />
           ))}
         </div>
       ) : null}
@@ -59,6 +66,7 @@ AboutSection.propTypes = {
       label: PropTypes.string.isRequired,
       href: PropTypes.string.isRequired,
       fileName: PropTypes.string,
+      variant: PropTypes.string,
     })
   ),
   portraitSrc: PropTypes.string.isRequired,

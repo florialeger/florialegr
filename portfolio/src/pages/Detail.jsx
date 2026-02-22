@@ -1,22 +1,21 @@
-import { useEffect, useMemo, useRef, useState } from 'react';
+import { useMemo, useRef, useState, useEffect } from 'react';
 import { keyframes } from '@emotion/react';
 import { Reveal } from 'react-awesome-reveal';
+import { motion } from 'framer-motion';
 import PropTypes from 'prop-types';
 import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import Button from '@/components/ui/Button';
-import Link from '@/components/ui/Link';
-import CardGrid from '@/components/projects/CardGrid';
-import Container from '@/components/ui/Container';
 import LoadAnimation from '@/components/loaders/LoadAnimation';
 import { usePortfolio } from '@/contexts/PortfolioContext';
 import formatDate from '@/utils/formatDate';
 import formatDuration from '@/utils/formatDuration';
 import { resolveMediaPath } from '@/utils/media';
+import parseHtmlText from '@/utils/parseHtmlText';
 import styles from './Detail.module.css';
 import pageLayout from '@/components/ui/PageLayout.module.css';
 import useMagneticEffect from '@/hooks/useMagneticEffect';
 import Media from '@/components/ui/Media';
-import { ExternalLinkIcon, GoBackIcon, ArrowPreviousIcon, ArrowNextIcon } from '@/components/ui/icons';
+import { ArrowPreviousIcon, ArrowNextIcon } from '@/components/ui/icons';
 
 // Subtle slide animations (20-30px with blur)
 const slideInFromLeft = keyframes`
@@ -45,6 +44,64 @@ const slideInFromRight = keyframes`
   }
 `;
 
+// Animation variants for staggered sections and images
+const sectionsContainerVariants = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.15,
+    },
+  },
+};
+
+const sectionVariants = {
+  hidden: { opacity: 0, y: 30 },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.5,
+      ease: [0.22, 1, 0.36, 1],
+      staggerChildren: 0.1,
+    },
+  },
+};
+
+const imageVariants = {
+  hidden: { opacity: 0, y: 20 },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.4,
+      ease: [0.22, 1, 0.36, 1],
+    },
+  },
+};
+
+// Small wrapper component for magnetic images with animation
+const MagneticImageWrapper = ({ src, className, sectionIndex, imageIndex }) => {
+  const setMag = useMagneticEffect({ maxDistance: 10, scale: 1.02 });
+  return (
+    <motion.div
+      key={`${sectionIndex}-${imageIndex}`}
+      ref={setMag}
+      className={styles.imageWrapper}
+      variants={imageVariants}
+    >
+      <Media src={src} alt="" className={className} />
+    </motion.div>
+  );
+};
+
+MagneticImageWrapper.propTypes = {
+  src: PropTypes.string.isRequired,
+  className: PropTypes.string,
+  sectionIndex: PropTypes.number.isRequired,
+  imageIndex: PropTypes.number.isRequired,
+};
+
 const Detail = ({ variant }) => {
   const { slug } = useParams();
   const navigate = useNavigate();
@@ -59,8 +116,8 @@ const Detail = ({ variant }) => {
     work,
     imagesPreloaded,
   } = usePortfolio();
-  const [isHeaderCondensed, setIsHeaderCondensed] = useState(false);
   const titleRef = useRef(null);
+  const footerRef = useRef(null);
 
   // Get filter from location state or default to 'all'
   const currentFilter = location.state?.filter || 'all';
@@ -68,6 +125,9 @@ const Detail = ({ variant }) => {
   // Track animation direction for slide transitions
   const [animationKey, setAnimationKey] = useState(0);
   const [currentAnimation, setCurrentAnimation] = useState(slideInFromLeft);
+
+  // Track if navigation should be docked to footer (bottom of content reached)
+  const [isNavDocked, setIsNavDocked] = useState(false);
 
   const data = useMemo(() => {
     if (variant === 'work') {
@@ -80,36 +140,22 @@ const Detail = ({ variant }) => {
     return getPlaygroundBySlug(slug);
   }, [getPlaygroundBySlug, getProjectBySlug, getWorkBySlug, slug, variant]);
 
-  // Get filtered list based on variant and filter
+  // Get filtered list based on variant and filter - using already sorted arrays from context
   const filteredItems = useMemo(() => {
     if (variant === 'work') {
       // Determine if current item is a work experience
       const isCurrentWorkExp = data?.isWorkExperience;
 
       if (isCurrentWorkExp) {
-        // Return only work experiences
-        return [...work].sort((a, b) => {
-          const aOngoing = !a.endDate;
-          const bOngoing = !b.endDate;
-          if (aOngoing && !bOngoing) return -1;
-          if (!aOngoing && bOngoing) return 1;
-          return new Date(b.startDate || 0) - new Date(a.startDate || 0);
-        });
+        // Return only work experiences (already sorted in context)
+        return work;
       } else {
-        // Return only projects (filter out work experience slugs)
+        // Return only projects (filter out work experience slugs, already sorted in context)
         const workSlugs = new Set(work.map((w) => w.slug));
-        return [...projects]
-          .filter((p) => !workSlugs.has(p.slug))
-          .sort((a, b) => {
-            const aOngoing = a.duration === 'ongoing';
-            const bOngoing = b.duration === 'ongoing';
-            if (aOngoing && !bOngoing) return -1;
-            if (!aOngoing && bOngoing) return 1;
-            return new Date(b.created || 0) - new Date(a.created || 0);
-          });
+        return projects.filter((p) => !workSlugs.has(p.slug));
       }
     }
-    // For playground, apply filter
+    // For playground, apply filter (already sorted in context)
     if (currentFilter === 'all') {
       return playgrounds;
     }
@@ -132,82 +178,39 @@ const Detail = ({ variant }) => {
     if (typeof data.context === 'string') return [data.context];
     return [];
   }, [data]);
-  const secondaryImages = useMemo(() => {
-    if (!data?.secondaryImages) return [];
-    return data.secondaryImages.map((image) => resolveMediaPath(image)).filter(Boolean);
-  }, [data]);
-  // We purposely do NOT display the primary image on the Detail page.
-  // All visual media should be provided as secondary images and rendered in the gallery below the header.
-  const heroImage = null;
-  const galleryImages = useMemo(() => secondaryImages, [secondaryImages]);
-  const links = data?.link || [];
-  const imageGridRef = useRef(null);
-  const hasOverview = (contextParagraphs && contextParagraphs.length > 0) || (links && links.length > 0);
+  // Support both old `secondaryImages` and new `sections` structure
+  const sections = useMemo(() => {
+    if (!data) return [];
 
-  useEffect(() => {
-    const handleScroll = () => setIsHeaderCondensed(window.scrollY > 32);
-    // Run once to initialize
-    handleScroll();
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  // Small wrapper component that magnetizes media elements
-  const MagneticImage = ({ src, alt, className, children, ...props }) => {
-    const setMag = useMagneticEffect({ maxDistance: 10, scale: 1.02 });
-    return (
-      <div ref={setMag} className={className} {...props}>
-        {children || <img src={src} alt={alt} loading="lazy" />}
-      </div>
-    );
-  };
-
-  // Detect when the last row of the grid contains a single item (e.g. odd count in two-column grid)
-  // and mark that item so it preserves its intrinsic aspect ratio instead of being forced square.
-  useEffect(() => {
-    const grid = imageGridRef.current;
-    if (!grid) return undefined;
-
-    const applySingleMarking = () => {
-      const items = Array.from(grid.children || []).filter((n) => n.nodeType === 1);
-      if (items.length === 0) return;
-
-      // Determine number of columns from computed grid-template-columns
-      const computed = window.getComputedStyle(grid).gridTemplateColumns || '';
-      const columns = computed ? computed.split(/\s+/).filter(Boolean).length : window.innerWidth < 900 ? 1 : 2;
-
-      // Clear previous markings
-      items.forEach((it) => it.classList.remove(styles.imageItemSingle));
-
-      if (columns > 1) {
-        const remainder = items.length % columns;
-        if (remainder === 1) {
-          // last item is alone in its row
-          const last = items[items.length - 1];
-          if (last) last.classList.add(styles.imageItemSingle);
+    // New sections structure
+    if (data.sections && Array.isArray(data.sections)) {
+      return data.sections.map((section) => {
+        // Handle description as either string or array
+        let description = null;
+        if (Array.isArray(section.description)) {
+          description = section.description.filter(Boolean);
+        } else if (typeof section.description === 'string') {
+          description = section.description;
         }
-      }
-    };
 
-    // Initial run
-    applySingleMarking();
-
-    // Re-run on resize (debounced via rAF pattern)
-    let raf = 0;
-    const onResize = () => {
-      if (raf) return;
-      raf = requestAnimationFrame(() => {
-        raf = 0;
-        applySingleMarking();
+        return {
+          title: section.title || null,
+          description,
+          images: (section.images || []).map((img) => resolveMediaPath(img)).filter(Boolean),
+        };
       });
-    };
+    }
 
-    window.addEventListener('resize', onResize, { passive: true });
-    return () => {
-      window.removeEventListener('resize', onResize);
-      if (raf) cancelAnimationFrame(raf);
-    };
-  }, [galleryImages]);
+    // Fallback to old secondaryImages structure
+    if (data.secondaryImages && Array.isArray(data.secondaryImages)) {
+      const images = data.secondaryImages.map((img) => resolveMediaPath(img)).filter(Boolean);
+      return images.length > 0 ? [{ title: null, description: null, images }] : [];
+    }
+
+    return [];
+  }, [data]);
+
+  const links = data?.link || [];
 
   const handleClose = () => {
     const fallbackPath = variant === 'work' ? '/work' : '/playground';
@@ -250,6 +253,55 @@ const Detail = ({ variant }) => {
     });
   };
 
+  // Track scroll position to dock navigation when footer is in view (desktop only)
+  useEffect(() => {
+    if (typeof window === 'undefined' || !footerRef.current) return undefined;
+
+    const handleScroll = () => {
+      // Only apply on desktop (above 900px)
+      if (window.innerWidth <= 900) {
+        setIsNavDocked(false);
+        return;
+      }
+
+      const footer = footerRef.current;
+      const footerRect = footer.getBoundingClientRect();
+      const viewportHeight = window.innerHeight;
+
+      // Dock when footer top enters viewport (is visible on screen)
+      // More generous trigger - when footer is anywhere in viewport
+      const shouldDock = footerRect.top < viewportHeight && footerRect.bottom > 0;
+
+      console.log('Footer detection:', {
+        footerTop: footerRect.top,
+        viewportHeight,
+        shouldDock,
+        currentDocked: isNavDocked,
+      });
+
+      setIsNavDocked(shouldDock);
+    };
+
+    const handleResize = () => {
+      if (window.innerWidth <= 900) {
+        setIsNavDocked(false);
+      } else {
+        handleScroll();
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    window.addEventListener('resize', handleResize, { passive: true });
+
+    // Initial check
+    handleScroll();
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('resize', handleResize);
+    };
+  }, [data]);
+
   // Magnetic effect for navigation buttons
   const setBackMag = useMagneticEffect({ maxDistance: 4, scale: 1.02 });
   const setPrevMag = useMagneticEffect({ maxDistance: 4, scale: 1.02 });
@@ -264,7 +316,12 @@ const Detail = ({ variant }) => {
           <div className={styles.emptyState}>
             <h1>Nothing to see here yet.</h1>
             <p>The requested {variant === 'work' ? 'project' : 'playground'} could not be found.</p>
-            <Button label={`Return to ${variant === 'work' ? 'work' : 'playground'}`} onClick={handleClose} />
+            <Button
+              label={`Return to ${variant === 'work' ? 'work' : 'playground'}`}
+              onClick={handleClose}
+              variant="secondary"
+              size="big"
+            />
           </div>
         </article>
       </div>
@@ -288,6 +345,18 @@ const Detail = ({ variant }) => {
     return date.toLocaleDateString('en-US', { month: 'short', year: 'numeric' });
   };
 
+  const formatWorkDateRange = (startDate, endDate) => {
+    const start = formatWorkDate(startDate);
+    const end = formatWorkDate(endDate);
+
+    // If both dates are the same, show only once
+    if (start === end) {
+      return start;
+    }
+
+    return `${start} - ${end}`;
+  };
+
   const createdLabel = data.created
     ? isOngoing
       ? formatDate(data.created)
@@ -299,173 +368,203 @@ const Detail = ({ variant }) => {
   const durationLabel = data.duration ? formatDuration(data.duration) : null;
 
   return (
-    <div className={`${pageLayout.page}`.trim()}>
+    <div className={`${pageLayout.page}`.trim()} style={{ gap: 'var(--stack-gap-lg)' }}>
+      {!imagesPreloaded && <LoadAnimation />}
       <Reveal keyframes={currentAnimation} triggerOnce={false} duration={800} key={`${slug}-${animationKey}`}>
         <article className={`${pageLayout.container} ${styles.card}`.trim()}>
-          <header className={styles.header} data-condensed={isHeaderCondensed}>
-            <div className={styles.headerColumn}>
-              {isWorkExperience ? (
-                <>
-                  <h3 ref={titleRef}>{data.company}</h3>
-                  {data.role && <p className={styles.badgeList}>{data.role}</p>}
-                </>
-              ) : (
-                <>
-                  <h3 ref={titleRef}>{data.title}</h3>
-                  {duties.length > 0 && <p className={styles.badgeList}>{duties.join(', ')}</p>}
-                </>
-              )}
-            </div>
-
-            <div className={styles.metaColumn}>
-              <dl className={styles.metaList}>
+          {/* HEADER SECTION */}
+          <header className={styles.header}>
+            {/* Metadata */}
+            <div className={styles.headerMetadata}>
+              <div className={styles.headerColumn}>
                 {isWorkExperience ? (
                   <>
-                    <div className={styles.metaItem}>
-                      <dd>
-                        {formatWorkDate(data.startDate)} - {formatWorkDate(data.endDate)}
-                      </dd>
-                    </div>
-                    {data.endDate && (
-                      <div className={styles.metaItem}>
-                        <dt>duration</dt>
-                        <dd>
-                          {(() => {
-                            const start = new Date(data.startDate);
-                            const end = new Date(data.endDate);
-                            const months = Math.round((end - start) / (1000 * 60 * 60 * 24 * 30));
-                            return months === 1 ? '1 month' : `${months} months`;
-                          })()}
-                        </dd>
-                      </div>
-                    )}
+                    <h3 ref={titleRef}>{data.company}</h3>
+                    {data.role && <p className={styles.badgeList}>{data.role}</p>}
                   </>
                 ) : (
                   <>
-                    {isOngoing ? (
-                      <div className={styles.metaItem}>
-                        <dt>started</dt>
-                        <dd>{createdLabel}</dd>
-                      </div>
-                    ) : variant === 'work' ? (
-                      <div className={styles.metaItem}>
-                        <dt>launch</dt>
-                        <dd>{createdLabel}</dd>
-                      </div>
-                    ) : (
-                      <div className={styles.metaItem}>
-                        <dd>{createdLabel}</dd>
-                      </div>
-                    )}
-
-                    {isOngoing ? (
-                      <div className={styles.metaItem}>
-                        <dd>ongoing</dd>
-                      </div>
-                    ) : (
-                      durationLabel && (
-                        <div className={styles.metaItem}>
-                          <dt>duration</dt>
-                          <dd>{durationLabel}</dd>
-                        </div>
-                      )
-                    )}
+                    <h3 ref={titleRef}>{data.title}</h3>
+                    {duties.length > 0 && <p className={styles.badgeList}>{duties.join(', ')}</p>}
                   </>
                 )}
-              </dl>
+              </div>
+
+              <div className={styles.metaColumn}>
+                <dl className={styles.metaList}>
+                  {isWorkExperience ? (
+                    <>
+                      <div className={styles.metaItem}>
+                        <dd>{formatWorkDateRange(data.startDate, data.endDate)}</dd>
+                      </div>
+                      {data.endDate && (
+                        <div className={styles.metaItem}>
+                          <dt>duration</dt>
+                          <dd>
+                            {(() => {
+                              const start = new Date(data.startDate);
+                              const end = new Date(data.endDate);
+                              const months = Math.round((end - start) / (1000 * 60 * 60 * 24 * 30));
+                              return months === 1 ? '1 month' : `${months} months`;
+                            })()}
+                          </dd>
+                        </div>
+                      )}
+                    </>
+                  ) : (
+                    <>
+                      {isOngoing ? (
+                        <div className={styles.metaItem}>
+                          <dt>started</dt>
+                          <dd>{createdLabel}</dd>
+                        </div>
+                      ) : variant === 'work' ? (
+                        <div className={styles.metaItem}>
+                          <dt>launch</dt>
+                          <dd>{createdLabel}</dd>
+                        </div>
+                      ) : (
+                        <div className={styles.metaItem}>
+                          <dd>{createdLabel}</dd>
+                        </div>
+                      )}
+
+                      {isOngoing ? (
+                        <div className={styles.metaItem}>
+                          <dd>ongoing</dd>
+                        </div>
+                      ) : (
+                        durationLabel && (
+                          <div className={styles.metaItem}>
+                            <dt>duration</dt>
+                            <dd>{durationLabel}</dd>
+                          </div>
+                        )
+                      )}
+                    </>
+                  )}
+                </dl>
+              </div>
             </div>
+
+            {/* Global description (if exists from context) */}
+            {contextParagraphs.length > 0 && (
+              <div className={styles.globalDescription}>
+                {contextParagraphs.map((paragraph, index) => (
+                  <p key={index}>{parseHtmlText(paragraph, index)}</p>
+                ))}
+              </div>
+            )}
+
+            {/* Links */}
+            {links.length > 0 && (
+              <div className={styles.headerLinks}>
+                {links.map((link) => (
+                  <Button
+                    key={link.url}
+                    label={link.label}
+                    icon="external"
+                    iconPosition="right"
+                    href={link.url}
+                    target="_blank"
+                    rel="noreferrer"
+                    variant="tertiary"
+                    size="small"
+                  />
+                ))}
+              </div>
+            )}
           </header>
 
-          {isWorkExperience && data.description && <p className={styles.shortDescription}>{data.description}</p>}
-
-          {heroImage && <MagneticImage className={styles.heroMedia} src={heroImage} alt="" />}
-
-          {hasOverview && (
-            <section className={styles.overview}>
-              <div className={styles.overviewInner}>
-                <div className={styles.context}>
-                  {contextParagraphs.map((paragraph, index) => (
-                    <p key={index}>{paragraph}</p>
-                  ))}
-                </div>
-                {links.length > 0 && (
-                  <div className={styles.links}>
-                    {links.map((link) => (
-                      <Link
-                        key={link.url}
-                        label={link.label}
-                        icon={<ExternalLinkIcon />}
-                        href={link.url}
-                        target="_blank"
-                        rel="noreferrer"
-                      />
-                    ))}
-                  </div>
-                )}
-              </div>
-            </section>
-          )}
-
-          {galleryImages.length > 0 && (
-            <Container className={styles.gridContainer}>
-              {!imagesPreloaded && <LoadAnimation />}
-              <CardGrid
-                ref={imageGridRef}
-                className={styles.imageGrid}
+          {/* SECTIONS */}
+          {sections.length > 0 && (
+            <div className={styles.sectionsContainer}>
+              <motion.div
+                className={styles.sections}
                 style={{ opacity: imagesPreloaded ? 1 : 0, transition: 'opacity 400ms ease' }}
+                variants={sectionsContainerVariants}
+                initial="hidden"
+                animate={imagesPreloaded ? 'show' : 'hidden'}
               >
-                {(() => {
-                  const isSingleInGrid = galleryImages.length === 1;
-                  return galleryImages.map((image, index) => {
-                    const wideClass = isSingleInGrid || index % 3 === 2 ? styles.imageWide : '';
-                    return (
-                      <div key={`${image}-${index}`} className={`${wideClass}`.trim()}>
-                        <div className={styles.imageItem}>
-                          <Media src={image} alt="" className={styles.imageItem} />
+                {sections.map((section, sectionIndex) => {
+                  // First section never has subtitle/description
+                  const isFirstSection = sectionIndex === 0;
+                  const hasSubheader = !isFirstSection && (section.title || section.description);
+
+                  return (
+                    <motion.section key={sectionIndex} className={styles.section} variants={sectionVariants}>
+                      {hasSubheader && (
+                        <div className={styles.sectionSubheader}>
+                          {section.title && <h3 className={styles.sectionTitle}>{section.title}</h3>}
+                          {section.description && (
+                            <div className={styles.sectionDescription}>
+                              {Array.isArray(section.description) ? (
+                                section.description.map((paragraph, idx) => (
+                                  <p key={idx}>{parseHtmlText(paragraph, idx)}</p>
+                                ))
+                              ) : (
+                                <p>{parseHtmlText(section.description)}</p>
+                              )}
+                            </div>
+                          )}
                         </div>
-                      </div>
-                    );
-                  });
-                })()}
-              </CardGrid>
-            </Container>
-          )}
-
-          {data.support && data.support.length > 0 && (
-            <div className={styles.supportRow}>
-              <p className={styles.supportLabel}>support</p>
-              {data.support.map((s) => (
-                <p key={s} className={`${styles.supportLabel} ${styles.supportValue}`}>
-                  {s}
-                </p>
-              ))}
+                      )}
+                      {section.images && section.images.length > 0 && (
+                        <motion.div
+                          className={styles.sectionImages}
+                          variants={sectionsContainerVariants}
+                          initial="hidden"
+                          animate="show"
+                        >
+                          {section.images.map((image, imageIndex) => (
+                            <MagneticImageWrapper
+                              key={`${sectionIndex}-${imageIndex}`}
+                              src={image}
+                              className={styles.imageItem}
+                              sectionIndex={sectionIndex}
+                              imageIndex={imageIndex}
+                            />
+                          ))}
+                        </motion.div>
+                      )}
+                    </motion.section>
+                  );
+                })}
+              </motion.div>
             </div>
-          )}
-
-          {(prevItem || nextItem) && (
-            <nav className={styles.navigationSection}>
-              {prevItem && (
-                <button ref={setPrevMag} onClick={handlePrevious} className={styles.navItem}>
-                  <ArrowPreviousIcon className={styles.navArrow} />
-                  <p className={styles.navTitle}>{prevItem.company || prevItem.title}</p>
-                </button>
-              )}
-              {nextItem && (
-                <button ref={setNextMag} onClick={handleNext} className={`${styles.navItem} ${styles.navItemRight}`}>
-                  <p className={styles.navTitle}>{nextItem.company || nextItem.title}</p>
-                  <ArrowNextIcon className={styles.navArrow} />
-                </button>
-              )}
-            </nav>
           )}
         </article>
       </Reveal>
+
+      {/* Footer with navigation */}
+      {(prevItem || nextItem) && (
+        <footer ref={footerRef} className={styles.detailFooter}>
+          <nav className={`${styles.navigationSection} ${isNavDocked ? styles.navigationDocked : ''}`}>
+            {prevItem && (
+              <button ref={setPrevMag} onClick={handlePrevious} className={styles.navItem}>
+                <ArrowPreviousIcon className={styles.navArrow} />
+                <p className={styles.navTitle}>{prevItem.company || prevItem.title}</p>
+              </button>
+            )}
+            {nextItem && (
+              <button ref={setNextMag} onClick={handleNext} className={`${styles.navItem} ${styles.navItemRight}`}>
+                <p className={styles.navTitle}>{nextItem.company || nextItem.title}</p>
+                <ArrowNextIcon className={styles.navArrow} />
+              </button>
+            )}
+          </nav>
+        </footer>
+      )}
+
       <Button
         ref={setBackMag}
         label="Go Back"
-        icon={<GoBackIcon />}
+        icon="back"
+        iconPosition="left"
         onClick={handleClose}
         className={styles.goBackButton}
+        variant="secondary"
+        size="big"
       />
     </div>
   );

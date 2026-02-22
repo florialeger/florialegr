@@ -1,7 +1,8 @@
-import { useCallback, useEffect } from 'react';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
 import PropTypes from 'prop-types';
-import useMagneticEffect from '@/hooks/useMagneticEffect';
+import NdaBadge from '@/components/ui/NdaBadge';
 import styles from './WorkCard.module.css';
 
 const formatDate = (dateString) => {
@@ -12,46 +13,81 @@ const formatDate = (dateString) => {
   return `${month} ${year}`;
 };
 
+const formatDateRange = (startDate, endDate) => {
+  const start = formatDate(startDate);
+  const end = formatDate(endDate);
+
+  // If both dates are the same, show only once
+  if (start === end) {
+    return start;
+  }
+
+  return `${start} - ${end}`;
+};
+
 const WorkCard = ({ work, isDimmed, onMouseEnter, onMouseLeave, targetState }) => {
-  const setMagneticNode = useMagneticEffect({ maxDistance: 4, scale: 1.01 });
+  const [isHovered, setIsHovered] = useState(false);
 
-  const assignRef = useCallback(
-    (node) => {
-      setMagneticNode(node);
-    },
-    [setMagneticNode]
-  );
-
-  useEffect(
-    () => () => {
-      setMagneticNode(null);
-    },
-    [setMagneticNode]
-  );
-
-  const dateRange = `${formatDate(work.startDate)} - ${formatDate(work.endDate)}`;
+  const dateRange = formatDateRange(work.startDate, work.endDate);
   const isLocked = work.iconFilename === 'locked-icone.png';
-  const iconPath = work.icon; // Already resolved in context
+  const iconPath = work.icon;
+  const hasCompanyUrl = work.companyUrl !== null && work.companyUrl !== undefined;
+
+  const handleMouseEnter = (e) => {
+    setIsHovered(true);
+    if (onMouseEnter) onMouseEnter(e);
+  };
+
+  const handleMouseLeave = (e) => {
+    setIsHovered(false);
+    if (onMouseLeave) onMouseLeave(e);
+  };
 
   return (
     <Link
       to={`/work/${work.slug}`}
       state={targetState}
-      ref={assignRef}
-      className={styles.workCard}
+      className={styles.workCardLink}
       data-dimmed={isDimmed || undefined}
-      onMouseEnter={onMouseEnter}
-      onMouseLeave={onMouseLeave}
+      data-hovered={isHovered || undefined}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
     >
-      <div className={styles.workHeader}>
-        <div className={styles.companyWrapper}>
-          <h3 className={styles.company}>{work.company}</h3>
-          {isLocked && iconPath && <img src={iconPath} alt="Locked" className={styles.lockIcon} />}
+      <motion.div
+        className={styles.workCard}
+        animate={{
+          paddingLeft: isHovered ? 'var(--stack-gap-sm)' : 0,
+          paddingRight: isHovered ? 'var(--stack-gap-sm)' : 0,
+        }}
+        transition={{
+          duration: 0.3,
+          ease: [0.33, 0.14, 0.27, 1],
+        }}
+      >
+        <div className={styles.workHeader}>
+          <div className={styles.companyWrapper}>
+            {hasCompanyUrl ? (
+              <a
+                href={work.companyUrl}
+                target="_blank"
+                rel="noreferrer"
+                className={styles.companyLink}
+                onClick={(e) => e.stopPropagation()}
+              >
+                <h3 className={styles.company}>{work.company}</h3>
+              </a>
+            ) : (
+              <h3 className={styles.company}>{work.company}</h3>
+            )}
+            {isLocked && iconPath && <NdaBadge iconSrc={iconPath} isExpanded={isHovered} />}
+          </div>
+          <p className={styles.date}>{dateRange}</p>
         </div>
-        <p className={styles.date}>{dateRange}</p>
-      </div>
-      <p className={styles.description}>{work.description}</p>
-      <p className={styles.role}>{work.role}</p>
+
+        <p className={styles.description}>{work.description}</p>
+
+        <p className={styles.role}>{work.role}</p>
+      </motion.div>
     </Link>
   );
 };
@@ -66,6 +102,7 @@ WorkCard.propTypes = {
     icon: PropTypes.string,
     iconFilename: PropTypes.string,
     slug: PropTypes.string.isRequired,
+    companyUrl: PropTypes.string,
   }).isRequired,
   isDimmed: PropTypes.bool,
   onMouseEnter: PropTypes.func,

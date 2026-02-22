@@ -1,0 +1,26 @@
+.textLink {
+  color: var(--label---primary);
+  text-decoration: none;
+  background-image: linear-gradient(to right, currentColor 0%, currentColor 50%, transparent 50%, transparent 100%);
+  background-size: 4px 1.5px;
+  background-position: 0 calc(100% - 2px);
+  background-repeat: repeat-x;
+  padding-bottom: 2px;
+  transition:
+    color 200ms ease,
+    background-position 200ms ease;
+  position: relative;
+  display: inline;
+  cursor: pointer;
+}
+
+.textLink:hover,
+.textLink:focus-visible {
+  color: var(--label---tertiary);
+}
+
+.textLink:focus-visible {
+  outline: 2px solid var(--label---primary);
+  outline-offset: 4px;
+  border-radius: 2px;
+}

@@ -1,24 +1,23 @@
 import { memo, useCallback, useEffect, useRef, useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import RevealAnimation from '@/components/utility/RevealAnimation';
 import Container from '@/components/ui/Container';
-import heroImageOne from '@/assets/images/home-1.png';
-import heroImageTwo from '@/assets/images/home-2.png';
-import heroImageThree from '@/assets/images/home-3.png';
-import heroImageFour from '@/assets/images/home-4.png';
+import TextMorph from '@/components/utility/TextMorph';
+import homeUx1 from '@/assets/images/home-ux-1.png';
+import homeUx2 from '@/assets/images/home-ux-2.png';
+import homeUx3 from '@/assets/images/home-ux-3.png';
+import homeIllu1 from '@/assets/images/home-illu-1.png';
+import homeIllu2 from '@/assets/images/home-illu-2.png';
+import homeIllu3 from '@/assets/images/home-illu-3.png';
 import styles from './HeroSection.module.css';
-
-const heroImages = [
-  { id: 'ux-primary', src: heroImageOne, type: 'ux', className: styles.heroImagePrimary },
-  { id: 'illustration-primary', src: heroImageTwo, type: 'illustration', className: styles.heroImageSecondary },
-  { id: 'ux-secondary', src: heroImageThree, type: 'ux', className: styles.heroImageTertiary },
-  { id: 'illustration-secondary', src: heroImageFour, type: 'illustration', className: styles.heroImageQuaternary },
-];
+import Button from '@/components/ui/Button';
 
 const HeroSection = () => {
   const [hoveredType, setHoveredType] = useState(null);
-  const [activeIndex, setActiveIndex] = useState(null);
+  const [emailCopied, setEmailCopied] = useState(false);
   const visualRef = useRef(null);
   const animationFrameRef = useRef(null);
+  const hoverTimeoutRef = useRef(null);
 
   const applyPointer = useCallback((x, y) => {
     if (!visualRef.current) return;
@@ -57,19 +56,39 @@ const HeroSection = () => {
     []
   );
 
-  const handleImageEnter = useCallback((index, type) => {
-    setHoveredType(type);
-    setActiveIndex(index);
+  const handleEmailCopy = useCallback(async () => {
+    const email = 'floria.leger@ensc.fr';
+    try {
+      await navigator.clipboard.writeText(email);
+      setEmailCopied(true);
+      setTimeout(() => setEmailCopied(false), 2000);
+    } catch (err) {
+      console.error('Failed to copy email:', err);
+    }
   }, []);
 
-  const handleImageLeave = useCallback(() => {
-    setHoveredType(null);
-    setActiveIndex(null);
+  const handleHoverEnter = useCallback((type) => {
+    if (hoverTimeoutRef.current) {
+      clearTimeout(hoverTimeoutRef.current);
+      hoverTimeoutRef.current = null;
+    }
+    setHoveredType(type);
+  }, []);
+
+  const handleHoverLeave = useCallback(() => {
+    if (hoverTimeoutRef.current) {
+      clearTimeout(hoverTimeoutRef.current);
+    }
+    hoverTimeoutRef.current = setTimeout(() => {
+      setHoveredType(null);
+      hoverTimeoutRef.current = null;
+    }, 300);
   }, []);
 
   useEffect(
     () => () => {
       if (animationFrameRef.current) cancelAnimationFrame(animationFrameRef.current);
+      if (hoverTimeoutRef.current) clearTimeout(hoverTimeoutRef.current);
     },
     []
   );
@@ -78,37 +97,131 @@ const HeroSection = () => {
     <section className={styles.hero} aria-labelledby="hero-title" data-hovered={hoveredType || 'none'}>
       <Container className={styles.heroContainer}>
         <RevealAnimation cascade damping={0.12} delay={0} triggerOnce>
+          <h1 id="hero-title" className={styles.heroTitle}>
+            <span
+              className={styles.heroTitleUpper}
+              onPointerEnter={() => handleHoverEnter('ux')}
+              onPointerLeave={handleHoverLeave}
+            >
+              UX/UI Designer
+            </span>
+            <span className={styles.heroTitleAmpersand} aria-hidden="true">
+              &
+            </span>
+            <span
+              className={styles.heroTitleLower}
+              onPointerEnter={() => handleHoverEnter('illustration')}
+              onPointerLeave={handleHoverLeave}
+            >
+              Digital Illustrator
+            </span>
+          </h1>
           <div
             className={styles.heroVisual}
             ref={visualRef}
             aria-hidden="true"
             onPointerMove={handlePointerMove}
-            onPointerLeave={() => {
-              handleImageLeave();
-              resetPointer();
-            }}
+            onPointerLeave={resetPointer}
           >
-            {heroImages.map(({ id, src, type, className }, index) => (
-              <div
-                key={id}
-                className={`${styles.heroImageWrapper} ${className}`.trim()}
-                data-type={type}
-                data-active={activeIndex === index}
-                onPointerEnter={() => handleImageEnter(index, type)}
-                onPointerLeave={handleImageLeave}
-              >
-                <img src={src} alt="" loading="lazy" className={styles.heroImageMedia} />
-              </div>
-            ))}
+            <AnimatePresence mode="wait">
+              {!hoveredType && (
+                <>
+                  <motion.div
+                    key="ux-default"
+                    className={`${styles.heroImageWrapper} ${styles.heroImageLeft}`}
+                    initial={{ opacity: 0, scale: 0.8, y: 20 }}
+                    animate={{ opacity: 1, scale: 1, y: 0 }}
+                    exit={{ opacity: 0, scale: 0.7, y: -10 }}
+                    transition={{ duration: 0.25, ease: 'easeOut' }}
+                  >
+                    <img src={homeUx1} alt="" loading="lazy" className={styles.heroImageMedia} />
+                  </motion.div>
+                  <motion.div
+                    key="illu-default"
+                    className={`${styles.heroImageWrapper} ${styles.heroImageRight}`}
+                    initial={{ opacity: 0, scale: 0.8, y: 20 }}
+                    animate={{ opacity: 1, scale: 1, y: 0 }}
+                    exit={{ opacity: 0, scale: 0.7, y: -10 }}
+                    transition={{ duration: 0.25, ease: 'easeOut' }}
+                  >
+                    <img src={homeIllu1} alt="" loading="lazy" className={styles.heroImageMedia} />
+                  </motion.div>
+                </>
+              )}
+              {hoveredType === 'ux' && (
+                <>
+                  <motion.div
+                    key="ux-2"
+                    className={`${styles.heroImageWrapper} ${styles.heroImageLeft}`}
+                    initial={{ opacity: 0, scale: 0.8, y: 20 }}
+                    animate={{ opacity: 1, scale: 1, y: 0 }}
+                    exit={{ opacity: 0, scale: 0.7, y: -10 }}
+                    transition={{ duration: 0.25, ease: 'easeOut' }}
+                  >
+                    <img src={homeUx2} alt="" loading="lazy" className={styles.heroImageMedia} />
+                  </motion.div>
+                  <motion.div
+                    key="ux-3"
+                    className={`${styles.heroImageWrapper} ${styles.heroImageRight}`}
+                    initial={{ opacity: 0, scale: 0.8, y: 20 }}
+                    animate={{ opacity: 1, scale: 1, y: 0 }}
+                    exit={{ opacity: 0, scale: 0.7, y: -10 }}
+                    transition={{ duration: 0.25, ease: 'easeOut' }}
+                  >
+                    <img src={homeUx3} alt="" loading="lazy" className={styles.heroImageMedia} />
+                  </motion.div>
+                </>
+              )}
+              {hoveredType === 'illustration' && (
+                <>
+                  <motion.div
+                    key="illu-2"
+                    className={`${styles.heroImageWrapper} ${styles.heroImageLeft}`}
+                    initial={{ opacity: 0, scale: 0.8, y: 20 }}
+                    animate={{ opacity: 1, scale: 1, y: 0 }}
+                    exit={{ opacity: 0, scale: 0.7, y: -10 }}
+                    transition={{ duration: 0.25, ease: 'easeOut' }}
+                  >
+                    <img src={homeIllu2} alt="" loading="lazy" className={styles.heroImageMedia} />
+                  </motion.div>
+                  <motion.div
+                    key="illu-3"
+                    className={`${styles.heroImageWrapper} ${styles.heroImageRight}`}
+                    initial={{ opacity: 0, scale: 0.8, y: 20 }}
+                    animate={{ opacity: 1, scale: 1, y: 0 }}
+                    exit={{ opacity: 0, scale: 0.7, y: -10 }}
+                    transition={{ duration: 0.25, ease: 'easeOut' }}
+                  >
+                    <img src={homeIllu3} alt="" loading="lazy" className={styles.heroImageMedia} />
+                  </motion.div>
+                </>
+              )}
+            </AnimatePresence>
           </div>
-
-          <h1 id="hero-title" className={styles.heroTitle}>
-            <span className={styles.heroTitleUpper}>UX/UI Designer</span>
-            <span className={styles.heroTitleAmpersand} aria-hidden="true">
-              &
-            </span>
-            <span className={styles.heroTitleLower}>Digital Illustrator</span>
-          </h1>
+          <h3 className={styles.heroSubtitle}>
+            Merging human psychology and UI to craft data-driven experiences, leveraging 3+ years of UX design and a
+            deep expertise in illustration.
+          </h3>
+          <div className={styles.buttonWrapper}>
+            <Button
+              variant="secondary"
+              size="small"
+              icon="send"
+              label={<TextMorph>{emailCopied ? 'Email copied!' : 'send email'}</TextMorph>}
+              onClick={(e) => {
+                e.preventDefault();
+                setHoveredType(null);
+                handleEmailCopy();
+              }}
+            />
+            <Button
+              variant="primary"
+              icon="next"
+              label="see my work"
+              to="/work"
+              onClick={() => setHoveredType(null)}
+            />
+          </div>
         </RevealAnimation>
       </Container>
     </section>

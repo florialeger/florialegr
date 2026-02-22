@@ -3,20 +3,12 @@
   flex-direction: column;
   gap: var(--layout-page-gap);
   padding: var(--layout-page-padding-top) 0 var(--layout-page-padding-bottom) 0;
-  --work-content-max: 1200px;
-  --work-col-min: 200px;
-  --work-max-columns: 3;
   align-items: center;
-  margin-inline: auto;
-  max-width: min(
-    var(--work-content-max),
-    calc((var(--work-col-min) * var(--work-max-columns)) + (var(--stack-gap-md) * (var(--work-max-columns) - 1)))
-  );
 }
 
 .pageHeader {
   width: 100%;
-  max-width: var(--work-content-max);
+  max-width: var(--container-max-width);
   margin-left: auto;
   margin-right: auto;
 }
@@ -26,8 +18,8 @@
   display: flex;
   flex-direction: column;
   gap: var(--stack-gap-lg);
+  width: var(--copy-block-max-width);
   margin-top: var(--layout-page-padding-top);
-  width: 100%;
   margin-left: auto;
   margin-right: auto;
 }
@@ -35,13 +27,21 @@
 .workContainer {
   margin-top: 0;
 }
+
+.projectsHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--stack-gap-md);
+}
+
 /* Timeline styles for work experience */
 .timeline {
   display: flex;
   flex-direction: column;
   position: relative;
   padding-left: var(--stack-gap-lg);
-  gap: var(--stack-gap-lg);
+  gap: var(--stack-gap-md);
 }
 
 /* Timeline vertical line */
@@ -93,17 +93,17 @@
 .yearList {
   display: flex;
   flex-direction: column;
-  gap: var(--stack-gap-xl);
+  gap: var(--stack-gap-lg);
 }
 
 .yearList > *:not(:first-child) {
-  margin-top: var(--stack-gap-lg);
+  margin-top: var(--stack-gap-sm);
 }
 
 .yearSection {
   display: flex;
   flex-direction: column;
-  gap: var(--stack-gap-md);
+  gap: calc(var(--stack-gap-md) * 1.2);
 }
 
 .yearHeading {
@@ -114,19 +114,24 @@
 
 .projectGrid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: var(--stack-gap-md);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(2rem, 2vw, 2.5rem); /* 48px gap */
+  width: 100%;
+  grid-auto-rows: 1fr;
 }
 
-@media (max-width: 900px) {
-  .projectGrid {
-    grid-template-columns: repeat(2, 1fr);
+.projectList {
+  display: flex;
+  flex-direction: column;
+}
+
+@media (max-width: 780px) {
+  .projectsHeader {
+    flex-direction: column;
+    align-items: flex-start;
   }
-}
-
-@media (max-width: 600px) {
   .projectGrid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(1, minmax(0, 1fr));
   }
 }
 

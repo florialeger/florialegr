@@ -1,5 +1,5 @@
 .hero {
-  height: calc(100vh - var(--nav-height) * 2);
+  height: calc(100vh - var(--nav-height) * 2 - var(--layout-page-padding-top) * 2);
 }
 
 .heroContainer {
@@ -12,17 +12,19 @@
 }
 
 .heroVisual {
-  position: relative;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  width: min(36rem, 90vw);
+  width: 100%;
   min-height: clamp(10rem, 12vw, 16rem);
-  margin-inline: auto;
   --pointer-x: 0;
   --pointer-y: 0;
-  --stack-gap: clamp(7.5rem, 8.5vw, 12rem);
+  pointer-events: none;
 }
 
 .heroImageWrapper {
@@ -30,94 +32,49 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: clamp(8.5rem, 11vw, 10rem);
+  width: clamp(7rem, 8.5vw, 8rem);
   aspect-ratio: 1;
   transform: translate3d(
-      calc(var(--base-x, 0rem) + var(--pointer-x) * var(--pointer-strength, 0.45rem)),
-      calc(var(--base-y, 0rem) + var(--pointer-y) * var(--pointer-strength, 0.35rem)),
+      calc(var(--base-x, 0rem) + var(--pointer-x) * var(--pointer-strength, 0.3rem)),
+      calc(var(--base-y, 0rem) + var(--pointer-y) * var(--pointer-strength, 0.25rem)),
       0
     )
     rotate(var(--base-rotate, 0deg));
-  transition:
-    transform 220ms ease,
-    filter 180ms ease,
-    opacity 180ms ease,
-    box-shadow 220ms ease;
   will-change: transform;
   isolation: isolate;
+  pointer-events: auto;
 }
 
 .heroImageMedia {
   width: 100%;
   height: 100%;
-  border-radius: var(--radius-xs);
+  border-radius: var(--radius-md);
   box-shadow: var(--shadows--small);
+  border: clamp(0.4rem, 0.8vw, 0.5rem) solid var(--background---primary);
   backdrop-filter: blur(4px);
-
   object-fit: cover;
-  transition:
-    transform 220ms ease,
-    filter 200ms ease,
-    opacity 200ms ease;
   pointer-events: none;
 }
 
-.heroImageWrapper[data-active='true'] {
-  z-index: 10;
-}
+.heroImageLeft {
+  left: -280px;
+  top: -86%;
+  rotate: -5deg;
 
-.heroImageWrapper[data-active='true'] .heroImageMedia {
-  transform: scale(1.1);
-  box-shadow: var(--shadows--normal);
-}
-
-/* Bring all matching type images to the front when hovered */
-.hero[data-hovered='illustration'] .heroImageWrapper[data-type='illustration'] {
-  z-index: 5;
-}
-
-.hero[data-hovered='ux'] .heroImageWrapper[data-type='ux'] {
-  z-index: 5;
-}
-
-/* Push non-matching type images to the back and dim them */
-.hero[data-hovered='ux'] .heroImageWrapper[data-type='illustration'],
-.hero[data-hovered='illustration'] .heroImageWrapper[data-type='ux'] {
-  z-index: 1;
-}
-
-.hero[data-hovered='ux'] [data-type='illustration'] .heroImageMedia,
-.hero[data-hovered='illustration'] [data-type='ux'] .heroImageMedia {
-  filter: grayscale(1) saturate(0.2);
-  opacity: 0.5;
-}
-
-.heroImagePrimary {
-  --base-x: calc(-1.55 * var(--stack-gap));
-  --base-y: -0.75rem;
-  --base-rotate: -6deg;
-  --pointer-strength: 0.45rem;
-}
-
-.heroImageSecondary {
-  --base-x: calc(-0.45 * var(--stack-gap));
-  --base-y: 1.1rem;
-  --base-rotate: 6deg;
-  --pointer-strength: 0.5rem;
-}
-
-.heroImageTertiary {
-  --base-x: calc(0.45 * var(--stack-gap));
-  --base-y: -0.6rem;
-  --base-rotate: -4deg;
-  --pointer-strength: 0.55rem;
-}
-
-.heroImageQuaternary {
-  --base-x: calc(1.55 * var(--stack-gap));
-  --base-y: 1.35rem;
+  --base-x: -50%;
+  --base-y: -50%;
   --base-rotate: 5deg;
-  --pointer-strength: 0.4rem;
+  --pointer-strength: 0.35rem;
+}
+
+.heroImageRight {
+  right: -280px;
+  top: -90%;
+  rotate: 9deg;
+  --base-x: -50%;
+  --base-y: -50%;
+  --base-rotate: -9deg;
+  --pointer-strength: 0.35rem;
 }
 
 .heroTitle {
@@ -140,78 +97,67 @@
   line-height: 0.92;
 }
 
+.heroTitleUpper,
+.heroTitleLower {
+  cursor: pointer;
+}
+
 .hero[data-hovered='illustration'] .heroTitleUpper,
 .hero[data-hovered='illustration'] .heroTitleAmpersand {
   opacity: 0.25;
   transform: translateY(0.1rem);
 }
 
-.hero[data-hovered='ux'] .heroTitleLower {
+.hero[data-hovered='ux'] .heroTitleLower,
+.hero[data-hovered='ux'] .heroTitleAmpersand {
   opacity: 0.25;
   transform: translateY(0.1rem);
 }
 
-@media (max-width: 960px) {
-  .heroVisual {
-    width: min(30rem, 100%);
-    --stack-gap: clamp(7rem, 8vw, 11rem);
+.heroSubtitle {
+  max-width: 44ch;
+  text-align: center;
+  color: var(--label---secondary);
+  font-size: var(--type---body---size);
+}
+
+.heroSubtitle:hover {
+  font-weight: var(--type---title-3---weight-regular);
+}
+
+.buttonWrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--stack-gap-md);
+}
+
+@media (min-width: 981px) {
+  .heroSubtitle {
+    margin-top: calc(var(--stack-gap-lg) * -1);
   }
 }
 
-@media (max-width: 680px) {
-  .heroContainer {
-    gap: var(--stack-gap-sm);
-  }
-
+@media (max-width: 980px) {
   .heroVisual {
-    min-height: clamp(16rem, 16vw, 16rem);
-    --stack-gap: clamp(4.5rem, 10vw, 12rem);
+    position: relative;
+    top: unset;
+    left: unset;
+    transform: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: auto;
+    min-height: auto;
+    pointer-events: auto;
   }
 
   .heroImageWrapper {
-    width: clamp(8rem, 11vw, 12rem);
-    margin: 0;
-  }
-
-  .heroImagePrimary {
-    --base-x: calc(-1 * var(--stack-gap));
-    --base-y: -6rem;
-    --base-rotate: -3deg;
-    --pointer-strength: 0.45rem;
-  }
-
-  .heroImageSecondary {
-    --base-x: calc(1 * var(--stack-gap));
-    --base-y: -6rem;
-    --base-rotate: 5deg;
-    --pointer-strength: 0.55rem;
-  }
-
-  .heroImageTertiary {
-    --base-x: calc(1 * var(--stack-gap));
-    --base-y: 3rem;
-    --base-rotate: 5deg;
-    --pointer-strength: 0.4rem;
-  }
-
-  .heroImageQuaternary {
-    --base-x: calc(-1 * var(--stack-gap));
-    --base-y: 3rem;
-    --base-rotate: 4deg;
-    --pointer-strength: 0.5rem;
-  }
-
-  .heroImageWrapper + .heroImageWrapper {
-    margin-top: -0.5rem;
-  }
-
-  .heroImageWrapper[data-active='true'] .heroImageMedia {
-    transform: scale(1.03);
-  }
-}
-
-@media (hover: none) {
-  .heroImageWrapper {
-    transform: translate3d(var(--base-x, 0rem), var(--base-y, 0rem), 0) rotate(var(--base-rotate, 0deg));
+    position: relative;
+    left: unset;
+    right: unset;
+    top: unset;
+    transform: none;
   }
 }

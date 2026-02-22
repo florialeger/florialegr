@@ -1,11 +1,18 @@
 .cardGrid {
   display: grid;
-  --card-size: 180px;
-  grid-template-columns: repeat(auto-fit, minmax(var(--card-size), 1fr));
+  grid-template-columns: repeat(2, 1fr);
+  gap: clamp(2.67rem, 4vw, 3rem); /* 48px gap */
   position: relative;
   width: 100%;
 }
 
 .cardGrid > * {
   align-self: start;
+}
+
+@media (max-width: 768px) {
+  .cardGrid {
+    grid-template-columns: 1fr;
+    gap: clamp(2rem, 3vw, 2.5rem);
+  }
 }

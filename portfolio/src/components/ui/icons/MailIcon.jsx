@@ -1,10 +1,7 @@
 import PropTypes from 'prop-types';
 import styles from './IconBase.module.css';
 
-// Replace the path data below with the precise SVG path from the design file when available.
-const MAIL_ENVELOPE_PATH =
-  'M22.6642 4.58579C22.0784 4 21.1356 4 19.25 4H5.25C3.36438 4 2.42157 4 1.83579 4.58579M22.6642 4.58579C23.25 5.17157 23.25 6.11438 23.25 8V16C23.25 17.8856 23.25 18.8284 22.6642 19.4142C22.0784 20 21.1356 20 19.25 20H5.25C3.36438 20 2.42157 20 1.83579 19.4142C1.25 18.8284 1.25 17.8856 1.25 16V8C1.25 6.11438 1.25 5.17157 1.83579 4.58579M22.6642 4.58579L19.5323 7.32962L15.0873 11.4011C14.3262 12.0983 13.9457 12.4468 13.5409 12.6398C12.7243 13.029 11.7757 13.029 10.9592 12.6398C10.5543 12.4468 10.1738 12.0983 9.41274 11.4011L4.96775 7.32962L1.83579 4.58579';
-const MailIcon = ({ className = '', size = 16, title }) => {
+const MailIcon = ({ className = '', size = 20, title }) => {
   const combinedClassName = `${styles.icon} ${styles.primary} ${className}`.trim();
   const ariaProps = title ? { role: 'img', 'aria-label': title } : { 'aria-hidden': true };
 
@@ -13,21 +10,17 @@ const MailIcon = ({ className = '', size = 16, title }) => {
       className={combinedClassName}
       width={size}
       height={size}
-      viewBox="0 0 25 24"
+      viewBox="0 0 20 20"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      stroke="currentColor"
-      strokeWidth="1.8"
-      strokeLinecap="round"
-      strokeLinejoin="round"
       {...ariaProps}
     >
       {title ? <title>{title}</title> : null}
       <path
-        d={MAIL_ENVELOPE_PATH}
-        fill="var(--fills---non--opaque)"
-        stroke="var(--label---secondary)"
-        strokeWidth="2.5"
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M17.2816 3.26171C18.1965 3.01105 18.6544 2.88612 18.888 3.13671C19.1211 3.38736 18.9646 3.83499 18.6507 4.72948L14.6224 16.209C14.3599 16.957 14.2285 17.3324 13.9281 17.4043C13.6274 17.4758 13.3409 17.2005 12.7689 16.6514L10.0882 14.0781L9.27571 14.8174C8.46238 15.5568 8.05534 15.9265 7.71809 15.7773C7.38083 15.6281 7.38118 15.0779 7.38118 13.9785V12.0859L12.6243 8.10741C13.8245 7.19675 14.4251 6.74175 14.3216 6.56737C14.2173 6.39319 13.5325 6.70702 12.1624 7.33495L5.26301 10.4961L2.72981 9.3203C1.55549 8.77508 0.96859 8.50167 1.0013 8.10741C1.03457 7.71317 1.65898 7.54226 2.90755 7.20018L17.2816 3.26171Z"
+        fill="currentColor"
       />
     </svg>
   );

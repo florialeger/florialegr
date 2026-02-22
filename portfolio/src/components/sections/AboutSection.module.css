@@ -1,12 +1,13 @@
 .buttonColumn {
   display: flex;
-  flex-direction: column;
-  gap: calc(var(--stack-gap-md) * 0.8);
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: var(--stack-gap-sm);
 }
 
 .portrait {
   margin: 0;
-  width: 56px;
+  width: 54px;
   display: grid;
   place-items: center;
 }
@@ -21,18 +22,17 @@
 .header {
   display: flex;
   flex-direction: row;
-  gap: var(--stack-gap-sm);
+  gap: var(--stack-gap-md);
   padding: var(--stack-gap-sm) 0;
   cursor: pointer;
 }
 
 .pseudo {
   display: flex;
-  gap: 0.2rem;
+  gap: 0.4rem;
   align-items: center;
 }
 .pseudo p {
-  font-family: var(--type---body---accent);
   font-weight: var(--body-emphasized-weight);
   letter-spacing: var(--body-emphasized-letter-spacing);
   font-size: var(--type---title-3---size);

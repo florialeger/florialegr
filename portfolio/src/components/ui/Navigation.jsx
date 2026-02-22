@@ -18,7 +18,7 @@ const navItems = [
 ];
 
 /* Subcomponent: BackgroundSlider */
-const BackgroundSlider = memo(({ activeIndex, hoveredIndex, linkRefs, containerRef, hideHome, isMobile }) => {
+const BackgroundSlider = memo(({ activeIndex, hoveredIndex, linkRefs, containerRef, isMobile }) => {
   const paddingX = isMobile ? 24 : 0;
   const paddingY = isMobile ? 6 : 0;
 
@@ -61,47 +61,32 @@ const BackgroundSlider = memo(({ activeIndex, hoveredIndex, linkRefs, containerR
     });
   }, [containerRef, linkRefs, paddingX, paddingY]);
 
-  const updateForIndex = useCallback(
-    (index, positions = linkPositions.current) => {
-      if (!Array.isArray(positions) || positions.length === 0) {
-        setAnimateProps((prev) => ({ ...prev, opacity: 0 }));
-        return;
-      }
+  const updateForIndex = useCallback((index, positions = linkPositions.current) => {
+    if (!Array.isArray(positions) || positions.length === 0) {
+      setAnimateProps((prev) => ({ ...prev, opacity: 0 }));
+      return;
+    }
 
-      if (index == null || index < 0) {
-        setAnimateProps((prev) => ({ ...prev, opacity: 0 }));
-        return;
-      }
+    if (index == null || index < 0) {
+      setAnimateProps((prev) => ({ ...prev, opacity: 0 }));
+      return;
+    }
 
-      const position = positions[index];
-      const shouldHide = hideHome && index === 0;
+    const position = positions[index];
 
-      if (position) {
-        if (shouldHide) {
-          setAnimateProps({
-            x: position.x,
-            y: position.y,
-            width: 0,
-            height: 0,
-            opacity: 0,
-            filter: 'blur(5px)',
-          });
-        } else {
-          setAnimateProps({
-            x: position.x,
-            y: position.y,
-            width: Math.max(position.width, 1),
-            height: Math.max(position.height, 1),
-            opacity: 1,
-            filter: 'blur(0px)',
-          });
-        }
-      } else {
-        setAnimateProps((prev) => ({ ...prev, opacity: 0 }));
-      }
-    },
-    [hideHome]
-  );
+    if (position) {
+      setAnimateProps({
+        x: position.x,
+        y: position.y,
+        width: Math.max(position.width, 1),
+        height: Math.max(position.height, 1),
+        opacity: 1,
+        filter: 'blur(0px)',
+      });
+    } else {
+      setAnimateProps((prev) => ({ ...prev, opacity: 0 }));
+    }
+  }, []);
 
   useLayoutEffect(() => {
     const positions = computePositions();
@@ -188,41 +173,25 @@ const NavList = memo(({ navItems, activeIndex, hoveredIndex, setHoveredIndex, cl
         hoveredIndex={hoveredIndex}
         linkRefs={linkRefs}
         containerRef={containerRef}
-        hideHome={!isMobile}
         isMobile={isMobile}
       />
 
       {!isMobile && (
-        <>
-          <ul className={styles.navLeft}>
+        <ul className={styles.navCenter}>
+          {navItems.map((item, index) => (
             <NavLink
-              index={0}
-              path={navItems[0].path}
-              label="Floria Leger"
-              ariaLabel={navItems[0].name}
-              isActive={isActive(0)}
-              isHovered={isHovered(0)}
+              key={item.path}
+              index={index}
+              path={item.path}
+              label={item.name}
+              isActive={isActive(index)}
+              isHovered={isHovered(index)}
               setHoveredIndex={setHoveredIndex}
               closeNav={closeNav}
-              refProp={linkRefs[0]}
+              refProp={linkRefs[index]}
             />
-          </ul>
-          <ul className={styles.navRight}>
-            {navItems.slice(1).map((item, index) => (
-              <NavLink
-                key={item.path}
-                index={index + 1}
-                path={item.path}
-                label={item.name}
-                isActive={isActive(index + 1)}
-                isHovered={isHovered(index + 1)}
-                setHoveredIndex={setHoveredIndex}
-                closeNav={closeNav}
-                refProp={linkRefs[index + 1]}
-              />
-            ))}
-          </ul>
-        </>
+          ))}
+        </ul>
       )}
 
       {isMobile && (

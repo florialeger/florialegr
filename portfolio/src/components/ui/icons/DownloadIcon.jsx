@@ -1,14 +1,32 @@
 import PropTypes from 'prop-types';
-import SvgIcon from './SvgIcon';
-import DownloadSvg from '@/assets/svgs/Download.svg?url';
+import styles from './IconBase.module.css';
 
-const DownloadIcon = ({ className = '', size = 16, title }) => (
-  <SvgIcon src={DownloadSvg} className={className} size={size} title={title} />
-);
+const DownloadIcon = ({ className = '', size = 20, title }) => {
+  const combinedClassName = `${styles.icon} ${styles.primary} ${className}`.trim();
+  const ariaProps = title ? { role: 'img', 'aria-label': title } : { 'aria-hidden': true };
+
+  return (
+    <svg
+      className={combinedClassName}
+      width={size}
+      height={size}
+      viewBox="0 0 20 20"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...ariaProps}
+    >
+      {title ? <title>{title}</title> : null}
+      <path
+        d="M17.5 11.4004C18.1075 11.4004 18.5996 11.8925 18.5996 12.5V15.833C18.5996 16.5668 18.3089 17.2712 17.79 17.79C17.2712 18.3089 16.5668 18.5996 15.833 18.5996H4.16699C3.43323 18.5996 2.72881 18.3089 2.20996 17.79C1.69111 17.2712 1.40039 16.5668 1.40039 15.833V12.5C1.40039 11.8925 1.89249 11.4004 2.5 11.4004C3.10751 11.4004 3.59961 11.8925 3.59961 12.5V15.833C3.59961 15.9833 3.65935 16.1281 3.76562 16.2344C3.8719 16.3406 4.0167 16.4004 4.16699 16.4004H15.833C15.9833 16.4004 16.1281 16.3406 16.2344 16.2344C16.3406 16.1281 16.4004 15.9833 16.4004 15.833V12.5C16.4004 11.8925 16.8925 11.4004 17.5 11.4004ZM10 1.40039C10.6075 1.40042 11.0996 1.89251 11.0996 2.5V9.84277L13.3887 7.55566C13.8181 7.12623 14.5147 7.12643 14.9443 7.55566C15.3735 7.98515 15.3734 8.68085 14.9443 9.11035L10.7773 13.2773C10.7093 13.3454 10.634 13.4017 10.5547 13.4482C10.5427 13.4552 10.5308 13.4622 10.5186 13.4688C10.5012 13.4781 10.4836 13.4868 10.4658 13.4951C10.4513 13.5019 10.4367 13.5085 10.4219 13.5146C10.1519 13.6268 9.84711 13.627 9.57715 13.5146C9.56231 13.5085 9.5477 13.5019 9.5332 13.4951C9.51544 13.4868 9.49786 13.4781 9.48047 13.4688C9.46849 13.4623 9.45702 13.4551 9.44531 13.4482C9.36586 13.4017 9.28983 13.3455 9.22168 13.2773L5.05566 9.11035C4.62642 8.68075 4.6262 7.98513 5.05566 7.55566C5.48513 7.12623 6.18076 7.12643 6.61035 7.55566L8.90039 9.84473V2.5C8.90039 1.89249 9.39249 1.40039 10 1.40039Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};
 
 DownloadIcon.propTypes = {
   className: PropTypes.string,
-  size: PropTypes.number,
+  size: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   title: PropTypes.string,
 };
 

@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { useLocation } from 'react-router-dom';
+import { motion } from 'framer-motion';
 import useRevealOnView from '@/hooks/useRevealOnView';
 import RevealAnimation from '@/components/utility/RevealAnimation';
 import Container from '@/components/ui/Container';
@@ -15,8 +16,9 @@ const ALL_CATEGORY = 'all';
 
 const formatCategoryLabel = (category) => {
   if (category === ALL_CATEGORY) return 'All';
-  if (category === 'illustration') return 'Illust';
   if (category === 'ux_ui') return 'UIX';
+  if (category === 'illustration') return 'Illust';
+
   return category.replace(/_/g, ' ').replace(/\b\w/g, (char) => char.toUpperCase());
 };
 
@@ -29,6 +31,29 @@ const playgroundParagraphs = [
   "Drawing has always been a part of me, more than a hobby, it just feels right. Eighteen years in, I keep growing at my own pace, always striving for more. I don't post much online, but I create whenever I can. ",
   "Lately, I've been channeling that energy into UX/UI design, another canvas for balance, structure, and emotion. The process, the curiosity, the joy of making, that's what drives me.",
 ];
+
+// Animation variants for staggered list entrance
+const containerVariants = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.08,
+    },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 20 },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.4,
+      ease: [0.22, 1, 0.36, 1],
+    },
+  },
+};
 
 const Playground = () => {
   const location = useLocation();
@@ -182,19 +207,26 @@ const Playground = () => {
         {error && !loading && <p className={styles.stateMessage}>Unable to load playgrounds right now.</p>}
         {!loading && !error && (
           <CardGrid ref={gridRef} className={styles.grid} data-hovered={hoveredSlug || 'none'}>
-            <RevealAnimation triggerOnce={false} duration={400}>
+            <motion.div
+              variants={containerVariants}
+              initial="hidden"
+              animate="show"
+              key={selectedCategory}
+              style={{ display: 'contents' }}
+            >
               {filteredPlaygrounds.map((item) => (
-                <ProjectCard
-                  key={item.id || item.slug}
-                  item={item}
-                  variant="playground"
-                  onHoverChange={handleHoverChange}
-                  currentFilter={selectedCategory}
-                  className={`${hoveredSlug && hoveredSlug !== item.slug ? styles.dimmed : ''}`.trim()}
-                  data-created={item.created}
-                />
+                <motion.div key={item.id || item.slug} variants={itemVariants} style={{ display: 'contents' }}>
+                  <ProjectCard
+                    item={item}
+                    variant="playground"
+                    onHoverChange={handleHoverChange}
+                    currentFilter={selectedCategory}
+                    className={`${hoveredSlug && hoveredSlug !== item.slug ? styles.dimmed : ''}`.trim()}
+                    data-created={item.created}
+                  />
+                </motion.div>
               ))}
-            </RevealAnimation>
+            </motion.div>
           </CardGrid>
         )}
       </Container>
@@ -206,31 +238,29 @@ const Playground = () => {
         role="toolbar"
         aria-label="Filtrer les playgrounds"
       >
-        <ul className={styles.filterList}>
-          {categories.map((category) => {
+        <Button
+          type="button"
+          labels={categories.map((category) => {
             const isActive = category === selectedCategory;
             const count = getCategoryCount(playgrounds, category);
-            const label = (
-              <>
-                <span className={isActive ? styles.filterLabel : ''}>{formatCategoryLabel(category)}</span>
+            return (
+              <button
+                key={category}
+                type="button"
+                onClick={() => handleCategoryChange(category)}
+                className={styles.filterLabelButton}
+              >
+                <h4 className={isActive ? styles.filterLabel : ''}>{formatCategoryLabel(category)}</h4>
                 <span className={styles.filterCount}>
                   <sup>{count}</sup>
                 </span>
-              </>
-            );
-            return (
-              <li key={category}>
-                <Button
-                  type="button"
-                  label={label}
-                  onClick={() => handleCategoryChange(category)}
-                  className={`${styles.filterButton} ${isActive ? styles.active : ''}`.trim()}
-                  aria-pressed={isActive}
-                />
-              </li>
+              </button>
             );
           })}
-        </ul>
+          className={styles.filterButton}
+          variant="secondary"
+          size="big"
+        />
       </div>
     </div>
   );

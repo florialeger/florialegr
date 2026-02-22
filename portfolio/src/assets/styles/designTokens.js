@@ -113,7 +113,34 @@ export const palette = {
 export const radii = {
   xs: '0.375rem',
   sm: '0.6rem',
-  md: 'clamp(0.6rem, 1.6vw, 1.1rem)',
+  md: 'clamp(0.6rem, 1.2vw, 0.8rem)',
   lg: 'clamp(0.9rem, 2.5vw, 1.6rem)',
   pill: '999px',
+};
+
+// Spacing scales for consistent layout
+export const spacing = {
+  // Gap values
+  gap4: 'clamp(0.25rem, 0.5vw, 0.25rem)', // 4px
+  gap12: 'clamp(0.67rem, 1vw, 0.75rem)', // 12px
+  gap14: 'clamp(0.78rem, 1.2vw, 0.88rem)', // 14px
+  gap24: 'clamp(1.33rem, 2vw, 1.5rem)', // 24px
+  gap32: 'clamp(1.78rem, 2.7vw, 2rem)', // 32px
+  gap36: 'clamp(2rem, 3vw, 2.25rem)', // 36px
+  gap40: 'clamp(2.22rem, 3.5vw, 2.5rem)', // 40px
+  gap48: 'clamp(2.67rem, 4vw, 3rem)', // 48px
+  gap64: 'clamp(3.56rem, 5.3vw, 4rem)', // 64px
+
+  // Padding values
+  paddingExtraSmallH: 'clamp(0.3rem, 0.5vw, 0.3rem)', // 12px horizontal
+  paddingSmallH: 'clamp(0.67rem, 1vw, 0.75rem)', // 12px horizontal
+  paddingSmallV: 'clamp(0.2rem, 0.5vw, 0.25rem)', // 5px vertical
+  paddingBigH: 'clamp(2rem, 3vw, 2.25rem)', // 36px horizontal
+  paddingBigV: 'clamp(0.89rem, 1.3vw, 1rem)', // 16px vertical
+};
+
+// Border radius values (pixel-based for buttons)
+export const buttonRadii = {
+  small: '999px', // pill
+  big: 'clamp(0.89rem, 1.3vw, 1rem)', // 16px
 };

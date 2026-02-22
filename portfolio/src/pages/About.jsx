@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { motion, useMotionValue, useSpring } from 'framer-motion';
 import Container from '@/components/ui/Container';
 import AboutSection from '@/components/sections/AboutSection';
 import RevealAnimation from '@/components/utility/RevealAnimation';
@@ -7,7 +8,7 @@ import resumePdf from '@/assets/pdf/floria-cv.pdf';
 import resumefrPdf from '@/assets/pdf/floria-cv-fr.pdf';
 import portfolioPdf from '@/assets/pdf/floria-portfolio.pdf';
 import useMagneticEffect from '@/hooks/useMagneticEffect';
-import { MailIcon } from '@/components/ui/icons';
+import { LetterIcon } from '@/components/ui/icons';
 import InlineIcon from '@/components/ui/InlineIcon';
 import SwipeableStack from '@/components/utility/SwipeableStack';
 import styles from './About.module.css';
@@ -61,41 +62,43 @@ const calculateVolleyballYears = () => {
 
 const aboutParagraphs = [
   <>
-    I'm currently a final-year student at ENSC, a cognitive engineering school in Bordeaux, with a strong passion for UI
-    and UX design, particularly in accessibility.
-  </>,
-
-  <>
-    I don’t really remember when I started to like drawing, but as far as I can remember I always had a{' '}
+    I don't really remember when I started to like{' '}
+    <a
+      className={inlineIconStyles.dottedLink}
+      href="https://www.artstation.com/florialeger"
+      target="_blank"
+      rel="noreferrer"
+    >
+      drawing
+    </a>
+    , but as far as I can remember I always had a{' '}
     <span className={inlineIconStyles.inlineWrap}>
       <InlineIcon name="pencil" size="text" />
       <span className={inlineIconStyles.emphasized}>pencil</span>
     </span>
-    in my hand. While I mostly create for myself, I find joy in making art for others. Although my arts projects have
-    been informal, they taught me about managing deadlines and handling feedback.
+    in my hand. While I create for the joy of it, my early art projects taught me crucial lessons in managing deadlines
+    and handling feedback.
   </>,
 
   <>
     I discovered UX design back in high school, thanks to my brother. That said, for as long as I can remember, I've
     always been fascinated by how{' '}
-    <span className={inlineIconStyles.inlineWrap}>
-      <InlineIcon name="apple" size="text" />
-      <span className={inlineIconStyles.emphasized}>Apple</span>
-    </span>
+    <a className={inlineIconStyles.dottedLink} href="https://www.apple.com/fr/" target="_blank" rel="noreferrer">
+      Apple
+    </a>{' '}
     creates such intuitive and seamless user experiences, even though at the time I couldn't put it into words. I've
-    been practicing it ever since I got my own computer, it's been {calculateYearsSince()} now. When I started using{' '}
-    <span className={inlineIconStyles.inlineWrap}>
-      <InlineIcon name="figma" size="text" />
-      <span className={inlineIconStyles.emphasized}>Figma,</span>
-    </span>
-    I knew I wanted to make it my life's work. It’s not so much the software itself that I’m drawn to, it’s the act of
+    been practicing it ever since I got my own computer, it's been {calculateYearsSince()} now. The moment I started
+    using{' '}
+    <a className={inlineIconStyles.dottedLink} href="https://www.figma.com/" target="_blank" rel="noreferrer">
+      Figma
+    </a>
+    , I knew I wanted to make it my life's work. It's not so much the software itself that I'm drawn to, it's the act of
     creating that fascinates me.
   </>,
 
   <>
-    Lately, I've become increasingly interested in web design, believing my drawing skills will be beneficial in this
-    area. I enjoy exploring new design projects independently and particularly love working with CSS and styling web
-    pages.
+    I'm currently diving into web design. My drawing background helps visualize layouts, and I genuinely enjoy the logic
+    of CSS and page styling.
   </>,
   <>
     Outside my academic and artistic pursuits, I've played{' '}
@@ -118,6 +121,7 @@ const downloadLinks = [
     label: 'French Resume',
     href: resumefrPdf,
     fileName: 'floria-leger-resume-fr.pdf',
+    variant: 'secondary',
   },
   {
     label: 'Portfolio',
@@ -127,23 +131,54 @@ const downloadLinks = [
 ];
 
 const contactLinks = [
-  { key: 'bento', label: 'Bento', href: 'https://bento.me/floria' },
-  { key: 'artstation', label: 'ArtStation', href: 'https://florialeger.artstation.com/' },
-  { key: 'linkedin', label: 'LinkedIn', href: 'https://www.linkedin.com/in/floria-leger/' },
-  { key: 'github', label: 'GitHub', href: 'https://github.com/florialeger' },
-  { key: 'layers', label: 'Layers', href: 'https://layers.to/florialeger' },
-  { key: 'twitter', label: 'Twitter', href: 'https://twitter.com/LegerFloria' },
+  {
+    key: 'linkedin',
+    label: 'LinkedIn',
+    href: 'https://www.linkedin.com/in/floria-leger/',
+    description: 'professional network',
+  },
+  {
+    key: 'karde',
+    label: 'Socials',
+    href: 'https://www.karde.me/floria',
+    description: 'social profiles',
+  },
+  {
+    key: 'github',
+    label: 'GitHub',
+    href: 'https://github.com/florialeger',
+    description: 'code repositories',
+  },
 ];
 
 const About = () => {
   const [copied, setCopied] = useState(false);
+  const [hoveredLink, setHoveredLink] = useState(null);
+  const [lastY, setLastY] = useState(0);
+
+  const x = useMotionValue(0);
+  const y = useMotionValue(0);
+
+  const springValues = {
+    damping: 30,
+    stiffness: 100,
+    mass: 2,
+  };
+
+  const scale = useSpring(1, springValues);
+  const opacity = useSpring(0, { stiffness: 350, damping: 30, mass: 1 });
+  const rotateFigcaption = useSpring(0, {
+    stiffness: 350,
+    damping: 30,
+    mass: 1,
+  });
 
   const handleEmailCopy = async () => {
     const email = 'floria.leger@ensc.fr';
     try {
       await navigator.clipboard.writeText(email);
       setCopied(true);
-      setTimeout(() => setCopied(false), 1200);
+      setTimeout(() => setCopied(false), 2000);
     } catch (err) {
       console.error('Failed to copy email:', err);
     }
@@ -153,7 +188,7 @@ const About = () => {
     const setMagnet = useMagneticEffect({ maxDistance: 4, easing: 0.18, scale: 1.02 });
     return (
       <div className={styles.emailRow}>
-        <h2 className={styles.emailText}>Get in touch at</h2>
+        <p className={styles.emailText}>Get in touch at</p>
 
         <span
           ref={setMagnet}
@@ -169,8 +204,8 @@ const About = () => {
           }}
           aria-label="Click to copy email address"
         >
-          <MailIcon size={32} title="Adresse e-mail" />
-          <h2 className={styles.emailText}>floria.leger@ensc.fr</h2>
+          <LetterIcon className={styles.emailIcon} size={32} title="Adresse e-mail" />
+          <p className={styles.emailText}>floria.leger@ensc.fr</p>
           <p className={`${styles.tooltip} ${copied ? styles.tooltipVisible : ''}`}>
             {copied ? 'Copied!' : 'Click to copy'}
           </p>
@@ -188,33 +223,61 @@ const About = () => {
         portraitAlt="Floria Leger"
       />
 
-      <section className={styles.stackSection}>
-        <div className={styles.stackContainer}>
-          <RevealAnimation cascade damping={0.08} triggerOnce>
-            <SwipeableStack />
-          </RevealAnimation>
-        </div>
-      </section>
-
-      <section className={pageLayout.container} style={{ paddingTop: 0 }}>
+      <section className={pageLayout.container} style={{ paddingTop: 0, paddingBottom: 0 }}>
         <div className={styles.contactContainer}>
           <RevealAnimation cascade damping={0.08} triggerOnce>
             <p className={styles.contactParagraph}>
               <EmailMagnet />
             </p>
 
-            <ul className={styles.socialGrid}>
+            <ul className={styles.socialList}>
               {contactLinks.map((link) => (
-                <li key={link.label} className={styles.socialItem}>
-                  <a href={link.href} target="_blank" rel="noreferrer" className={styles.socialLink}>
-                    <span className={inlineIconStyles.inlineWrap}>
-                      <InlineIcon name={link.key || link.label} size="title" />
-                      <span className={`${inlineIconStyles.emphasized} ${styles.linkLabel}`}>{link.label}</span>
-                    </span>
+                <li
+                  key={link.label}
+                  className={styles.socialItem}
+                  onMouseMove={(e) => {
+                    const rect = e.currentTarget.getBoundingClientRect();
+                    const offsetX = e.clientX - rect.left;
+                    const offsetY = e.clientY - rect.top;
+
+                    x.set(offsetX);
+                    y.set(offsetY);
+
+                    const velocityY = offsetY - lastY;
+                    rotateFigcaption.set(-velocityY * 0.6);
+                    setLastY(offsetY);
+                  }}
+                  onMouseEnter={() => {
+                    setHoveredLink(link.key);
+                    scale.set(1.1);
+                    opacity.set(1);
+                  }}
+                  onMouseLeave={() => {
+                    setHoveredLink(null);
+                    opacity.set(0);
+                    scale.set(1);
+                    rotateFigcaption.set(0);
+                  }}
+                >
+                  <a href={link.href} target="_blank" rel="noreferrer" className={styles.linkLabel}>
+                    {link.label}
                   </a>
+                  {hoveredLink === link.key && (
+                    <motion.span className={styles.followCaption} style={{ x, y, opacity, rotate: rotateFigcaption }}>
+                      {link.description}
+                    </motion.span>
+                  )}
                 </li>
               ))}
             </ul>
+          </RevealAnimation>
+        </div>
+      </section>
+
+      <section className={styles.stackSection}>
+        <div className={styles.stackContainer}>
+          <RevealAnimation cascade damping={0.08} triggerOnce>
+            <SwipeableStack />
           </RevealAnimation>
         </div>
       </section>

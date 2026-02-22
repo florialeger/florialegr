@@ -1,0 +1,42 @@
+.viewToggle {
+  display: inline-flex;
+  background: transparent;
+  gap: var(--stack-gap-sm);
+}
+
+.toggleButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 1rem 0.5rem 1rem;
+  border-radius: var(--radius-xs);
+  border: 1px solid var(--separator---black-10);
+  corner-shape: squircle;
+  color: var(--label---primary);
+  background: var(--fills---secondary);
+  transition: all 200ms ease;
+  cursor: pointer;
+}
+
+.toggleButton:hover {
+  opacity: 0.8;
+}
+
+.toggleButton.active {
+  color: var(--label---inverted);
+  background: var(--label---primary);
+  cursor: default;
+  pointer-events: none;
+}
+
+.toggleButton.active:hover {
+  opacity: 1;
+}
+
+.toggleButton svg {
+  display: block;
+}
+
+.label {
+  padding: 0 0.2rem 0 0.2rem;
+}

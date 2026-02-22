@@ -1,13 +1,37 @@
 import React, { forwardRef, memo, useCallback, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import { ArrowIcon, DownloadIcon } from '@/components/ui/icons';
+import {
+  ArrowIcon,
+  ArrowNextIcon,
+  ArrowPreviousIcon,
+  DownloadIcon,
+  MailIcon,
+  CloseIcon,
+  ExternalLinkIcon,
+  GoBackIcon,
+  ListIcon,
+  CardIcon,
+  MenuIcon,
+} from '@/components/ui/icons';
 import useMagneticEffect from '@/hooks/useMagneticEffect';
 import styles from './Button.module.css';
 
 const ICON_MAP = {
-  arrow: ArrowIcon,
+  arrow: ArrowNextIcon,
+  next: ArrowNextIcon,
+  previous: ArrowPreviousIcon,
   download: DownloadIcon,
+  email: MailIcon,
+  mail: MailIcon,
+  send: MailIcon,
+  Send: MailIcon,
+  externalLink: ExternalLinkIcon,
+  external: ExternalLinkIcon,
+  back: GoBackIcon,
+  list: ListIcon,
+  card: CardIcon,
+  menu: MenuIcon,
 };
 
 const resolveIcon = (icon, size, iconProps = {}) => {
@@ -30,7 +54,9 @@ const isExternalUrl = (value) => /^https?:\/\//i.test(value);
 const ButtonBase = (
   {
     label,
+    labels, // For multi-label buttons
     icon = '',
+    iconPosition = 'right',
     iconSize = 14,
     className = '',
     onClick,
@@ -44,6 +70,8 @@ const ButtonBase = (
     iconProps = {},
     magnetic = true,
     magneticOptions,
+    variant = 'primary', // 'primary' | 'secondary' | 'tertiary' | 'inactive'
+    size = 'small', // 'small' | 'big'
     ...props
   },
   ref
@@ -97,15 +125,45 @@ const ButtonBase = (
 
   const iconElement = icon ? resolveIcon(icon, iconSize, iconProps) : null;
 
-  const content = (
+  // Handle multi-label buttons
+  const hasMultipleLabels = labels && Array.isArray(labels) && labels.length > 1;
+
+  const content = hasMultipleLabels ? (
     <span className={styles.inner}>
-      <h3 className={styles.label}>{typeof label === 'string' ? label : label}</h3>
-      {iconElement ? <span className={styles.iconWrapper}>{iconElement}</span> : null}
+      {iconPosition === 'left' && iconElement && <span className={styles.iconWrapper}>{iconElement}</span>}
+      <span className={styles.multiLabels}>
+        {labels.map((labelText, index) => (
+          <h4 key={index} className={styles.label}>
+            {labelText}
+          </h4>
+        ))}
+      </span>
+      {iconPosition === 'right' && iconElement && <span className={styles.iconWrapper}>{iconElement}</span>}
+    </span>
+  ) : (
+    <span className={styles.inner}>
+      {iconPosition === 'left' && iconElement && <span className={styles.iconWrapper}>{iconElement}</span>}
+      {(label || (labels && labels[0])) && <h4 className={styles.label}>{label || (labels && labels[0])}</h4>}
+      {iconPosition === 'right' && iconElement && <span className={styles.iconWrapper}>{iconElement}</span>}
     </span>
   );
 
+  const variantClass =
+    variant === 'primary'
+      ? styles.buttonPrimary
+      : variant === 'secondary'
+        ? styles.buttonSecondary
+        : variant === 'tertiary'
+          ? styles.buttonTertiary
+          : variant === 'inactive'
+            ? styles.buttonInactive
+            : '';
+
+  const sizeClass = size === 'small' ? styles.buttonSmall : size === 'big' ? styles.buttonBig : '';
+  const iconOnlyClass = !label && !labels ? styles.iconOnly : '';
+
   const sharedProps = {
-    className: `${styles.button} ${className}`.trim(),
+    className: `${styles.button} ${variantClass} ${sizeClass} ${iconOnlyClass} ${className}`.trim(),
     onClick: handleClick,
     'aria-disabled': disabled || undefined,
     ref: mergedRef,
@@ -147,8 +205,10 @@ const Button = memo(forwardRef(ButtonBase));
 Button.displayName = 'Button';
 
 Button.propTypes = {
-  label: PropTypes.oneOfType([PropTypes.string, PropTypes.node]).isRequired,
+  label: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
+  labels: PropTypes.arrayOf(PropTypes.string), // For multi-label buttons
   icon: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
+  iconPosition: PropTypes.oneOf(['left', 'right']),
   iconSize: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   iconProps: PropTypes.object,
   className: PropTypes.string,
@@ -162,6 +222,8 @@ Button.propTypes = {
   disabled: PropTypes.bool,
   magnetic: PropTypes.bool,
   magneticOptions: PropTypes.object,
+  variant: PropTypes.oneOf(['primary', 'secondary', 'tertiary', 'inactive']),
+  size: PropTypes.oneOf(['small', 'big']),
 };
 
 export default Button;

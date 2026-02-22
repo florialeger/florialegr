@@ -1,19 +1,33 @@
+.workCardLink {
+  display: block;
+  width: 100%;
+  border-radius: var(--radius-xs);
+  text-decoration: none;
+  color: inherit;
+  margin: calc(var(--stack-gap-sm) * -1);
+  transition:
+    filter 200ms ease,
+    background-color 200ms ease;
+}
+
+.workCardLink[data-dimmed='true'] {
+  filter: grayscale(1);
+  opacity: 0.8;
+}
+
+.workCardLink[data-hovered='true'] {
+  background-color: var(--fills---quaternuary);
+}
+
 .workCard {
   display: flex;
   width: 100%;
   flex-direction: column;
-  border-radius: var(--radius-xs);
-  transition:
-    filter 200ms ease,
-    transform 180ms ease;
-  cursor: pointer;
+  border-radius: var(--radius-xxs);
+  padding-top: var(--stack-gap-sm);
+  padding-bottom: var(--stack-gap-sm);
   text-decoration: none;
   color: inherit;
-}
-
-.workCard[data-dimmed='true'] {
-  filter: grayscale(1);
-  opacity: 0.8;
 }
 
 .workHeader {
@@ -34,7 +48,17 @@
 .companyWrapper {
   display: flex;
   align-items: center;
-  gap: var(--stack-gap-xxs);
+  gap: var(--stack-gap-xs);
+}
+
+.companyLink {
+  text-decoration: none;
+  color: inherit;
+  transition: opacity 200ms ease;
+}
+
+.companyLink:hover {
+  opacity: 0.7;
 }
 
 .company {
@@ -50,13 +74,9 @@
   background-repeat: repeat-x;
 }
 
+/* NDA badge styling moved to NdaBadge.module.css */
 .lockIcon {
-  width: 1.4rem;
-  height: 1.4rem;
-  object-fit: contain;
   margin-bottom: 0.6rem;
-  display: block;
-  flex-shrink: 0;
 }
 
 .date {
@@ -74,6 +94,14 @@
   font-weight: var(--body-regular-weight);
   color: var(--label---primary);
   margin: 0;
+  transition: color 200ms ease;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.workCardLink:hover .description {
+  color: var(--label---secondary);
 }
 
 .role {
@@ -82,4 +110,7 @@
   font-weight: var(--body-regular-weight);
   color: var(--label---tertiary);
   margin: 0;
+   white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }

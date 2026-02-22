@@ -20,7 +20,7 @@
 .paragraph {
   display: flex;
   flex-direction: column;
-  align-items: start;
+  align-items: flex-start;
   justify-content: start;
   gap: var(--copy-block-gap);
   width: 100%;

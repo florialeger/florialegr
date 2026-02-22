@@ -3,6 +3,7 @@ import { createContext, useCallback, useContext, useEffect, useMemo, useState } 
 import { fetchProjects, fetchPlaygrounds, fetchWork } from '@/services/api';
 import slugify from '@/utils/slugify';
 import { findIconForProject, resolveIconPath } from '@/utils/icons';
+import { calculateEndDate } from '@/utils/calculateEndDate';
 
 const PortfolioContext = createContext(null);
 
@@ -80,6 +81,12 @@ const normalizeProject = (project) => {
   const ongoingRegex = /ongoing|in\s*progress|present|current|en\s*cours|encours|\bnow\b/i;
   const isOngoing = explicitOngoing ?? ongoingRegex.test(String(duration));
 
+  // Calculate end date: use explicit endDate if provided, otherwise calculate from created + duration
+  const explicitEndDate = project.endDate || null;
+  const calculatedEndDate =
+    !explicitEndDate && created && duration && !isOngoing ? calculateEndDate(created, duration) : null;
+  const endDate = explicitEndDate || calculatedEndDate;
+
   // determine icon: prefer explicit field, otherwise try to find a matching icon asset
   let iconUrl = null;
   if (project.icon) {
@@ -95,6 +102,8 @@ const normalizeProject = (project) => {
     slug,
     created,
     createdAt: created ? new Date(created) : null,
+    endDate,
+    endDateObj: endDate ? new Date(endDate) : null,
     projectDuty: normalizeArray(project.projectDuty),
     support: normalizeArray(project.support),
     link: normalizeLinks(project.link),
@@ -109,12 +118,21 @@ const normalizeProject = (project) => {
 
 const normalizePlayground = (playground) => {
   const created = playground.created || playground.date || null;
+  const duration = playground.duration || null;
+
+  // Calculate end date if duration is provided
+  const explicitEndDate = playground.endDate || null;
+  const calculatedEndDate = !explicitEndDate && created && duration ? calculateEndDate(created, duration) : null;
+  const endDate = explicitEndDate || calculatedEndDate;
+
   return {
     ...playground,
     id: playground._id || playground.id || playground.slug,
     slug: slugify(playground.slug || playground.title),
     created,
     createdAt: created ? new Date(created) : null,
+    endDate,
+    endDateObj: endDate ? new Date(endDate) : null,
     support: normalizeArray(playground.support),
     link: normalizeLinks(playground.link),
     primaryImage: ensureArray(playground.primaryImage),
@@ -309,16 +327,18 @@ export const PortfolioProvider = ({ children }) => {
       if (a.isOngoing && !b.isOngoing) return -1;
       if (!a.isOngoing && b.isOngoing) return 1;
 
-      const dateA = a.createdAt ? a.createdAt.getTime() : 0;
-      const dateB = b.createdAt ? b.createdAt.getTime() : 0;
+      // Sort by end date (completion date) if available, otherwise by created date
+      const dateA = a.endDateObj ? a.endDateObj.getTime() : a.createdAt ? a.createdAt.getTime() : 0;
+      const dateB = b.endDateObj ? b.endDateObj.getTime() : b.createdAt ? b.createdAt.getTime() : 0;
       return dateB - dateA;
     });
   }, [projects]);
 
   const sortedPlaygrounds = useMemo(() => {
     return [...playgrounds].sort((a, b) => {
-      const dateA = a.createdAt ? a.createdAt.getTime() : 0;
-      const dateB = b.createdAt ? b.createdAt.getTime() : 0;
+      // Sort by end date (completion date) if available, otherwise by created date
+      const dateA = a.endDateObj ? a.endDateObj.getTime() : a.createdAt ? a.createdAt.getTime() : 0;
+      const dateB = b.endDateObj ? b.endDateObj.getTime() : b.createdAt ? b.createdAt.getTime() : 0;
       return dateB - dateA;
     });
   }, [playgrounds]);

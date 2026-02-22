@@ -2,27 +2,28 @@
   /* Headings (Source Sans 3) */
   --type---title-1---family:
     'EB Garamond', 'Source Sans 3', system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
-  --type---title-1---size: clamp(2rem, 5.2vw, 2.5rem);
-  --type---title-1---weight-regular: 800;
+  --type---title-1---size: clamp(1.7rem, 5.2vw, 1.8rem);
+  --type---title-1---weight-regular: 500;
   --type---title-1---letter-spacing: -2px;
 
   --type---title-2---family: 'Source Sans 3', system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
-  --type---title-2---size: clamp(1.2rem, 3vw, 1.4em);
+  --type---title-2---size: clamp(1.25rem, 2.8vw, 1.3em);
   --type---title-2---weight-regular: 500;
-  --type---title-2---weight-emphasized: 700;
+  --type---title-2---weight-emphasized: 600;
   --type---title-2---letter-spacing: 0;
   --type---title-2---line-height: 1.2;
 
   --type---title-3---family: 'Source Sans 3', system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
-  --type---title-3---size: clamp(1.1rem, 2.6vw, 1.2rem);
-  --type---title-3---weight-regular: 500;
-  --type---title-3---weight-emphasized: 700;
+  --type---title-3---size: clamp(1.15rem, 2.4vw, 1.2rem);
+  --type---title-3---weight-regular: 400;
+  --type---title-3---weight-emphasized: 600;
   --type---title-3---letter-spacing: 0;
+  --type---title-3---line-height: 1.2;
 
   --type---title-4---family: 'Source Sans 3', system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
-  --type---title-4---size: clamp(1rem, 2vw, 1.1rem);
+  --type---title-4---size: clamp(1.15rem, 1.8vw, 1.15rem);
   --type---title-4---weight-regular: 500;
-  --type---title-4---weight-emphasized: 700;
+  --type---title-4---weight-emphasized: 600;
   --type---title-4---letter-spacing: 0;
 
   /* Body (EB Garamond) */
@@ -32,9 +33,11 @@
   --type---body---line-height: 1.5;
   --type---body---letter-spacing: 0;
 
+  --type---subtitle---size: clamp(0.8rem, 1.8vw, 0.9rem);
+
   --body-regular-weight: 500;
   --body-regular-size: 1rem;
-  --body-regular-letter-spacing: 0;
+  --body-regular-letter-spacing: -0.01em;
 
   --body-italic-weight: 600;
   --body-italic-style: italic;
@@ -46,18 +49,25 @@
 
   /* Layout */
   --nav-height: 104px;
-  --container-max-width: 1200px;
+  --container-max-width: 600px;
   --container-padding-x: 1.5rem;
   --copy-block-gap: clamp(1rem, 3vw, 1.5rem);
-  --copy-block-max-width: min(clamp(30rem, 68vw, 38rem), 100%);
-  --layout-page-gap: clamp(3.5rem, 8vw, 5.5rem);
-  --layout-page-padding-top: clamp(4rem, 10vw, 6rem);
+  --copy-block-max-width: min(600px, 100%);
+  --layout-page-gap: clamp(6.5rem, 8vw, 8.5rem);
+  --layout-page-padding-top: clamp(2rem, 10vw, 6rem);
   --layout-page-padding-bottom: clamp(6rem, 12vw, 9rem);
-  --stack-gap-lg: clamp(2rem, 6vw, 3rem);
+  --stack-gap-lg: clamp(2.5rem, 6vw, 3rem);
   --stack-gap-md: clamp(1rem, 4vw, 1.6rem);
   --stack-gap-sm: clamp(0.6rem, 3vw, 0.1rem);
   --stack-gap-xs: clamp(0.3rem, 2vw, 0.6rem);
   --stack-gap-xxs: clamp(0.25rem, 1vw, 0.3rem);
+
+  /* Padding */
+  --padding-extra-small-h: clamp(0.3rem, 0.5vw, 0.3rem);
+  --padding-small-h: clamp(0.67rem, 1vw, 0.75rem);
+  --padding-small-v: clamp(0.2rem, 0.5vw, 0.1rem);
+  --padding-big-h: clamp(1.5rem, 2vw, 1.7rem);
+  --padding-big-v: clamp(0.6rem, 1vw, 0.8rem);
 
   /* Motion and effects */
   --animate-spin: spin 1s linear infinite;
@@ -65,31 +75,30 @@
   --duration: 20s;
   --gap: 2.5rem;
 
-  /* Shape */
-  /* Corner radius tokens (scalable & responsive)
-    - values use rem (root font-size = 18px) so px ~= rem * 18
-    - --border-radius-medium kept as an alias for compatibility */
-  --radius-xxs: 0.4rem; /* ~6.75px */
-  --radius-xs: 0.9rem; /* ~6.75px */
-  --radius-sm: 1.4rem; /* ~10.8px */
-  --radius-md: clamp(1.4rem, 2.5vw, 2rem); /* ~10.8px - 19.8px */
-  --radius-lg: clamp(2.2rem, 3vw, 2.8rem); /* ~16.2px - 28.8px */
+  /* Shape - Border radius from designTokens */
+  --radius-xs: 0.375rem; /* 6px */
+  --radius-sm: 0.6rem; /* ~10.8px */
+  --radius-md: clamp(0.6rem, 1.2vw, 0.8rem); /* ~10.8px - 14.4px */
+  --radius-lg: clamp(0.9rem, 2.5vw, 1.6rem); /* ~16.2px - 28.8px */
   --radius-pill: 999px;
   --border-radius-medium: var(--radius-md);
 
   /* Theme defaults (white baseline) */
   --surface---main: #fcfcfc;
   --background---primary: #fcfcfc;
-  --background---secondary: #f7f7f7;
   --label---primary: #171717;
   --label---secondary: rgba(23, 23, 23, 0.7);
   --label---tertiary: rgba(23, 23, 23, 0.5);
-  --label---inverted: rgba(0, 0, 0, 0.9);
-  --fills---primary: #c7c7c7;
-  --fills---secondary: rgba(228, 228, 228, 0.6);
-  --fills---non--opaque: rgba(255, 255, 255, 0.7);
+  --label---quaternuary: rgba(23, 23, 23, 0.2);
+  --label---inverted: #f7f7f7;
+  --fills---primary: rgb(199, 199, 199);
+  --fills---secondary: rgba(199, 199, 199, 0.5);
+  --fills---tertiary: rgba(199, 199, 199, 0.35);
+  --fills---quaternuary: rgba(199, 199, 199, 0.15);
+  --fills---non--opaque: rgba(255, 255, 255, 0.5);
   --fills---linear-non--opaque: linear-gradient(180deg, var(--surface---main) 0%, rgba(252, 252, 252, 0) 100%);
-  --separator---black-10: rgba(0, 0, 0, 0.05);
+  --fills---linear--opaque: linear-gradient(180deg, #1b1b1b 0%, #2b2b2b 100%);
+  --separator---black-10: rgba(0, 0, 0, 0.1);
   --separator---white-20: rgba(255, 255, 255, 0.2);
 
   /* Effects */
@@ -100,7 +109,11 @@
     0px 6px 6px -3px rgba(0, 0, 0, 0.06), 0px 12px 12px -6px rgba(0, 0, 0, 0.05),
     0px 24px 24px -12px rgba(0, 0, 0, 0.05);
 
-  font-size: 17px;
+  --sticker--small:
+    inset -0.5px 0.5px 0.5px rgba(255, 255, 255, 0.6), 0px 1px 2px rgba(0, 0, 0, 0.04),
+    0px 1.5px 2px rgba(0, 0, 0, 0.04), 0px 0px 2px rgba(0, 0, 0, 0.1), inset 0px -0.5px 0.5px rgba(0, 0, 0, 0.15);
+
+  font-size: 18px;
   font-family: var(--type---body---family);
   line-height: var(--type---body---line-height);
   font-weight: var(--type---body---weight);
@@ -120,6 +133,16 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+::selection {
+  background-color: #fff06a;
+  color: var(--label---primary);
+}
+
+::-moz-selection {
+  background-color: #fff06a;
+  color: var(--label---primary);
 }
 
 html,
@@ -165,10 +188,9 @@ h1 {
 }
 
 h2 {
-  color: var(--label---secondary);
   font-family: var(--type---title-2---family);
   font-size: var(--type---title-2---size);
-  font-weight: var(--type---title-2---weight-regular);
+  font-weight: var(--type---title-2---weight-emphasized);
   letter-spacing: var(--type---title-2---letter-spacing);
   line-height: var(--type---title-2---line-height);
   text-box: trim-both cap alphabetic;
@@ -183,7 +205,6 @@ h3 {
   line-height: var(--type---title-3---line-height, 1);
   text-box: trim-both cap alphabetic;
   width: fit-content;
-  
 }
 
 h4 {
@@ -192,7 +213,6 @@ h4 {
   font-weight: var(--type---title-4---weight-regular);
   letter-spacing: var(--type---title-4---letter-spacing);
   text-box: trim-both cap alphabetic;
-  
 }
 
 p {
@@ -200,6 +220,7 @@ p {
   font-size: var(--type---body---size);
   font-weight: var(--body-regular-weight);
   letter-spacing: var(--body-regular-letter-spacing);
+  color: var(--label---secondary);
   max-width: clamp(20rem, 80vw, 34.375rem);
   text-wrap: stable;
 }
