@@ -81,9 +81,8 @@ const Media = ({ src, alt = '', className = '', poster }) => {
       className={className}
       src={src}
       alt={alt}
-      loading="eager"
+      loading="lazy"
       decoding="async"
-      fetchPriority="high"
       style={{ contentVisibility: 'auto' }}
     />
   );

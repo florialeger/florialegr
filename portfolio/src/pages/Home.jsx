@@ -115,7 +115,7 @@ const aboutParagraphs = [
 
 const Home = () => {
   return (
-    <div className={pageLayout.page} style={{ paddingTop: 'calc(var(--layout-page-padding-top) * 2)' }}>
+    <div className={pageLayout.page} style={{paddingTop : 0}}>
       <HeroSection />
 
       <section>

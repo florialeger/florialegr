@@ -68,39 +68,7 @@ const sectionVariants = {
   },
 };
 
-const imageVariants = {
-  hidden: { opacity: 0, y: 20 },
-  show: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.4,
-      ease: [0.22, 1, 0.36, 1],
-    },
-  },
-};
-
-// Small wrapper component for magnetic images with animation
-const MagneticImageWrapper = ({ src, className, sectionIndex, imageIndex }) => {
-  const setMag = useMagneticEffect({ maxDistance: 10, scale: 1.02 });
-  return (
-    <motion.div
-      key={`${sectionIndex}-${imageIndex}`}
-      ref={setMag}
-      className={styles.imageWrapper}
-      variants={imageVariants}
-    >
-      <Media src={src} alt="" className={className} />
-    </motion.div>
-  );
-};
-
-MagneticImageWrapper.propTypes = {
-  src: PropTypes.string.isRequired,
-  className: PropTypes.string,
-  sectionIndex: PropTypes.number.isRequired,
-  imageIndex: PropTypes.number.isRequired,
-};
+// Images in detail page are static - no animations or effects
 
 const Detail = ({ variant }) => {
   const { slug } = useParams();
@@ -510,22 +478,16 @@ const Detail = ({ variant }) => {
                         </div>
                       )}
                       {section.images && section.images.length > 0 && (
-                        <motion.div
-                          className={styles.sectionImages}
-                          variants={sectionsContainerVariants}
-                          initial="hidden"
-                          animate="show"
-                        >
+                        <div className={styles.sectionImages}>
                           {section.images.map((image, imageIndex) => (
-                            <MagneticImageWrapper
+                            <Media
                               key={`${sectionIndex}-${imageIndex}`}
                               src={image}
+                              alt=""
                               className={styles.imageItem}
-                              sectionIndex={sectionIndex}
-                              imageIndex={imageIndex}
                             />
                           ))}
-                        </motion.div>
+                        </div>
                       )}
                     </motion.section>
                   );

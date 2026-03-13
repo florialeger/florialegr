@@ -166,6 +166,9 @@
   width: 100%;
   height: auto;
   display: block;
+  border-radius: var(--radius-md);
+  corner-shape: squircle;
+  border: 1px solid var(--separator---black-10);
   transition:
     transform 260ms ease,
     opacity 260ms ease;

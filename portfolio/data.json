@@ -98,75 +98,6 @@
   ],
   "projects": [
     {
-      "title": "Boucaniers",
-      "context": [
-        "I had the opportunity to create a logo for the ENSMAC BDE campaigns, which was used on various goodies. My friends already had a very clear idea of what they wanted, they even gave me sketches, which allowed me to advance infinitely faster in the research phase.",
-        "This project gave me the opportunity to develop my artistic direction and creativity while meeting expectations and deadlines. Thank you to my friends from ENSMAC for giving me such an opportunity, it was so much fun!"
-      ],
-      "created": "2024-02-01",
-      "endDate": "2024-02-15",
-      "duration": "2 weeks",
-      "projectDuty": ["Logo Design"],
-      "support": ["procreate"],
-      "primaryImage": ["boucaniers-primary.jpg"],
-      "type": "illustration",
-      "secondaryImages": [
-        "boucaniers-1.jpg",
-        "boucaniers-2.jpg",
-        "boucaniers-3.jpg",
-        "boucaniers-4.jpg",
-        "boucaniers-5.jpg"
-      ],
-      "link": [],
-      "icon": "boucaniers-icone.png",
-      "slug": "les-boucaniers",
-      "locked": false,
-      "shortDescription": "campaign branding for student elections"
-    },
-    {
-      "title": "Tout va bien",
-      "context": [
-        "This group project, conducted in the second year of engineering school between two promotions, was on a free theme. We chose to focus on helping school students in academic difficulty, through an autonomous questionnaire capable of identifying their needs and offering them adapted resources.",
-        "For my part, I took care of the entire visual identity: creation of the logo, development of the graphic charter, and design of wireframes and interactive prototypes on Figma, putting a real focus on accessibility and user experience. We also conducted semi-structured interviews with experts, using user-centered design methods to expand our knowledge and verify the consistency of our model for the selected need.  I also had the opportunity to pass on my knowledge about Figma to the first years of the group, which was a super enriching experience.",
-        "My school assigning projects with free themes like this is really cool, as it allows us to explore topics that speak to us and also helps us become more responsible."
-      ],
-      "created": "2024-09-15",
-      "endDate": "2024-12-19",
-      "duration": "4",
-      "projectDuty": ["UX/UI Design"],
-      "support": ["figma"],
-      "primaryImage": ["TVB-primary.jpg"],
-      "type": "ux_ui",
-      "secondaryImages": [
-        "TVB-1.jpg",
-        "TVB-2.jpg",
-        "TVB-3.jpg",
-        "TVB-4.jpg",
-        "TVB-5.jpg",
-        "TVB-6.jpg",
-        "TVB-7.jpg",
-        "TVB-8.jpg",
-        "TVB-9.jpg",
-        "TVB-10.jpg",
-        "TVB-11.jpg",
-        "TVB-12.jpg"
-      ],
-      "link": [
-        {
-          "label": "Figma file",
-          "url": "https://www.figma.com/community/file/1566766538190470734/tout-va-bien"
-        },
-        {
-          "label": "Github repository",
-          "url": "https://github.com/JeCode667/ToutVaBien"
-        }
-      ],
-      "icon": "tvb-icone.png",
-      "slug": "tout-va-bien",
-      "locked": false,
-      "shortDescription": "accessible interface for academic support"
-    },
-    {
       "title": "DeskFriend",
       "context": [
         "This project was part of the User-Centered Design (UCD) module at the <strong>École Supérieure de Cognitique</strong> (Graduate School of Cognitive Engineering). It was structured into three distinct phases, each focusing on a different product. This organization simulated a high-pressure professional environment: the ability to rapidly immerse oneself in a new problem, take over specifications from another team, or test a concept designed by someone else.",
@@ -352,48 +283,6 @@
       "shortDescription": "cinematic visual identity for sports events"
     },
     {
-      "title": "Choralamar",
-      "context": "The Choir at my school (ENSC) asked me to design a logo for their Club, and I really appreciated the creative freedom they gave me, as well as the trust they placed in me. Exploring a logo with bright colours was a particularly interesting experience.",
-      "created": "2024-02-01",
-      "endDate": "2024-02-20",
-      "duration": "3 weeks",
-      "projectDuty": ["Logo Design"],
-      "support": ["procreate"],
-      "primaryImage": ["choralamar-primary.jpg"],
-      "type": "illustration",
-      "secondaryImages": ["choralamar-1.jpg"],
-      "link": [],
-      "icon": "choralamar-icone.png",
-      "slug": "choralamar",
-      "locked": false,
-      "shortDescription": "vibrant visual identity for a music club"
-    },
-    {
-      "title": "Disco Loco",
-      "context": [
-        "Disco Loco is Maëlie, Guillaume and Clara, friends who have traveled around Europe several times thanks to Interrail, and who share their adventures on Instagram. When they asked me if I could do a logo for them, I was so happy, it was a chance for me to thank them for being my friends.",
-        "It's the kind of project where I can take artistic liberties, but know that they trust me completely, and that's really satisfying."
-      ],
-      "created": "2025-03-18",
-      "endDate": "2025-04-18",
-      "duration": "1 month",
-      "projectDuty": ["Graphic Design"],
-      "support": ["procreate"],
-      "primaryImage": ["disco-primary.jpg"],
-      "type": "illustration",
-      "secondaryImages": ["disco-1.jpg", "disco-2.jpg", "disco-3.jpg", "disco-4.jpg", "disco-5.jpg", "disco-6.jpg"],
-      "link": [
-        {
-          "label": "Their Instagram",
-          "url": "https://www.instagram.com/disco_loco_?igsh=MW45dmhpaGhydGk4dg=="
-        }
-      ],
-      "icon": "disco-icone.png",
-      "slug": "disco-loco",
-      "locked": false,
-      "shortDescription": "logo design for travel creators"
-    },
-    {
       "title": "Mates",
       "context": [
         "On this project, I worked on the Logo, Brand, and Flyer Design for people in my school. It was really interesting to be challenged on creating a full, coherent design, not just for an app, but for an entire brand.",
@@ -431,38 +320,6 @@
       "slug": "mates",
       "locked": false,
       "shortDescription": "comprehensive brand ecosystem and print assets"
-    },
-    {
-      "title": "Dyspraxia",
-      "context": [
-        "I designed this infographic from start to finish. Creating the assets felt like making an illustration, but on Figma. ",
-        "This poster was a really interesting way to talk about a very serious topic while giving a look that totally matched this neurodevelopmental disorder that is dyspraxia. It also took a lot of thought in terms of the hierarchy and layout of the elements to make everything as understandable as possible."
-      ],
-      "created": "2025-03-14",
-      "endDate": "2025-03-21",
-      "duration": "1 weeks",
-      "projectDuty": ["Poster Design"],
-      "support": ["figma"],
-      "primaryImage": ["dyspraxia-primary.jpg"],
-      "type": "illustration",
-      "secondaryImages": [
-        "dyspraxia-1.jpg",
-        "dyspraxia-2.jpg",
-        "dyspraxia-3.jpg",
-        "dyspraxia-4.jpg",
-        "dyspraxia-5.jpg",
-        "dyspraxia-6.jpg"
-      ],
-      "link": [
-        {
-          "label": "View Figma",
-          "url": "https://www.figma.com/community/file/1570788918790254567/infographie-dyspraxie"
-        }
-      ],
-      "icon": "dyspraxia-icone.png",
-      "slug": "dyspraxia",
-      "locked": false,
-      "shortDescription": "educational infographic on neurodiversity"
     },
     {
       "title": "Krystal 2026",
@@ -507,7 +364,7 @@
       "shortDescription": "elements visual identity for sports events"
     },
     {
-      "title": "ENSCxSTAPS",
+      "title": "EmCo",
       "context": [
         "This intensive five-day sprint was the result of a collaboration between the ENSC (Cognitive Engineering School) and the STAPS (Sports Science Department).",
         "The challenge was to collect emotional and cognitive data via non-invasive sensors to provide a reliable, actionable diagnostic tool. Our goal was to design a solution capable of accurately distinguishing between a worker's state of fatigue and stress during a specific task."
@@ -625,7 +482,7 @@
       ],
       "link": [{ "label": "View Figma", "url": "https://www.figma.com/community/file/1607410782626990891" }],
       "icon": "ENSCxSTAPS-icone.png",
-      "slug": "ENSCxSTAPS",
+      "slug": "EmCo",
       "locked": false,
       "shortDescription": "mobile app to disassociate cognition from emotion"
     },
@@ -686,6 +543,39 @@
     }
   ],
   "playgrounds": [
+    {
+      "title": "Boucaniers",
+      "context": [
+        "I had the opportunity to create a logo for the ENSMAC BDE campaigns, which was used on various goodies. My friends already had a very clear idea of what they wanted, they even gave me sketches, which allowed me to advance infinitely faster in the research phase.",
+        "This project gave me the opportunity to develop my artistic direction and creativity while meeting expectations and deadlines. Thank you to my friends from ENSMAC for giving me such an opportunity, it was so much fun!"
+      ],
+      "created": "2024-02-15",
+      "support": ["procreate"],
+      "primaryImage": ["boucaniers-primary.jpg"],
+      "type": "illustration",
+      "secondaryImages": [
+        "boucaniers-1.jpg",
+        "boucaniers-2.jpg",
+        "boucaniers-3.jpg",
+        "boucaniers-4.jpg",
+        "boucaniers-5.jpg"
+      ],
+      "link": [],
+      "slug": "les-boucaniers",
+      "shortDescription": "campaign branding for student elections"
+    },
+    {
+      "title": "Choralamar",
+      "context": "The Choir at my school (ENSC) asked me to design a logo for their Club, and I really appreciated the creative freedom they gave me, as well as the trust they placed in me. Exploring a logo with bright colours was a particularly interesting experience.",
+      "created": "2024-02-20",
+      "support": ["procreate"],
+      "primaryImage": ["choralamar-primary.jpg"],
+      "type": "illustration",
+      "secondaryImages": ["choralamar-1.jpg"],
+      "link": [],
+      "slug": "choralamar",
+      "shortDescription": "vibrant visual identity for a music club"
+    },
     {
       "title": "USTVB",
       "context": [
@@ -951,17 +841,6 @@
       "link": []
     },
     {
-      "title": "Pokeball",
-      "context": [],
-      "created": "2025-12-12",
-      "support": ["figma"],
-      "primaryImage": ["balls-primary.jpg"],
-      "type": "ux_ui",
-      "secondaryImages": ["balls-1.jpg", "balls-2.jpg"],
-      "slug": "pokeball",
-      "link": []
-    },
-    {
       "title": "VoiceMemo",
       "context": [],
       "created": "2025-12-15",
@@ -1094,17 +973,6 @@
     },
 
     {
-      "title": "Ellie",
-      "context": ["Ellie from \"The last of us\" Ian Woods style."],
-      "created": "2023-06",
-      "support": ["procreate"],
-      "primaryImage": ["ellie-primary.jpg"],
-      "type": "illustration",
-      "secondaryImages": ["ellie-1.jpg"],
-      "slug": "ellie",
-      "link": []
-    },
-    {
       "title": "Digital Board",
       "context": [],
       "created": "2023-08-01",
@@ -1143,17 +1011,6 @@
         "planche2-9.jpg"
       ],
       "slug": "digital-board-02",
-      "link": []
-    },
-    {
-      "title": "Self portrait",
-      "context": [],
-      "created": "2024-01",
-      "support": ["procreate"],
-      "primaryImage": ["me-primary.jpg"],
-      "type": "illustration",
-      "secondaryImages": ["me-1.jpg"],
-      "slug": "self-portrait",
       "link": []
     },
     {
@@ -1209,26 +1066,6 @@
       "type": "illustration",
       "secondaryImages": ["mii-1.jpg", "mii-2.jpg", "mii-3.jpg", "mii-4.jpg", "mii-5.jpg"],
       "slug": "mii",
-      "link": []
-    },
-    {
-      "title": "Logo ENSC",
-      "context": [],
-      "created": "2024-12-12",
-      "support": ["procreate"],
-      "primaryImage": ["ensc-primary.jpg"],
-      "type": "illustration",
-      "secondaryImages": [
-        "ensc-1.jpg",
-        "ensc-2.jpg",
-        "ensc-3.jpg",
-        "ensc-4.jpg",
-        "ensc-5.jpg",
-        "ensc-6.jpg",
-        "ensc-7.jpg",
-        "ensc-8.jpg"
-      ],
-      "slug": "logo-ensc",
       "link": []
     },
     {
@@ -1333,17 +1170,6 @@
       "link": []
     },
     {
-      "title": "Shiho",
-      "context": ["Shiho (Haibara Ai) from \"Detective Conan\" study."],
-      "created": "2025-03-26",
-      "support": ["procreate"],
-      "primaryImage": ["shiho-primary.jpg"],
-      "type": "illustration",
-      "secondaryImages": ["shiho-1.jpg", "shiho-2.jpg", "shiho-3.jpg", "shiho-4.jpg", "shiho-5.jpg", "shiho-6.jpg"],
-      "slug": "shiho",
-      "link": []
-    },
-    {
       "title": "Fashion",
       "context": [],
       "created": "2025-04-15",
@@ -1373,27 +1199,6 @@
         "trad4-9.jpg"
       ],
       "slug": "moleskine-sketch-04",
-      "link": []
-    },
-    {
-      "title": "Expression study",
-      "context": ["Rangi from the novel \"The Rise of Kyoshi\" expression study."],
-      "created": "2025-07-14",
-      "support": ["procreate"],
-      "primaryImage": ["expression-study-primary.jpg"],
-      "type": "illustration",
-      "secondaryImages": [
-        "expression-study-1.jpg",
-        "expression-study-2.jpg",
-        "expression-study-3.jpg",
-        "expression-study-4.jpg",
-        "expression-study-5.jpg",
-        "expression-study-6.jpg",
-        "expression-study-7.jpg",
-        "expression-study-8.jpg",
-        "expression-study-9.jpg"
-      ],
-      "slug": "expression-study-02",
       "link": []
     },
     {
@@ -1471,17 +1276,6 @@
         "trad5-9.jpg"
       ],
       "slug": "moleskine-sketch-05",
-      "link": []
-    },
-    {
-      "title": "Expression study",
-      "context": ["Characters from the novel \"The Rise of Kyoshi\" expression study."],
-      "created": "2025-08-07",
-      "support": ["procreate"],
-      "primaryImage": ["expression-study4-primary.jpg"],
-      "type": "illustration",
-      "secondaryImages": ["expression-study4-1.jpg", "expression-study4-2.jpg", "expression-study4-3.jpg"],
-      "slug": "expression-study-05",
       "link": []
     },
     {
@@ -1591,17 +1385,6 @@
         "stylized-portrait4-5.jpg"
       ],
       "slug": "stylized-portrait-04",
-      "link": []
-    },
-    {
-      "title": "Expression study",
-      "context": [],
-      "created": "2025-12-23",
-      "support": ["procreate"],
-      "primaryImage": ["expression-study5-primary.jpg"],
-      "type": "illustration",
-      "secondaryImages": ["expression-study5-1.jpg"],
-      "slug": "expression-study-05",
       "link": []
     },
     {

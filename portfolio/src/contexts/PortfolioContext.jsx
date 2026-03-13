@@ -181,34 +181,31 @@ export const PortfolioProvider = ({ children }) => {
   const [imagesPreloaded, setImagesPreloaded] = useState(false);
 
   const preloadAllImages = useCallback((projectsData, playgroundsData, workData) => {
-    const allImages = [];
+    const priorityImages = [];
 
-    // Collect all images from projects
+    // Only preload primary images (thumbnails/cards), not secondary images
+    // Secondary images will lazy load when detail pages are viewed
     projectsData.forEach((project) => {
-      if (project.primaryImage) allImages.push(...project.primaryImage);
-      if (project.secondaryImages) allImages.push(...project.secondaryImages);
+      if (project.primaryImage) priorityImages.push(...project.primaryImage);
     });
 
-    // Collect all images from playgrounds
     playgroundsData.forEach((playground) => {
-      if (playground.primaryImage) allImages.push(...playground.primaryImage);
-      if (playground.secondaryImages) allImages.push(...playground.secondaryImages);
+      if (playground.primaryImage) priorityImages.push(...playground.primaryImage);
     });
 
-    // Collect all images from work
     workData.forEach((w) => {
-      if (w.primaryImage) allImages.push(...w.primaryImage);
+      if (w.primaryImage) priorityImages.push(...w.primaryImage);
     });
 
     // Filter out empty/null values
-    const validImages = allImages.filter(Boolean);
+    const validImages = priorityImages.filter(Boolean);
 
     if (validImages.length === 0) {
       setImagesPreloaded(true);
       return Promise.resolve();
     }
 
-    // Preload all images
+    // Preload priority images with parallel batch processing
     const imagePromises = validImages.map((src) => {
       return new Promise((resolve) => {
         const img = new Image();
