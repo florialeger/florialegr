@@ -19,7 +19,7 @@
 .magnet {
   display: flex;
   align-items: center;
-  gap: clamp(0.5rem, 1.5vw, 0.75rem);
+  gap: 0.35rem;
 }
 
 .clickable {

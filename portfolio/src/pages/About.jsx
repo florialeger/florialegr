@@ -3,7 +3,6 @@ import { motion, useMotionValue, useSpring } from 'framer-motion';
 import Container from '@/components/ui/Container';
 import AboutSection from '@/components/sections/AboutSection';
 import RevealAnimation from '@/components/utility/RevealAnimation';
-import portraitImage from '@/assets/images/profil-picture.png';
 import resumePdf from '@/assets/pdf/floria-cv.pdf';
 import resumefrPdf from '@/assets/pdf/floria-cv-fr.pdf';
 import portfolioPdf from '@/assets/pdf/floria-portfolio.pdf';
@@ -15,22 +14,18 @@ import styles from './About.module.css';
 import pageLayout from '@/components/ui/PageLayout.module.css';
 import inlineIconStyles from '@/components/ui/InlineIcon.module.css';
 
-// Calculate years since September 2023, rounded to nearest half year
-const calculateYearsSince = () => {
-  const startDate = new Date(2023, 8, 1); // September 2023 (month is 0-indexed)
+// Calculate age based on birth date (February 9, 2003)
+const calculateAge = () => {
+  const birthDate = new Date(2003, 1, 9);
   const today = new Date();
-  const diffInMonths = (today.getFullYear() - startDate.getFullYear()) * 12 + (today.getMonth() - startDate.getMonth());
-  const years = Math.floor(diffInMonths / 12);
-  const remainingMonths = diffInMonths % 12;
+  let age = today.getFullYear() - birthDate.getFullYear();
+  const monthDiff = today.getMonth() - birthDate.getMonth();
 
-  // Round to nearest half year
-  if (remainingMonths < 3) {
-    return years === 0 ? 'a few months' : years === 1 ? 'one year' : `${years} years`;
-  } else if (remainingMonths < 9) {
-    return years === 0 ? 'half a year' : `${years} and a half years`;
-  } else {
-    return years === 0 ? 'one year' : `${years + 1} years`;
+  if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthDate.getDate())) {
+    age--;
   }
+
+  return age;
 };
 
 // Calculate years since 2015 (volleyball start date)
@@ -62,52 +57,30 @@ const calculateVolleyballYears = () => {
 
 const aboutParagraphs = [
   <>
-    I don't really remember when I started to like{' '}
+    I'm a {calculateAge()}-year-old Master's graduate in UX Design, Cognitive and Computer Sciences at{' '}
+    <a className={inlineIconStyles.dottedLink} href="https://ensc.bordeaux-inp.fr/fr" target="_blank" rel="noreferrer">
+      ENSC
+    </a>{' '}
+    in Bordeaux. I combine psychology, technology, and design to create digital experiences, with{' '}
     <a
       className={inlineIconStyles.dottedLink}
-      href="https://www.artstation.com/florialeger"
+      href="https://www.figma.com/@florialeger"
       target="_blank"
       rel="noreferrer"
     >
-      drawing
-    </a>
-    , but as far as I can remember I always had a{' '}
-    <span className={inlineIconStyles.inlineWrap}>
-      <InlineIcon name="pencil" size="text" />
-      <span className={inlineIconStyles.emphasized}>pencil</span>
-    </span>
-    in my hand. While I create for the joy of it, my early art projects taught me crucial lessons in managing deadlines
-    and handling feedback.
-  </>,
-
-  <>
-    I discovered UX design back in high school, thanks to my brother. That said, for as long as I can remember, I've
-    always been fascinated by how{' '}
-    <a className={inlineIconStyles.dottedLink} href="https://www.apple.com/fr/" target="_blank" rel="noreferrer">
-      Apple
-    </a>{' '}
-    creates such intuitive and seamless user experiences, even though at the time I couldn't put it into words. I've
-    been practicing it ever since I got my own computer, it's been {calculateYearsSince()} now. The moment I started
-    using{' '}
-    <a className={inlineIconStyles.dottedLink} href="https://www.figma.com/" target="_blank" rel="noreferrer">
       Figma
     </a>
-    , I knew I wanted to make it my life's work. It's not so much the software itself that I'm drawn to, it's the act of
-    creating that fascinates me.
+    , that are intuitive, beautiful, and user-friendly.
   </>,
 
   <>
-    I'm currently diving into web design. My drawing background helps visualize layouts, and I genuinely enjoy the logic
-    of CSS and page styling.
+    Beyond design, I work with React JS, Node JS, HTML, CSS3 and so on. This technical knowledge allows me to think like
+    a developer, bridging the gap between creativity and technical feasibility.
   </>,
+
   <>
-    Outside my academic and artistic pursuits, I've played{' '}
-    <span className={inlineIconStyles.inlineWrap}>
-      <InlineIcon name="volley" size="text" />
-      <span className={inlineIconStyles.emphasized}>volleyball</span>
-    </span>
-    for {calculateVolleyballYears()} years, which has instilled the importance of teamwork and pushing personal limits.
-    I also have a keen interest in photography, videography, and animation, which helps me expand my creative horizons.
+    Outside my academic and artistic pursuits, I've played volleyball for {calculateVolleyballYears()} years, which has
+    instilled the importance of teamwork and pushing personal limits.
   </>,
 ];
 
@@ -144,10 +117,10 @@ const contactLinks = [
     description: 'social profiles',
   },
   {
-    key: 'github',
-    label: 'GitHub',
-    href: 'https://github.com/florialeger',
-    description: 'code repositories',
+    key: 'figma',
+    label: 'Figma',
+    href: 'https://www.figma.com/@florialeger',
+    description: 'design resources',
   },
 ];
 
@@ -174,7 +147,7 @@ const About = () => {
   });
 
   const handleEmailCopy = async () => {
-    const email = 'floria.leger@ensc.fr';
+    const email = 'floria.leger@gmail.com';
     try {
       await navigator.clipboard.writeText(email);
       setCopied(true);
@@ -205,7 +178,7 @@ const About = () => {
           aria-label="Click to copy email address"
         >
           <LetterIcon className={styles.emailIcon} size={32} title="Adresse e-mail" />
-          <p className={styles.emailText}>floria.leger@ensc.fr</p>
+          <p className={styles.emailText}>floria.leger@gmail.com</p>
           <p className={`${styles.tooltip} ${copied ? styles.tooltipVisible : ''}`}>
             {copied ? 'Copied!' : 'Click to copy'}
           </p>
@@ -219,8 +192,6 @@ const About = () => {
       <AboutSection
         paragraphs={aboutParagraphs}
         downloads={downloadLinks}
-        portraitSrc={portraitImage}
-        portraitAlt="Floria Leger"
       />
 
       <section className={pageLayout.container} style={{ paddingTop: 0, paddingBottom: 0 }}>
@@ -274,13 +245,7 @@ const About = () => {
         </div>
       </section>
 
-      <section className={styles.stackSection}>
-        <div className={styles.stackContainer}>
-          <RevealAnimation cascade damping={0.08} triggerOnce>
-            <SwipeableStack />
-          </RevealAnimation>
-        </div>
-      </section>
+
     </div>
   );
 };

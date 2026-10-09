@@ -30,7 +30,7 @@ const EmailMagnet = () => {
   const setMagnet = useMagneticEffect({ maxDistance: 4, easing: 0.18, scale: 1.02 });
 
   const handleEmailCopy = async () => {
-    const email = 'floria.leger@ensc.fr';
+    const email = 'floria.leger@gmail.com';
     try {
       await navigator.clipboard.writeText(email);
       setCopied(true);
@@ -59,7 +59,7 @@ const EmailMagnet = () => {
         aria-label="Click to copy email address"
       >
         <LetterIcon className={styles.emailIcon} size={20} title="Adresse e-mail" />
-        <p className={styles.emailText}>floria.leger@ensc.fr</p>
+        <p className={styles.emailText}>floria.leger@gmail.com</p>
         <p className={`${styles.tooltip} ${copied ? styles.tooltipVisible : ''}`}>
           {copied ? 'Copied!' : 'Click to copy'}
         </p>
@@ -73,7 +73,7 @@ const aboutTitle = [<>Hi, I'm Floria.</>];
 
 const aboutParagraphs = [
   <>
-    I'm a {calculateAge()}-year-old Master's student in UX Design, Cognitive and Computer Sciences at{' '}
+    I'm a {calculateAge()}-year-old Master's graduate in UX Design, Cognitive and Computer Sciences at{' '}
     <a className={inlineIconStyles.dottedLink} href="https://ensc.bordeaux-inp.fr/fr" target="_blank" rel="noreferrer">
       ENSC
     </a>{' '}
@@ -93,20 +93,19 @@ const aboutParagraphs = [
     artistic vision with technical skill to bring ideas to life from A to Z.
   </>,
   <>
-    Building on professional experience at{' '}
+    Having previously worked at{' '}
     <a className={styles.dottedLink} href="https://www.airbus.com/en" target="_blank" rel="noreferrer">
-      Airbus
+      Airbus,
     </a>{' '}
-    and{' '}
     <a className={styles.dottedLink} href="https://www.ims-bordeaux.fr/" target="_blank" rel="noreferrer">
       IMS
-    </a>
-    , I am now joining{' '}
-    <a className={styles.dottedLink} href="https://www.ubisoft.com/fr-fr" target="_blank" rel="noreferrer">
-      Ubisoft
     </a>{' '}
-    as a<strong> UX Design Intern</strong>, where I am eager to apply cognitive engineering principles to immersive
-    projects. Feel free to connect with me on{' '}
+    and{' '}
+    <a className={styles.dottedLink} href="https://www.ubisoft.com/fr-fr" target="_blank" rel="noreferrer">
+      Ubisoft,
+    </a>{' '}
+    I am now seeking a <strong>UX Designer</strong> role where I can apply cognitive engineering principles to immersive
+    digital products. Feel free to connect with me on{' '}
     <a className={styles.dottedLink} href="https://www.linkedin.com/in/floria-leger/" target="_blank" rel="noreferrer">
       LinkedIn.
     </a>

@@ -112,9 +112,9 @@ export const palette = {
 
 export const radii = {
   xs: '0.375rem',
-  sm: '0.6rem',
-  md: 'clamp(0.6rem, 1.2vw, 0.8rem)',
-  lg: 'clamp(0.9rem, 2.5vw, 1.6rem)',
+  sm: '0.4rem',
+  md: 'clamp(0.5rem, 1.2vw, 0.6rem)',
+  lg: 'clamp(0.6rem, 1.5vw, 0.9rem)',
   pill: '999px',
 };
 

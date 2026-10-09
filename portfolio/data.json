@@ -5,11 +5,11 @@
       "role": "UX/UI Designer Assistant",
       "description": "Interface design and improvement",
       "context": [
-        "My responsibilities are as follows:",
-        "• Identify end-user needs.\n• Collaborate with design and development teams to ensure a user-centered approach.\n• Conduct user research: surveys, interviews, usability tests, etc.\n• Analyze user feedback and make concrete recommendations. \n• Design wireframes and user journeys. \n• Collaborate on documentation and follow-up for UX projects.\n• Monitor trends and best practices in UX."
+        "My responsibilities were as follows:",
+        "• Lead research-driven UX design for internal/creative tools while collaborating with cross-functional development teams.\n• Defined feature adoption metrics (Feature Adoption & Depth of Usage) and established post-launch validation frameworks.\n• Ran comparative usability testing (SUS, task completion time, click paths) to identify friction points and optimize internal user engagement. \n• Maintain industry-standard documentation and design trends to ensure product consistency across the studio. "
       ],
       "startDate": "2026-02-02",
-      "endDate": null,
+      "endDate": "2026-07-31",
       "primaryImage": ["ubisoft-primary.jpg"],
       "secondaryImages": ["Locked.jpg"],
       "icon": "locked-icone.png",
@@ -22,13 +22,13 @@
       "role": "UX/UI Designer",
       "description": "Reimagining social discovery",
       "context": [
-        "My responsibilities are as follows:",
+        "My responsibilities were as follows:",
         "• Co-lead creative direction by applying user-centered design, UX research, and competitive analysis to guide product strategy. \n• Analyzed and translated data from a comprehensive survey of over 300 users to refine user personas and inform key product development priorities.\n• Manage end-to-end user testing cycles, from design and execution to analysis, to continuously optimize the product experience.\n• Architect a scalable mobile UI in Figma with a robust component system to accelerate future design sprints and reinforce brand consistency."
       ],
       "startDate": "2025-04-01",
-      "endDate": null,
+      "endDate": "2026-01-31",
       "primaryImage": ["purely-primary.jpg"],
-      "secondaryImages": ["Ongoing.jpg"],
+      "secondaryImages": ["Locked.jpg"],
       "icon": "purely-icone.png",
       "slug": "purely",
       "companyUrl": null,
@@ -64,8 +64,8 @@
       "primaryImage": ["figma-primary.jpg"],
       "secondaryImages": [
         "figma-1.jpg",
-        "figma-2.jpg",
-        "figma-3.mp4",
+        "figma-2.mp4",
+        "figma-3.jpg",
         "figma-4.jpg",
         "figma-5.jpg",
         "figma-6.jpg",
@@ -74,12 +74,7 @@
         "figma-9.jpg",
         "figma-10.jpg",
         "figma-11.jpg",
-        "figma-12.jpg",
-        "figma-13.jpg",
-        "figma-14.jpg",
-        "figma-15.jpg",
-        "figma-16.jpg",
-        "figma-17.jpg"
+        "figma-12.jpg"
       ],
       "icon": "figma-icone.png",
       "slug": "tuto-figma",
@@ -110,23 +105,7 @@
       "support": ["figma"],
       "primaryImage": ["desk-primary.jpg"],
       "type": "ux_ui",
-      "secondaryImages": [
-        "desk-1.jpg",
-        "desk-2.jpg",
-        "desk-3.mp4",
-        "desk-4.jpg",
-        "desk-5.jpg",
-        "desk-6.jpg",
-        "desk-7.jpg",
-        "desk-8.jpg",
-        "desk-9.jpg",
-        "desk-10.jpg",
-        "desk-11.jpg",
-        "desk-12.jpg",
-        "desk-13.jpg",
-        "desk-14.jpg",
-        "desk-15.jpg"
-      ],
+      "secondaryImages": [],
       "sections": [
         {
           "images": ["desk-3.mp4"]
@@ -162,7 +141,7 @@
             "To ensure a smooth handover to the next team, we documented our findings in a detailed specification sheet, including:",
             "• <strong>Three User Personas:</strong> Rayan (the delivery driver), Julien (the hurried dad), and Marc (the committed environmentalist), detailing their specific needs and pain points.\n• <strong>System Architecture:</strong> GPS, BLE, GSM modules, and an audible alarm.\n• <strong>The Handover:</strong> A crucial point where we specified that the app should remain a secondary, discreet support tool to avoid cluttering the user’s workflow (especially for delivery drivers)."
           ],
-          "images": ["ridar-2.jpg", "ridar-3.jpg", "ridar-4.jpg"]
+          "images": ["ridar-2.jpg", "ridar-3.jpg", "ridar-4.jpg", "ridar-5.jpg"]
         },
         {
           "title": "Design & Prototyping (Project Deskfriend)",
@@ -187,21 +166,17 @@
           "description": [
             "A remote-control application to manage the workspace: real-time posture analysis, 'move' reminders, acoustic isolation management via physical panels, and a 'Focus Mode' to limit mobile distractions."
           ],
-          "images": [ "desk-1.jpg",
-        "desk-2.jpg",
-        "desk-3.jpg",
-        "desk-4.jpg",
-        "desk-5.jpg",
-        "desk-6.jpg",
-        "desk-7.jpg",
-        "desk-8.jpg",
-        "desk-9.jpg",
-        "desk-10.jpg",
-        "desk-11.jpg",
-        "desk-12.jpg",
-        "desk-13.jpg",
-        "desk-14.jpg",
-        "desk-15.jpg"]
+          "images": [
+            "desk-1.jpg",
+            "desk-2.jpg",
+            "desk-3.jpg",
+            "desk-4.jpg",
+            "desk-5.jpg",
+            "desk-6.jpg",
+            "desk-7.jpg",
+            "desk-8.jpg",
+            "desk-9.jpg"
+          ]
         },
         {
           "title": "User testing (Project Smart cart)",
@@ -209,19 +184,20 @@
             "The final phase involved testing the prototype of a third project: an autonomous, connected supermarket cart.",
             "<strong>Testing Protocol (Guerrilla Method):</strong> We conducted <strong>guerrilla testing</strong> at a local supermarket (Leclerc Pessac) with 9 participants. The objective was to validate the usability of key features: connecting to the cart via QR code, managing the shopping list, and mobile payment."
           ]
-          },
-           {
-             "title": "Test Results",
-             "description": [
-               "The final phase involved testing the prototype of a third project: an autonomous, connected supermarket cart.",
-               "• <strong>User Flow Validation:</strong> 9/9 tasks successfully completed for connecting to the cart. \n• <strong>Friction Point:</strong> The 'Connect' button had low visibility because it was drowned out by promotional visual clutter. \n• <strong>User Behavior:</strong> A strong desire for 'paper mimicry'—the ability to check off items as they go, similar to a physical list.\n• <strong>The Human Factor:</strong> Despite the innovation, 5 out of 9 testers still preferred the traditional checkout line to maintain social contact."
-             ]
-           },
-            {
-              "title": "Project Conclusion",
-              "description": [
-                "This module taught me how to navigate uncertainty and remain flexible. Moving from urban security to productivity tools, and finally to retail solutions, reinforced a core truth: while the subject matter changes, the rigor of the <strong>User-Centered Design</strong> methodology remains the only guarantee of a successful product."              ]
-            }
+        },
+        {
+          "title": "Test Results",
+          "description": [
+            "The final phase involved testing the prototype of a third project: an autonomous, connected supermarket cart.",
+            "• <strong>User Flow Validation:</strong> 9/9 tasks successfully completed for connecting to the cart. \n• <strong>Friction Point:</strong> The 'Connect' button had low visibility because it was drowned out by promotional visual clutter. \n• <strong>User Behavior:</strong> A strong desire for 'paper mimicry'—the ability to check off items as they go, similar to a physical list.\n• <strong>The Human Factor:</strong> Despite the innovation, 5 out of 9 testers still preferred the traditional checkout line to maintain social contact."
+          ]
+        },
+        {
+          "title": "Project Conclusion",
+          "description": [
+            "This module taught me how to navigate uncertainty and remain flexible. Moving from urban security to productivity tools, and finally to retail solutions, reinforced a core truth: while the subject matter changes, the rigor of the <strong>User-Centered Design</strong> methodology remains the only guarantee of a successful product."
+          ]
+        }
       ],
       "link": [
         {
@@ -260,16 +236,7 @@
         "krystal2025-9.jpg",
         "krystal2025-10.jpg",
         "krystal2025-11.jpg",
-        "krystal2025-12.jpg",
-        "krystal2025-13.jpg",
-        "krystal2025-14.jpg",
-        "krystal2025-15.jpg",
-        "krystal2025-16.jpg",
-        "krystal2025-17.jpg",
-        "krystal2025-18.jpg",
-        "krystal2025-19.jpg",
-        "krystal2025-20.jpg",
-        "krystal2025-21.jpg"
+        "krystal2025-12.jpg"
       ],
       "link": [
         {
@@ -307,13 +274,7 @@
         "mates-9.jpg",
         "mates-10.jpg",
         "mates-11.jpg",
-        "mates-12.jpg",
-        "mates-13.jpg",
-        "mates-14.jpg",
-        "mates-15.jpg",
-        "mates-16.jpg",
-        "mates-17.jpg",
-        "mates-18.jpg"
+        "mates-12.jpg"
       ],
       "link": [],
       "icon": "mates-icone.png",
@@ -344,13 +305,7 @@
         "krystal2026-10.jpg",
         "krystal2026-11.jpg",
         "krystal2026-12.jpg",
-        "krystal2026-13.jpg",
-        "krystal2026-14.jpg",
-        "krystal2026-15.jpg",
-        "krystal2026-16.jpg",
-        "krystal2026-17.jpg",
-        "krystal2026-18.jpg",
-        "krystal2026-19.jpg"
+        "krystal2026-13.jpg"
       ],
       "link": [
         {
@@ -415,7 +370,7 @@
 
           "description": "We followed the Double Diamond framework (Discover, Define, Ideate, and Prototype). Due to the tight deadline, we performed a major design iteration immediately following our user testing phase.",
 
-          "images": ["double-diamond.png"]
+          "images": ["double-diamond.jpg"]
         },
         {
           "title": "Discovery & definition",
@@ -425,7 +380,7 @@
             "We defined a specific target audience: ergonomists. The identified need was to assist them in evaluating the real-time state of office workers through objective data (source data) to supplement their clinical interviews."
           ],
 
-          "images": ["russell.png"]
+          "images": ["russell.jpg"]
         },
         {
           "title": "The Concept",
@@ -543,39 +498,6 @@
     }
   ],
   "playgrounds": [
-    {
-      "title": "Boucaniers",
-      "context": [
-        "I had the opportunity to create a logo for the ENSMAC BDE campaigns, which was used on various goodies. My friends already had a very clear idea of what they wanted, they even gave me sketches, which allowed me to advance infinitely faster in the research phase.",
-        "This project gave me the opportunity to develop my artistic direction and creativity while meeting expectations and deadlines. Thank you to my friends from ENSMAC for giving me such an opportunity, it was so much fun!"
-      ],
-      "created": "2024-02-15",
-      "support": ["procreate"],
-      "primaryImage": ["boucaniers-primary.jpg"],
-      "type": "illustration",
-      "secondaryImages": [
-        "boucaniers-1.jpg",
-        "boucaniers-2.jpg",
-        "boucaniers-3.jpg",
-        "boucaniers-4.jpg",
-        "boucaniers-5.jpg"
-      ],
-      "link": [],
-      "slug": "les-boucaniers",
-      "shortDescription": "campaign branding for student elections"
-    },
-    {
-      "title": "Choralamar",
-      "context": "The Choir at my school (ENSC) asked me to design a logo for their Club, and I really appreciated the creative freedom they gave me, as well as the trust they placed in me. Exploring a logo with bright colours was a particularly interesting experience.",
-      "created": "2024-02-20",
-      "support": ["procreate"],
-      "primaryImage": ["choralamar-primary.jpg"],
-      "type": "illustration",
-      "secondaryImages": ["choralamar-1.jpg"],
-      "link": [],
-      "slug": "choralamar",
-      "shortDescription": "vibrant visual identity for a music club"
-    },
     {
       "title": "USTVB",
       "context": [
@@ -722,37 +644,8 @@
       "support": ["figma"],
       "primaryImage": ["icons-primary.jpg"],
       "type": "ux_ui",
-      "secondaryImages": [
-        "icons-1.jpg",
-        "icons-2.jpg",
-        "icons-3.jpg",
-        "icons-4.jpg",
-        "icons-5.jpg",
-        "icons-6.jpg",
-        "icons-7.jpg"
-      ],
+      "secondaryImages": ["icons-1.jpg", "icons-2.jpg", "icons-3.jpg"],
       "slug": "icons-assets-01",
-      "link": []
-    },
-    {
-      "title": "Icons & Assets",
-      "context": [""],
-      "created": "2025-04-25",
-      "support": ["figma"],
-      "primaryImage": ["icons2-primary.jpg"],
-      "type": "ux_ui",
-      "secondaryImages": [
-        "icons2-1.jpg",
-        "icons2-2.jpg",
-        "icons2-3.jpg",
-        "icons2-4.jpg",
-        "icons2-5.jpg",
-        "icons2-6.jpg",
-        "icons2-7.jpg",
-        "icons2-8.jpg",
-        "icons2-9.jpg"
-      ],
-      "slug": "icons-assets-02",
       "link": []
     },
     {
@@ -781,10 +674,7 @@
         "icons-replica-3.jpg",
         "icons-replica-4.jpg",
         "icons-replica-5.jpg",
-        "icons-replica-6.jpg",
-        "icons-replica-7.jpg",
-        "icons-replica-8.jpg",
-        "icons-replica-9.jpg"
+        "icons-replica-6.jpg"
       ],
       "slug": "icons-replica",
       "link": []
@@ -794,10 +684,10 @@
       "context": [""],
       "created": "2025-10-26",
       "support": ["figma"],
-      "primaryImage": ["icons4-primary.jpg"],
+      "primaryImage": ["icons2-primary.jpg"],
       "type": "ux_ui",
-      "secondaryImages": ["icons4-1.jpg", "icons4-2.jpg", "icons4-3.jpg", "icons4-4.jpg"],
-      "slug": "icons-assets-04",
+      "secondaryImages": ["icons2-1.jpg", "icons2-2.jpg"],
+      "slug": "icons-assets-02",
       "link": []
     },
     {
@@ -821,26 +711,6 @@
       "link": []
     },
     {
-      "title": "Icons & Assets",
-      "context": [""],
-      "created": "2025-11-01",
-      "support": ["figma"],
-      "primaryImage": ["icons3-primary.jpg"],
-      "type": "ux_ui",
-      "secondaryImages": [
-        "icons3-1.jpg",
-        "icons3-2.jpg",
-        "icons3-3.jpg",
-        "icons3-4.jpg",
-        "icons3-5.jpg",
-        "icons3-6.jpg",
-        "icons3-7.jpg",
-        "icons3-8.jpg"
-      ],
-      "slug": "icons-assets-03",
-      "link": []
-    },
-    {
       "title": "VoiceMemo",
       "context": [],
       "created": "2025-12-15",
@@ -859,7 +729,7 @@
     },
     {
       "title": "Meteo",
-      "context": [],
+      "context": ["Replica of a weather card I saw on Pinterest, I tried to bring my own touch to it."],
       "created": "2025-12-15",
       "support": ["figma"],
       "primaryImage": ["Meteo-primary.jpg"],
@@ -1014,6 +884,39 @@
       "link": []
     },
     {
+      "title": "Boucaniers",
+      "context": [
+        "I had the opportunity to create a logo for the ENSMAC BDE campaigns, which was used on various goodies. My friends already had a very clear idea of what they wanted, they even gave me sketches, which allowed me to advance infinitely faster in the research phase.",
+        "This project gave me the opportunity to develop my artistic direction and creativity while meeting expectations and deadlines. Thank you to my friends from ENSMAC for giving me such an opportunity, it was so much fun!"
+      ],
+      "created": "2024-02-15",
+      "support": ["procreate"],
+      "primaryImage": ["boucaniers-primary.jpg"],
+      "type": "illustration",
+      "secondaryImages": [
+        "boucaniers-1.jpg",
+        "boucaniers-2.jpg",
+        "boucaniers-3.jpg",
+        "boucaniers-4.jpg",
+        "boucaniers-5.jpg"
+      ],
+      "link": [],
+      "slug": "les-boucaniers",
+      "shortDescription": "campaign branding for student elections"
+    },
+    {
+      "title": "Choralamar",
+      "context": "The Choir at my school (ENSC) asked me to design a logo for their Club, and I really appreciated the creative freedom they gave me, as well as the trust they placed in me. Exploring a logo with bright colours was a particularly interesting experience.",
+      "created": "2024-02-20",
+      "support": ["procreate"],
+      "primaryImage": ["choralamar-primary.jpg"],
+      "type": "illustration",
+      "secondaryImages": ["choralamar-1.jpg"],
+      "link": [],
+      "slug": "choralamar",
+      "shortDescription": "vibrant visual identity for a music club"
+    },
+    {
       "title": "Anatomy study",
       "context": [],
       "created": "2024-06-15",
@@ -1027,11 +930,7 @@
         "hand-4.jpg",
         "hand-5.jpg",
         "hand-6.jpg",
-        "hand-7.jpg",
-        "hand-8.jpg",
-        "hand-9.jpg",
-        "hand-10.jpg",
-        "hand-11.jpg"
+        "hand-7.jpg"
       ],
       "slug": "anatomy-study",
       "link": []
@@ -1058,51 +957,6 @@
       "link": []
     },
     {
-      "title": "Mii",
-      "context": ["My siblings, mii style."],
-      "created": "2024-10",
-      "support": ["procreate"],
-      "primaryImage": ["mii-primary.jpg"],
-      "type": "illustration",
-      "secondaryImages": ["mii-1.jpg", "mii-2.jpg", "mii-3.jpg", "mii-4.jpg", "mii-5.jpg"],
-      "slug": "mii",
-      "link": []
-    },
-    {
-      "title": "Marcy",
-      "context": ["Marcy from \"Adventure Time\" stylized."],
-      "created": "2025-01",
-      "support": ["procreate"],
-      "primaryImage": ["marcy-primary.jpg"],
-      "type": "illustration",
-      "secondaryImages": ["marcy-1.jpg"],
-      "slug": "marcy",
-      "link": []
-    },
-    {
-      "title": "Moleskine sketch",
-      "context": [],
-      "created": "2025-02-02",
-      "support": ["paper"],
-      "primaryImage": ["trad-primary.jpg"],
-      "type": "illustration",
-      "secondaryImages": [
-        "trad-1.jpg",
-        "trad-2.jpg",
-        "trad-3.jpg",
-        "trad-4.jpg",
-        "trad-5.jpg",
-        "trad-6.jpg",
-        "trad-7.jpg",
-        "trad-8.jpg",
-        "trad-9.jpg",
-        "trad-10.jpg",
-        "trad-11.jpg"
-      ],
-      "slug": "moleskine-sketch-01",
-      "link": []
-    },
-    {
       "title": "Digital Board",
       "context": [],
       "created": "2025-02-26",
@@ -1113,7 +967,7 @@
         "planche4-1.jpg",
         "planche4-2.jpg",
         "planche4-3.jpg",
-        "planche3-4.jpg",
+        "planche4-4.jpg",
         "planche4-5.jpg",
         "planche4-6.jpg",
         "planche4-7.jpg",
@@ -1125,7 +979,26 @@
     {
       "title": "Moleskine sketch",
       "context": [],
-      "created": "2025-03-01",
+      "created": "2025-03-14",
+      "support": ["paper"],
+      "primaryImage": ["trad-primary.jpg"],
+      "type": "illustration",
+      "secondaryImages": [
+        "trad-1.jpg",
+        "trad-2.jpg",
+        "trad-3.jpg",
+        "trad-4.jpg",
+        "trad-5.jpg",
+        "trad-6.jpg",
+        "trad-7.jpg"
+      ],
+      "slug": "moleskine-sketch-01",
+      "link": []
+    },
+    {
+      "title": "Moleskine sketch",
+      "context": [],
+      "created": "2025-06-21",
       "support": ["paper"],
       "primaryImage": ["trad2-primary.jpg"],
       "type": "illustration",
@@ -1137,124 +1010,29 @@
         "trad2-5.jpg",
         "trad2-6.jpg",
         "trad2-7.jpg",
-        "trad2-8.jpg",
-        "trad2-9.jpg",
-        "trad2-10.jpg",
-        "trad2-11.jpg"
+        "trad2-8.jpg"
       ],
       "slug": "moleskine-sketch-02",
       "link": []
     },
     {
-      "title": "Moleskine sketch",
-      "context": [],
-      "created": "2025-03-14",
-      "support": ["paper"],
-      "primaryImage": ["trad3-primary.jpg"],
-      "type": "illustration",
-      "secondaryImages": [
-        "trad3-1.jpg",
-        "trad3-2.jpg",
-        "trad3-3.jpg",
-        "trad3-4.jpg",
-        "trad3-5.jpg",
-        "trad3-6.jpg",
-        "trad3-7.jpg",
-        "trad3-8.jpg",
-        "trad3-9.jpg",
-        "trad3-10.jpg",
-        "trad3-11.jpg",
-        "trad3-12.jpg"
-      ],
-      "slug": "moleskine-sketch-03",
-      "link": []
-    },
-    {
-      "title": "Fashion",
-      "context": [],
-      "created": "2025-04-15",
-      "support": ["procreate"],
-      "primaryImage": ["mode-primary.jpg"],
-      "type": "illustration",
-      "secondaryImages": ["mode-1.jpg", "mode-2.jpg", "mode-3.jpg", "mode-4.jpg", "mode-5.jpg", "mode-6.jpg"],
-      "slug": "fashion-01",
-      "link": []
-    },
-    {
-      "title": "Moleskine sketch",
-      "context": [],
-      "created": "2025-06-21",
-      "support": ["paper"],
-      "primaryImage": ["trad4-primary.jpg"],
-      "type": "illustration",
-      "secondaryImages": [
-        "trad4-1.jpg",
-        "trad4-2.jpg",
-        "trad4-3.jpg",
-        "trad4-4.jpg",
-        "trad4-5.jpg",
-        "trad4-6.jpg",
-        "trad4-7.jpg",
-        "trad4-8.jpg",
-        "trad4-9.jpg"
-      ],
-      "slug": "moleskine-sketch-04",
-      "link": []
-    },
-    {
       "title": "Expression study",
-      "context": ["Kyoshi from the novel \"The Rise of Kyoshi\" expression study."],
-      "created": "2025-07-21",
-      "support": ["procreate"],
-      "primaryImage": ["expression-study3-primary.jpg"],
-      "type": "illustration",
-      "secondaryImages": [
-        "expression-study3-1.jpg",
-        "expression-study3-2.jpg",
-        "expression-study3-3.jpg",
-        "expression-study3-4.jpg",
-        "expression-study3-5.jpg",
-        "expression-study3-6.jpg",
-        "expression-study3-7.jpg",
-        "expression-study3-8.jpg"
-      ],
-      "slug": "expression-study-04",
-      "link": []
-    },
-    {
-      "title": "Expression study",
-      "context": ["Rangi from the novel \"The Rise of Kyoshi\" expression study."],
+      "context": ["Kyoshi & Rangi from the novel \"The Rise of Kyoshi\" expression study."],
       "created": "2025-07-24",
       "support": ["procreate"],
-      "primaryImage": ["expression-study2-primary.jpg"],
+      "primaryImage": ["expression-study-primary.jpg"],
       "type": "illustration",
       "secondaryImages": [
-        "expression-study2-1.jpg",
-        "expression-study2-2.jpg",
-        "expression-study2-3.jpg",
-        "expression-study2-4.jpg",
-        "expression-study2-5.jpg",
-        "expression-study2-6.jpg"
+        "expression-study-1.jpg",
+        "expression-study-2.jpg",
+        "expression-study-3.jpg",
+        "expression-study-4.jpg",
+        "expression-study-5.jpg",
+        "expression-study-6.jpg",
+        "expression-study-7.jpg",
+        "expression-study-8.jpg"
       ],
-      "slug": "expression-study-03",
-      "link": []
-    },
-    {
-      "title": "Avatar",
-      "context": ["Characters from the novel \"The Rise of Kyoshi\" expression study."],
-      "created": "2025-07-28",
-      "support": ["procreate"],
-      "primaryImage": ["Avatar-primary.jpg"],
-      "type": "illustration",
-      "secondaryImages": [
-        "Avatar-1.jpg",
-        "Avatar-2.jpg",
-        "Avatar-3.jpg",
-        "Avatar-4.jpg",
-        "Avatar-5.jpg",
-        "Avatar-6.jpg"
-      ],
-      "slug": "avatar",
+      "slug": "expression-study",
       "link": []
     },
     {
@@ -1262,20 +1040,10 @@
       "context": [],
       "created": "2025-07-31",
       "support": ["paper"],
-      "primaryImage": ["trad5-primary.jpg"],
+      "primaryImage": ["trad3-primary.jpg"],
       "type": "illustration",
-      "secondaryImages": [
-        "trad5-1.jpg",
-        "trad5-2.jpg",
-        "trad5-3.jpg",
-        "trad5-4.jpg",
-        "trad5-5.jpg",
-        "trad5-6.jpg",
-        "trad5-7.jpg",
-        "trad5-8.jpg",
-        "trad5-9.jpg"
-      ],
-      "slug": "moleskine-sketch-05",
+      "secondaryImages": ["trad3-1.jpg", "trad3-2.jpg", "trad3-3.jpg", "trad3-4.jpg", "trad3-5.jpg"],
+      "slug": "moleskine-sketch-03",
       "link": []
     },
     {
@@ -1285,7 +1053,7 @@
       "support": ["procreate"],
       "primaryImage": ["realistic-portrait-primary.jpg"],
       "type": "illustration",
-      "secondaryImages": ["realistic-portrait-1.jpg", "realistic-portrait-2.jpg", "realistic-portrait-3.jpg"],
+      "secondaryImages": ["realistic-portrait-1.jpg", "realistic-portrait-2.jpg"],
       "slug": "portrait",
       "link": []
     },
@@ -1316,125 +1084,30 @@
       "support": ["procreate"],
       "primaryImage": ["stylized-portrait-primary.jpg"],
       "type": "illustration",
-      "secondaryImages": [
-        "stylized-portrait-1.jpg",
-        "stylized-portrait-2.jpg",
-        "stylized-portrait-3.jpg",
-        "stylized-portrait-4.jpg",
-        "stylized-portrait-5.jpg"
-      ],
+      "secondaryImages": ["stylized-portrait-1.jpg", "stylized-portrait-2.jpg"],
       "slug": "stylized-portrait",
       "link": []
     },
     {
-      "title": "Stylized study",
-      "context": [],
-      "created": "2025-10-04",
-      "support": ["procreate"],
-      "primaryImage": ["stylized-study-primary.jpg"],
-      "type": "illustration",
-      "secondaryImages": ["stylized-study-1.jpg"],
-      "slug": "stylized-study",
-      "link": []
-    },
-    {
-      "title": "Stylized portrait",
-      "context": [],
-      "created": "2025-11-25",
-      "support": ["procreate"],
-      "primaryImage": ["stylized-portrait2-primary.jpg"],
-      "type": "illustration",
-      "secondaryImages": ["stylized-portrait2-1.jpg", "stylized-portrait2-2.jpg", "stylized-portrait2-3.jpg"],
-      "slug": "stylized-portrait-02",
-      "link": []
-    },
-    {
       "title": "Expression study",
-      "context": ["Young Vi (Arcane) facial expression study."],
-      "created": "2025-12-09",
-      "support": ["procreate"],
-      "primaryImage": ["arcane-primary.jpg"],
-      "type": "illustration",
-      "secondaryImages": ["arcane-1.jpg", "arcane-2.jpg", "arcane-3.jpg", "arcane-4.jpg", "arcane-5.jpg"],
-      "slug": "expression-study-01",
-      "link": []
-    },
-    {
-      "title": "Stylized portrait",
-      "context": [],
-      "created": "2025-12-13",
-      "support": ["procreate"],
-      "primaryImage": ["stylized-portrait3-primary.jpg"],
-      "type": "illustration",
-      "secondaryImages": ["stylized-portrait3-1.jpg", "stylized-portrait3-2.jpg", "stylized-portrait3-3.jpg"],
-      "slug": "stylized-portrait-03",
-      "link": []
-    },
-    {
-      "title": "Stylized portrait",
-      "context": [],
-      "created": "2025-12-21",
-      "support": ["procreate"],
-      "primaryImage": ["stylized-portrait4-primary.jpg"],
-      "type": "illustration",
-      "secondaryImages": [
-        "stylized-portrait4-1.jpg",
-        "stylized-portrait4-2.jpg",
-        "stylized-portrait4-3.jpg",
-        "stylized-portrait4-4.jpg",
-        "stylized-portrait4-5.jpg"
-      ],
-      "slug": "stylized-portrait-04",
-      "link": []
-    },
-    {
-      "title": "Expression study",
-      "context": [],
-      "created": "2025-12-30",
-      "support": ["procreate"],
-      "primaryImage": ["expression-study6-primary.jpg"],
-      "type": "illustration",
-      "secondaryImages": ["expression-study6-1.jpg", "expression-study6-2.jpg", "expression-study6-3.jpg"],
-      "slug": "expression-study-06",
-      "link": []
-    },
-    {
-      "title": "Expression study",
-      "context": [],
-      "created": "2025-12-30",
-      "support": ["procreate"],
-      "primaryImage": ["expression-study7-primary.jpg"],
-      "type": "illustration",
-      "secondaryImages": ["expression-study7-1.jpg"],
-      "slug": "expression-study-07",
-      "link": []
-    },
-    {
-      "title": "Stylized portrait",
-      "context": [],
-      "created": "2025-12-30",
-      "support": ["procreate"],
-      "primaryImage": ["stylized-portrait5-primary.jpg"],
-      "type": "illustration",
-      "secondaryImages": ["stylized-portrait5-1.jpg"],
-      "slug": "stylized-portrait-05",
-      "link": []
-    },
-    {
-      "title": "Fashion",
       "context": [],
       "created": "2025-12-31",
       "support": ["procreate"],
-      "primaryImage": ["mode2-primary.jpg"],
+      "primaryImage": ["expression-study2-primary.jpg"],
       "type": "illustration",
-      "secondaryImages": ["mode2-1.jpg", "mode2-2.jpg", "mode2-3.jpg", "mode2-4.jpg"],
-      "slug": "fashion-02",
+      "secondaryImages": [
+        "expression-study2-1.jpg",
+        "expression-study2-2.jpg",
+        "expression-study2-3.jpg",
+        "expression-study2-4.jpg"
+      ],
+      "slug": "expression-study-02",
       "link": []
     },
     {
       "title": "Stylized",
-      "context": [],
-      "created": "2025-12-31",
+      "context": ["This piece of work is a commission for a friend."],
+      "created": " 2025-12-31",
       "support": ["procreate"],
       "primaryImage": ["stylized-primary.jpg"],
       "type": "illustration",
@@ -1442,49 +1115,24 @@
       "slug": "stylized-01",
       "link": []
     },
-    {
-      "title": "Stylized",
-      "context": [],
-      "created": "2026-01-24",
-      "support": ["procreate"],
-      "primaryImage": ["expression-study8-primary.jpg"],
-      "type": "illustration",
-      "secondaryImages": [
-        "expression-study8-1.jpg",
-        "expression-study8-2.jpg",
-        "expression-study8-3.jpg",
-        "expression-study8-4.jpg",
-        "expression-study8-5.jpg"
-      ],
-      "slug": "expression-study-08",
-      "link": []
-    },
+
     {
       "title": "Stylized portrait",
       "context": [],
       "created": "2026-02-06",
       "support": ["procreate"],
-      "primaryImage": ["stylized-portrait6-primary.jpg"],
+      "primaryImage": ["stylized-portrait2-primary.jpg"],
       "type": "illustration",
       "secondaryImages": [
-        "stylized-portrait6-1.jpg",
-        "stylized-portrait6-2.jpg",
-        "stylized-portrait6-3.jpg",
-        "stylized-portrait6-4.jpg",
-        "stylized-portrait6-5.jpg"
+        "stylized-portrait2-1.jpg",
+        "stylized-portrait2-2.jpg",
+        "stylized-portrait2-3.jpg",
+        "stylized-portrait2-4.jpg",
+        "stylized-portrait2-5.jpg",
+        "stylized-portrait2-6.jpg",
+        "stylized-portrait2-7.jpg"
       ],
-      "slug": "stylized-portrait-06",
-      "link": []
-    },
-    {
-      "title": "Expression study",
-      "context": [],
-      "created": "2026-02-07",
-      "support": ["procreate"],
-      "primaryImage": ["expression-study9-primary.jpg"],
-      "type": "illustration",
-      "secondaryImages": ["expression-study9-1.jpg", "expression-study9-2.jpg"],
-      "slug": "expression-study-09",
+      "slug": "stylized-portrait-02",
       "link": []
     },
     {
@@ -1492,17 +1140,80 @@
       "context": [],
       "created": "2026-02-09",
       "support": ["procreate"],
-      "primaryImage": ["stylized-portrait7-primary.jpg"],
+      "primaryImage": ["stylized-portrait3-primary.jpg"],
       "type": "illustration",
       "secondaryImages": [
-        "stylized-portrait7-1.jpg",
-        "stylized-portrait7-2.jpg",
-        "stylized-portrait7-3.jpg",
-        "stylized-portrait7-4.jpg",
-        "stylized-portrait7-5.jpg",
-        "stylized-portrait7-6.jpg"
+        "stylized-portrait3-1.jpg",
+        "stylized-portrait3-2.jpg",
+        "stylized-portrait3-3.jpg",
+        "stylized-portrait3-4.jpg",
+        "stylized-portrait3-5.jpg"
       ],
-      "slug": "stylized-portrait-07",
+      "slug": "stylized-portrait-03",
+      "link": []
+    },
+    {
+      "title": "Anatomy study",
+      "context": [],
+      "created": "2026-04-09",
+      "support": ["procreate"],
+      "primaryImage": ["hand2-primary.jpg"],
+      "type": "illustration",
+      "secondaryImages": [
+        "hand2-1.mp4",
+        "hand2-2.jpg",
+        "hand2-3.jpg",
+        "hand2-4.jpg",
+        "hand2-5.jpg",
+        "hand2-6.jpg",
+        "hand2-7.jpg"
+      ],
+      "slug": "anatomy-study-02",
+      "link": []
+    },
+    {
+      "title": "Stylized",
+      "context": [],
+      "created": "2026-07-05",
+      "support": ["procreate"],
+      "primaryImage": ["stylized2-primary.jpg"],
+      "type": "illustration",
+      "secondaryImages": [
+        "stylized2-1.jpg",
+        "stylized2-2.jpg",
+        "stylized2-3.jpg"
+      ],
+      "slug": "stylized-02",
+      "link": []
+    },
+    {
+      "title": "Moleskine sketch",
+      "context": [],
+      "created": "2026-08-06",
+      "support": ["paper"],
+      "primaryImage": ["trad4-primary.jpg"],
+      "type": "illustration",
+      "secondaryImages": [
+        "trad4-1.jpg",
+        "trad4-2.jpg",
+        "trad4-3.jpg",
+        "trad4-4.jpg",
+        "trad4-5.jpg",
+        "trad4-6.jpg",
+        "trad4-7.jpg"
+      ],
+      "slug": "moleskine-sketch-04",
+      "link": []
+    },
+    {
+      "title": "Stylized portrait",
+      "context": ["Nakoi Urasawa & Takehiko Inoue portaits study."],
+      "created": "2026-09-10",
+      "support": ["procreate"],
+      "primaryImage": ["stylized-portrait4-primary.jpg"],
+      "type": "illustration",
+      "secondaryImages": ["stylized-portrait4-1.jpg", "stylized-portrait4-2.jpg"],
+      "slug": "stylized-portrait-04",
       "link": []
     }
   ]

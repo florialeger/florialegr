@@ -178,47 +178,6 @@ export const PortfolioProvider = ({ children }) => {
   const [work, setWork] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [imagesPreloaded, setImagesPreloaded] = useState(false);
-
-  const preloadAllImages = useCallback((projectsData, playgroundsData, workData) => {
-    const priorityImages = [];
-
-    // Only preload primary images (thumbnails/cards), not secondary images
-    // Secondary images will lazy load when detail pages are viewed
-    projectsData.forEach((project) => {
-      if (project.primaryImage) priorityImages.push(...project.primaryImage);
-    });
-
-    playgroundsData.forEach((playground) => {
-      if (playground.primaryImage) priorityImages.push(...playground.primaryImage);
-    });
-
-    workData.forEach((w) => {
-      if (w.primaryImage) priorityImages.push(...w.primaryImage);
-    });
-
-    // Filter out empty/null values
-    const validImages = priorityImages.filter(Boolean);
-
-    if (validImages.length === 0) {
-      setImagesPreloaded(true);
-      return Promise.resolve();
-    }
-
-    // Preload priority images with parallel batch processing
-    const imagePromises = validImages.map((src) => {
-      return new Promise((resolve) => {
-        const img = new Image();
-        img.onload = () => resolve();
-        img.onerror = () => resolve(); // Continue even if image fails
-        img.src = typeof src === 'string' ? src : src.url || src.path || '';
-      });
-    });
-
-    return Promise.all(imagePromises).then(() => {
-      setImagesPreloaded(true);
-    });
-  }, []);
 
   const loadData = useCallback(async () => {
     try {
@@ -237,8 +196,6 @@ export const PortfolioProvider = ({ children }) => {
       setPlaygrounds(normalizedPlaygrounds);
       setWork(normalizedWork);
 
-      // Preload all images in background
-      preloadAllImages(normalizedProjects, normalizedPlaygrounds, normalizedWork);
     } catch (err) {
       console.error('Failed to load portfolio data', err);
       setError(err);
@@ -248,7 +205,7 @@ export const PortfolioProvider = ({ children }) => {
     } finally {
       setLoading(false);
     }
-  }, [preloadAllImages]);
+  }, []);
 
   useEffect(() => {
     let isMounted = true;
@@ -347,7 +304,6 @@ export const PortfolioProvider = ({ children }) => {
       work: sortedWork,
       loading,
       error,
-      imagesPreloaded,
       refresh: loadData,
       uniqueDuties,
       uniquePlaygroundCategories,
@@ -361,7 +317,6 @@ export const PortfolioProvider = ({ children }) => {
       sortedWork,
       loading,
       error,
-      imagesPreloaded,
       loadData,
       uniqueDuties,
       uniquePlaygroundCategories,

@@ -93,7 +93,8 @@
 /* Size: Small */
 .buttonSmall {
   padding: var(--padding-small-v) var(--padding-small-h);
-  border-radius: 999px; /* pill */
+  border-radius: var(--radius-xs);
+  corner-shape: squircle;
   gap: clamp(0.25rem, 0.5vw, 0.25rem);
 }
 
@@ -116,7 +117,7 @@
 .iconOnly.buttonBig {
   aspect-ratio: 1 / 1;
   padding: var(--padding-big-v);
-  border-radius: 999px; /* pill for menu button */
+  border-radius: 999px; 
 }
 
 /* Inner content wrapper */

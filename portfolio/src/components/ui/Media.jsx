@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
+import { getMediaDimensions } from '@/utils/media';
 
 const isVideoSrc = (src) => {
   if (!src) return false;
@@ -11,13 +12,20 @@ const isVideoSrc = (src) => {
   }
 };
 
-const Media = ({ src, alt = '', className = '', poster }) => {
+const Media = ({
+  src,
+  alt = '',
+  className = '',
+  poster,
+  loading = 'lazy',
+  fetchPriority = 'auto',
+}) => {
   const videoRef = useRef(null);
   const containerRef = useRef(null);
-  const [shouldLoadVideo, setShouldLoadVideo] = useState(false);
+  const [shouldLoadVideo, setShouldLoadVideo] = useState(loading === 'eager');
 
   useEffect(() => {
-    if (!isVideoSrc(src)) return undefined;
+    if (!isVideoSrc(src) || loading === 'eager') return undefined;
 
     // If IntersectionObserver isn't available, load immediately to avoid
     // blocking functionality in older browsers.
@@ -46,18 +54,24 @@ const Media = ({ src, alt = '', className = '', poster }) => {
 
     io.observe(el);
     return () => io.disconnect();
-  }, [src]);
+  }, [loading, src]);
 
   if (!src) return null;
+  const dimensions = getMediaDimensions(src);
 
   if (isVideoSrc(src)) {
-    // Render a lightweight poster or placeholder until the video should load.
     return (
-      <div ref={containerRef} className={className} aria-hidden={false}>
+      <div ref={containerRef} aria-hidden={false}>
         {!shouldLoadVideo ? (
-          // Poster fallback: use provided `poster` or show an empty image tag
-          // (keeps layout stable). Keep it `loading="lazy"` so it's cheap.
-          <img src={poster || ''} alt={alt} loading="lazy" decoding="async" />
+          <img
+            src={poster || ''}
+            alt={alt}
+            loading={loading}
+            decoding="async"
+            fetchPriority={fetchPriority}
+            width={dimensions?.width}
+            height={dimensions?.height}
+          />
         ) : (
           <video
             ref={videoRef}
@@ -69,7 +83,7 @@ const Media = ({ src, alt = '', className = '', poster }) => {
             playsInline
             autoPlay
             controls={false}
-            preload="metadata"
+            preload={loading === 'eager' ? 'auto' : 'metadata'}
           />
         )}
       </div>
@@ -81,9 +95,11 @@ const Media = ({ src, alt = '', className = '', poster }) => {
       className={className}
       src={src}
       alt={alt}
-      loading="lazy"
+      loading={loading}
       decoding="async"
-      style={{ contentVisibility: 'auto' }}
+      fetchPriority={fetchPriority}
+      width={dimensions?.width}
+      height={dimensions?.height}
     />
   );
 };
@@ -93,6 +109,8 @@ Media.propTypes = {
   alt: PropTypes.string,
   className: PropTypes.string,
   poster: PropTypes.string,
+  loading: PropTypes.oneOf(['eager', 'lazy']),
+  fetchPriority: PropTypes.oneOf(['high', 'low', 'auto']),
 };
 
 export default Media;

@@ -1,11 +1,7 @@
-import { useMemo, useRef, useState, useEffect } from 'react';
-import { keyframes } from '@emotion/react';
-import { Reveal } from 'react-awesome-reveal';
-import { motion } from 'framer-motion';
+import { useMemo, useRef, useState, useEffect, useCallback } from 'react';
 import PropTypes from 'prop-types';
 import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import Button from '@/components/ui/Button';
-import LoadAnimation from '@/components/loaders/LoadAnimation';
 import { usePortfolio } from '@/contexts/PortfolioContext';
 import formatDate from '@/utils/formatDate';
 import formatDuration from '@/utils/formatDuration';
@@ -16,59 +12,6 @@ import pageLayout from '@/components/ui/PageLayout.module.css';
 import useMagneticEffect from '@/hooks/useMagneticEffect';
 import Media from '@/components/ui/Media';
 import { ArrowPreviousIcon, ArrowNextIcon } from '@/components/ui/icons';
-
-// Subtle slide animations (20-30px with blur)
-const slideInFromLeft = keyframes`
-  from {
-    opacity: 0;
-    transform: translateX(-30px);
-    filter: blur(4px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-    filter: blur(0);
-  }
-`;
-
-const slideInFromRight = keyframes`
-  from {
-    opacity: 0;
-    transform: translateX(30px);
-    filter: blur(4px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-    filter: blur(0);
-  }
-`;
-
-// Animation variants for staggered sections and images
-const sectionsContainerVariants = {
-  hidden: { opacity: 0 },
-  show: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.15,
-    },
-  },
-};
-
-const sectionVariants = {
-  hidden: { opacity: 0, y: 30 },
-  show: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.5,
-      ease: [0.22, 1, 0.36, 1],
-      staggerChildren: 0.1,
-    },
-  },
-};
-
-// Images in detail page are static - no animations or effects
 
 const Detail = ({ variant }) => {
   const { slug } = useParams();
@@ -82,17 +25,12 @@ const Detail = ({ variant }) => {
     projects,
     playgrounds,
     work,
-    imagesPreloaded,
   } = usePortfolio();
   const titleRef = useRef(null);
   const footerRef = useRef(null);
 
   // Get filter from location state or default to 'all'
   const currentFilter = location.state?.filter || 'all';
-
-  // Track animation direction for slide transitions
-  const [animationKey, setAnimationKey] = useState(0);
-  const [currentAnimation, setCurrentAnimation] = useState(slideInFromLeft);
 
   // Track if navigation should be docked to footer (bottom of content reached)
   const [isNavDocked, setIsNavDocked] = useState(false);
@@ -180,7 +118,7 @@ const Detail = ({ variant }) => {
 
   const links = data?.link || [];
 
-  const handleClose = () => {
+  const handleClose = useCallback(() => {
     const fallbackPath = variant === 'work' ? '/work' : '/playground';
     const returnTo =
       typeof location.state?.from === 'string' && location.state.from ? location.state.from : fallbackPath;
@@ -189,12 +127,10 @@ const Detail = ({ variant }) => {
       replace: true,
       state: { scrollTo: location.state?.scrollTo },
     });
-  };
+  }, [location.state?.from, location.state?.scrollTo, navigate, variant]);
 
-  const handlePrevious = () => {
+  const handlePrevious = useCallback(() => {
     if (!prevItem) return;
-    setCurrentAnimation(slideInFromLeft);
-    setAnimationKey((prev) => prev + 1);
     const path = variant === 'work' ? `/work/${prevItem.slug}` : `/playground/${prevItem.slug}`;
     navigate(path, {
       state: {
@@ -204,12 +140,10 @@ const Detail = ({ variant }) => {
       },
       replace: true,
     });
-  };
+  }, [currentFilter, location.state?.from, navigate, prevItem, variant]);
 
-  const handleNext = () => {
+  const handleNext = useCallback(() => {
     if (!nextItem) return;
-    setCurrentAnimation(slideInFromRight);
-    setAnimationKey((prev) => prev + 1);
     const path = variant === 'work' ? `/work/${nextItem.slug}` : `/playground/${nextItem.slug}`;
     navigate(path, {
       state: {
@@ -219,7 +153,50 @@ const Detail = ({ variant }) => {
       },
       replace: true,
     });
-  };
+  }, [currentFilter, location.state?.from, navigate, nextItem, variant]);
+
+  // Keep keyboard and screen-wide pointer navigation available without hijacking controls.
+  useEffect(() => {
+    const handleKeyDown = (event) => {
+      const target = event.target;
+      const isTypingTarget =
+        target instanceof HTMLElement &&
+        (target.isContentEditable || ['INPUT', 'SELECT', 'TEXTAREA'].includes(target.tagName));
+
+      if (isTypingTarget || event.metaKey || event.ctrlKey || event.altKey) return;
+      if (event.key === 'ArrowLeft' && prevItem) {
+        event.preventDefault();
+        handlePrevious();
+      } else if (event.key === 'ArrowRight' && nextItem) {
+        event.preventDefault();
+        handleNext();
+      }
+    };
+
+    const handleScreenClick = (event) => {
+      if (event.defaultPrevented || !(event.target instanceof Element)) return;
+      if (event.target.closest('a, button, input, select, textarea, [role="button"], [contenteditable="true"]')) {
+        return;
+      }
+
+      const third = window.innerWidth / 3;
+      if (event.clientX < third) {
+        handlePrevious();
+      } else if (event.clientX >= third * 2) {
+        handleNext();
+      } else {
+        handleClose();
+      }
+    };
+
+    document.addEventListener('keydown', handleKeyDown);
+    document.addEventListener('click', handleScreenClick);
+
+    return () => {
+      document.removeEventListener('keydown', handleKeyDown);
+      document.removeEventListener('click', handleScreenClick);
+    };
+  }, [handleClose, handleNext, handlePrevious, nextItem, prevItem]);
 
   // Track scroll position to dock navigation when footer is in view (desktop only)
   useEffect(() => {
@@ -337,9 +314,7 @@ const Detail = ({ variant }) => {
 
   return (
     <div className={`${pageLayout.page}`.trim()} style={{ gap: 'var(--stack-gap-lg)' }}>
-      {!imagesPreloaded && <LoadAnimation />}
-      <Reveal keyframes={currentAnimation} triggerOnce={false} duration={800} key={`${slug}-${animationKey}`}>
-        <article className={`${pageLayout.container} ${styles.card}`.trim()}>
+      <article className={`${pageLayout.container} ${styles.card}`.trim()}>
           {/* HEADER SECTION */}
           <header className={styles.header}>
             {/* Metadata */}
@@ -447,20 +422,14 @@ const Detail = ({ variant }) => {
           {/* SECTIONS */}
           {sections.length > 0 && (
             <div className={styles.sectionsContainer}>
-              <motion.div
-                className={styles.sections}
-                style={{ opacity: imagesPreloaded ? 1 : 0, transition: 'opacity 400ms ease' }}
-                variants={sectionsContainerVariants}
-                initial="hidden"
-                animate={imagesPreloaded ? 'show' : 'hidden'}
-              >
+              <div className={styles.sections}>
                 {sections.map((section, sectionIndex) => {
                   // First section never has subtitle/description
                   const isFirstSection = sectionIndex === 0;
                   const hasSubheader = !isFirstSection && (section.title || section.description);
 
                   return (
-                    <motion.section key={sectionIndex} className={styles.section} variants={sectionVariants}>
+                    <section key={sectionIndex} className={styles.section}>
                       {hasSubheader && (
                         <div className={styles.sectionSubheader}>
                           {section.title && <h3 className={styles.sectionTitle}>{section.title}</h3>}
@@ -485,31 +454,44 @@ const Detail = ({ variant }) => {
                               src={image}
                               alt=""
                               className={styles.imageItem}
+                              loading={sectionIndex === 0 && imageIndex === 0 ? 'eager' : 'lazy'}
+                              fetchPriority={sectionIndex === 0 && imageIndex === 0 ? 'high' : 'auto'}
                             />
                           ))}
                         </div>
                       )}
-                    </motion.section>
+                    </section>
                   );
                 })}
-              </motion.div>
+              </div>
             </div>
           )}
         </article>
-      </Reveal>
 
       {/* Footer with navigation */}
       {(prevItem || nextItem) && (
         <footer ref={footerRef} className={styles.detailFooter}>
           <nav className={`${styles.navigationSection} ${isNavDocked ? styles.navigationDocked : ''}`}>
             {prevItem && (
-              <button ref={setPrevMag} onClick={handlePrevious} className={styles.navItem}>
+              <button
+                ref={setPrevMag}
+                type="button"
+                onClick={handlePrevious}
+                className={styles.navItem}
+                aria-label={`Previous: ${prevItem.company || prevItem.title}`}
+              >
                 <ArrowPreviousIcon className={styles.navArrow} />
                 <p className={styles.navTitle}>{prevItem.company || prevItem.title}</p>
               </button>
             )}
             {nextItem && (
-              <button ref={setNextMag} onClick={handleNext} className={`${styles.navItem} ${styles.navItemRight}`}>
+              <button
+                ref={setNextMag}
+                type="button"
+                onClick={handleNext}
+                className={`${styles.navItem} ${styles.navItemRight}`}
+                aria-label={`Next: ${nextItem.company || nextItem.title}`}
+              >
                 <p className={styles.navTitle}>{nextItem.company || nextItem.title}</p>
                 <ArrowNextIcon className={styles.navArrow} />
               </button>

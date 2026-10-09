@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "prebuild": "node scripts/generate-media-dimensions.mjs",
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
@@ -21,6 +22,7 @@
     "axios": "^1.13.2",
     "cors": "^2.8.5",
     "dotenv": "^17.2.3",
+    "firebase": "^13.0.0",
     "framer-motion": "^12.6.5",
     "gridfs": "^1.0.0",
     "gsap": "^3.13.0",
@@ -41,14 +43,14 @@
     "@types/react-dom": "^19.1.2",
     "@vitejs/plugin-react": "^4.3.4",
     "concurrently": "^9.1.2",
-    "eslint": "^10.0.2",
+    "eslint": "^9.39.4",
     "eslint-plugin-react-hooks": "^5.1.0",
     "eslint-plugin-react-refresh": "^0.4.19",
+    "firebase-tools": "^15.33.0",
     "globals": "^16.0.0",
     "prettier": "^3.5.3",
     "vite": "^6.2.0",
     "vite-imagetools": "^9.0.3",
-    "vite-plugin-compression": "^0.5.1",
-    "vite-plugin-image-optimizer": "^2.0.3"
+    "vite-plugin-compression": "^0.5.1"
   }
 }

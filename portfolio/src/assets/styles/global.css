@@ -2,8 +2,8 @@
   /* Headings (Source Sans 3) */
   --type---title-1---family:
     'EB Garamond', 'Source Sans 3', system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
-  --type---title-1---size: clamp(1.7rem, 5.2vw, 1.8rem);
-  --type---title-1---weight-regular: 500;
+  --type---title-1---size: clamp(1.8rem, 5.2vw, 2rem);
+  --type---title-1---weight-regular: 500; 
   --type---title-1---letter-spacing: -2px;
 
   --type---title-2---family: 'Source Sans 3', system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
@@ -86,7 +86,7 @@
   /* Theme defaults (white baseline) */
   --surface---main: #fcfcfc;
   --background---primary: #fcfcfc;
-  --label---primary: #171717;
+  --label---primary: #101010;
   --label---secondary: rgba(23, 23, 23, 0.7);
   --label---tertiary: rgba(23, 23, 23, 0.5);
   --label---quaternuary: rgba(23, 23, 23, 0.2);
@@ -113,7 +113,7 @@
     inset -0.5px 0.5px 0.5px rgba(255, 255, 255, 0.6), 0px 1px 2px rgba(0, 0, 0, 0.04),
     0px 1.5px 2px rgba(0, 0, 0, 0.04), 0px 0px 2px rgba(0, 0, 0, 0.1), inset 0px -0.5px 0.5px rgba(0, 0, 0, 0.15);
 
-  font-size: 18px;
+  font-size: 17px;
   font-family: var(--type---body---family);
   line-height: var(--type---body---line-height);
   font-weight: var(--type---body---weight);

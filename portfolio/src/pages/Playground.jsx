@@ -29,7 +29,7 @@ import pageLayout from '@/components/ui/PageLayout.module.css';
 
 const playgroundParagraphs = [
   "Drawing has always been a part of me, more than a hobby, it just feels right. Eighteen years in, I keep growing at my own pace, always striving for more. I don't post much online, but I create whenever I can. ",
-  "Lately, I've been channeling that energy into UX/UI design, another canvas for balance, structure, and emotion. The process, the curiosity, the joy of making, that's what drives me.",
+  'Over the years, I’ve channeled that discipline into UX/UI design. With solid, hands-on experience under my belt, it has become another canvas for balance, structure, and emotion, one where I solve real-world problems for real people. The process, the curiosity, and the joy of making, that’s what drives me.',
 ];
 
 // Animation variants for staggered list entrance

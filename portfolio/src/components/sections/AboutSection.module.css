@@ -14,8 +14,8 @@
 
 .portrait img {
   display: block;
-  width: 100%;
-  border-radius: var(--radius-pill);
+  width: 100%; 
+  border-radius: var(--radius-xs);
   object-fit: cover;
 }
 

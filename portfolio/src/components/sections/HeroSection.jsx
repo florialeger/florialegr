@@ -57,7 +57,7 @@ const HeroSection = () => {
   );
 
   const handleEmailCopy = useCallback(async () => {
-    const email = 'floria.leger@ensc.fr';
+    const email = 'floria.leger@gmail.com';
     try {
       await navigator.clipboard.writeText(email);
       setEmailCopied(true);

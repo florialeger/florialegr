@@ -1,12 +1,10 @@
 import { useEffect, useMemo, useState, useCallback } from 'react';
 import { useLocation } from 'react-router-dom';
-import { motion, AnimatePresence, LayoutGroup } from 'framer-motion';
+import { motion, LayoutGroup } from 'framer-motion';
 import Container from '@/components/ui/Container';
-import ViewToggle from '@/components/ui/ViewToggle';
 import RevealAnimation from '@/components/utility/RevealAnimation';
 import MouseFollowImage from '@/components/utility/MouseFollowImage';
 import WorkCard from '@/components/sections/WorkCard';
-import ProjectCard from '@/components/sections/ProjectCard';
 import ProjectListItem from '@/components/projects/ProjectListItem';
 import { usePortfolio } from '@/contexts/PortfolioContext';
 import styles from './Work.module.css';
@@ -58,7 +56,6 @@ const itemVariants = {
 const Work = () => {
   const { projects, work, loading, error } = usePortfolio();
   const location = useLocation();
-  const [view, setView] = useState('list');
   const [hoveredWorkSlug, setHoveredWorkSlug] = useState(null);
   const [hoveredProjectSlug, setHoveredProjectSlug] = useState(null);
   const [hoveredImage, setHoveredImage] = useState(null);
@@ -143,10 +140,6 @@ const Work = () => {
     setHoveredImage(null);
   }, []);
 
-  const handleViewChange = useCallback((newView) => {
-    setView(newView);
-  }, []);
-
   return (
     <div className={pageLayout.page}>
       {/* Recent gigs section */}
@@ -186,7 +179,6 @@ const Work = () => {
           <RevealAnimation triggerOnce>
             <h2>Some of my projects</h2>
           </RevealAnimation>
-          <ViewToggle view={view} onViewChange={handleViewChange} />
         </div>
 
         {loading && <p className={styles.stateMessage}>Loading projects…</p>}
@@ -203,57 +195,27 @@ const Work = () => {
                 <RevealAnimation key={year} triggerOnce>
                   <section className={styles.yearSection}>
                     <h3 className={styles.yearHeading}>{year}</h3>
-                    <AnimatePresence mode="wait">
-                      {view === 'grid' ? (
-                        <motion.div
-                          key="grid"
-                          className={styles.projectGrid}
-                          variants={containerVariants}
-                          initial="hidden"
-                          animate="show"
-                          exit="exit"
-                        >
-                          {items.map((project) => {
-                            const targetState = { from: `${location.pathname}${location.search}${location.hash}` };
-                            return (
-                              <motion.div key={project.slug} variants={itemVariants} layout>
-                                <ProjectCard
-                                  project={project}
-                                  targetState={targetState}
-                                  isDimmed={hoveredProjectSlug && hoveredProjectSlug !== project.slug}
-                                  onMouseEnter={() => handleProjectMouseEnter(project)}
-                                  onMouseLeave={handleProjectMouseLeave}
-                                />
-                              </motion.div>
-                            );
-                          })}
-                        </motion.div>
-                      ) : (
-                        <motion.div
-                          key="list"
-                          className={styles.projectList}
-                          variants={containerVariants}
-                          initial="hidden"
-                          animate="show"
-                          exit="exit"
-                        >
-                          {items.map((project) => {
-                            const targetState = { from: `${location.pathname}${location.search}${location.hash}` };
-                            return (
-                              <motion.div key={project.slug} variants={itemVariants} layout>
-                                <ProjectListItem
-                                  project={project}
-                                  targetState={targetState}
-                                  isDimmed={hoveredProjectSlug && hoveredProjectSlug !== project.slug}
-                                  onMouseEnter={() => handleProjectMouseEnter(project)}
-                                  onMouseLeave={handleProjectMouseLeave}
-                                />
-                              </motion.div>
-                            );
-                          })}
-                        </motion.div>
-                      )}
-                    </AnimatePresence>
+                    <motion.div
+                      className={styles.projectList}
+                      variants={containerVariants}
+                      initial="hidden"
+                      animate="show"
+                    >
+                      {items.map((project) => {
+                        const targetState = { from: `${location.pathname}${location.search}${location.hash}` };
+                        return (
+                          <motion.div key={project.slug} variants={itemVariants} layout>
+                            <ProjectListItem
+                              project={project}
+                              targetState={targetState}
+                              isDimmed={hoveredProjectSlug && hoveredProjectSlug !== project.slug}
+                              onMouseEnter={() => handleProjectMouseEnter(project)}
+                              onMouseLeave={handleProjectMouseLeave}
+                            />
+                          </motion.div>
+                        );
+                      })}
+                    </motion.div>
                   </section>
                 </RevealAnimation>
               ))}

@@ -1,7 +1,6 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import { imagetools } from 'vite-imagetools';
-import { ViteImageOptimizer } from 'vite-plugin-image-optimizer';
 import viteCompression from 'vite-plugin-compression';
 import { fileURLToPath } from 'node:url';
 import { dirname, resolve } from 'node:path';
@@ -23,21 +22,6 @@ export default defineConfig({
     imagetools({
       // Enables manual optimization using query parameters
       // e.g., import img from './image.jpg?format=webp&w=800'
-    }),
-    ViteImageOptimizer({
-      // Automatically compress all images during build
-      jpg: {
-        quality: 80,
-      },
-      jpeg: {
-        quality: 80,
-      },
-      png: {
-        quality: 80,
-      },
-      webp: {
-        quality: 80,
-      },
     }),
     viteCompression({
       // Gzip compression for all assets
