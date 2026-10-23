@@ -40,7 +40,7 @@ const ProjectCard = ({ project, targetState, isDimmed, onMouseEnter, onMouseLeav
           </div>
         )}
         <div className={styles.projectInfo}>
-          <h4 className={styles.projectTitle}>{project.title}</h4>
+          <p className={styles.projectTitle}>{project.title}</p>
           <p className={styles.projectDescription}>{project.shortDescription}</p>
         </div>
       </Link>

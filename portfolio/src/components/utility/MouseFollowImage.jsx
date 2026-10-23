@@ -3,12 +3,6 @@ import { motion, useSpring } from 'framer-motion';
 import PropTypes from 'prop-types';
 import styles from './MouseFollowImage.module.css';
 
-const springValues = {
-  damping: 30,
-  stiffness: 100,
-  mass: 2,
-};
-
 const MouseFollowImage = ({ imageSrc, isVisible }) => {
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const lastPositionRef = useRef({ x: 0, y: 0 });

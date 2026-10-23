@@ -3,30 +3,12 @@ import { motion, useMotionValue, useSpring } from 'framer-motion';
 import Container from '@/components/ui/Container';
 import AboutSection from '@/components/sections/AboutSection';
 import RevealAnimation from '@/components/utility/RevealAnimation';
-import resumePdf from '@/assets/pdf/floria-cv.pdf';
-import resumefrPdf from '@/assets/pdf/floria-cv-fr.pdf';
-import portfolioPdf from '@/assets/pdf/floria-portfolio.pdf';
+import resume from '@/assets/pdf/cv.pdf';
 import useMagneticEffect from '@/hooks/useMagneticEffect';
 import { LetterIcon } from '@/components/ui/icons';
-import InlineIcon from '@/components/ui/InlineIcon';
-import SwipeableStack from '@/components/utility/SwipeableStack';
 import styles from './About.module.css';
 import pageLayout from '@/components/ui/PageLayout.module.css';
 import inlineIconStyles from '@/components/ui/InlineIcon.module.css';
-
-// Calculate age based on birth date (February 9, 2003)
-const calculateAge = () => {
-  const birthDate = new Date(2003, 1, 9);
-  const today = new Date();
-  let age = today.getFullYear() - birthDate.getFullYear();
-  const monthDiff = today.getMonth() - birthDate.getMonth();
-
-  if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthDate.getDate())) {
-    age--;
-  }
-
-  return age;
-};
 
 // Calculate years since 2015 (volleyball start date)
 const calculateVolleyballYears = () => {
@@ -57,25 +39,27 @@ const calculateVolleyballYears = () => {
 
 const aboutParagraphs = [
   <>
-    I'm a {calculateAge()}-year-old Master's graduate in UX Design, Cognitive and Computer Sciences at{' '}
+    I am a Master’s graduate in UX Design, Cognitive Science, and Computer Science from the National Superior School of
+    Cognitics (
     <a className={inlineIconStyles.dottedLink} href="https://ensc.bordeaux-inp.fr/fr" target="_blank" rel="noreferrer">
-      ENSC
+      ENSC Bordeaux).
     </a>{' '}
-    in Bordeaux. I combine psychology, technology, and design to create digital experiences, with{' '}
-    <a
-      className={inlineIconStyles.dottedLink}
-      href="https://www.figma.com/@florialeger"
-      target="_blank"
-      rel="noreferrer"
-    >
-      Figma
-    </a>
-    , that are intuitive, beautiful, and user-friendly.
+    I combine cognitive ergonomics, empirical user research, and technical software principles to craft scalable digital
+    products.
   </>,
 
   <>
-    Beyond design, I work with React JS, Node JS, HTML, CSS3 and so on. This technical knowledge allows me to think like
-    a developer, bridging the gap between creativity and technical feasibility.
+    Backed by over three years of dedicated product design practice and 18 years of{' '}
+    <a
+      className={inlineIconStyles.dottedLink}
+      href="https://florialeger.artstation.com"
+      target="_blank"
+      rel="noreferrer"
+    >
+      visual art discipline,
+    </a>{' '}
+    I design systems that align with human mental models, streamline developer handoffs, and scale cleanly across
+    engineering teams.
   </>,
 
   <>
@@ -86,20 +70,17 @@ const aboutParagraphs = [
 
 const downloadLinks = [
   {
-    label: 'English Resume',
-    href: resumePdf,
-    fileName: 'floria-leger-resume.pdf',
-  },
-  {
-    label: 'French Resume',
-    href: resumefrPdf,
-    fileName: 'floria-leger-resume-fr.pdf',
+    label: 'Resume',
+    href: resume,
+    fileName: 'cv.pdf',
+    icon: 'download',
     variant: 'secondary',
   },
   {
     label: 'Portfolio',
-    href: portfolioPdf,
-    fileName: 'floria-leger-portfolio.pdf',
+    href: 'https://florialeger.github.io/deck/deck.pdf',
+    icon: 'external',
+    variant: 'primary',
   },
 ];
 
@@ -107,7 +88,7 @@ const contactLinks = [
   {
     key: 'linkedin',
     label: 'LinkedIn',
-    href: 'https://www.linkedin.com/in/floria-leger/',
+    href: 'https://www.linkedin.com/in/florialeger/',
     description: 'professional network',
   },
   {
@@ -178,10 +159,10 @@ const About = () => {
           aria-label="Click to copy email address"
         >
           <LetterIcon className={styles.emailIcon} size={32} title="Adresse e-mail" />
-          <p className={styles.emailText}>floria.leger@gmail.com</p>
-          <p className={`${styles.tooltip} ${copied ? styles.tooltipVisible : ''}`}>
+          <span className={styles.emailText}>floria.leger@gmail.com</span>
+          <span className={`${styles.tooltip} ${copied ? styles.tooltipVisible : ''}`}>
             {copied ? 'Copied!' : 'Click to copy'}
-          </p>
+          </span>
         </span>
       </div>
     );
@@ -197,9 +178,9 @@ const About = () => {
       <section className={pageLayout.container} style={{ paddingTop: 0, paddingBottom: 0 }}>
         <div className={styles.contactContainer}>
           <RevealAnimation cascade damping={0.08} triggerOnce>
-            <p className={styles.contactParagraph}>
+            <div className={styles.contactParagraph}>
               <EmailMagnet />
-            </p>
+            </div>
 
             <ul className={styles.socialList}>
               {contactLinks.map((link) => (

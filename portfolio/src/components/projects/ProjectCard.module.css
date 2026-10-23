@@ -49,7 +49,7 @@
 .cardImage {
   width: 100%;
   aspect-ratio: 1 / 1;
-  border-radius: clamp(0.89rem, 1.3vw, 1rem); /* 16px */
+  border-radius: var(--comp-button-radius-small);
   overflow: hidden;
   background: var(--fills---secondary);
 }
@@ -75,9 +75,8 @@
 }
 
 .cardTitle {
-  font-size: var(--type---title-4---size);
-  font-weight: var(--type---title-4---weight-emphasized);
-  color: var(--label---primary);
+  font-weight: var(--body-emphasized-weight);
+  color: var(--label---tertiary);
   margin: 0;
 }
 
@@ -125,8 +124,8 @@
 }
 
 .listTitle {
-  font-size: var(--type---title-4---size);
-  font-weight: var(--type---title-4---weight-emphasized);
+  font-size: var(--type---title-3---size);
+  font-weight: var(--type---title-3---weight-emphasized);
   color: var(--label---primary);
   margin: 0;
 }
@@ -146,7 +145,7 @@
   aspect-ratio: 1 / 1;
   overflow: hidden;
   background: transparent;
-  border-radius: var(--radius-md);
+  border-radius: var(--comp-button-radius-small);
 }
 
 .preview {
@@ -174,7 +173,7 @@
   background: color-mix(in srgb, var(--fills---non--opaque) 55%, transparent);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  border-radius: var(--radius-md);
+  border-radius: var(--comp-button-radius-small);
 }
 
 .inner {
@@ -196,10 +195,6 @@
   gap: var(--stack-gap-sm);
 }
 
-.titleRow h4 {
-  margin: 0;
-  flex: 1;
-}
 
 .statusIcon {
   display: inline-flex;
@@ -325,9 +320,6 @@
     padding: clamp(1.5rem, 6vw, 2.2rem);
   }
 
-  .titleRow h4 {
-    font-size: clamp(1.9rem, 7vw, 2.4rem);
-  }
 
   .statusIcon {
     width: clamp(2.4rem, 8vw, 2.9rem);

@@ -2,12 +2,13 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import PropTypes from 'prop-types';
-import Icon from '@/components/ui/Icon';
 import styles from './ProjectListItem.module.css';
 
 const ProjectListItem = ({ project, targetState, isDimmed, onMouseEnter, onMouseLeave }) => {
   const [isHovered, setIsHovered] = useState(false);
-  const iconName = project.icon?.replace('.png', '').replace('-icone', '');
+  const projectDate = project.endDate || project.created;
+  const parsedDate = projectDate ? new Date(projectDate) : null;
+  const year = parsedDate && !Number.isNaN(parsedDate.getTime()) ? parsedDate.getFullYear() : null;
 
   const handleMouseEnter = (e) => {
     setIsHovered(true);
@@ -41,15 +42,12 @@ const ProjectListItem = ({ project, targetState, isDimmed, onMouseEnter, onMouse
           ease: [0.33, 0.14, 0.27, 1],
         }}
       >
-        <span className={styles.bullet}></span>
-        <div className={styles.iconFrame}>
-          <Icon name={iconName} className={styles.icon} />
-        </div>
         <p className={styles.content}>
           <span className={styles.title}>{project.title}</span>
-          {'  —  '}
+          {' '}
           <span className={styles.description}>{project.shortDescription}</span>
         </p>
+        {year && <span className={styles.year}>{year}</span>}
       </motion.div>
     </Link>
   );
@@ -60,7 +58,8 @@ ProjectListItem.propTypes = {
     slug: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
     shortDescription: PropTypes.string,
-    icon: PropTypes.string,
+    endDate: PropTypes.string,
+    created: PropTypes.string,
   }).isRequired,
   targetState: PropTypes.object,
   isDimmed: PropTypes.bool,

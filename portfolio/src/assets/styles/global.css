@@ -1,131 +1,171 @@
 :root {
-  /* Headings (Source Sans 3) */
-  --type---title-1---family:
-    'EB Garamond', 'Source Sans 3', system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
-  --type---title-1---size: clamp(1.8rem, 5.2vw, 2rem);
-  --type---title-1---weight-regular: 500; 
-  --type---title-1---letter-spacing: -2px;
+  /* Primitive tokens: raw values from the Figma system. */
+  --pr-color-white: #ffffff;
+  --pr-color-black: #101010;
+  --pr-color-gray-900: #171717;
+  --pr-color-gray-300: #c7c7c7;
+  --pr-color-gray-50: #fcfcfc;
+  --pr-color-red-100: #fedada;
+  --pr-color-red-600: #ec1717;
 
-  --type---title-2---family: 'Source Sans 3', system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
-  --type---title-2---size: clamp(1.25rem, 2.8vw, 1.3em);
-  --type---title-2---weight-regular: 500;
+  --pr-size-layout: 600px;
+  
+  --pr-space-3xs: 0.125rem;
+  --pr-space-2xs: 0.25rem;
+  --pr-space-xs: 0.3125rem;
+  --pr-space-sm: 0.5rem;
+  --pr-space-2sm: 0.75rem;
+  --pr-space-md: 1rem;
+  --pr-space-lg: 1.5rem;
+  --pr-space-xl: 2rem;
+  --pr-space-2xl: 4rem;
+  --pr-space-3xl: 8rem;
+
+  --pr-radius-sm: 0.475rem;
+  --pr-radius-md: 0.975rem;
+  --pr-radius-full: 100rem;
+
+  --pr-font-family: 'Source Sans 3', system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
+  --pr-font-family-accent: 'EB Garamond', 'Source Sans 3', system-ui, sans-serif;
+  --pr-font-size-sm: 1rem;
+  --pr-font-size-md: 1.125rem;
+  --pr-font-size-lg: 1.325rem;
+  --pr-font-size-xl: 2.225rem;
+
+  /* Semantic tokens: meaning-based aliases for the interface. */
+  --sem-color-bg: var(--pr-color-gray-50);
+  --sem-color-bg-surface: var(--pr-color-gray-300);
+  --sem-color-text-main: var(--pr-color-gray-900);
+  --sem-color-text-inverted: var(--pr-color-gray-50);
+  --sem-color-action-primary: var(--pr-color-black);
+  --sem-color-action-danger: var(--pr-color-red-600);
+  --sem-color-fill-primary: var(--pr-color-gray-300);
+  --sem-color-fill-secondary: rgb(199 199 199 / 50%);
+  --sem-color-fill-tertiary: rgb(199 199 199 / 35%);
+  --sem-color-fill-quaternary: rgb(199 199 199 / 15%);
+  --sem-color-fill-non-opaque: rgb(255 255 255 / 50%);
+  --sem-color-separator-black: rgb(0 0 0 / 10%);
+  --sem-color-separator-white: rgb(255, 255, 255, 20%);
+  --sem-gradient-primary: linear-gradient(180deg, rgb(16 16 16 / 80%) 0%, var(--pr-color-black) 100%);
+  --sem-gradient-secondary: linear-gradient(180deg, rgb(199 199 199 / 35%) 0%, rgb(199 199 199 / 50%) 100%);
+
+  --sem-gradient-non-opaque: linear-gradient(180deg, var(--sem-color-bg) 0%, rgb(252 252 252 / 0%) 100%);
+  --sem-font-body: var(--pr-font-family);
+  --sem-font-heading: var(--pr-font-family-accent);
+  --sem-font-size-body: var(--pr-font-size-sm);
+  --sem-line-height-body: 1.5;
+  --sem-weight-regular: 450;
+  --sem-weight-emphasized: 600;
+
+  /* Component tokens: reusable layout and component decisions. */
+  --comp-container-width: var(--pr-size-layout);
+  --comp-container-padding: var(--pr-space-lg);
+  --comp-page-gap: var(--pr-space-3xl);
+  --comp-page-padding-top: 6rem;
+  --comp-page-padding-bottom: 9rem;
+  --comp-copy-gap: var(--pr-space-lg);
+  --comp-stack-gap-lg: var(--pr-space-2xl);
+  --comp-stack-gap-md: var(--pr-space-lg);
+  --comp-stack-gap-sm: var(--pr-space-2sm);
+  --comp-stack-gap-xs: var(--pr-space-sm);
+  --comp-stack-gap-xxs: var(--pr-space-2xs);
+  --comp-button-padding-small-h: var(--pr-space-2sm);
+  --comp-button-padding-small-v: var(--pr-space-xs);
+  --comp-button-padding-big-h: var(--pr-space-lg);
+  --comp-button-padding-big-v: var(--pr-space-md);
+  --comp-button-radius-small: var(--pr-radius-sm);
+  --comp-button-radius-big: var(--pr-radius-md);
+  --comp-shadow-small:
+    0 0 0 0.0625rem rgb(0 0 0 / 6%), 0 0.0625rem 0.0625rem -0.03125rem rgb(0 0 0 / 6%),
+    0 0.1875rem 0.1875rem -0.09375rem rgb(0 0 0 / 6%);
+  --comp-shadow-normal:
+    var(--comp-shadow-small), 0 0.375rem 0.375rem -0.1875rem rgb(0 0 0 / 6%),
+    0 0.75rem 0.75rem -0.375rem rgb(0 0 0 / 5%), 0 1.5rem 1.5rem -0.75rem rgb(0 0 0 / 5%);
+
+  /* Compatibility aliases used by existing component styles. */
+  --type---title-1---family: var(--sem-font-heading);
+  --type---title-1---size: var(--pr-font-size-xl);
+  --type---title-1---weight-regular: var(--sem-weight-regular);
+  --type---title-1---letter-spacing: -0.125rem;
+  --type---title-2---family: var(--sem-font-body);
+  --type---title-2---size: var(--pr-font-size-md);
+  --type---title-2---weight-regular: var(--sem-weight-regular);
   --type---title-2---weight-emphasized: 600;
   --type---title-2---letter-spacing: 0;
   --type---title-2---line-height: 1.2;
-
-  --type---title-3---family: 'Source Sans 3', system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
-  --type---title-3---size: clamp(1.15rem, 2.4vw, 1.2rem);
+  --type---title-3---family: var(--sem-font-body);
+  --type---title-3---size: var(--pr-font-size-md);
   --type---title-3---weight-regular: 400;
   --type---title-3---weight-emphasized: 600;
   --type---title-3---letter-spacing: 0;
   --type---title-3---line-height: 1.2;
-
-  --type---title-4---family: 'Source Sans 3', system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
-  --type---title-4---size: clamp(1.15rem, 1.8vw, 1.15rem);
-  --type---title-4---weight-regular: 500;
-  --type---title-4---weight-emphasized: 600;
-  --type---title-4---letter-spacing: 0;
-
-  /* Body (EB Garamond) */
-  --type---body---family: 'Source Sans 3', 'EB Garamond', Georgia, 'Times New Roman', serif;
-  --type---body---size: 1rem;
-  --type---body---weight: 500;
-  --type---body---line-height: 1.5;
-  --type---body---letter-spacing: 0;
-
-  --type---subtitle---size: clamp(0.8rem, 1.8vw, 0.9rem);
-
-  --body-regular-weight: 500;
-  --body-regular-size: 1rem;
+  --type---body---family: var(--sem-font-body);
+  --type---body---size: var(--sem-font-size-body);
+  --type---body---weight: var(--sem-weight-regular);
+  --type---body---line-height: var(--sem-line-height-body);
+  --type---body---letter-spacing: -0.1em;
+  --body-regular-weight: var(--sem-weight-regular);
+  --body-regular-size: var(--sem-font-size-body);
   --body-regular-letter-spacing: -0.01em;
-
-  --body-italic-weight: 600;
-  --body-italic-style: italic;
-  --body-italic-letter-spacing: 0.01em;
-  --body-emphasized-weight: 650;
+  --body-emphasized-weight: var(--sem-weight-emphasized);
   --body-emphasized-letter-spacing: -0.01em;
-
-  --type---body---accent: 'EB Garamond', Georgia, 'Times New Roman', serif;
-
-  /* Layout */
-  --nav-height: 104px;
-  --container-max-width: 600px;
-  --container-padding-x: 1.5rem;
-  --copy-block-gap: clamp(1rem, 3vw, 1.5rem);
-  --copy-block-max-width: min(600px, 100%);
-  --layout-page-gap: clamp(6.5rem, 8vw, 8.5rem);
-  --layout-page-padding-top: clamp(2rem, 10vw, 6rem);
-  --layout-page-padding-bottom: clamp(6rem, 12vw, 9rem);
-  --stack-gap-lg: clamp(2.5rem, 6vw, 3rem);
-  --stack-gap-md: clamp(1rem, 4vw, 1.6rem);
-  --stack-gap-sm: clamp(0.6rem, 3vw, 0.1rem);
-  --stack-gap-xs: clamp(0.3rem, 2vw, 0.6rem);
-  --stack-gap-xxs: clamp(0.25rem, 1vw, 0.3rem);
-
-  /* Padding */
-  --padding-extra-small-h: clamp(0.3rem, 0.5vw, 0.3rem);
-  --padding-small-h: clamp(0.67rem, 1vw, 0.75rem);
-  --padding-small-v: clamp(0.2rem, 0.5vw, 0.1rem);
-  --padding-big-h: clamp(1.5rem, 2vw, 1.7rem);
-  --padding-big-v: clamp(0.6rem, 1vw, 0.8rem);
-
-  /* Motion and effects */
+  --nav-height: 6.5rem;
+  --container-max-width: var(--comp-container-width);
+  --container-padding-x: var(--comp-container-padding);
+  --copy-block-gap: var(--comp-copy-gap);
+  --copy-block-max-width: min(var(--comp-container-width), 100%);
+  --layout-page-gap: var(--comp-page-gap);
+  --layout-page-padding-top: var(--comp-page-padding-top);
+  --layout-page-padding-bottom: var(--comp-page-padding-bottom);
+  --stack-gap-lg: var(--comp-stack-gap-lg);
+  --stack-gap-md: var(--comp-stack-gap-md);
+  --stack-gap-sm: var(--comp-stack-gap-sm);
+  --stack-gap-xs: var(--comp-stack-gap-xs);
+  --stack-gap-xxs: var(--comp-stack-gap-xxs);
+  --padding-extra-small-h: var(--pr-space-3xs);
+  --padding-small-h: var(--comp-button-padding-small-h);
+  --padding-small-v: var(--comp-button-padding-small-v);
+  --padding-big-h: var(--comp-button-padding-big-h);
+  --padding-big-v: var(--comp-button-padding-big-v);
   --animate-spin: spin 1s linear infinite;
-  --shimmer-width: 180px;
+  --shimmer-width: 11.25rem;
   --duration: 20s;
   --gap: 2.5rem;
+  --radius-sm: var(--comp-button-radius-small);
+  --radius-md: var(--comp-button-radius-big);
+  --radius-pill: var(--pr-radius-full);
+  --surface---main: var(--sem-color-bg);
+  --background---primary: var(--sem-color-bg);
+  --label---primary: var(--sem-color-text-main);
+  --label---secondary: rgb(23 23 23 / 75%);
+  --label---tertiary: rgb(23 23 23 / 45%);
+  --label---quaternuary: rgb(23 23 23 / 20%);
+  --label---inverted: var(--sem-color-text-inverted);
+  --fills---primary: var(--sem-color-fill-primary);
+  --fills---secondary: var(--sem-color-fill-secondary);
+  --fills---tertiary: var(--sem-color-fill-tertiary);
+  --fills---quaternuary: var(--sem-color-fill-quaternary);
+  --fills---non--opaque: var(--sem-color-fill-non-opaque);
+  --fills---linear-non--opaque: var(--sem-gradient-non-opaque);
+  --fills---linear--opaque-primary: var(--sem-gradient-primary);
+  --fills---linear--opaque-secondary: var(--sem-gradient-secondary);
 
-  /* Shape - Border radius from designTokens */
-  --radius-xs: 0.375rem; /* 6px */
-  --radius-sm: 0.6rem; /* ~10.8px */
-  --radius-md: clamp(0.6rem, 1.2vw, 0.8rem); /* ~10.8px - 14.4px */
-  --radius-lg: clamp(0.9rem, 2.5vw, 1.6rem); /* ~16.2px - 28.8px */
-  --radius-pill: 999px;
-  --border-radius-medium: var(--radius-md);
-
-  /* Theme defaults (white baseline) */
-  --surface---main: #fcfcfc;
-  --background---primary: #fcfcfc;
-  --label---primary: #101010;
-  --label---secondary: rgba(23, 23, 23, 0.7);
-  --label---tertiary: rgba(23, 23, 23, 0.5);
-  --label---quaternuary: rgba(23, 23, 23, 0.2);
-  --label---inverted: #f7f7f7;
-  --fills---primary: rgb(199, 199, 199);
-  --fills---secondary: rgba(199, 199, 199, 0.5);
-  --fills---tertiary: rgba(199, 199, 199, 0.35);
-  --fills---quaternuary: rgba(199, 199, 199, 0.15);
-  --fills---non--opaque: rgba(255, 255, 255, 0.5);
-  --fills---linear-non--opaque: linear-gradient(180deg, var(--surface---main) 0%, rgba(252, 252, 252, 0) 100%);
-  --fills---linear--opaque: linear-gradient(180deg, #1b1b1b 0%, #2b2b2b 100%);
-  --separator---black-10: rgba(0, 0, 0, 0.1);
-  --separator---white-20: rgba(255, 255, 255, 0.2);
-
-  /* Effects */
-  --shadows--small:
-    0px 0px 0px 1px rgba(0, 0, 0, 0.06), 0px 1px 1px -0.5px rgba(0, 0, 0, 0.06), 0px 3px 3px -1.5px rgba(0, 0, 0, 0.06);
-  --shadows--normal:
-    0px 0px 0px 1px rgba(0, 0, 0, 0.06), 0px 1px 1px -0.5px rgba(0, 0, 0, 0.06), 0px 3px 3px -1.5px rgba(0, 0, 0, 0.06),
-    0px 6px 6px -3px rgba(0, 0, 0, 0.06), 0px 12px 12px -6px rgba(0, 0, 0, 0.05),
-    0px 24px 24px -12px rgba(0, 0, 0, 0.05);
-
-  --sticker--small:
-    inset -0.5px 0.5px 0.5px rgba(255, 255, 255, 0.6), 0px 1px 2px rgba(0, 0, 0, 0.04),
-    0px 1.5px 2px rgba(0, 0, 0, 0.04), 0px 0px 2px rgba(0, 0, 0, 0.1), inset 0px -0.5px 0.5px rgba(0, 0, 0, 0.15);
+  --separator---black-10: var(--sem-color-separator-black);
+  --separator---white-20: var(--sem-color-separator-white);
+  --shadows--small: var(--comp-shadow-small);
+  --shadows--normal: var(--comp-shadow-normal);
 
   font-size: 17px;
-  font-family: var(--type---body---family);
-  line-height: var(--type---body---line-height);
-  font-weight: var(--type---body---weight);
+  font-family: var(--sem-font-body);
+  line-height: var(--sem-line-height-body);
+  font-weight: var(--sem-weight-regular);
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Typography scaling is handled by the per-token clamp() values defined above.
-   Removing breakpoint overrides prevents abrupt jumps and ensures a smooth
-   fluid scale between the defined min and max for each token. */
+/* Typography and spacing use the shared rem-based design scale across viewports. */
 
 *,
 *::before,
@@ -136,12 +176,12 @@
 }
 
 ::selection {
-  background-color: #fff06a;
+  background-color: #f7f1c4;
   color: var(--label---primary);
 }
 
 ::-moz-selection {
-  background-color: #fff06a;
+  background-color: #f7f1c4;
   color: var(--label---primary);
 }
 
@@ -162,6 +202,7 @@ body {
   display: flex;
   flex-direction: column;
   font-family: inherit;
+  text-wrap: stable;
   font-size: var(--type---body---size);
   line-height: var(--type---body---line-height);
   font-weight: var(--type---body---weight);
@@ -207,14 +248,6 @@ h3 {
   width: fit-content;
 }
 
-h4 {
-  font-family: var(--type---title-4---family);
-  font-size: var(--type---title-4---size);
-  font-weight: var(--type---title-4---weight-regular);
-  letter-spacing: var(--type---title-4---letter-spacing);
-  text-box: trim-both cap alphabetic;
-}
-
 p {
   font-family: var(--type---body---family);
   font-size: var(--type---body---size);
@@ -225,11 +258,8 @@ p {
   text-wrap: stable;
 }
 
-.text-body-italic {
-  font-family: var(--type---body---family);
-  font-weight: var(--body-italic-weight);
-  font-style: var(--body-italic-style);
-  letter-spacing: var(--body-italic-letter-spacing);
+p strong {
+  font-weight: var(--body-emphasized-weight);
 }
 
 .text-body-emphasized {
@@ -247,18 +277,6 @@ h3 {
 h3:hover,
 h3.emphasized,
 h3.is-active {
-  font-weight: var(--type---title-3---weight-emphasized);
-}
-
-h4 {
-  transition:
-    font-weight 120ms ease,
-    color 120ms ease;
-}
-
-h4:hover,
-h4.emphasized,
-h4.is-active {
   font-weight: var(--type---title-3---weight-emphasized);
 }
 

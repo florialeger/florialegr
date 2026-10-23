@@ -7,26 +7,28 @@ import styles from './AboutSection.module.css';
 import pageLayout from '@/components/ui/PageLayout.module.css';
 
 const AboutSection = ({ title = [], paragraphs, downloads }) => (
-  <Container className={pageLayout.pageHeader}>
+  <Container className={`${pageLayout.pageHeader} ${styles.introContainer}`.trim()}>
     <RevealAnimation cascade damping={0.1} delay={100} triggerOnce>
       {title.map((t) => (
         <h2 key={t}>{t}</h2>
       ))}
 
-      {paragraphs.map((paragraph) => (
-        <p key={paragraph}>{paragraph}</p>
+      {paragraphs.map((paragraph, index) => (
+        <p key={`about-paragraph-${index}`}>{paragraph}</p>
       ))}
 
       {downloads.length > 0 ? (
         <div className={styles.buttonColumn}>
-          {downloads.map(({ label: actionLabel, href, fileName, variant }) => (
+          {downloads.map(({ label: actionLabel, href, fileName, icon, variant, target, rel }) => (
             <Link
               key={actionLabel}
               label={actionLabel}
               href={href}
               download={fileName}
-              icon="download"
+              icon={icon}
               variant={variant}
+              target={target}
+              rel={rel}
             />
           ))}
         </div>
@@ -37,13 +39,16 @@ const AboutSection = ({ title = [], paragraphs, downloads }) => (
 
 AboutSection.propTypes = {
   title: PropTypes.arrayOf(PropTypes.string),
-  paragraphs: PropTypes.arrayOf(PropTypes.string).isRequired,
+  paragraphs: PropTypes.arrayOf(PropTypes.node).isRequired,
   downloads: PropTypes.arrayOf(
     PropTypes.shape({
       label: PropTypes.string.isRequired,
       href: PropTypes.string.isRequired,
       fileName: PropTypes.string,
+      icon: PropTypes.string,
       variant: PropTypes.string,
+      target: PropTypes.string,
+      rel: PropTypes.string,
     })
   ),
 };

@@ -1,6 +1,22 @@
-.buttonColumn {
+.introContainer {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  gap: var(--copy-block-gap);
+  width: var(--copy-block-max-width);
+  margin: 0 auto;
+}
+
+.introContainer p {
+  max-width: none;
+  margin: 0;
+}
+
+.buttonColumn {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  margin-top: var(--stack-gap-sm);
+ flex-direction: row;
   flex-wrap: wrap;
   gap: var(--stack-gap-sm);
 }
@@ -15,7 +31,7 @@
 .portrait img {
   display: block;
   width: 100%; 
-  border-radius: var(--radius-xs);
+  border-radius: var(--radius-sm);
   object-fit: cover;
 }
 

@@ -120,7 +120,6 @@ const normalizePlayground = (playground) => {
   const created = playground.created || playground.date || null;
   const duration = playground.duration || null;
 
-  // Calculate end date if duration is provided
   const explicitEndDate = playground.endDate || null;
   const calculatedEndDate = !explicitEndDate && created && duration ? calculateEndDate(created, duration) : null;
   const endDate = explicitEndDate || calculatedEndDate;
@@ -300,6 +299,7 @@ export const PortfolioProvider = ({ children }) => {
   const value = useMemo(
     () => ({
       projects: sortedProjects,
+      projectsInDataOrder: projects,
       playgrounds: sortedPlaygrounds,
       work: sortedWork,
       loading,
@@ -313,6 +313,7 @@ export const PortfolioProvider = ({ children }) => {
     }),
     [
       sortedProjects,
+      projects,
       sortedPlaygrounds,
       sortedWork,
       loading,

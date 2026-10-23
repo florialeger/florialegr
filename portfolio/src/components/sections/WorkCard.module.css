@@ -1,116 +1,60 @@
 .workCardLink {
   display: block;
   width: 100%;
-  border-radius: var(--radius-xs);
   text-decoration: none;
   color: inherit;
-  margin: calc(var(--stack-gap-sm) * -1);
-  transition:
-    filter 200ms ease,
-    background-color 200ms ease;
+  transition: opacity 200ms ease;
 }
 
 .workCardLink[data-dimmed='true'] {
-  filter: grayscale(1);
   opacity: 0.8;
-}
-
-.workCardLink[data-hovered='true'] {
-  background-color: var(--fills---quaternuary);
 }
 
 .workCard {
   display: flex;
   width: 100%;
   flex-direction: column;
-  border-radius: var(--radius-xxs);
-  padding-top: var(--stack-gap-sm);
-  padding-bottom: var(--stack-gap-sm);
+  gap: var(--stack-gap-xxs);
   text-decoration: none;
   color: inherit;
 }
 
-.workHeader {
+.header {
   display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  gap: var(--stack-gap-xs);
+  flex-direction: column;
+  gap: 0;
 }
 
-@media (max-width: 768px) {
-  .workHeader {
-    flex-direction: column-reverse;
-    align-items: flex-start;
-    gap: var(--stack-gap-xxs);
-  }
-}
-
-.companyWrapper {
-  display: flex;
-  align-items: center;
-  gap: var(--stack-gap-xs);
-}
-
-.companyLink {
-  text-decoration: none;
-  color: inherit;
-  transition: opacity 200ms ease;
-}
-
-.companyLink:hover {
-  opacity: 0.7;
-}
-
-.company {
-  font-size: var(--type---title-3---size);
-  font-weight: var(--type---title-3---weight-emphasized);
-  line-height: 1rem;
-  color: var(--label---primary);
+.title,
+.meta {
   margin: 0;
-  padding-bottom: 0.6rem;
-  background-image: radial-gradient(circle, var(--fills---secondary) 1.5px, transparent 1.5px);
-  background-size: 6px 6px;
-  background-position: 0 100%;
-  background-repeat: repeat-x;
-}
-
-/* NDA badge styling moved to NdaBadge.module.css */
-.lockIcon {
-  margin-bottom: 0.6rem;
-}
-
-.date {
-  font-family: var(--type---body---family);
   font-size: var(--type---body---size);
-  font-weight: var(--body-regular-weight);
-  color: var(--label---secondary);
-  white-space: nowrap;
-  flex-shrink: 0;
+  line-height: var(--type---body---line-height);
 }
 
-.description {
-  font-family: var(--type---body---family);
-  font-size: var(--type---body---size);
-  font-weight: var(--body-regular-weight);
+.title {
   color: var(--label---primary);
-  margin: 0;
-  transition: color 200ms ease;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  overflow: hidden;
 }
 
-.workCardLink:hover .description {
-  color: var(--label---secondary);
-}
-
-.role {
-  font-family: var(--type---body---family);
-  font-size: var(--type---body---size);
-  font-weight: var(--body-regular-weight);
+.meta {
   color: var(--label---tertiary);
-  margin: 0;
-   white-space: nowrap;
-  text-overflow: ellipsis;
-  overflow: hidden;
+}
+
+.thumbnail {
+  display: block;
+  width: 100%;
+  aspect-ratio:initial;
+  rotate: -1deg;
+  transition: transform 220ms ease, rotate 220ms ease, opacity 220ms ease;
+  margin-top: var(--stack-gap-sm);
+  border-radius: var(--comp-button-radius-small);
+  object-fit: cover;
+  box-shadow:var(--shadows--small)
+  
+}
+
+.workCardLink:hover .thumbnail {
+  opacity: 0.85;
+    rotate: 0deg;
+
 }

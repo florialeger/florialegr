@@ -10,7 +10,7 @@
   width: clamp(6rem, 15vw, 8rem);
   height: auto;
   object-fit: cover;
-  border-radius: var(--radius-xs);
+  border-radius: var(--radius-sm);
   box-shadow: var(--shadows--small);
   will-change: transform;
 }

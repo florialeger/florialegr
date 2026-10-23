@@ -10,14 +10,12 @@
     transform 150ms ease,
     box-shadow 200ms ease;
   white-space: nowrap;
-  font-family: var(--type---title-4---family);
-  font-size: var(--type---title-4---size);
-  font-weight: var(--type---title-4---weight-emphasized);
+  font-weight: var(--body-emphasized-weight);
   text-decoration: none;
 }
 
 .button:hover:not([aria-disabled='true']):not([data-disabled='true']) {
-  font-weight: var(--type---title-4---weight-emphasized);
+  font-weight: var(--body-emphasized-weight);
 }
 
 .button[aria-disabled='true'],
@@ -27,11 +25,11 @@
   box-shadow: none;
 }
 
-/* Variant: Primary */
 .buttonPrimary {
-  background: var(--fills---linear--opaque);
+  background: var(--fills---linear--opaque-primary);
   border: 1px solid var(--separator---white-20);
   color: var(--label---inverted);
+  box-shadow: var(--shadows--small);
 }
 
 .buttonPrimary .label {
@@ -44,10 +42,10 @@
 
 /* Variant: Secondary */
 .buttonSecondary {
-  background: var(--fills---secondary);
+  background: var(--fills---linear--opaque-secondary);
   border: 1px solid var(--separator---black-10);
-  backdrop-filter: blur(10px) saturate(150%);
   color: var(--label---primary);
+  box-shadow: var(--shadows--small);
 }
 
 .buttonSecondary .label {
@@ -93,8 +91,7 @@
 /* Size: Small */
 .buttonSmall {
   padding: var(--padding-small-v) var(--padding-small-h);
-  border-radius: var(--radius-xs);
-  corner-shape: squircle;
+  border-radius: var(--radius-sm);
   gap: clamp(0.25rem, 0.5vw, 0.25rem);
 }
 
@@ -106,7 +103,6 @@
 .buttonBig {
   padding: var(--padding-big-v) var(--padding-big-h);
   border-radius: var(--radius-md);
-  corner-shape: squircle;
 }
 
 .buttonBig.buttonTertiary {
@@ -116,8 +112,8 @@
 /* Icon-only button (no label) */
 .iconOnly.buttonBig {
   aspect-ratio: 1 / 1;
-  padding: var(--padding-big-v);
-  border-radius: 999px; 
+  padding: var(--padding-small-v);
+  border-radius: var(--radius-pill);
 }
 
 /* Inner content wrapper */

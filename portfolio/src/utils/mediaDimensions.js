@@ -1,59 +1,59 @@
 const mediaDimensions = {
   "AI-chat-1.jpg": {
-    "width": 900,
-    "height": 750
+    "width": 1200,
+    "height": 1000
   },
   "AI-chat-2.jpg": {
-    "width": 900,
-    "height": 1043
+    "width": 1200,
+    "height": 1390
   },
   "AI-chat-3.jpg": {
-    "width": 900,
-    "height": 750
+    "width": 1200,
+    "height": 1000
   },
   "AI-chat-4.jpg": {
-    "width": 900,
-    "height": 750
+    "width": 1200,
+    "height": 1000
   },
   "AI-chat-5.jpg": {
-    "width": 900,
-    "height": 750
+    "width": 1200,
+    "height": 1000
   },
   "AI-chat-6.jpg": {
-    "width": 900,
-    "height": 750
+    "width": 1200,
+    "height": 1000
   },
   "AI-chat-primary.jpg": {
     "width": 1000,
     "height": 1000
   },
   "Configurator-1.jpg": {
-    "width": 1200,
-    "height": 776
+    "width": 900,
+    "height": 582
   },
   "Configurator-2.jpg": {
-    "width": 1200,
-    "height": 1000
+    "width": 900,
+    "height": 750
   },
   "Configurator-3.jpg": {
-    "width": 1200,
-    "height": 776
+    "width": 900,
+    "height": 582
   },
   "Configurator-4.jpg": {
-    "width": 1200,
-    "height": 800
+    "width": 900,
+    "height": 600
   },
   "Configurator-5.jpg": {
-    "width": 1200,
-    "height": 776
+    "width": 900,
+    "height": 582
   },
   "Configurator-6.jpg": {
-    "width": 1200,
-    "height": 776
+    "width": 900,
+    "height": 582
   },
   "Configurator-7.jpg": {
-    "width": 1200,
-    "height": 776
+    "width": 900,
+    "height": 582
   },
   "Configurator-primary.jpg": {
     "width": 1000,
@@ -85,111 +85,83 @@ const mediaDimensions = {
   },
   "ENSCxSTAPS-1.jpg": {
     "width": 900,
-    "height": 1050
+    "height": 720
   },
   "ENSCxSTAPS-10.jpg": {
     "width": 900,
-    "height": 750
+    "height": 975
   },
   "ENSCxSTAPS-11.jpg": {
     "width": 900,
-    "height": 734
-  },
-  "ENSCxSTAPS-12.jpg": {
-    "width": 900,
-    "height": 750
+    "height": 300
   },
   "ENSCxSTAPS-2.jpg": {
     "width": 900,
-    "height": 750
+    "height": 333
   },
   "ENSCxSTAPS-3.jpg": {
     "width": 900,
-    "height": 1050
+    "height": 680
   },
   "ENSCxSTAPS-4.jpg": {
     "width": 900,
-    "height": 750
+    "height": 588
   },
   "ENSCxSTAPS-5.jpg": {
     "width": 900,
-    "height": 1050
+    "height": 867
   },
   "ENSCxSTAPS-6.jpg": {
     "width": 900,
-    "height": 750
+    "height": 408
   },
   "ENSCxSTAPS-7.jpg": {
     "width": 900,
-    "height": 1050
+    "height": 975
   },
   "ENSCxSTAPS-8.jpg": {
     "width": 900,
-    "height": 1050
+    "height": 975
   },
   "ENSCxSTAPS-9.jpg": {
     "width": 900,
-    "height": 750
-  },
-  "ENSCxSTAPS-improvement1.jpg": {
-    "width": 900,
-    "height": 569
-  },
-  "ENSCxSTAPS-improvement2.jpg": {
-    "width": 900,
-    "height": 569
-  },
-  "ENSCxSTAPS-improvement3.jpg": {
-    "width": 900,
-    "height": 492
+    "height": 975
   },
   "ENSCxSTAPS-primary.jpg": {
     "width": 1000,
     "height": 1000
   },
   "KFÉ-1.jpg": {
-    "width": 1200,
-    "height": 1000
-  },
-  "KFÉ-10.jpg": {
-    "width": 1200,
-    "height": 800
-  },
-  "KFÉ-11.jpg": {
-    "width": 1200,
-    "height": 1200
+    "width": 900,
+    "height": 726
   },
   "KFÉ-2.jpg": {
-    "width": 1200,
-    "height": 1400
+    "width": 900,
+    "height": 620
   },
   "KFÉ-3.jpg": {
-    "width": 1200,
-    "height": 1400
+    "width": 900,
+    "height": 591
   },
   "KFÉ-4.jpg": {
-    "width": 1200,
-    "height": 1400
+    "width": 900,
+    "height": 519
   },
   "KFÉ-5.jpg": {
-    "width": 1200,
-    "height": 1000
+    "width": 900,
+    "height": 903
   },
   "KFÉ-6.jpg": {
-    "width": 1200,
-    "height": 1400
+    "width": 900,
+    "height": 525
   },
   "KFÉ-7.jpg": {
-    "width": 1200,
-    "height": 1400
+    "width": 900,
+    "height": 374
   },
   "KFÉ-8.jpg": {
-    "width": 1200,
-    "height": 1400
-  },
-  "KFÉ-9.jpg": {
-    "width": 1200,
-    "height": 800
+    "width": 900,
+    "height": 1050
   },
   "KFÉ-primary.jpg": {
     "width": 1000,
@@ -200,44 +172,44 @@ const mediaDimensions = {
     "height": 400
   },
   "Meteo-1.jpg": {
-    "width": 1200,
-    "height": 776
+    "width": 900,
+    "height": 582
   },
   "Meteo-10.jpg": {
-    "width": 1200,
-    "height": 1000
+    "width": 900,
+    "height": 750
   },
   "Meteo-2.jpg": {
-    "width": 1200,
-    "height": 776
+    "width": 900,
+    "height": 582
   },
   "Meteo-3.jpg": {
-    "width": 1200,
-    "height": 776
+    "width": 900,
+    "height": 582
   },
   "Meteo-4.jpg": {
-    "width": 1200,
-    "height": 776
+    "width": 900,
+    "height": 582
   },
   "Meteo-5.jpg": {
-    "width": 1200,
-    "height": 776
+    "width": 900,
+    "height": 582
   },
   "Meteo-6.jpg": {
-    "width": 1200,
-    "height": 776
+    "width": 900,
+    "height": 582
   },
   "Meteo-7.jpg": {
-    "width": 1200,
-    "height": 776
+    "width": 900,
+    "height": 582
   },
   "Meteo-8.jpg": {
-    "width": 1200,
-    "height": 776
+    "width": 900,
+    "height": 582
   },
   "Meteo-9.jpg": {
-    "width": 1200,
-    "height": 776
+    "width": 900,
+    "height": 582
   },
   "Meteo-primary.jpg": {
     "width": 1000,
@@ -247,169 +219,65 @@ const mediaDimensions = {
     "width": 700,
     "height": 400
   },
-  "Stack-01.jpg": {
-    "width": 500,
-    "height": 500
-  },
-  "Stack-02.jpg": {
-    "width": 500,
-    "height": 500
-  },
-  "Stack-03.jpg": {
-    "width": 500,
-    "height": 500
-  },
-  "Stack-04.jpg": {
-    "width": 500,
-    "height": 500
-  },
-  "Stack-05.jpg": {
-    "width": 500,
-    "height": 500
-  },
-  "Stack-06.jpg": {
-    "width": 500,
-    "height": 500
-  },
-  "Stack-07.jpg": {
-    "width": 500,
-    "height": 500
-  },
-  "Stack-08.jpg": {
-    "width": 500,
-    "height": 500
-  },
-  "Stack-09.jpg": {
-    "width": 500,
-    "height": 500
-  },
-  "Stack-10.jpg": {
-    "width": 500,
-    "height": 500
-  },
-  "Stack-11.jpg": {
-    "width": 500,
-    "height": 500
-  },
-  "Stack-12.jpg": {
-    "width": 500,
-    "height": 500
-  },
-  "Stack-13.jpg": {
-    "width": 500,
-    "height": 500
-  },
-  "Stack-14.jpg": {
-    "width": 500,
-    "height": 500
-  },
-  "Stack-15.jpg": {
-    "width": 500,
-    "height": 500
-  },
-  "Stack-16.jpg": {
-    "width": 500,
-    "height": 500
-  },
-  "Stack-17.jpg": {
-    "width": 500,
-    "height": 500
-  },
-  "Stack-18.jpg": {
-    "width": 500,
-    "height": 500
-  },
-  "Stack-19.jpg": {
-    "width": 500,
-    "height": 500
-  },
-  "Stack-20.jpg": {
-    "width": 500,
-    "height": 500
-  },
-  "Stack-21.jpg": {
-    "width": 500,
-    "height": 500
-  },
-  "Stack-22.jpg": {
-    "width": 500,
-    "height": 500
-  },
-  "Stack-23.jpg": {
-    "width": 500,
-    "height": 500
-  },
-  "Stack-24.jpg": {
-    "width": 500,
-    "height": 500
-  },
-  "Stack-25.jpg": {
-    "width": 500,
-    "height": 500
-  },
-  "Stack-26.jpg": {
-    "width": 500,
-    "height": 500
-  },
   "Subscription-1.jpg": {
-    "width": 1200,
-    "height": 776
+    "width": 900,
+    "height": 582
   },
   "Subscription-2.jpg": {
-    "width": 1200,
-    "height": 776
+    "width": 900,
+    "height": 582
   },
   "Subscription-3.jpg": {
-    "width": 1200,
-    "height": 776
+    "width": 900,
+    "height": 582
   },
   "Subscription-4.jpg": {
-    "width": 1200,
-    "height": 776
+    "width": 900,
+    "height": 582
   },
   "Subscription-5.jpg": {
-    "width": 1200,
-    "height": 800
+    "width": 900,
+    "height": 600
   },
   "Subscription-6.jpg": {
-    "width": 1200,
-    "height": 776
+    "width": 900,
+    "height": 582
   },
   "Subscription-primary.jpg": {
     "width": 1000,
     "height": 1000
   },
   "Thermostat-1.jpg": {
-    "width": 1200,
-    "height": 1200
+    "width": 900,
+    "height": 900
   },
   "Thermostat-2.jpg": {
-    "width": 1200,
-    "height": 1200
+    "width": 900,
+    "height": 900
   },
   "Thermostat-3.jpg": {
-    "width": 1200,
-    "height": 1200
+    "width": 900,
+    "height": 900
   },
   "Thermostat-4.jpg": {
-    "width": 1200,
-    "height": 1200
+    "width": 900,
+    "height": 900
   },
   "Thermostat-5.jpg": {
-    "width": 1200,
-    "height": 1200
+    "width": 900,
+    "height": 900
   },
   "Thermostat-6.jpg": {
-    "width": 1200,
-    "height": 1200
+    "width": 900,
+    "height": 900
   },
   "Thermostat-7.jpg": {
-    "width": 1200,
-    "height": 1200
+    "width": 900,
+    "height": 900
   },
   "Thermostat-8.jpg": {
-    "width": 1200,
-    "height": 1200
+    "width": 900,
+    "height": 900
   },
   "Thermostat-primary.jpg": {
     "width": 1000,
@@ -480,24 +348,24 @@ const mediaDimensions = {
     "height": 750
   },
   "boucaniers-1.jpg": {
-    "width": 600,
-    "height": 600
+    "width": 900,
+    "height": 900
   },
   "boucaniers-2.jpg": {
-    "width": 600,
-    "height": 500
+    "width": 900,
+    "height": 750
   },
   "boucaniers-3.jpg": {
-    "width": 600,
-    "height": 600
+    "width": 900,
+    "height": 900
   },
   "boucaniers-4.jpg": {
-    "width": 600,
-    "height": 500
+    "width": 900,
+    "height": 750
   },
   "boucaniers-5.jpg": {
-    "width": 600,
-    "height": 500
+    "width": 900,
+    "height": 750
   },
   "boucaniers-primary.jpg": {
     "width": 552,
@@ -532,56 +400,12 @@ const mediaDimensions = {
     "height": 1000
   },
   "choralamar-1.jpg": {
-    "width": 500,
-    "height": 500
+    "width": 900,
+    "height": 900
   },
   "choralamar-primary.jpg": {
     "width": 552,
     "height": 552
-  },
-  "desk-1.jpg": {
-    "width": 900,
-    "height": 900
-  },
-  "desk-2.jpg": {
-    "width": 900,
-    "height": 900
-  },
-  "desk-3.jpg": {
-    "width": 900,
-    "height": 900
-  },
-  "desk-4.jpg": {
-    "width": 900,
-    "height": 750
-  },
-  "desk-5.jpg": {
-    "width": 900,
-    "height": 600
-  },
-  "desk-6.jpg": {
-    "width": 900,
-    "height": 750
-  },
-  "desk-7.jpg": {
-    "width": 900,
-    "height": 750
-  },
-  "desk-8.jpg": {
-    "width": 900,
-    "height": 750
-  },
-  "desk-9.jpg": {
-    "width": 900,
-    "height": 521
-  },
-  "desk-primary.jpg": {
-    "width": 750,
-    "height": 750
-  },
-  "double-diamond.jpg": {
-    "width": 900,
-    "height": 565
   },
   "expression-study-1.jpg": {
     "width": 900,
@@ -660,52 +484,24 @@ const mediaDimensions = {
     "height": 1000
   },
   "figma-1.jpg": {
-    "width": 1200,
-    "height": 675
-  },
-  "figma-10.jpg": {
-    "width": 1200,
-    "height": 1000
-  },
-  "figma-11.jpg": {
-    "width": 1200,
-    "height": 675
-  },
-  "figma-12.jpg": {
-    "width": 1200,
-    "height": 1000
+    "width": 900,
+    "height": 507
   },
   "figma-2.jpg": {
-    "width": 1200,
-    "height": 1000
+    "width": 900,
+    "height": 750
   },
   "figma-3.jpg": {
-    "width": 1200,
-    "height": 1000
+    "width": 900,
+    "height": 507
   },
   "figma-4.jpg": {
-    "width": 1200,
-    "height": 675
+    "width": 900,
+    "height": 606
   },
   "figma-5.jpg": {
-    "width": 1200,
-    "height": 1000
-  },
-  "figma-6.jpg": {
-    "width": 1200,
-    "height": 808
-  },
-  "figma-7.jpg": {
-    "width": 1200,
-    "height": 1000
-  },
-  "figma-8.jpg": {
-    "width": 1200,
-    "height": 675
-  },
-  "figma-9.jpg": {
-    "width": 1200,
-    "height": 1000
+    "width": 900,
+    "height": 507
   },
   "figma-course-1.jpg": {
     "width": 1200,
@@ -742,10 +538,6 @@ const mediaDimensions = {
   "figma-course-primary.jpg": {
     "width": 1000,
     "height": 1000
-  },
-  "figma-primary.jpg": {
-    "width": 1000,
-    "height": 564
   },
   "folder-1.jpg": {
     "width": 1200,
@@ -874,30 +666,6 @@ const mediaDimensions = {
   "hand2-primary.jpg": {
     "width": 1000,
     "height": 1000
-  },
-  "home-illu-1.png": {
-    "width": 692,
-    "height": 692
-  },
-  "home-illu-2.png": {
-    "width": 692,
-    "height": 692
-  },
-  "home-illu-3.png": {
-    "width": 692,
-    "height": 692
-  },
-  "home-ux-1.png": {
-    "width": 692,
-    "height": 692
-  },
-  "home-ux-2.png": {
-    "width": 692,
-    "height": 692
-  },
-  "home-ux-3.png": {
-    "width": 692,
-    "height": 692
   },
   "icons-1.jpg": {
     "width": 900,
@@ -1352,40 +1120,40 @@ const mediaDimensions = {
     "height": 1000
   },
   "pocket-1.jpg": {
-    "width": 1200,
-    "height": 1000
+    "width": 900,
+    "height": 750
   },
   "pocket-2.jpg": {
-    "width": 1200,
-    "height": 1000
+    "width": 900,
+    "height": 750
   },
   "pocket-3.jpg": {
-    "width": 1200,
-    "height": 1400
+    "width": 900,
+    "height": 1050
   },
   "pocket-4.jpg": {
-    "width": 1200,
-    "height": 1000
+    "width": 900,
+    "height": 750
   },
   "pocket-5.jpg": {
-    "width": 1200,
-    "height": 1000
+    "width": 900,
+    "height": 750
   },
   "pocket-6.jpg": {
-    "width": 1200,
-    "height": 800
+    "width": 900,
+    "height": 600
   },
   "pocket-7.jpg": {
-    "width": 1200,
-    "height": 1200
+    "width": 900,
+    "height": 900
   },
   "pocket-8.jpg": {
-    "width": 1200,
-    "height": 1000
+    "width": 900,
+    "height": 750
   },
   "pocket-9.jpg": {
-    "width": 1200,
-    "height": 700
+    "width": 900,
+    "height": 525
   },
   "pocket-primary.jpg": {
     "width": 1000,
@@ -1394,10 +1162,6 @@ const mediaDimensions = {
   "profil-picture.png": {
     "width": 200,
     "height": 200
-  },
-  "purely-primary.jpg": {
-    "width": 1000,
-    "height": 780
   },
   "realistic-portrait-1.jpg": {
     "width": 1200,
@@ -1410,30 +1174,6 @@ const mediaDimensions = {
   "realistic-portrait-primary.jpg": {
     "width": 1000,
     "height": 1000
-  },
-  "ridar-1.jpg": {
-    "width": 900,
-    "height": 490
-  },
-  "ridar-2.jpg": {
-    "width": 900,
-    "height": 658
-  },
-  "ridar-3.jpg": {
-    "width": 750,
-    "height": 450
-  },
-  "ridar-4.jpg": {
-    "width": 750,
-    "height": 450
-  },
-  "ridar-5.jpg": {
-    "width": 750,
-    "height": 450
-  },
-  "russell.jpg": {
-    "width": 900,
-    "height": 648
   },
   "sticker-1.jpg": {
     "width": 1200,
@@ -1671,6 +1411,26 @@ const mediaDimensions = {
     "width": 1000,
     "height": 1000
   },
+  "thumbnail-nda.jpg": {
+    "width": 720,
+    "height": 320
+  },
+  "thumbnail-ubisoft.jpg": {
+    "width": 940,
+    "height": 418
+  },
+  "thumbnail-ux-instructor.jpg": {
+    "width": 940,
+    "height": 418
+  },
+  "thumbnail-vmt.jpg": {
+    "width": 940,
+    "height": 418
+  },
+  "thumnail-purely.jpg": {
+    "width": 940,
+    "height": 418
+  },
   "trad-1.jpg": {
     "width": 1200,
     "height": 1000
@@ -1795,9 +1555,101 @@ const mediaDimensions = {
     "width": 1000,
     "height": 1000
   },
-  "twinkle-primary.jpg": {
-    "width": 1000,
+  "ubisoft-1.jpg": {
+    "width": 900,
+    "height": 225
+  },
+  "ubisoft-2.jpg": {
+    "width": 900,
     "height": 600
+  },
+  "ubisoft-3.jpg": {
+    "width": 900,
+    "height": 525
+  },
+  "ubisoft-4.jpg": {
+    "width": 900,
+    "height": 450
+  },
+  "ubisoft-5.jpg": {
+    "width": 900,
+    "height": 675
+  },
+  "ubisoft-6.jpg": {
+    "width": 900,
+    "height": 420
+  },
+  "ubisoft-7.jpg": {
+    "width": 900,
+    "height": 225
+  },
+  "ucd-1.jpg": {
+    "width": 900,
+    "height": 732
+  },
+  "ucd-10.jpg": {
+    "width": 900,
+    "height": 540
+  },
+  "ucd-2.jpg": {
+    "width": 900,
+    "height": 480
+  },
+  "ucd-3.jpg": {
+    "width": 900,
+    "height": 525
+  },
+  "ucd-4.jpg": {
+    "width": 900,
+    "height": 525
+  },
+  "ucd-5.jpg": {
+    "width": 900,
+    "height": 1035
+  },
+  "ucd-6.jpg": {
+    "width": 900,
+    "height": 975
+  },
+  "ucd-7.jpg": {
+    "width": 900,
+    "height": 975
+  },
+  "ucd-8.jpg": {
+    "width": 900,
+    "height": 450
+  },
+  "ucd-9.jpg": {
+    "width": 900,
+    "height": 375
+  },
+  "ucd-primary.jpg": {
+    "width": 750,
+    "height": 750
+  },
+  "vmt-1.jpg": {
+    "width": 900,
+    "height": 300
+  },
+  "vmt-2.jpg": {
+    "width": 900,
+    "height": 300
+  },
+  "vmt-3.jpg": {
+    "width": 900,
+    "height": 300
+  },
+  "vmt-4.jpg": {
+    "width": 900,
+    "height": 450
+  },
+  "vmt-5.jpg": {
+    "width": 900,
+    "height": 330
+  },
+  "vmt-6.jpg": {
+    "width": 900,
+    "height": 420
   },
   "vmt-primary.jpg": {
     "width": 1000,

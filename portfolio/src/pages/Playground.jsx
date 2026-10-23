@@ -10,26 +10,28 @@ import Timeline from '@/components/ui/Timeline';
 import { usePortfolio } from '@/contexts/PortfolioContext';
 import styles from './Playground.module.css';
 import pageLayout from '@/components/ui/PageLayout.module.css';
-// import Button from '@/components/ui/Button';
+import inlineIconStyles from '@/components/ui/InlineIcon.module.css';
 
-// const ALL_CATEGORY = 'all';
-
-// const formatCategoryLabel = (category) => {
-//   if (category === ALL_CATEGORY) return 'All';
-//   if (category === 'ux_ui') return 'UIX';
-//   if (category === 'illustration') return 'Illust';
-
-//   return category.replace(/_/g, ' ').replace(/\b\w/g, (char) => char.toUpperCase());
-// };
-
-// const getCategoryCount = (playgrounds, category) => {
-//   if (category === ALL_CATEGORY) return playgrounds.length;
-//   return playgrounds.filter((item) => item.type === category).length;
-// };
 
 const playgroundParagraphs = [
-  "Drawing has always been a part of me, more than a hobby, it just feels right. Eighteen years in, I keep growing at my own pace, always striving for more. I don't post much online, but I create whenever I can. ",
-  'Over the years, I’ve channeled that discipline into UX/UI design. With solid, hands-on experience under my belt, it has become another canvas for balance, structure, and emotion, one where I solve real-world problems for real people. The process, the curiosity, and the joy of making, that’s what drives me.',
+  <>
+    Drawing has always been a part of me, more than a hobby, it just feels right. Eighteen years in, I keep growing at
+    my own pace, always striving for more. I don't post much online, but I create whenever I can.
+  </>,
+  <>
+    Over the years, I've channeled that discipline into{' '}
+    <a
+      className={inlineIconStyles.dottedLink}
+      href="https://florialeger.github.io/deck/deck.pdf"
+      target="_blank"
+      rel="noreferrer"
+    >
+      UX/UI design.
+    </a>{' '}
+    With solid, hands - on experience under my belt, it has become another canvas for balance, structure, and emotion,
+    one where I solve real - world problems for real people.The process, the curiosity, and the joy of making, that’s
+    what drives me.
+  </>,
 ];
 
 // Animation variants for staggered list entrance
@@ -94,95 +96,10 @@ const Playground = () => {
     }
   }, [location.state?.scrollTo]);
 
-  // const recomputeThreshold = useCallback(() => {
-  //   if (!gridRef.current) return;
-  //   const firstCard = gridRef.current.querySelector('[data-slug]');
-  //   if (!firstCard) {
-  //     thresholdRef.current = { thresholdY: 0, scrollTarget: 0 };
-  //     return;
-  //   }
-
-  //   const gridRect = gridRef.current.getBoundingClientRect();
-  //   const scrollTop = window.scrollY;
-  //   const gridTop = gridRect.top + scrollTop;
-  //   const cardHeight = firstCard.offsetHeight;
-  //   const computed = window.getComputedStyle(gridRef.current);
-  //   const rowGap = parseFloat(computed.rowGap || computed.gap || '0');
-  //   const thresholdY = gridTop + cardHeight + rowGap + 32; // after first row + spacing
-  //   const scrollTarget = Math.max(thresholdY - window.innerHeight, 0);
-  //   thresholdRef.current = { thresholdY, scrollTarget };
-  // }, []);
-
-  // useEffect(() => {
-  //   if (typeof window === 'undefined') return undefined;
-
-  //   const handleResize = () => {
-  //     recomputeThreshold();
-  //   };
-
-  //   window.addEventListener('resize', handleResize);
-  //   const raf = window.requestAnimationFrame(() => recomputeThreshold());
-
-  //   return () => {
-  //     window.cancelAnimationFrame(raf);
-  //     window.removeEventListener('resize', handleResize);
-  //   };
-  // }, [recomputeThreshold, filteredPlaygrounds.length]);
-
-  // useEffect(() => {
-  //   if (typeof window === 'undefined') return undefined;
-
-  //   let ticking = false;
-  //   const handleScroll = () => {
-  //     if (ticking) return;
-
-  //     ticking = true;
-  //     requestAnimationFrame(() => {
-  //       if (!thresholdRef.current.thresholdY) {
-  //         recomputeThreshold();
-  //       }
-  //       const { thresholdY } = thresholdRef.current;
-  //       if (!thresholdY) {
-  //         setFilterVisible(false);
-  //         ticking = false;
-  //         return;
-  //       }
-  //       const viewportBottom = window.scrollY + window.innerHeight;
-  //       const shouldShow = viewportBottom >= thresholdY;
-  //       setFilterVisible((prev) => (prev === shouldShow ? prev : shouldShow));
-  //       ticking = false;
-  //     });
-  //   };
-
-  //   window.addEventListener('scroll', handleScroll, { passive: true });
-  //   handleScroll();
-
-  //   return () => {
-  //     window.removeEventListener('scroll', handleScroll);
-  //   };
-  // }, [recomputeThreshold]);
-
   const handleHoverChange = useCallback((slug) => {
     setHoveredSlug(slug ?? null);
   }, []);
 
-  // const handleCategoryChange = useCallback(
-  //   (category) => {
-  //     if (category === selectedCategory) return;
-  //     setSelectedCategory(category);
-  //     setHoveredSlug(null);
-  //     if (filterVisible && typeof window !== 'undefined') {
-  //       const { scrollTarget } = thresholdRef.current;
-  //       window.scrollTo({ top: scrollTarget, behavior: 'smooth' });
-  //     }
-  //     window.requestAnimationFrame(() => recomputeThreshold());
-  //   },
-  //   [filterVisible, recomputeThreshold, selectedCategory]
-  // );
-
-  // Reveal playground cards when they enter the viewport.
-  // We target the inner visual wrapper with [data-reveal-target] so
-  // the outer card element (which handles hover/dimming) remains untouched.
   useRevealOnView(gridRef, {
     itemSelector: '[data-slug]',
     targetSelector: '[data-reveal-target]',
@@ -238,32 +155,3 @@ const Playground = () => {
 
 export default Playground;
 
-//  <div
-//    className={`${styles.filterBar} ${filterVisible ? styles.visible : ''}`}
-//    role="toolbar"
-//    aria-label="Filtrer les playgrounds"
-//  >
-//    <Button
-//      type="button"
-//      labels={categories.map((category) => {
-//        const isActive = category === selectedCategory;
-//        const count = getCategoryCount(playgrounds, category);
-//        return (
-//          <button
-//            key={category}
-//            type="button"
-//            onClick={() => handleCategoryChange(category)}
-//            className={styles.filterLabelButton}
-//          >
-//            <h4 className={isActive ? styles.filterLabel : ''}>{formatCategoryLabel(category)}</h4>
-//            <span className={styles.filterCount}>
-//              <sup>{count}</sup>
-//            </span>
-//          </button>
-//        );
-//      })}
-//      className={styles.filterButton}
-//      variant="secondary"
-//      size="big"
-//    />
-//  </div>;

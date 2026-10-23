@@ -2,13 +2,14 @@ import React, { forwardRef, memo, useCallback, useEffect, useState } from 'react
 import PropTypes from 'prop-types';
 import { Link as RouterLink } from 'react-router-dom';
 import Button from '@/components/ui/Button';
-import { ArrowIcon, DownloadIcon } from '@/components/ui/icons';
+import { ArrowIcon, DownloadIcon, ExternalLinkIcon } from '@/components/ui/icons';
 import useMagneticEffect from '@/hooks/useMagneticEffect';
 import styles from './Link.module.css';
 
 const ICON_MAP = {
   arrow: ArrowIcon,
   download: DownloadIcon,
+  external: ExternalLinkIcon,
 };
 
 const resolveIcon = (icon, size, isHovered, iconProps = {}) => {
@@ -87,8 +88,10 @@ const LinkBase = (
     [ref, setMagneticNode, shouldMagnetize]
   );
 
-  // If this is a download link, use Button component for proper styling
-  if (download) {
+  const shouldRenderButton = download || (isAnchor && ['primary', 'secondary'].includes(variant));
+
+  // Use Button for styled downloads and external actions.
+  if (shouldRenderButton) {
     return (
       <Button
         ref={ref}
@@ -97,6 +100,9 @@ const LinkBase = (
         iconPosition="right"
         href={href}
         download={download}
+        target={target}
+        rel={rel}
+        disabled={disabled}
         variant={variant}
         size={size}
         className={className}
@@ -190,6 +196,8 @@ Link.propTypes = {
   disabled: PropTypes.bool,
   magnetic: PropTypes.bool,
   magneticOptions: PropTypes.object,
+  variant: PropTypes.oneOf(['primary', 'secondary', 'tertiary', 'inactive']),
+  size: PropTypes.oneOf(['small', 'big']),
 };
 
 export default Link;

@@ -1,21 +1,15 @@
-import { useEffect, useMemo, useState, useCallback } from 'react';
+import { useEffect, useState, useCallback } from 'react';
 import { useLocation } from 'react-router-dom';
-import { motion, LayoutGroup } from 'framer-motion';
+import { motion } from 'framer-motion';
 import Container from '@/components/ui/Container';
 import RevealAnimation from '@/components/utility/RevealAnimation';
-import MouseFollowImage from '@/components/utility/MouseFollowImage';
 import WorkCard from '@/components/sections/WorkCard';
 import ProjectListItem from '@/components/projects/ProjectListItem';
+import Button from '@/components/ui/Button';
+import TextMorph from '@/components/utility/TextMorph';
 import { usePortfolio } from '@/contexts/PortfolioContext';
 import styles from './Work.module.css';
 import pageLayout from '@/components/ui/PageLayout.module.css';
-
-const extractYear = (value) => {
-  if (!value) return 'Upcoming';
-  const date = new Date(value);
-  if (Number.isNaN(date.getTime())) return 'Upcoming';
-  return String(date.getFullYear());
-};
 
 // Animation variants for view transitions
 const containerVariants = {
@@ -54,48 +48,22 @@ const itemVariants = {
 };
 
 const Work = () => {
-  const { projects, work, loading, error } = usePortfolio();
+  const { projectsInDataOrder, work, loading, error } = usePortfolio();
   const location = useLocation();
   const [hoveredWorkSlug, setHoveredWorkSlug] = useState(null);
   const [hoveredProjectSlug, setHoveredProjectSlug] = useState(null);
-  const [hoveredImage, setHoveredImage] = useState(null);
+  const [emailCopied, setEmailCopied] = useState(false);
 
-  const groupedProjects = useMemo(() => {
-    if (!projects || !Array.isArray(projects) || !projects.length) return [];
-    const groups = projects.reduce((acc, project) => {
-      // Use endDate for grouping if available, otherwise use created date
-      const dateForGrouping = project.endDate || project.created;
-      const year = extractYear(dateForGrouping);
-      if (!acc[year]) acc[year] = [];
-      acc[year].push(project);
-      return acc;
-    }, {});
-
-    return Object.entries(groups)
-      .map(([year, items]) => ({
-        year,
-        items: items.slice().sort((a, b) => {
-          // Prioritize ongoing projects
-          const aOngoing = a.duration === 'ongoing';
-          const bOngoing = b.duration === 'ongoing';
-          if (aOngoing && !bOngoing) return -1;
-          if (!aOngoing && bOngoing) return 1;
-          // Then sort by completion date (endDate if available, otherwise created)
-          const dateA = a.endDate || a.created || 0;
-          const dateB = b.endDate || b.created || 0;
-          return new Date(dateB) - new Date(dateA);
-        }),
-      }))
-      .sort((a, b) => {
-        const yearA = Number(a.year);
-        const yearB = Number(b.year);
-
-        if (Number.isNaN(yearA) && Number.isNaN(yearB)) return 0;
-        if (Number.isNaN(yearA)) return 1;
-        if (Number.isNaN(yearB)) return -1;
-        return yearB - yearA;
-      });
-  }, [projects]);
+  const handleEmailCopy = useCallback(async () => {
+    const email = 'floria.leger@gmail.com';
+    try {
+      await navigator.clipboard.writeText(email);
+      setEmailCopied(true);
+      setTimeout(() => setEmailCopied(false), 2000);
+    } catch (error) {
+      console.error('Failed to copy email:', error);
+    }
+  }, []);
 
   // Scroll restoration when returning from detail page
   useEffect(() => {
@@ -122,49 +90,82 @@ const Work = () => {
 
   const handleWorkMouseEnter = useCallback((item) => {
     setHoveredWorkSlug(item.slug);
-    // No tooltip image for work items
   }, []);
 
   const handleWorkMouseLeave = useCallback(() => {
     setHoveredWorkSlug(null);
-    setHoveredImage(null);
   }, []);
 
   const handleProjectMouseEnter = useCallback((item) => {
     setHoveredProjectSlug(item.slug);
-    // No tooltip image for projects
   }, []);
 
   const handleProjectMouseLeave = useCallback(() => {
     setHoveredProjectSlug(null);
-    setHoveredImage(null);
   }, []);
 
   return (
     <div className={pageLayout.page}>
+      <Container className={styles.introContainer}>
+        <RevealAnimation cascade damping={0.08} triggerOnce>
+          <p>
+            <strong>Hi, I&apos;m Floria.</strong> I merge human psychology and UI to craft data-driven experiences. My
+            approach is backed by 3+ years of dedicated practice and a deep expertise in{' '}
+            illustration, allowing me to build products that are as functional as they are visually
+            immersive.
+          </p>
+          <p>
+            Previously at{' '}
+            <a className={styles.dottedLink} href="https://www.airbus.com/en" target="_blank" rel="noreferrer">
+              Airbus,
+            </a>{' '}
+            <a className={styles.dottedLink} href="https://www.ims-bordeaux.fr/" target="_blank" rel="noreferrer">
+              IMS
+            </a>{' '}
+            and{' '}
+            <a className={styles.dottedLink} href="https://www.ubisoft.com/fr-fr" target="_blank" rel="noreferrer">
+              Ubisoft,
+            </a>{' '}
+            I am now seeking a UX Designer role where I can apply cognitive engineering principles to immersive digital
+            products. Feel free to connect with me on{' '}
+            <a
+              className={styles.dottedLink}
+              href="https://www.linkedin.com/in/florialeger/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              LinkedIn.
+            </a>
+          </p>
+          <div className={styles.introAction}>
+            <Button
+              variant="primary"
+              size="small"
+              icon="send"
+              label={<TextMorph>{emailCopied ? 'Email copied!' : 'send email'}</TextMorph>}
+              onClick={handleEmailCopy}
+            />
+          </div>
+        </RevealAnimation>
+      </Container>
+
       {/* Recent gigs section */}
       {work && work.length > 0 && (
         <Container className={styles.workContainer}>
-          <RevealAnimation triggerOnce>
-            <h2>Recent work</h2>
-          </RevealAnimation>
-
           {!loading && !error && (
-            <div className={styles.timeline}>
+            <div className={styles.workList}>
               <RevealAnimation cascade damping={0.15} triggerOnce>
                 {work.map((workItem) => {
                   const targetState = { from: `${location.pathname}${location.search}${location.hash}` };
                   return (
-                    <div key={workItem.slug} className={styles.timelineItem}>
-                      <div className={styles.timelineDot} />
-                      <WorkCard
-                        work={workItem}
-                        targetState={targetState}
-                        isDimmed={hoveredWorkSlug && hoveredWorkSlug !== workItem.slug}
-                        onMouseEnter={() => handleWorkMouseEnter(workItem)}
-                        onMouseLeave={handleWorkMouseLeave}
-                      />
-                    </div>
+                    <WorkCard
+                      key={workItem.slug}
+                      work={workItem}
+                      targetState={targetState}
+                      isDimmed={hoveredWorkSlug && hoveredWorkSlug !== workItem.slug}
+                      onMouseEnter={() => handleWorkMouseEnter(workItem)}
+                      onMouseLeave={handleWorkMouseLeave}
+                    />
                   );
                 })}
               </RevealAnimation>
@@ -184,47 +185,31 @@ const Work = () => {
         {loading && <p className={styles.stateMessage}>Loading projects…</p>}
         {error && !loading && <p className={styles.stateMessage}>Unable to load projects right now.</p>}
 
-        {!loading && !error && groupedProjects.length === 0 && (
+        {!loading && !error && projectsInDataOrder.length === 0 && (
           <p className={styles.stateMessage}>Projects will be added soon.</p>
         )}
 
-        {!loading && !error && groupedProjects.length > 0 && (
-          <LayoutGroup>
-            <div className={styles.yearList}>
-              {groupedProjects.map(({ year, items }) => (
-                <RevealAnimation key={year} triggerOnce>
-                  <section className={styles.yearSection}>
-                    <h3 className={styles.yearHeading}>{year}</h3>
-                    <motion.div
-                      className={styles.projectList}
-                      variants={containerVariants}
-                      initial="hidden"
-                      animate="show"
-                    >
-                      {items.map((project) => {
-                        const targetState = { from: `${location.pathname}${location.search}${location.hash}` };
-                        return (
-                          <motion.div key={project.slug} variants={itemVariants} layout>
-                            <ProjectListItem
-                              project={project}
-                              targetState={targetState}
-                              isDimmed={hoveredProjectSlug && hoveredProjectSlug !== project.slug}
-                              onMouseEnter={() => handleProjectMouseEnter(project)}
-                              onMouseLeave={handleProjectMouseLeave}
-                            />
-                          </motion.div>
-                        );
-                      })}
-                    </motion.div>
-                  </section>
-                </RevealAnimation>
-              ))}
-            </div>
-          </LayoutGroup>
+        {!loading && !error && projectsInDataOrder.length > 0 && (
+          <RevealAnimation triggerOnce>
+            <motion.div className={styles.projectList} variants={containerVariants} initial="hidden" animate="show">
+              {projectsInDataOrder.map((project) => {
+                const targetState = { from: `${location.pathname}${location.search}${location.hash}` };
+                return (
+                  <motion.div key={project.slug} variants={itemVariants}>
+                    <ProjectListItem
+                      project={project}
+                      targetState={targetState}
+                      isDimmed={hoveredProjectSlug && hoveredProjectSlug !== project.slug}
+                      onMouseEnter={() => handleProjectMouseEnter(project)}
+                      onMouseLeave={handleProjectMouseLeave}
+                    />
+                  </motion.div>
+                );
+              })}
+            </motion.div>
+          </RevealAnimation>
         )}
       </Container>
-
-      <MouseFollowImage imageSrc={hoveredImage} isVisible={!!hoveredImage} />
     </div>
   );
 };

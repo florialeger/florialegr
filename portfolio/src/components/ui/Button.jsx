@@ -133,9 +133,9 @@ const ButtonBase = (
       {iconPosition === 'left' && iconElement && <span className={styles.iconWrapper}>{iconElement}</span>}
       <span className={styles.multiLabels}>
         {labels.map((labelText, index) => (
-          <h4 key={index} className={styles.label}>
+          <p key={index} className={styles.label}>
             {labelText}
-          </h4>
+          </p>
         ))}
       </span>
       {iconPosition === 'right' && iconElement && <span className={styles.iconWrapper}>{iconElement}</span>}
@@ -143,7 +143,7 @@ const ButtonBase = (
   ) : (
     <span className={styles.inner}>
       {iconPosition === 'left' && iconElement && <span className={styles.iconWrapper}>{iconElement}</span>}
-      {(label || (labels && labels[0])) && <h4 className={styles.label}>{label || (labels && labels[0])}</h4>}
+      {(label || (labels && labels[0])) && <p className={styles.label}>{label || (labels && labels[0])}</p>}
       {iconPosition === 'right' && iconElement && <span className={styles.iconWrapper}>{iconElement}</span>}
     </span>
   );

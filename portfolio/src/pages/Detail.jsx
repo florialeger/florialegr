@@ -22,7 +22,7 @@ const Detail = ({ variant }) => {
     getProjectBySlug,
     getPlaygroundBySlug,
     getWorkBySlug,
-    projects,
+    projectsInDataOrder,
     playgrounds,
     work,
   } = usePortfolio();
@@ -58,7 +58,7 @@ const Detail = ({ variant }) => {
       } else {
         // Return only projects (filter out work experience slugs, already sorted in context)
         const workSlugs = new Set(work.map((w) => w.slug));
-        return projects.filter((p) => !workSlugs.has(p.slug));
+        return projectsInDataOrder.filter((p) => !workSlugs.has(p.slug));
       }
     }
     // For playground, apply filter (already sorted in context)
@@ -66,7 +66,7 @@ const Detail = ({ variant }) => {
       return playgrounds;
     }
     return playgrounds.filter((item) => item.type === currentFilter);
-  }, [currentFilter, playgrounds, projects, work, variant, data]);
+  }, [currentFilter, playgrounds, projectsInDataOrder, work, variant, data]);
 
   // Find current index and calculate prev/next
   const currentIndex = useMemo(() => {
@@ -155,7 +155,7 @@ const Detail = ({ variant }) => {
     });
   }, [currentFilter, location.state?.from, navigate, nextItem, variant]);
 
-  // Keep keyboard and screen-wide pointer navigation available without hijacking controls.
+  // Keep keyboard and side-screen pointer navigation available without hijacking body content.
   useEffect(() => {
     const handleKeyDown = (event) => {
       const target = event.target;
@@ -184,8 +184,6 @@ const Detail = ({ variant }) => {
         handlePrevious();
       } else if (event.clientX >= third * 2) {
         handleNext();
-      } else {
-        handleClose();
       }
     };
 
@@ -277,22 +275,17 @@ const Detail = ({ variant }) => {
     return null;
   }
 
-  // For works we normally show the precise launch date (month + day + year when available).
-  // For playgrounds we normally show month + year only. However, when a project is ongoing
-  // we want the label to read "created" and show the full created date (start date).
   const isOngoing = Boolean(data.isOngoing);
   const isWorkExperience = Boolean(data.isWorkExperience);
 
-  // Format dates for work experiences
-  const formatWorkDate = (dateString) => {
+  const formatDetailDate = (dateString) => {
     if (!dateString) return 'Present';
-    const date = new Date(dateString);
-    return date.toLocaleDateString('en-US', { month: 'short', year: 'numeric' });
+    return formatDate(dateString, 'en-US', { monthYearOnly: true });
   };
 
-  const formatWorkDateRange = (startDate, endDate) => {
-    const start = formatWorkDate(startDate);
-    const end = formatWorkDate(endDate);
+  const formatDateRange = (startDate, endDate) => {
+    const start = formatDetailDate(startDate);
+    const end = formatDetailDate(endDate);
 
     // If both dates are the same, show only once
     if (start === end) {
@@ -302,19 +295,21 @@ const Detail = ({ variant }) => {
     return `${start} - ${end}`;
   };
 
-  const createdLabel = data.created
-    ? isOngoing
-      ? formatDate(data.created)
-      : variant === 'work'
-        ? formatDate(data.created)
-        : formatDate(data.created, 'en-US', { monthYearOnly: true })
-    : 'Unknown';
-
   const durationLabel = data.duration ? formatDuration(data.duration) : null;
 
   return (
     <div className={`${pageLayout.page}`.trim()} style={{ gap: 'var(--stack-gap-lg)' }}>
       <article className={`${pageLayout.container} ${styles.card}`.trim()}>
+        <Button
+          ref={setBackMag}
+          icon="back"
+          aria-label="Go back"
+          onClick={handleClose}
+          className={styles.goBackButton}
+          variant="secondary"
+          size="big"
+        />
+
           {/* HEADER SECTION */}
           <header className={styles.header}>
             {/* Metadata */}
@@ -338,11 +333,11 @@ const Detail = ({ variant }) => {
                   {isWorkExperience ? (
                     <>
                       <div className={styles.metaItem}>
-                        <dd>{formatWorkDateRange(data.startDate, data.endDate)}</dd>
+                        <dd>{formatDateRange(data.startDate, data.endDate)}</dd>
                       </div>
                       {data.endDate && (
                         <div className={styles.metaItem}>
-                          <dt>duration</dt>
+                          <dt>scope</dt>
                           <dd>
                             {(() => {
                               const start = new Date(data.startDate);
@@ -359,16 +354,11 @@ const Detail = ({ variant }) => {
                       {isOngoing ? (
                         <div className={styles.metaItem}>
                           <dt>started</dt>
-                          <dd>{createdLabel}</dd>
-                        </div>
-                      ) : variant === 'work' ? (
-                        <div className={styles.metaItem}>
-                          <dt>launch</dt>
-                          <dd>{createdLabel}</dd>
+                          <dd>{formatDetailDate(data.created)}</dd>
                         </div>
                       ) : (
                         <div className={styles.metaItem}>
-                          <dd>{createdLabel}</dd>
+                          <dd>{formatDateRange(data.created, data.endDate)}</dd>
                         </div>
                       )}
 
@@ -379,7 +369,7 @@ const Detail = ({ variant }) => {
                       ) : (
                         durationLabel && (
                           <div className={styles.metaItem}>
-                            <dt>duration</dt>
+                            <dt>scope</dt>
                             <dd>{durationLabel}</dd>
                           </div>
                         )
@@ -402,7 +392,7 @@ const Detail = ({ variant }) => {
             {/* Links */}
             {links.length > 0 && (
               <div className={styles.headerLinks}>
-                {links.map((link) => (
+                {links.map((link, index) => (
                   <Button
                     key={link.url}
                     label={link.label}
@@ -411,7 +401,7 @@ const Detail = ({ variant }) => {
                     href={link.url}
                     target="_blank"
                     rel="noreferrer"
-                    variant="tertiary"
+                    variant={index === 0 ? 'primary' : 'secondary'}
                     size="small"
                   />
                 ))}
@@ -424,9 +414,7 @@ const Detail = ({ variant }) => {
             <div className={styles.sectionsContainer}>
               <div className={styles.sections}>
                 {sections.map((section, sectionIndex) => {
-                  // First section never has subtitle/description
-                  const isFirstSection = sectionIndex === 0;
-                  const hasSubheader = !isFirstSection && (section.title || section.description);
+                  const hasSubheader = section.title || section.description;
 
                   return (
                     <section key={sectionIndex} className={styles.section}>
@@ -500,16 +488,6 @@ const Detail = ({ variant }) => {
         </footer>
       )}
 
-      <Button
-        ref={setBackMag}
-        label="Go Back"
-        icon="back"
-        iconPosition="left"
-        onClick={handleClose}
-        className={styles.goBackButton}
-        variant="secondary"
-        size="big"
-      />
     </div>
   );
 };

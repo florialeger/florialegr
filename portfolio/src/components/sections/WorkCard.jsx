@@ -1,47 +1,18 @@
-import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
 import PropTypes from 'prop-types';
-import NdaBadge from '@/components/ui/NdaBadge';
+import Media from '@/components/ui/Media';
+import { resolveMediaPath } from '@/utils/media';
 import styles from './WorkCard.module.css';
 
-const formatDate = (dateString) => {
+
+const formatEndDate = (dateString) => {
   if (!dateString) return 'Present';
   const date = new Date(dateString);
-  const month = date.toLocaleDateString('en-US', { month: 'short' });
-  const year = date.getFullYear();
-  return `${month} ${year}`;
-};
-
-const formatDateRange = (startDate, endDate) => {
-  const start = formatDate(startDate);
-  const end = formatDate(endDate);
-
-  // If both dates are the same, show only once
-  if (start === end) {
-    return start;
-  }
-
-  return `${start} - ${end}`;
+  return Number.isNaN(date.getTime()) ? dateString : String(date.getFullYear());
 };
 
 const WorkCard = ({ work, isDimmed, onMouseEnter, onMouseLeave, targetState }) => {
-  const [isHovered, setIsHovered] = useState(false);
-
-  const dateRange = formatDateRange(work.startDate, work.endDate);
-  const isLocked = work.iconFilename === 'locked-icone.png';
-  const iconPath = work.icon;
-  const hasCompanyUrl = work.companyUrl !== null && work.companyUrl !== undefined;
-
-  const handleMouseEnter = (e) => {
-    setIsHovered(true);
-    if (onMouseEnter) onMouseEnter(e);
-  };
-
-  const handleMouseLeave = (e) => {
-    setIsHovered(false);
-    if (onMouseLeave) onMouseLeave(e);
-  };
+  const thumbnail = resolveMediaPath(work.primaryImage?.[0]);
 
   return (
     <Link
@@ -49,45 +20,18 @@ const WorkCard = ({ work, isDimmed, onMouseEnter, onMouseLeave, targetState }) =
       state={targetState}
       className={styles.workCardLink}
       data-dimmed={isDimmed || undefined}
-      data-hovered={isHovered || undefined}
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
+      onMouseEnter={onMouseEnter}
+      onMouseLeave={onMouseLeave} 
     >
-      <motion.div
-        className={styles.workCard}
-        animate={{
-          paddingLeft: isHovered ? 'var(--stack-gap-sm)' : 0,
-          paddingRight: isHovered ? 'var(--stack-gap-sm)' : 0,
-        }}
-        transition={{
-          duration: 0.3,
-          ease: [0.33, 0.14, 0.27, 1],
-        }}
-      >
-        <div className={styles.workHeader}>
-          <div className={styles.companyWrapper}>
-            {hasCompanyUrl ? (
-              <a
-                href={work.companyUrl}
-                target="_blank"
-                rel="noreferrer"
-                className={styles.companyLink}
-                onClick={(e) => e.stopPropagation()}
-              >
-                <h3 className={styles.company}>{work.company}</h3>
-              </a>
-            ) : (
-              <h3 className={styles.company}>{work.company}</h3>
-            )}
-            {isLocked && iconPath && <NdaBadge iconSrc={iconPath} isExpanded={isHovered} />}
-          </div>
-          <p className={styles.date}>{dateRange}</p>
+      <div className={styles.workCard}>
+        <div className={styles.header}>
+        <p className={styles.title}>{work.role}</p>
+        <p className={styles.meta}>
+          {work.company} <span aria-hidden="true">–</span> {formatEndDate(work.endDate)}
+          </p>
         </div>
-
-        <p className={styles.description}>{work.description}</p>
-
-        <p className={styles.role}>{work.role}</p>
-      </motion.div>
+        {thumbnail && <Media src={thumbnail} alt={`${work.role} at ${work.company}`} className={styles.thumbnail} />}
+      </div>
     </Link>
   );
 };
@@ -96,11 +40,10 @@ WorkCard.propTypes = {
   work: PropTypes.shape({
     company: PropTypes.string.isRequired,
     role: PropTypes.string.isRequired,
-    description: PropTypes.string.isRequired,
+    description: PropTypes.string,
     startDate: PropTypes.string,
     endDate: PropTypes.string,
-    icon: PropTypes.string,
-    iconFilename: PropTypes.string,
+    primaryImage: PropTypes.arrayOf(PropTypes.string),
     slug: PropTypes.string.isRequired,
     companyUrl: PropTypes.string,
   }).isRequired,
