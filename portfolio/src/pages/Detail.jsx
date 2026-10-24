@@ -17,15 +17,8 @@ const Detail = ({ variant }) => {
   const { slug } = useParams();
   const navigate = useNavigate();
   const location = useLocation();
-  const {
-    loading,
-    getProjectBySlug,
-    getPlaygroundBySlug,
-    getWorkBySlug,
-    projectsInDataOrder,
-    playgrounds,
-    work,
-  } = usePortfolio();
+  const { loading, getProjectBySlug, getPlaygroundBySlug, getWorkBySlug, projectsInDataOrder, playgrounds, work } =
+    usePortfolio();
   const titleRef = useRef(null);
   const footerRef = useRef(null);
 
@@ -310,151 +303,151 @@ const Detail = ({ variant }) => {
           size="big"
         />
 
-          {/* HEADER SECTION */}
-          <header className={styles.header}>
-            {/* Metadata */}
-            <div className={styles.headerMetadata}>
-              <div className={styles.headerColumn}>
+        {/* HEADER SECTION */}
+        <header className={styles.header}>
+          {/* Metadata */}
+          <div className={styles.headerMetadata}>
+            <div className={styles.headerColumn}>
+              {isWorkExperience ? (
+                <>
+                  <h3 ref={titleRef}>{data.company}</h3>
+                  {data.role && <p className={styles.badgeList}>{data.role}</p>}
+                </>
+              ) : (
+                <>
+                  <h3 ref={titleRef}>{data.title}</h3>
+                  {duties.length > 0 && <p className={styles.badgeList}>{duties.join(', ')}</p>}
+                </>
+              )}
+            </div>
+
+            <div className={styles.metaColumn}>
+              <dl className={styles.metaList}>
                 {isWorkExperience ? (
                   <>
-                    <h3 ref={titleRef}>{data.company}</h3>
-                    {data.role && <p className={styles.badgeList}>{data.role}</p>}
+                    <div className={styles.metaItem}>
+                      <dd>{formatDateRange(data.startDate, data.endDate)}</dd>
+                    </div>
+                    {data.endDate && (
+                      <div className={styles.metaItem}>
+                        <dt>scope</dt>
+                        <dd>
+                          {(() => {
+                            const start = new Date(data.startDate);
+                            const end = new Date(data.endDate);
+                            const months = Math.round((end - start) / (1000 * 60 * 60 * 24 * 30));
+                            return months === 1 ? '1 month' : `${months} months`;
+                          })()}
+                        </dd>
+                      </div>
+                    )}
                   </>
                 ) : (
                   <>
-                    <h3 ref={titleRef}>{data.title}</h3>
-                    {duties.length > 0 && <p className={styles.badgeList}>{duties.join(', ')}</p>}
-                  </>
-                )}
-              </div>
-
-              <div className={styles.metaColumn}>
-                <dl className={styles.metaList}>
-                  {isWorkExperience ? (
-                    <>
+                    {isOngoing ? (
                       <div className={styles.metaItem}>
-                        <dd>{formatDateRange(data.startDate, data.endDate)}</dd>
+                        <dt>started</dt>
+                        <dd>{formatDetailDate(data.created)}</dd>
                       </div>
-                      {data.endDate && (
+                    ) : (
+                      <div className={styles.metaItem}>
+                        <dd>{formatDateRange(data.created, data.endDate)}</dd>
+                      </div>
+                    )}
+
+                    {isOngoing ? (
+                      <div className={styles.metaItem}>
+                        <dd>ongoing</dd>
+                      </div>
+                    ) : (
+                      durationLabel && (
                         <div className={styles.metaItem}>
                           <dt>scope</dt>
-                          <dd>
-                            {(() => {
-                              const start = new Date(data.startDate);
-                              const end = new Date(data.endDate);
-                              const months = Math.round((end - start) / (1000 * 60 * 60 * 24 * 30));
-                              return months === 1 ? '1 month' : `${months} months`;
-                            })()}
-                          </dd>
+                          <dd>{durationLabel}</dd>
                         </div>
-                      )}
-                    </>
-                  ) : (
-                    <>
-                      {isOngoing ? (
-                        <div className={styles.metaItem}>
-                          <dt>started</dt>
-                          <dd>{formatDetailDate(data.created)}</dd>
-                        </div>
-                      ) : (
-                        <div className={styles.metaItem}>
-                          <dd>{formatDateRange(data.created, data.endDate)}</dd>
-                        </div>
-                      )}
-
-                      {isOngoing ? (
-                        <div className={styles.metaItem}>
-                          <dd>ongoing</dd>
-                        </div>
-                      ) : (
-                        durationLabel && (
-                          <div className={styles.metaItem}>
-                            <dt>scope</dt>
-                            <dd>{durationLabel}</dd>
-                          </div>
-                        )
-                      )}
-                    </>
-                  )}
-                </dl>
-              </div>
+                      )
+                    )}
+                  </>
+                )}
+              </dl>
             </div>
+          </div>
 
-            {/* Global description (if exists from context) */}
-            {contextParagraphs.length > 0 && (
-              <div className={styles.globalDescription}>
-                {contextParagraphs.map((paragraph, index) => (
-                  <p key={index}>{parseHtmlText(paragraph, index)}</p>
-                ))}
-              </div>
-            )}
-
-            {/* Links */}
-            {links.length > 0 && (
-              <div className={styles.headerLinks}>
-                {links.map((link, index) => (
-                  <Button
-                    key={link.url}
-                    label={link.label}
-                    icon="external"
-                    iconPosition="right"
-                    href={link.url}
-                    target="_blank"
-                    rel="noreferrer"
-                    variant={index === 0 ? 'primary' : 'secondary'}
-                    size="small"
-                  />
-                ))}
-              </div>
-            )}
-          </header>
-
-          {/* SECTIONS */}
-          {sections.length > 0 && (
-            <div className={styles.sectionsContainer}>
-              <div className={styles.sections}>
-                {sections.map((section, sectionIndex) => {
-                  const hasSubheader = section.title || section.description;
-
-                  return (
-                    <section key={sectionIndex} className={styles.section}>
-                      {hasSubheader && (
-                        <div className={styles.sectionSubheader}>
-                          {section.title && <h3 className={styles.sectionTitle}>{section.title}</h3>}
-                          {section.description && (
-                            <div className={styles.sectionDescription}>
-                              {Array.isArray(section.description) ? (
-                                section.description.map((paragraph, idx) => (
-                                  <p key={idx}>{parseHtmlText(paragraph, idx)}</p>
-                                ))
-                              ) : (
-                                <p>{parseHtmlText(section.description)}</p>
-                              )}
-                            </div>
-                          )}
-                        </div>
-                      )}
-                      {section.images && section.images.length > 0 && (
-                        <div className={styles.sectionImages}>
-                          {section.images.map((image, imageIndex) => (
-                            <Media
-                              key={`${sectionIndex}-${imageIndex}`}
-                              src={image}
-                              alt=""
-                              className={styles.imageItem}
-                              loading={sectionIndex === 0 && imageIndex === 0 ? 'eager' : 'lazy'}
-                              fetchPriority={sectionIndex === 0 && imageIndex === 0 ? 'high' : 'auto'}
-                            />
-                          ))}
-                        </div>
-                      )}
-                    </section>
-                  );
-                })}
-              </div>
+          {/* Global description (if exists from context) */}
+          {contextParagraphs.length > 0 && (
+            <div className={styles.globalDescription}>
+              {contextParagraphs.map((paragraph, index) => (
+                <p key={index}>{parseHtmlText(paragraph, index)}</p>
+              ))}
             </div>
           )}
-        </article>
+
+          {/* Links */}
+          {links.length > 0 && (
+            <div className={styles.headerLinks}>
+              {links.map((link, index) => (
+                <Button
+                  key={link.url}
+                  label={link.label}
+                  icon="external"
+                  iconPosition="right"
+                  href={link.url}
+                  target="_blank"
+                  rel="noreferrer"
+                  variant={index === 0 ? 'primary' : 'secondary'}
+                  size="small"
+                />
+              ))}
+            </div>
+          )}
+        </header>
+
+        {/* SECTIONS */}
+        {sections.length > 0 && (
+          <div className={styles.sectionsContainer}>
+            <div className={styles.sections}>
+              {sections.map((section, sectionIndex) => {
+                const hasSubheader = section.title || section.description;
+
+                return (
+                  <section key={sectionIndex} className={styles.section}>
+                    {hasSubheader && (
+                      <div className={styles.sectionSubheader}>
+                        {section.title && <h3 className={styles.sectionTitle}>{section.title}</h3>}
+                        {section.description && (
+                          <div className={styles.sectionDescription}>
+                            {Array.isArray(section.description) ? (
+                              section.description.map((paragraph, idx) => (
+                                <p key={idx}>{parseHtmlText(paragraph, idx)}</p>
+                              ))
+                            ) : (
+                              <p>{parseHtmlText(section.description)}</p>
+                            )}
+                          </div>
+                        )}
+                      </div>
+                    )}
+                    {section.images && section.images.length > 0 && (
+                      <div className={styles.sectionImages}>
+                        {section.images.map((image, imageIndex) => (
+                          <Media
+                            key={`${sectionIndex}-${imageIndex}`}
+                            src={image}
+                            alt=""
+                            className={styles.imageItem}
+                            loading={sectionIndex === 0 && imageIndex === 0 ? 'eager' : 'lazy'}
+                            fetchPriority={sectionIndex === 0 && imageIndex === 0 ? 'high' : 'auto'}
+                          />
+                        ))}
+                      </div>
+                    )}
+                  </section>
+                );
+              })}
+            </div>
+          </div>
+        )}
+      </article>
 
       {/* Footer with navigation */}
       {(prevItem || nextItem) && (
@@ -469,7 +462,6 @@ const Detail = ({ variant }) => {
                 aria-label={`Previous: ${prevItem.company || prevItem.title}`}
               >
                 <ArrowPreviousIcon className={styles.navArrow} />
-                <p className={styles.navTitle}>{prevItem.company || prevItem.title}</p>
               </button>
             )}
             {nextItem && (
@@ -480,14 +472,13 @@ const Detail = ({ variant }) => {
                 className={`${styles.navItem} ${styles.navItemRight}`}
                 aria-label={`Next: ${nextItem.company || nextItem.title}`}
               >
-                <p className={styles.navTitle}>{nextItem.company || nextItem.title}</p>
+                {' '}
                 <ArrowNextIcon className={styles.navArrow} />
               </button>
             )}
           </nav>
         </footer>
       )}
-
     </div>
   );
 };
@@ -497,3 +488,6 @@ Detail.propTypes = {
 };
 
 export default Detail;
+
+//<p className={styles.navTitle}>{nextItem.company || nextItem.title}</p>
+//<p className={styles.navTitle}>{prevItem.company || prevItem.title}</p>

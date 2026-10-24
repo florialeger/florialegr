@@ -1,5 +1,5 @@
 :root {
-  /* Primitive tokens: raw values from the Figma system. */
+  /* Primitive tokens */
   --pr-color-white: #ffffff;
   --pr-color-black: #101010;
   --pr-color-gray-900: #171717;
@@ -8,8 +8,8 @@
   --pr-color-red-100: #fedada;
   --pr-color-red-600: #ec1717;
 
-  --pr-size-layout: 600px;
-  
+  --pr-size-layout: 37.5rem;
+
   --pr-space-3xs: 0.125rem;
   --pr-space-2xs: 0.25rem;
   --pr-space-xs: 0.3125rem;
@@ -32,49 +32,63 @@
   --pr-font-size-lg: 1.325rem;
   --pr-font-size-xl: 2.225rem;
 
-  /* Semantic tokens: meaning-based aliases for the interface. */
+  /* Semantic tokens */
   --sem-color-bg: var(--pr-color-gray-50);
+  --sem-color-bg-transparent: rgb(252 252 252 / 0%);
   --sem-color-bg-surface: var(--pr-color-gray-300);
   --sem-color-text-main: var(--pr-color-gray-900);
   --sem-color-text-inverted: var(--pr-color-gray-50);
+
   --sem-color-action-primary: var(--pr-color-black);
   --sem-color-action-danger: var(--pr-color-red-600);
+
   --sem-color-fill-primary: var(--pr-color-gray-300);
   --sem-color-fill-secondary: rgb(199 199 199 / 50%);
   --sem-color-fill-tertiary: rgb(199 199 199 / 35%);
   --sem-color-fill-quaternary: rgb(199 199 199 / 15%);
-  --sem-color-fill-non-opaque: rgb(255 255 255 / 50%);
+  --sem-color-fill-white-50: rgb(255 255 255 / 50%);
+
   --sem-color-separator-black: rgb(0 0 0 / 10%);
   --sem-color-separator-white: rgb(255, 255, 255, 20%);
-  --sem-gradient-primary: linear-gradient(180deg, rgb(16 16 16 / 80%) 0%, var(--pr-color-black) 100%);
-  --sem-gradient-secondary: linear-gradient(180deg, rgb(199 199 199 / 35%) 0%, rgb(199 199 199 / 50%) 100%);
 
-  --sem-gradient-non-opaque: linear-gradient(180deg, var(--sem-color-bg) 0%, rgb(252 252 252 / 0%) 100%);
+  --sem-gradient-primary: linear-gradient(180deg, rgb(23 23 23 / 80%) 0%, var(--pr-color-black) 100%);
+  --sem-gradient-secondary: linear-gradient(
+    180deg,
+    var(--sem-color-fill-tertiary) 0%,
+    var(--sem-color-fill-secondary) 100%
+  );
+
+  --sem-gradient-non-opaque: linear-gradient(180deg, var(--sem-color-bg) 0%, var(--sem-color-bg-transparent) 100%);
   --sem-font-body: var(--pr-font-family);
   --sem-font-heading: var(--pr-font-family-accent);
   --sem-font-size-body: var(--pr-font-size-sm);
-  --sem-line-height-body: 1.5;
+  --sem-line-height-body: 1.4;
   --sem-weight-regular: 450;
   --sem-weight-emphasized: 600;
 
-  /* Component tokens: reusable layout and component decisions. */
+  /* Component tokens */
   --comp-container-width: var(--pr-size-layout);
   --comp-container-padding: var(--pr-space-lg);
+
   --comp-page-gap: var(--pr-space-3xl);
   --comp-page-padding-top: 6rem;
   --comp-page-padding-bottom: 9rem;
+
   --comp-copy-gap: var(--pr-space-lg);
+
   --comp-stack-gap-lg: var(--pr-space-2xl);
   --comp-stack-gap-md: var(--pr-space-lg);
   --comp-stack-gap-sm: var(--pr-space-2sm);
   --comp-stack-gap-xs: var(--pr-space-sm);
   --comp-stack-gap-xxs: var(--pr-space-2xs);
+
   --comp-button-padding-small-h: var(--pr-space-2sm);
   --comp-button-padding-small-v: var(--pr-space-xs);
   --comp-button-padding-big-h: var(--pr-space-lg);
   --comp-button-padding-big-v: var(--pr-space-md);
   --comp-button-radius-small: var(--pr-radius-sm);
   --comp-button-radius-big: var(--pr-radius-md);
+
   --comp-shadow-small:
     0 0 0 0.0625rem rgb(0 0 0 / 6%), 0 0.0625rem 0.0625rem -0.03125rem rgb(0 0 0 / 6%),
     0 0.1875rem 0.1875rem -0.09375rem rgb(0 0 0 / 6%);
@@ -87,71 +101,88 @@
   --type---title-1---size: var(--pr-font-size-xl);
   --type---title-1---weight-regular: var(--sem-weight-regular);
   --type---title-1---letter-spacing: -0.125rem;
+
   --type---title-2---family: var(--sem-font-body);
   --type---title-2---size: var(--pr-font-size-md);
   --type---title-2---weight-regular: var(--sem-weight-regular);
   --type---title-2---weight-emphasized: 600;
   --type---title-2---letter-spacing: 0;
   --type---title-2---line-height: 1.2;
+
   --type---title-3---family: var(--sem-font-body);
   --type---title-3---size: var(--pr-font-size-md);
   --type---title-3---weight-regular: 400;
   --type---title-3---weight-emphasized: 600;
   --type---title-3---letter-spacing: 0;
   --type---title-3---line-height: 1.2;
+
   --type---body---family: var(--sem-font-body);
   --type---body---size: var(--sem-font-size-body);
   --type---body---weight: var(--sem-weight-regular);
   --type---body---line-height: var(--sem-line-height-body);
   --type---body---letter-spacing: -0.1em;
+
   --body-regular-weight: var(--sem-weight-regular);
   --body-regular-size: var(--sem-font-size-body);
   --body-regular-letter-spacing: -0.01em;
+
   --body-emphasized-weight: var(--sem-weight-emphasized);
   --body-emphasized-letter-spacing: -0.01em;
+
   --nav-height: 6.5rem;
+
   --container-max-width: var(--comp-container-width);
   --container-padding-x: var(--comp-container-padding);
+
   --copy-block-gap: var(--comp-copy-gap);
   --copy-block-max-width: min(var(--comp-container-width), 100%);
+
   --layout-page-gap: var(--comp-page-gap);
   --layout-page-padding-top: var(--comp-page-padding-top);
   --layout-page-padding-bottom: var(--comp-page-padding-bottom);
+
   --stack-gap-lg: var(--comp-stack-gap-lg);
   --stack-gap-md: var(--comp-stack-gap-md);
   --stack-gap-sm: var(--comp-stack-gap-sm);
   --stack-gap-xs: var(--comp-stack-gap-xs);
   --stack-gap-xxs: var(--comp-stack-gap-xxs);
+
   --padding-extra-small-h: var(--pr-space-3xs);
   --padding-small-h: var(--comp-button-padding-small-h);
   --padding-small-v: var(--comp-button-padding-small-v);
   --padding-big-h: var(--comp-button-padding-big-h);
   --padding-big-v: var(--comp-button-padding-big-v);
+
   --animate-spin: spin 1s linear infinite;
   --shimmer-width: 11.25rem;
   --duration: 20s;
   --gap: 2.5rem;
+
   --radius-sm: var(--comp-button-radius-small);
   --radius-md: var(--comp-button-radius-big);
   --radius-pill: var(--pr-radius-full);
+
   --surface---main: var(--sem-color-bg);
   --background---primary: var(--sem-color-bg);
+
   --label---primary: var(--sem-color-text-main);
   --label---secondary: rgb(23 23 23 / 75%);
   --label---tertiary: rgb(23 23 23 / 45%);
   --label---quaternuary: rgb(23 23 23 / 20%);
   --label---inverted: var(--sem-color-text-inverted);
+
   --fills---primary: var(--sem-color-fill-primary);
   --fills---secondary: var(--sem-color-fill-secondary);
   --fills---tertiary: var(--sem-color-fill-tertiary);
   --fills---quaternuary: var(--sem-color-fill-quaternary);
-  --fills---non--opaque: var(--sem-color-fill-non-opaque);
+  --fills---non--opaque: var(--sem-color-fill-white-50);
   --fills---linear-non--opaque: var(--sem-gradient-non-opaque);
   --fills---linear--opaque-primary: var(--sem-gradient-primary);
   --fills---linear--opaque-secondary: var(--sem-gradient-secondary);
 
   --separator---black-10: var(--sem-color-separator-black);
   --separator---white-20: var(--sem-color-separator-white);
+
   --shadows--small: var(--comp-shadow-small);
   --shadows--normal: var(--comp-shadow-normal);
 
@@ -250,16 +281,16 @@ h3 {
 
 p {
   font-family: var(--type---body---family);
-  font-size: var(--type---body---size);
-  font-weight: var(--body-regular-weight);
   letter-spacing: var(--body-regular-letter-spacing);
   color: var(--label---secondary);
-  max-width: clamp(20rem, 80vw, 34.375rem);
+  max-width: var(--pr-size-layout);
   text-wrap: stable;
 }
 
 p strong {
+  font-family: var(--type---body---family);
   font-weight: var(--body-emphasized-weight);
+  letter-spacing: var(--body-emphasized-letter-spacing);
 }
 
 .text-body-emphasized {

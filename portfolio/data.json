@@ -197,10 +197,11 @@
     },
     {
       "company": "Bordeaux INP",
-      "role": "UX Instructor Intern",
+      "role": "Educational UX Intern",
       "description": "Design enablement architecture",
       "context": [
-        "During a 4-week engineering internship at ENSC, I was tasked with introducing 15 secondary school students, including participants from the 'Cordées de la réussite' equal-opportunity program, to cognitive engineering and digital product design."
+        "During an internship at ENSC, I was challenged to introduce 15 high school students from the 'Cordées de la réussite' equal-opportunity program to UX design and cognitive engineering.",
+        "Professional tools like Figma often cause cognitive overload for beginners. My goal was to strip away the complexity and design a 4-hour workshop that was accessible, engaging, and highly practical"
       ],
       "startDate": "2024-06-01",
       "endDate": "2024-06-28",
@@ -211,30 +212,24 @@
           "images": ["figma.mp4"]
         },
         {
-          "title": "Educational Bottleneck",
+          "title": "Pedagogical Interaction",
           "description": [
-            "Traditional engineering education relies on dense theoretical lectures, which often induce cognitive overload and disengagement when novices encounter complex professional software like Figma. The challenge was translating spatial layout theory, component mechanics, and accessibility standards into an engaging, accessible 4-hour learning sprint."
-          ]
-        },
-        {
-          "title": "Course Architecture",
-          "description": [
-            "To ensure progressive skill acquisition, I engineered a three-tiered pedagogical framework. First, I delivered a 30-minute interactive presentation deck built natively inside Figma's live prototype mode to dynamically showcase components, layout frames, and hover interactions on canvas. ",
-            "Second, I built a custom HTML/CSS web portal hosting step-by-step video tutorials and written guides for a self-paced photo gallery exercise. Prior to live delivery, I ran usability tests with cohort peers to audit instructional clarity, refine lesson pacing, and eliminate navigation friction."
+            "To ensure the students could work autonomously, I designed a multi-tiered learning experience. I first built a dynamic, 30-minute interactive presentation natively inside Figma to demonstrate frames, layers, and typography in real-time. ",
+            "I then coded a custom HTML/CSS portal hosting step-by-step video tutorials. Before the workshop, I tested this portal with a Figma novice to measure time-on-task and identify potential usability bottlenecks, adjusting the pacing to fit our tight 4-hour window."
           ],
           "images": ["figma-1.jpg", "figma-3.jpg", "figma-4.jpg", "figma-5.jpg"]
         },
         {
-          "title": "Agency Simulation",
+          "title": "The Agency Simulation",
           "description": [
-            "The workshop culminated in a 2.5-hour client-agency challenge where student teams designed 'Orchestra', a desktop music application built to strict specifications and brand guidelines.",
-            "Acting as demanding clients, the instruction team mandated 'Handi-sons', an inclusive accessibility section designed to instill WCAG-aligned mindsets in novice designers. I provided active coaching across teams, helping students resolve friction around frame coordinates, Auto Layout behaviors, and layer hierarchy."
+            "The workshop culminated in a 2.5-hour hands-on sprint where students worked in three groups to design 'Orchestra,' a desktop music streaming application. Acting as the client, I provided strict brand guidelines and specific feature requirements, including a dedicated 'Handi-sons' section to introduce the students to the core concepts of accessibility and inclusive design."
           ]
         },
         {
-          "title": "Strategic Impact & Learning Outcomes",
+          "title": "Impact & Facilitation",
           "description": [
-            "Every participant team successfully produced functional multi-page wireframes featuring custom navigation filters and integrated accessibility categories. The sprint concluded with formal pitch presentations where students defended their UX decisions and visual hierarchy choices directly to the client team. This initiative demonstrated how empathetic pedagogical scaffolding and custom digital assets enable non-designers to master professional UI tools and inclusive product strategy."
+            "Despite the challenges of maintaining engagement over a long session, every team successfully delivered a multi-page wireframe with functional navigation filters.",
+            "I actively coached the groups through interface friction, teaching them how to resolve layer hierarchy and alignment issues. The sprint concluded with the students pitching their UX decisions, proving that with the right structural support, novices can quickly grasp and apply professional design thinking."
           ]
         }
       ],
@@ -403,7 +398,7 @@
           "description": [
             "As Visual Design Lead and Figma Systems Architect, I engineered the high-fidelity Figma prototype from scratch using Auto Layout rules, tokenized color palettes, and reusable component libraries. The core UX solution was a physical Focus Mode requiring users to dock their smartphone onto the desk controller, turning the phone into a workspace remote while automatically filtering non-essential notifications."
           ],
-          "images": ["desk.mp4", "ucd-6.jpg", "ucd-7.jpg"]
+          "images": ["ucd.mp4", "ucd-6.jpg", "ucd-7.jpg"]
         },
 
         {
@@ -502,7 +497,8 @@
         },
         {
           "title": "Role-Based Strategy",
-          "description": ["More importantly, the similarity matrix isolated low-frequency, ambiguous items like 'Evacataires'. Rather than forcing these into the student taxonomy, we leveraged these outliers to advocate for a dynamic, role-personalized portal architecture, ensuring that the interface adapts to the distinct requirements of students, faculty, and administrative staff."
+          "description": [
+            "More importantly, the similarity matrix isolated low-frequency, ambiguous items like 'Evacataires'. Rather than forcing these into the student taxonomy, we leveraged these outliers to advocate for a dynamic, role-personalized portal architecture, ensuring that the interface adapts to the distinct requirements of students, faculty, and administrative staff."
           ]
         }
       ],
@@ -578,7 +574,8 @@
     {
       "title": "Figma Fundamentals",
       "context": [
-        "At the National Superior School of Cognitics (ENSC), engineering students are required to build interactive UI prototypes for cross-disciplinary tech projects. However, software execution and design system architecture are not formally taught in the core engineering curriculum. This gap forced students into trial-and-error design practices, resulting in fragile component hierarchies, Auto Layout layout friction, and broken interface handoffs during high-stakes deliverables."
+        "At ENSC, engineering students are required to rapidly build interactive UI prototypes for cross-disciplinary projects, user testing, and stakeholder presentations. Without formal training in design system architecture, students relied on trial-and-error execution.",
+        "This resulted in fragile component hierarchies, broken layouts, and inconsistent interfaces that compromised both the integrity of live user testing and eventual developer handoffs."
       ],
       "created": "2025-10-03",
       "endDate": "2026-02-07",
@@ -590,31 +587,36 @@
       "secondaryImages": [],
       "sections": [
         {
-          "title": "Content Architecture",
-          "description": "To bridge software execution with engineering mental models, I independently architected 'Introduction à Figma', a comprehensive 90+ slide curriculum structured across 7 modular learning tracks. Synthesizing two years of personal platform expertise with official documentation and AI-assisted cognitive mapping, I translated abstract tool mechanics into visual mental models. ",
+          "images": ["figma-course-1.jpg"]
+        },
+        {
+          "title": "Architecting the Solution",
+          "description": [
+            "To replace guesswork with standardized product logic, I independently architected a 90+ slide curriculum natively within Figma, structured across 6 modular learning tracks.",
+            "To prevent cognitive overload, I avoided static screenshots and instead designed explicit vector diagrams to visually map out abstract mechanics like Auto Layout grids,frame nesting, and variables.",
+            "To bridge theory and practice, I am developing a suite of hands-on, atomic tutorials mirroring the students' actual academic deliverables. These exercises guide students progressively through constructing scalable Auto Layout buttons, building multi-state component sets, and correctly mapping design tokens (variables) to control UI logic."
+          ],
           "images": [
-            "figma-course-1.jpg",
             "figma-course-2.jpg",
             "figma-course-3.jpg",
             "figma-course-4.jpg",
             "figma-course-5.jpg",
             "figma-course-6.jpg",
             "figma-course-7.jpg",
-            "figma-course-8.jpg"
+            "figma-course-8.jpg",
+            "figma-course-9.jpg",
+            "figma-course-10.jpg",
+            "figma-course-11.jpg"
           ]
         },
         {
-          "title": "Visual De-Jargonization",
-          "description": "To avoid cognitive overload, I avoided static screenshots and instead natively designed every diagram, vector asset, and step-by-step modal callout inside Figma, providing explicit spatial guidance for complex features like Auto Layout grids, variables, and responsive constraints."
-        },
-        {
-          "title": "Peer Validation",
-          "description": "To validate instructional clarity, I shared the live Figma file with design-experienced engineering peers for asynchronous review. Using in-context Figma comments, peers flagged visual hierarchy friction and technical edge cases—such as the variables slide—which I systematically resolved through iterative design passes."
+          "title": "Proactive Handoff",
+          "description": "Following iterative peer validation to resolve technical edge cases, I proactively delivered this production-ready framework to the ENSC faculty. As a self-initiated contribution, my objective was to provide non-expert professors with a reliable teaching asset."
         },
 
         {
-          "title": "Institutional Value",
-          "description": "The completed project is a production-ready educational framework built for handoff to ENSC faculty and student organizations. By focusing on underlying product logic—frame nesting, spatial budgeting, component inheritance, and Dev Mode inspections—the curriculum equips future engineering cohorts with a standardized design system foundation that aligns directly with professional software engineering standards."
+          "title": "Knowledge Sharing",
+          "description": "By open-sourcing this curriculum to the institution, the goal is to empower future engineering cohorts to autonomously build robust, testable prototypes that align with professional software standards."
         }
       ],
       "link": [
@@ -631,8 +633,8 @@
     {
       "title": "Mates",
       "context": [
-        "On this project, I worked on the Logo, Brand, and Flyer Design for people in my school. It was really interesting to be challenged on creating a full, coherent design, not just for an app, but for an entire brand.",
-        "I tried to let my creativity flow freely, while still following the well-structured guidelines they gave me, and I’m really thankful for that."
+        "The founders of Mates, a peer-to-peer student note-sharing platform, required a brand identity that communicated community trust and pack strength without feeling overly academic.",
+        "They provided strict visual constraints: \n• integrate the letter 'M' \n• use a wolf or ant motif\n• employ the Inter typeface\n• utilize a vibrant blue/orange palette."
       ],
       "created": "2025-01-31",
       "endDate": "2025-03-31",
@@ -641,21 +643,39 @@
       "support": ["paper", "procreate", "figma"],
       "primaryImage": ["mates-primary.jpg"],
       "type": "illustration",
-      "secondaryImages": [
-        "mates-1.jpg",
-        "mates-2.jpg",
-        "mates-3.jpg",
-        "mates-4.jpg",
-        "mates-5.jpg",
-        "mates-6.jpg",
-        "mates-7.jpg",
-        "mates-8.jpg",
-        "mates-9.jpg",
-        "mates-10.jpg",
-        "mates-11.jpg",
-        "mates-12.jpg"
+      "sections": [
+        {
+          "images": ["mates-1.jpg"]
+        },
+        {
+          "title": "Strategic Execution",
+          "description": [
+            "To satisfy the structural requirements, I engineered a highly scalable logo that subtly embeds the letter 'M' into the ears of a howling wolf, symbolizing mutual support. To ensure maximum visual balance across micro-icons and campus banners, I constructed the mark using precise mathematical grid lines, geometric tangents, and circular arcs. ",
+            "Recognizing that the requested blue/orange palette could cause accessibility friction on digital interfaces, I proactively presented side-by-side Figma explorations. This structured iteration successfully pivoted the stakeholders to a sleeker, high-contrast palette of Byzantine Blue (#194DDF) and Eerie Black (#212121)."
+          ],
+          "images": ["mates-6.jpg"]
+        },
+        {
+          "title": "Brand System",
+          "description": [
+            "Beyond the core logo, I developed a complete suite of digital and physical assets, including responsive dark-mode badges, custom illustrations, and customized headers for multiple social platforms. For physical campus marketing, I designed A5 flyer templates optimized for quick scanning, ensuring the layouts accommodated necessary visual hierarchy and spacing for future legal print compliance. "
+          ],
+          "images": ["mates-2.jpg", "mates-3.jpg", "mates-4.jpg", "mates-5.jpg", "mates-7.jpg"]
+        },
+        {
+          "title": "Figma Handoff",
+          "description": [
+            "The project culminated in a complete transfer of all deliverables via a systematically organized Figma library, equipping the founders with a production-ready brand system to deploy autonomously."
+          ],
+          "images": ["mates-8.jpg", "mates-9.jpg"]
+        }
       ],
-      "link": [],
+      "link": [
+        {
+          "label": "Brand Guidelines",
+          "link": "https://www.figma.com/community/file/1695742092378825229"
+        }
+      ],
       "icon": "mates-icone.png",
       "slug": "mates",
       "locked": false,
@@ -663,7 +683,10 @@
     },
     {
       "title": "Krystal 2026",
-      "context": [" ", ""],
+      "context": [
+        "Krystal is the premier annual sports tournament for the Bordeaux INP network, bringing together over 500 students and supporters across eight engineering schools. I was re-engaged for the 2026 edition to create a complete garment branding system around an 'Elemental Forces' theme within a strict two-week deadline.",
+        "The critical constraint: a strict two-week delivery deadline for all production-ready assets, with garment manufacturing limited to single-color screen printing on diverse fabric colors."
+      ],
       "created": "2026-01-01",
       "endDate": "2026-01-17",
       "duration": "2 weeks",
@@ -671,20 +694,46 @@
       "support": ["figma"],
       "primaryImage": ["krystal2026-primary.jpg"],
       "type": "illustration",
-      "secondaryImages": [
-        "krystal2026-1.jpg",
-        "krystal2026-2.jpg",
-        "krystal2026-3.jpg",
-        "krystal2026-4.jpg",
-        "krystal2026-5.jpg",
-        "krystal2026-6.jpg",
-        "krystal2026-7.jpg",
-        "krystal2026-8.jpg",
-        "krystal2026-9.jpg",
-        "krystal2026-10.jpg",
-        "krystal2026-11.jpg",
-        "krystal2026-12.jpg",
-        "krystal2026-13.jpg"
+      "sections": [
+        {
+          "images": ["krystal2026-1.jpg", "krystal2026-2.jpg"]
+        },
+        {
+          "title": "Modular Architecture",
+          "description": [
+            "To meet the aggressive timeline without sacrificing visual quality, I abandoned traditional, highly custom illustration in favor of a modular design framework. I engineered a '50/50 split-diamond' architecture.",
+            "• The lower half of the diamond was standardized across all designs, establishing a non-negotiable visual anchor that unified the eight schools.\n• The upper half was customized for each assigned element.",
+            "This abstraction drastically reduced visual noise, ensuring immediate brand recognition on small chest badges while treating graphic design exactly like a scalable UI component library."
+          ],
+          "images": ["krystal2026-3.jpg", "krystal2026-4.jpg", "krystal2026-5.jpg"]
+        },
+        {
+          "title": "Agile Prototyping",
+          "description": [
+            "Operating within a 14-day window left zero room for vector-level revisions. I shifted 100% of the ideation phase to high-fidelity paper prototyping, generating high volumes of sketches to secure stakeholder alignment before opening design software.",
+            "This paper-first strategy kept the workflow highly efficient and completely natural. Concrete themes like Fire and Water were approved instantly from fifteen rough sketches, while complex metaphors like Time and Spirit were resolved offline by rapidly generating twenty-four concepts each. Securing this stakeholder alignment on paper eliminated digital revisions and saved days of production time."
+          ],
+          "images": ["krystal2026-6.jpg", "krystal2026-7.jpg"]
+        },
+        {
+          "title": "Technical Craft",
+          "description": [
+            "Garment usability requires strict adherence to physical production constraints. Because each of the eight schools wore distinct T-shirt colors, I engineered every logo as a high-contrast, scalable SVG utilizing strategic line weight and negative space to imply 3D volume."
+          ]
+        },
+        {
+          "title": "Handoff",
+          "description": [
+            "Every vector asset was delivered in production-ready light and dark colorways. This single-pass digital execution allowed garment vendors to print directly onto colored fabrics flawlessly, with absolutely zero post-handoff feedback required."
+          ]
+        },
+        {
+          "title": "Retrospective",
+          "description": [
+            "Krystal 2026 proved that creativity flourishes under extreme constraints when governed by systems-level thinking. By rebuilding the brand into a modular visual architecture and enforcing strict offline alignment, I delivered a cleaner, more cohesive identity system in two weeks than traditional methods allow in two months."
+          ],
+          "images": ["krystal2026-8.jpg"]
+        }
       ],
       "link": [
         {
@@ -700,329 +749,275 @@
   ],
   "playgrounds": [
     {
+      "title": "Logo",
+      "created": "2024-11-24",
+      "endDate": "2024-11-24",
+      "support": ["figma"],
+      "primaryImage": ["logo-primary.jpg"],
+      "type": "ux_ui",
+      "secondaryImages": ["logo-1.jpg", "logo-2.jpg"],
+      "slug": "logo"
+    },
+    {
       "title": "Stickers",
-      "context": [""],
       "created": "2025-01-25",
+      "endDate": "2025-01-25",
       "support": ["figma"],
       "primaryImage": ["sticker-primary.jpg"],
       "type": "ux_ui",
-      "secondaryImages": [
-        "sticker-1.jpg",
-        "sticker-2.jpg",
-        "sticker-3.jpg",
-        "sticker-4.jpg",
-        "sticker-5.jpg",
-        "sticker-6.jpg",
-        "sticker-7.jpg",
-        "sticker-8.jpg",
-        "sticker-9.jpg",
-        "sticker-10.jpg",
-        "sticker-11.jpg",
-        "sticker-12.jpg"
-      ],
-      "slug": "stickers",
-      "link": []
+      "secondaryImages": ["sticker-1.jpg", "sticker-2.jpg", "sticker-3.jpg"],
+      "slug": "sticker"
     },
     {
-      "title": "MIDI controller",
-      "context": [],
-      "created": "2025-02-07",
+      "title": "Interaction",
+      "created": "2025-02-03",
+      "endDate": "2025-02-03",
       "support": ["figma"],
-      "primaryImage": ["music-primary.jpg"],
+      "primaryImage": ["interaction-primary.jpg"],
       "type": "ux_ui",
-      "secondaryImages": ["music-1.jpg", "music-2.jpg", "music.mp4"],
-      "slug": "midi-controller",
-      "link": []
+      "secondaryImages": ["interaction.mp4", "interaction-1.jpg", "interaction-2.jpg"],
+      "slug": "interaction"
     },
     {
-      "title": "Buttons",
-      "context": [],
+      "title": "Interaction",
       "created": "2025-02-05",
+      "endDate": "2025-02-05",
       "support": ["figma"],
-      "primaryImage": ["buttons-primary.jpg"],
+      "primaryImage": ["interaction2-primary.jpg"],
       "type": "ux_ui",
-      "secondaryImages": [
-        "buttons-1.jpg",
-        "buttons-2.jpg",
-        "buttons.mp4",
-        "buttons-4.jpg",
-        "buttons-5.jpg",
-        "buttons-2.mp4"
-      ],
-      "slug": "buttons",
-      "link": []
+      "secondaryImages": ["interaction2.mp4", "interaction2-1.jpg", "interaction2-2.jpg"],
+      "slug": "interaction-02"
     },
     {
-      "title": "GameBoy Replica",
-      "context": ["I love retro designs."],
+      "title": "Interaction",
+      "created": "2025-02-06",
+      "endDate": "2025-02-06",
+      "support": ["figma"],
+      "primaryImage": ["interaction3-primary.jpg"],
+      "type": "ux_ui",
+      "secondaryImages": ["interaction3.mp4", "interaction3-1.jpg", "interaction3-2.jpg"],
+      "slug": "interaction-03"
+    },
+    {
+      "title": "GameBoy",
       "created": "2025-02-15",
+      "endDate": "2025-02-15",
       "support": ["figma"],
       "primaryImage": ["gameboy-primary.jpg"],
       "type": "ux_ui",
       "secondaryImages": [
-        "gameboy-1.jpg",
+        "gameboy.mp4",
         "gameboy-2.jpg",
         "gameboy-3.jpg",
         "gameboy-4.jpg",
         "gameboy-5.jpg",
-        "gameboy-6.jpg",
-        "gameboy-7.jpg",
-        "gameboy-8.jpg",
-        "gameboy-9.jpg"
+        "gameboy-6.jpg"
       ],
-      "slug": "gameboy",
-      "link": []
+      "slug": "gameboy"
     },
     {
-      "title": "File Replica",
-      "context": [],
+      "title": "Interaction",
       "created": "2025-02-18",
+      "endDate": "2025-02-18",
       "support": ["figma"],
-      "primaryImage": ["folder-primary.jpg"],
+      "primaryImage": ["interaction4-primary.jpg"],
       "type": "ux_ui",
-      "secondaryImages": ["folder-1.jpg", "folder-2.jpg", "folder-3.jpg", "folder-4.jpg", "folder-5.jpg"],
-      "slug": "file",
-      "link": []
+      "secondaryImages": ["interaction4.mp4", "interaction4-1.jpg", "interaction4-2.jpg", "interaction4-3.jpg"],
+      "slug": "interaction-04"
     },
     {
-      "title": "Game console",
-      "context": [],
+      "title": "Interaction",
       "created": "2025-02-27",
+      "endDate": "2025-02-27",
       "support": ["figma"],
-      "primaryImage": ["pocket-primary.jpg"],
+      "primaryImage": ["interaction5-primary.jpg"],
       "type": "ux_ui",
       "secondaryImages": [
-        "pocket-1.jpg",
-        "pocket-2.jpg",
-        "pocket.mp4",
-        "pocket-4.jpg",
-        "pocket-5.jpg",
-        "pocket-6.jpg",
-        "pocket-7.jpg",
-        "pocket-8.jpg",
-        "pocket-9.jpg"
+        "interaction5.mp4",
+        "interaction5-1.jpg",
+        "interaction5-2.jpg",
+        "interaction5-3.jpg",
+        "interaction5-4.jpg"
       ],
-      "slug": "game-console",
-      "link": []
+      "slug": "interaction-05"
     },
     {
-      "title": "MP3 Replica",
-      "context": ["The icons on the screen were torture to make but I like the result."],
+      "title": "MP3",
       "created": "2025-03-05",
+      "endDate": "2025-03-05",
       "support": ["figma"],
       "primaryImage": ["mp3-primary.jpg"],
       "type": "ux_ui",
       "secondaryImages": ["mp3-1.jpg", "mp3-2.jpg", "mp3-3.jpg"],
-      "slug": "mp3",
-      "link": []
+      "slug": "mp3"
     },
     {
-      "title": "Icons & Assets",
-      "context": [""],
+      "title": "Icons",
       "created": "2025-04-25",
+      "endDate": "2025-04-25",
+
       "support": ["figma"],
-      "primaryImage": ["icons-primary.jpg"],
+      "primaryImage": ["icon-primary.jpg"],
       "type": "ux_ui",
-      "secondaryImages": ["icons-1.jpg", "icons-2.jpg", "icons-3.jpg"],
-      "slug": "icons-assets-01",
-      "link": []
+      "secondaryImages": ["icon-1.jpg", "icon-2.jpg", "icon-3.jpg"],
+      "slug": "icon-01"
     },
     {
-      "title": "Bordeaux INP",
-      "context": [""],
+      "title": "Logos",
       "created": "2025-05-27",
+      "endDate": "2025-05-27",
+
       "support": ["figma"],
-      "primaryImage": ["inp-primary.jpg"],
+      "primaryImage": ["logo2-primary.jpg"],
       "type": "ux_ui",
-      "secondaryImages": ["inp-1.jpg", "inp-2.jpg", "inp-3.jpg", "inp-4.jpg", "inp-5.jpg", "inp-6.jpg", "inp-7.jpg"],
+      "secondaryImages": ["logo2-1.jpg"],
       "slug": "bordeaux-inp",
       "link": [
         { "label": "View Figma", "url": "https://www.figma.com/community/file/1570704562718253153/bordeaux-inp-icones" }
       ]
     },
     {
-      "title": "Icons replica",
-      "context": [""],
+      "title": "Icons",
       "created": "2025-10-26",
+      "endDate": "2025-10-26",
+
       "support": ["figma"],
-      "primaryImage": ["icons-replica-primary.jpg"],
+      "primaryImage": ["icon2-primary.jpg"],
       "type": "ux_ui",
-      "secondaryImages": [
-        "icons-replica-1.jpg",
-        "icons-replica-2.jpg",
-        "icons-replica-3.jpg",
-        "icons-replica-4.jpg",
-        "icons-replica-5.jpg",
-        "icons-replica-6.jpg"
-      ],
-      "slug": "icons-replica",
-      "link": []
+      "secondaryImages": ["icon2-1.jpg", "icon2-2.jpg", "icon2-3.jpg", "icon2-4.jpg", "icon2-5.jpg", "icon2-6.jpg"],
+      "slug": "icon-02"
     },
     {
-      "title": "Icons & Assets",
-      "context": [""],
-      "created": "2025-10-26",
+      "title": "Icons",
+      "created": "2025-10-27",
+      "endDate": "2025-10-27",
+
       "support": ["figma"],
-      "primaryImage": ["icons2-primary.jpg"],
+      "primaryImage": ["icon3-primary.jpg"],
       "type": "ux_ui",
-      "secondaryImages": ["icons2-1.jpg", "icons2-2.jpg"],
-      "slug": "icons-assets-02",
-      "link": []
+      "secondaryImages": ["icon3-1.jpg", "icon3-2.jpg"],
+      "slug": "icon-03"
     },
     {
       "title": "Tags",
-      "context": [""],
       "created": "2025-10-31",
+      "endDate": "2025-10-31",
+
       "support": ["figma"],
-      "primaryImage": ["tags-primary.jpg"],
+      "primaryImage": ["tag-primary.jpg"],
       "type": "ux_ui",
       "secondaryImages": [
-        "tags-1.jpg",
-        "tags-2.jpg",
-        "tags-3.jpg",
-        "tags-4.jpg",
-        "tags-5.jpg",
-        "tags-6.jpg",
-        "tags-7.jpg",
-        "tags-8.jpg"
+        "tag-1.jpg",
+        "tag-2.jpg",
+        "tag-3.jpg",
+        "tag-4.jpg",
+        "tag-5.jpg",
+        "tag-6.jpg",
+        "tag-7.jpg",
+        "tag-8.jpg"
       ],
-      "slug": "tags",
-      "link": []
+      "slug": "tag"
     },
     {
-      "title": "VoiceMemo",
-      "context": [],
+      "title": "Widget",
       "created": "2025-12-15",
+      "endDate": "2025-12-15",
+
       "support": ["figma"],
-      "primaryImage": ["VoiceMemo-primary.jpg"],
+      "primaryImage": ["widget-primary.jpg"],
       "type": "ux_ui",
-      "secondaryImages": [
-        "VoiceMemo-1.jpg",
-        "VoiceMemo-2.jpg",
-        "VoiceMemo-3.jpg",
-        "VoiceMemo-4.jpg",
-        "VoiceMemo-5.jpg"
-      ],
-      "slug": "voicememo",
-      "link": []
+      "secondaryImages": ["widget-1.jpg", "widget-2.jpg", "widget-3.jpg"],
+      "slug": "widget"
     },
     {
-      "title": "Meteo",
-      "context": ["Replica of a weather card I saw on Pinterest, I tried to bring my own touch to it."],
+      "title": "Widget",
       "created": "2025-12-15",
+      "endDate": "2025-12-15",
+
       "support": ["figma"],
-      "primaryImage": ["Meteo-primary.jpg"],
+      "primaryImage": ["widget2-primary.jpg"],
       "type": "ux_ui",
-      "secondaryImages": [
-        "Meteo-1.jpg",
-        "Meteo-2.jpg",
-        "Meteo-3.jpg",
-        "Meteo-4.jpg",
-        "Meteo-5.jpg",
-        "Meteo-6.jpg",
-        "Meteo-7.jpg",
-        "Meteo-8.jpg",
-        "Meteo-9.jpg",
-        "Meteo-10.jpg"
-      ],
-      "slug": "meteo",
-      "link": []
+      "secondaryImages": ["widget2-1.jpg", "widget2-2.jpg", "widget2-3.jpg", "widget2-4.jpg"],
+      "slug": "widget-02"
     },
     {
-      "title": "Thermostat",
-      "context": [],
+      "title": "Card",
       "created": "2025-12-16",
+      "endDate": "2025-12-16",
+
       "support": ["figma"],
-      "primaryImage": ["Thermostat-primary.jpg"],
+      "primaryImage": ["card-primary.jpg"],
       "type": "ux_ui",
-      "secondaryImages": [
-        "Thermostat-1.jpg",
-        "Thermostat-2.jpg",
-        "Thermostat-3.jpg",
-        "Thermostat-4.jpg",
-        "Thermostat-5.jpg",
-        "Thermostat-6.jpg"
-      ],
-      "slug": "thermostat",
+      "secondaryImages": ["card-1.jpg", "card-2.jpg", "card-3.jpg", "card-4.jpg"],
+      "slug": "card",
       "link": []
     },
     {
-      "title": "Configurator",
-      "context": [],
+      "title": "Desktop",
       "created": "2025-12-16",
+      "endDate": "2025-12-16",
+
       "support": ["figma"],
-      "primaryImage": ["Configurator-primary.jpg"],
+      "primaryImage": ["desktop-primary.jpg"],
       "type": "ux_ui",
       "secondaryImages": [
-        "Configurator-1.jpg",
-        "Configurator-2.jpg",
-        "Configurator-3.jpg",
-        "Configurator-4.jpg",
-        "Configurator-5.jpg",
-        "Configurator-6.jpg",
-        "Configurator-7.jpg"
+        "desktop-1.jpg",
+        "desktop-2.jpg",
+        "desktop-3.jpg",
+        "desktop-4.jpg",
+        "desktop-5.jpg",
+        "desktop-6.jpg",
+        "desktop-7.jpg"
       ],
-      "slug": "configurator",
-      "link": []
+      "slug": "desktop"
     },
     {
-      "title": "Subscription",
+      "title": "Desktop",
       "context": [],
       "created": "2025-12-17",
+      "endDate": "2025-12-17",
+
       "support": ["figma"],
-      "primaryImage": ["Subscription-primary.jpg"],
+      "primaryImage": ["desktop2-primary.jpg"],
       "type": "ux_ui",
       "secondaryImages": [
-        "Subscription-1.jpg",
-        "Subscription-2.jpg",
-        "Subscription-3.jpg",
-        "Subscription-4.jpg",
-        "Subscription-5.jpg",
-        "Subscription-6.jpg"
+        "desktop2-1.jpg",
+        "desktop2-2.jpg",
+        "desktop2-3.jpg",
+        "desktop2-4.jpg",
+        "desktop2-5.jpg",
+        "desktop2-6.jpg"
       ],
-      "slug": "subscription",
+      "slug": "desktop-02",
       "link": []
     },
     {
-      "title": "DatePicker",
-      "context": [],
+      "title": "Desktop",
       "created": "2025-12-18",
+      "endDate": "2025-12-18",
+
       "support": ["figma"],
-      "primaryImage": ["DatePicker-primary.jpg"],
+      "primaryImage": ["desktop3-primary.jpg"],
       "type": "ux_ui",
-      "secondaryImages": [
-        "DatePicker-1.jpg",
-        "DatePicker-2.jpg",
-        "DatePicker-3.jpg",
-        "DatePicker-4.jpg",
-        "DatePicker-5.jpg"
-      ],
-      "slug": "date-picker",
-      "link": []
+      "secondaryImages": ["desktop3-1.jpg", "desktop3-2.jpg", "desktop3-3.jpg", "desktop3-4.jpg", "desktop3-5.jpg"],
+      "slug": "desktop-03"
     },
     {
-      "title": "AI chat",
-      "context": [],
+      "title": "Mobile",
       "created": "2025-12-19",
+      "endDate": "2025-12-19",
+
       "support": ["figma"],
-      "primaryImage": ["AI-chat-primary.jpg"],
+      "primaryImage": ["mobile-primary.jpg"],
       "type": "ux_ui",
-      "secondaryImages": [
-        "AI-chat-1.jpg",
-        "AI-chat-2.jpg",
-        "AI-chat-3.jpg",
-        "AI-chat-4.jpg",
-        "AI-chat-5.jpg",
-        "AI-chat-6.jpg"
-      ],
-      "slug": "ai-chat",
-      "link": []
+      "secondaryImages": ["mobile-1.jpg", "mobile-2.jpg", "mobile-3.jpg"],
+      "slug": "mobile"
     },
 
     {
       "title": "Digital Board",
-      "context": [],
       "created": "2023-08-01",
+      "endDate": "2023-08-01",
       "support": ["procreate"],
       "primaryImage": ["planche-primary.jpg"],
       "type": "illustration",
@@ -1033,16 +1028,14 @@
         "planche-4.jpg",
         "planche-5.jpg",
         "planche-6.jpg",
-        "planche-7.jpg",
-        "planche-8.jpg"
+        "planche-7.jpg"
       ],
-      "slug": "digital-board-01",
-      "link": []
+      "slug": "digital-board-01"
     },
     {
       "title": "Digital Board",
-      "context": [],
-      "created": "2023-08-23",
+      "created": "2023-08-15",
+      "endDate": "2023-08-15",
       "support": ["procreate"],
       "primaryImage": ["planche2-primary.jpg"],
       "type": "illustration",
@@ -1053,69 +1046,44 @@
         "planche2-4.jpg",
         "planche2-5.jpg",
         "planche2-6.jpg",
-        "planche2-7.jpg",
-        "planche2-8.jpg",
-        "planche2-9.jpg"
+        "planche2-7.jpg"
       ],
-      "slug": "digital-board-02",
-      "link": []
+      "slug": "digital-board-02"
     },
     {
       "title": "Boucaniers",
-      "context": [
-        "I had the opportunity to create a logo for the ENSMAC BDE campaigns, which was used on various goodies. My friends already had a very clear idea of what they wanted, they even gave me sketches, which allowed me to advance infinitely faster in the research phase.",
-        "This project gave me the opportunity to develop my artistic direction and creativity while meeting expectations and deadlines. Thank you to my friends from ENSMAC for giving me such an opportunity, it was so much fun!"
-      ],
       "created": "2024-02-15",
+      "endDate": "2024-02-15",
       "support": ["procreate"],
       "primaryImage": ["boucaniers-primary.jpg"],
       "type": "illustration",
-      "secondaryImages": [
-        "boucaniers-1.jpg",
-        "boucaniers-2.jpg",
-        "boucaniers-3.jpg",
-        "boucaniers-4.jpg",
-        "boucaniers-5.jpg"
-      ],
-      "link": [],
-      "slug": "les-boucaniers",
-      "shortDescription": "campaign branding for student elections"
+      "secondaryImages": ["boucaniers-1.jpg", "boucaniers-2.jpg", "boucaniers-3.jpg", "boucaniers-4.jpg"],
+      "slug": "les-boucaniers"
     },
     {
       "title": "Choralamar",
-      "context": "",
       "created": "2024-02-20",
+      "endDate": "2024-02-20",
       "support": ["procreate"],
       "primaryImage": ["choralamar-primary.jpg"],
       "type": "illustration",
       "secondaryImages": ["choralamar-1.jpg"],
-      "link": [],
-      "slug": "choralamar",
-      "shortDescription": "vibrant visual identity for a music club"
+      "slug": "choralamar"
     },
     {
-      "title": "Anatomy study",
-      "context": [],
+      "title": "Anatomy",
       "created": "2024-06-15",
+      "endDate": "2024-06-15",
       "support": ["procreate"],
       "primaryImage": ["hand-primary.jpg"],
       "type": "illustration",
-      "secondaryImages": [
-        "hand-1.jpg",
-        "hand-2.jpg",
-        "hand-3.jpg",
-        "hand-4.jpg",
-        "hand-5.jpg",
-        "hand-6.jpg",
-        "hand-7.jpg"
-      ],
-      "slug": "anatomy-study",
-      "link": []
+      "secondaryImages": ["hand-1.jpg", "hand-2.jpg", "hand-3.jpg", "hand-4.jpg", "hand-5.jpg"],
+      "slug": "anatomy"
     },
     {
       "title": "Digital Board",
-      "context": [],
       "created": "2024-07-10",
+      "endDate": "2024-07-10",
       "support": ["procreate"],
       "primaryImage": ["planche3-primary.jpg"],
       "type": "illustration",
@@ -1126,17 +1094,14 @@
         "planche3-4.jpg",
         "planche3-5.jpg",
         "planche3-6.jpg",
-        "planche3-7.jpg",
-        "planche3-8.jpg",
-        "planche3-9.jpg"
+        "planche3-7.jpg"
       ],
-      "slug": "digital-board-03",
-      "link": []
+      "slug": "digital-board-03"
     },
     {
       "title": "Digital Board",
-      "context": [],
       "created": "2025-02-26",
+      "endDate": "2025-02-26",
       "support": ["procreate"],
       "primaryImage": ["planche4-primary.jpg"],
       "type": "illustration",
@@ -1146,198 +1111,132 @@
         "planche4-3.jpg",
         "planche4-4.jpg",
         "planche4-5.jpg",
-        "planche4-6.jpg",
-        "planche4-7.jpg",
-        "planche4-8.jpg"
+        "planche4-6.jpg"
       ],
-      "slug": "digital-board-04",
-      "link": []
+      "slug": "digital-board-04"
     },
     {
-      "title": "Moleskine sketch",
-      "context": [],
+      "title": "Sketch",
       "created": "2025-03-14",
+      "endDate": "2025-03-14",
       "support": ["paper"],
-      "primaryImage": ["trad-primary.jpg"],
+      "primaryImage": ["sketch-primary.jpg"],
       "type": "illustration",
-      "secondaryImages": [
-        "trad-1.jpg",
-        "trad-2.jpg",
-        "trad-3.jpg",
-        "trad-4.jpg",
-        "trad-5.jpg",
-        "trad-6.jpg",
-        "trad-7.jpg"
-      ],
-      "slug": "moleskine-sketch-01",
-      "link": []
+      "secondaryImages": ["sketch-1.jpg", "sketch-2.jpg", "sketch-3.jpg", "sketch-4.jpg", "sketch-5.jpg"],
+      "slug": "sketch-01"
     },
     {
-      "title": "Moleskine sketch",
-      "context": [],
+      "title": "Sketch",
       "created": "2025-06-21",
+      "endDate": "2025-06-21",
       "support": ["paper"],
-      "primaryImage": ["trad2-primary.jpg"],
+      "primaryImage": ["sketch2-primary.jpg"],
       "type": "illustration",
-      "secondaryImages": [
-        "trad2-1.jpg",
-        "trad2-2.jpg",
-        "trad2-3.jpg",
-        "trad2-4.jpg",
-        "trad2-5.jpg",
-        "trad2-6.jpg",
-        "trad2-7.jpg",
-        "trad2-8.jpg"
-      ],
-      "slug": "moleskine-sketch-02",
-      "link": []
+      "secondaryImages": ["sketch2-1.jpg", "sketch2-2.jpg", "sketch2-3.jpg", "sketch2-4.jpg", "sketch2-5.jpg"],
+      "slug": "sketch-02"
     },
     {
-      "title": "Expression study",
-      "context": [],
+      "title": "Expression",
       "created": "2025-07-24",
+      "endDate": "2025-07-24",
       "support": ["procreate"],
-      "primaryImage": ["expression-study-primary.jpg"],
+      "primaryImage": ["expression-primary.jpg"],
       "type": "illustration",
       "secondaryImages": [
-        "expression-study-1.jpg",
-        "expression-study-2.jpg",
-        "expression-study-3.jpg",
-        "expression-study-4.jpg",
-        "expression-study-5.jpg",
-        "expression-study-6.jpg",
-        "expression-study-7.jpg",
-        "expression-study-8.jpg"
+        "expression-1.jpg",
+        "expression-2.jpg",
+        "expression-3.jpg",
+        "expression-4.jpg",
+        "expression-5.jpg"
       ],
-      "slug": "expression-study",
-      "link": []
+      "slug": "expression"
     },
     {
-      "title": "Moleskine sketch",
-      "context": [],
-      "created": "2025-07-31",
-      "support": ["paper"],
-      "primaryImage": ["trad3-primary.jpg"],
+      "title": "Portrait",
+      "created": "2025-09-02",
+      "endDate": "2025-09-02",
+      "support": ["procreate"],
+      "primaryImage": ["portrait-primary.jpg"],
       "type": "illustration",
-      "secondaryImages": ["trad3-1.jpg", "trad3-2.jpg", "trad3-3.jpg", "trad3-4.jpg", "trad3-5.jpg"],
-      "slug": "moleskine-sketch-03",
+      "secondaryImages": ["portrait-1.jpg"],
+      "slug": "portrait"
+    },
+    {
+      "title": "Background",
+      "context": [],
+      "created": "2025-09-04",
+      "endDate": "2025-09-04",
+      "support": ["procreate"],
+      "primaryImage": ["background-primary.jpg"],
+      "type": "illustration",
+      "secondaryImages": [
+        "background-1.jpg",
+        "background-2.jpg",
+        "background-3.jpg",
+        "background-4.jpg",
+        "background-5.jpg",
+        "background-6.jpg"
+      ],
+      "slug": "background"
+    },
+    {
+      "title": "Portrait",
+      "created": "2025-09-14",
+      "endDate": "2025-09-14",
+      "support": ["procreate"],
+      "primaryImage": ["portrait2-primary.jpg"],
+      "type": "illustration",
+      "secondaryImages": ["portrait2-1.jpg", "portrait2-2.jpg"],
+      "slug": "portrait-02"
+    },
+    {
+      "title": "Expression",
+      "created": "2025-12-30",
+      "endDate": "2025-12-30",
+      "support": ["procreate"],
+      "primaryImage": ["expression2-primary.jpg"],
+      "type": "illustration",
+      "secondaryImages": ["expression2-1.jpg", "expression2-2.jpg", "expression2-3.jpg", "expression2-4.jpg"],
+      "slug": "expression-02",
       "link": []
     },
     {
       "title": "Portrait",
-      "context": [],
-      "created": "2025-09-02",
-      "support": ["procreate"],
-      "primaryImage": ["realistic-portrait-primary.jpg"],
-      "type": "illustration",
-      "secondaryImages": ["realistic-portrait-1.jpg", "realistic-portrait-2.jpg"],
-      "slug": "portrait",
-      "link": []
-    },
-    {
-      "title": "Background study",
-      "context": [],
-      "created": "2025-09-04",
-      "support": ["procreate"],
-      "primaryImage": ["background-study-primary.jpg"],
-      "type": "illustration",
-      "secondaryImages": [
-        "background-study-1.jpg",
-        "background-study-2.jpg",
-        "background-study-3.jpg",
-        "background-study-4.jpg",
-        "background-study-5.jpg",
-        "background-study-6.jpg",
-        "background-study-7.jpg",
-        "background-study-8.jpg"
-      ],
-      "slug": "background-study",
-      "link": []
-    },
-    {
-      "title": "Stylized portrait",
-      "context": [],
-      "created": "2025-09-14",
-      "support": ["procreate"],
-      "primaryImage": ["stylized-portrait-primary.jpg"],
-      "type": "illustration",
-      "secondaryImages": ["stylized-portrait-1.jpg", "stylized-portrait-2.jpg"],
-      "slug": "stylized-portrait",
-      "link": []
-    },
-    {
-      "title": "Expression study",
-      "context": [],
-      "created": "2025-12-31",
-      "support": ["procreate"],
-      "primaryImage": ["expression-study2-primary.jpg"],
-      "type": "illustration",
-      "secondaryImages": [
-        "expression-study2-1.jpg",
-        "expression-study2-2.jpg",
-        "expression-study2-3.jpg",
-        "expression-study2-4.jpg"
-      ],
-      "slug": "expression-study-02",
-      "link": []
-    },
-    {
-      "title": "Stylized",
-      "context": [],
-      "created": " 2025-12-31",
-      "support": ["procreate"],
-      "primaryImage": ["stylized-primary.jpg"],
-      "type": "illustration",
-      "secondaryImages": ["stylized-1.jpg", "stylized-2.jpg", "stylized-3.jpg", "stylized-4.jpg"],
-      "slug": "stylized-01",
-      "link": []
-    },
-
-    {
-      "title": "Stylized portrait",
-      "context": [],
       "created": "2026-02-06",
+      "endDate": "2026-02-06",
+
       "support": ["procreate"],
-      "primaryImage": ["stylized-portrait2-primary.jpg"],
+      "primaryImage": ["portrait3-primary.jpg"],
       "type": "illustration",
       "secondaryImages": [
-        "stylized-portrait2-1.jpg",
-        "stylized-portrait2-2.jpg",
-        "stylized-portrait2-3.jpg",
-        "stylized-portrait2-4.jpg",
-        "stylized-portrait2-5.jpg",
-        "stylized-portrait2-6.jpg",
-        "stylized-portrait2-7.jpg"
+        "portrait3-1.jpg",
+        "portrait3-2.jpg",
+        "portrait3-3.jpg",
+        "portrait3-4.jpg",
+        "portrait3-5.jpg"
       ],
-      "slug": "stylized-portrait-02",
-      "link": []
+      "slug": "portrait-03"
     },
     {
-      "title": "Stylized portrait",
-      "context": [],
+      "title": "Portrait",
       "created": "2026-02-09",
+      "endDate": "2026-02-09",
       "support": ["procreate"],
-      "primaryImage": ["stylized-portrait3-primary.jpg"],
+      "primaryImage": ["portrait4-primary.jpg"],
       "type": "illustration",
-      "secondaryImages": [
-        "stylized-portrait3-1.jpg",
-        "stylized-portrait3-2.jpg",
-        "stylized-portrait3-3.jpg",
-        "stylized-portrait3-4.jpg",
-        "stylized-portrait3-5.jpg"
-      ],
-      "slug": "stylized-portrait-03",
-      "link": []
+      "secondaryImages": ["portrait4-1.jpg", "portrait4-2.jpg"],
+      "slug": "portrait-04"
     },
     {
-      "title": "Anatomy study",
-      "context": [],
+      "title": "Anatomy",
       "created": "2026-04-09",
+      "endDate": "2026-04-09",
       "support": ["procreate"],
       "primaryImage": ["hand2-primary.jpg"],
       "type": "illustration",
       "secondaryImages": [
         "hand2.mp4",
+        "hand2-1.jpg",
         "hand2-2.jpg",
         "hand2-3.jpg",
         "hand2-4.jpg",
@@ -1345,49 +1244,47 @@
         "hand2-6.jpg",
         "hand2-7.jpg"
       ],
-      "slug": "anatomy-study-02",
-      "link": []
+      "slug": "anatomy-02"
     },
     {
-      "title": "Stylized",
-      "context": [],
+      "title": "Sketch",
       "created": "2026-07-05",
+      "endDate": "2026-07-05",
       "support": ["procreate"],
-      "primaryImage": ["stylized2-primary.jpg"],
+      "primaryImage": ["sketch3-primary.jpg"],
       "type": "illustration",
-      "secondaryImages": ["stylized2-1.jpg", "stylized2-2.jpg", "stylized2-3.jpg"],
-      "slug": "stylized-02",
-      "link": []
+      "secondaryImages": ["sketch3-1.jpg"],
+      "slug": "sketch-03"
     },
     {
-      "title": "Moleskine sketch",
-      "context": [],
+      "title": "Sketch",
       "created": "2026-08-06",
+      "endDate": "2026-08-06",
       "support": ["paper"],
-      "primaryImage": ["trad4-primary.jpg"],
+      "primaryImage": ["sketch4-primary.jpg"],
       "type": "illustration",
-      "secondaryImages": [
-        "trad4-1.jpg",
-        "trad4-2.jpg",
-        "trad4-3.jpg",
-        "trad4-4.jpg",
-        "trad4-5.jpg",
-        "trad4-6.jpg",
-        "trad4-7.jpg"
-      ],
-      "slug": "moleskine-sketch-04",
-      "link": []
+      "secondaryImages": ["sketch4-1.jpg", "sketch4-2.jpg", "sketch4-3.jpg", "sketch4-4.jpg", "sketch4-5.jpg"],
+      "slug": "sketch-04"
     },
     {
-      "title": "Stylized portrait",
-      "context": [],
+      "title": "Portrait",
       "created": "2026-09-10",
+      "endDate": "2026-09-10",
       "support": ["procreate"],
-      "primaryImage": ["stylized-portrait4-primary.jpg"],
+      "primaryImage": ["portrait5-primary.jpg"],
       "type": "illustration",
-      "secondaryImages": ["stylized-portrait4-1.jpg", "stylized-portrait4-2.jpg"],
-      "slug": "stylized-portrait-04",
-      "link": []
+      "secondaryImages": ["portrait5-1.jpg"],
+      "slug": "portrait-05"
+    },
+    {
+      "title": "Alco",
+      "created": "2026-10-08",
+      "endDate": "2026-10-08",
+      "support": ["procreate"],
+      "primaryImage": ["alco-primary.jpg"],
+      "type": "illustration",
+      "secondaryImages": ["alco-1.jpg", "alco-2.jpg", "alco-3.jpg"],
+      "slug": "aclo"
     }
   ]
 }

@@ -22,7 +22,7 @@ const playgroundParagraphs = [
     Over the years, I've channeled that discipline into{' '}
     <a
       className={inlineIconStyles.dottedLink}
-      href="https://florialeger.github.io/deck/deck.pdf"
+      href="https://florialeger.github.io/deck/"
       target="_blank"
       rel="noreferrer"
     >

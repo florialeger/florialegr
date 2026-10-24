@@ -78,7 +78,7 @@ const downloadLinks = [
   },
   {
     label: 'Portfolio',
-    href: 'https://florialeger.github.io/deck/deck.pdf',
+    href: 'https://florialeger.github.io/deck/',
     icon: 'external',
     variant: 'primary',
   },
