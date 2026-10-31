@@ -8,7 +8,7 @@
   width: 100%;
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: calc(var(--stack-gap-lg) * 1.4);
+  gap: var(--stack-gap-2xl);
   justify-items: center;
 }
 

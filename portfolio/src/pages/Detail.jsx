@@ -291,7 +291,7 @@ const Detail = ({ variant }) => {
   const durationLabel = data.duration ? formatDuration(data.duration) : null;
 
   return (
-    <div className={`${pageLayout.page}`.trim()} style={{ gap: 'var(--stack-gap-lg)' }}>
+    <div className={`${pageLayout.page}`.trim()} style={{ gap: 'var(--stack-gap-2xl)' }}>
       <article className={`${pageLayout.container} ${styles.card}`.trim()}>
         <Button
           ref={setBackMag}

@@ -1,5 +1,16 @@
 {
   "projects": {
     "default": "florialger"
-  }
+  },
+  "targets": {
+    "florialger": {
+      "hosting": {
+        "main-site": [
+          "florialeger"
+        ]
+      }
+    }
+  },
+  "etags": {},
+  "dataconnectEmulatorConfig": {}
 }

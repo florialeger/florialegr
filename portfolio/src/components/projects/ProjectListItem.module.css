@@ -23,7 +23,7 @@
   gap: var(--stack-gap-sm);
   padding-top: var(--stack-gap-xs);
   padding-bottom: var(--stack-gap-xs);
-  border-radius: var(--radius-xxs);
+  border-radius: var(--radius-sm);
 }
 
 .content {

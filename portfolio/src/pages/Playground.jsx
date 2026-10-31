@@ -28,8 +28,8 @@ const playgroundParagraphs = [
     >
       UX/UI design.
     </a>{' '}
-    With solid, hands - on experience under my belt, it has become another canvas for balance, structure, and emotion,
-    one where I solve real - world problems for real people.The process, the curiosity, and the joy of making, that’s
+    With solid, hands-on experience under my belt, it has become another canvas for balance, structure, and emotion,
+    one where I solve real-world problems for real people. The process, the curiosity, and the joy of making, that's
     what drives me.
   </>,
 ];

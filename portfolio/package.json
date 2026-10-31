@@ -22,7 +22,7 @@
     "axios": "^1.13.2",
     "cors": "^2.8.5",
     "dotenv": "^17.2.3",
-    "firebase": "^13.0.0",
+    "firebase": "^9.14.0",
     "framer-motion": "^12.6.5",
     "gridfs": "^1.0.0",
     "gsap": "^3.13.0",
@@ -32,8 +32,8 @@
     "react": "^19.0.0",
     "react-awesome-reveal": "^4.3.1",
     "react-dom": "^19.0.0",
-    "react-router-dom": "^6.18.0",
-    "sharp": "^0.34.5",
+    "react-router-dom": "^7.18.5",
+    "sharp": "^0.35.5",
     "swagger-jsdoc": "^1.2.1",
     "swagger-ui-express": "^5.0.1"
   },
@@ -46,11 +46,11 @@
     "eslint": "^9.39.4",
     "eslint-plugin-react-hooks": "^5.1.0",
     "eslint-plugin-react-refresh": "^0.4.19",
-    "firebase-tools": "^15.33.0",
+    "firebase-tools": "^13.11.2",
     "globals": "^16.0.0",
     "prettier": "^3.5.3",
     "vite": "^6.2.0",
-    "vite-imagetools": "^9.0.3",
+    "vite-imagetools": "^12.0.1",
     "vite-plugin-compression": "^0.5.1"
   }
 }

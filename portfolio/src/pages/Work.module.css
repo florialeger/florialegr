@@ -17,7 +17,7 @@
 .projectsContainer {
   display: flex;
   flex-direction: column;
-  gap: var(--stack-gap-lg);
+  gap: var(--stack-gap-xl);
   width: var(--copy-block-max-width);
   margin-left: auto;
   margin-right: auto;

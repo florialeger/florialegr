@@ -3,7 +3,6 @@ import { motion, useMotionValue, useSpring } from 'framer-motion';
 import Container from '@/components/ui/Container';
 import AboutSection from '@/components/sections/AboutSection';
 import RevealAnimation from '@/components/utility/RevealAnimation';
-import resume from '@/assets/pdf/cv.pdf';
 import useMagneticEffect from '@/hooks/useMagneticEffect';
 import { LetterIcon } from '@/components/ui/icons';
 import styles from './About.module.css';
@@ -68,16 +67,15 @@ const aboutParagraphs = [
   </>,
 ];
 
-const downloadLinks = [
+const Links = [
   {
-    label: 'Resume',
-    href: resume,
-    fileName: 'cv.pdf',
-    icon: 'download',
+    label: 'view resume',
+    href: 'https://florialeger.github.io/resume/',
+    icon: 'external',
     variant: 'secondary',
   },
   {
-    label: 'Portfolio',
+    label: 'view case studies',
     href: 'https://florialeger.github.io/deck/',
     icon: 'external',
     variant: 'primary',
@@ -172,7 +170,7 @@ const About = () => {
     <div className={pageLayout.page}>
       <AboutSection
         paragraphs={aboutParagraphs}
-        downloads={downloadLinks}
+        downloads={Links}
       />
 
       <section className={pageLayout.container} style={{ paddingTop: 0, paddingBottom: 0 }}>

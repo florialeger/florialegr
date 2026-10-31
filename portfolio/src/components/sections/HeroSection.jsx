@@ -1,23 +1,11 @@
-import { memo, useCallback, useState } from 'react';
+import { memo } from 'react';
 import RevealAnimation from '@/components/utility/RevealAnimation';
 import Container from '@/components/ui/Container';
-import TextMorph from '@/components/utility/TextMorph';
 import styles from './HeroSection.module.css';
 import Button from '@/components/ui/Button';
+//import heroVideo from '@/assets/images/hero.mp4';
 
 const HeroSection = () => {
-  const [emailCopied, setEmailCopied] = useState(false);
-
-  const handleEmailCopy = useCallback(async () => {
-    const email = 'floria.leger@gmail.com';
-    try {
-      await navigator.clipboard.writeText(email);
-      setEmailCopied(true);
-      setTimeout(() => setEmailCopied(false), 2000);
-    } catch (err) {
-      console.error('Failed to copy email:', err);
-    }
-  }, []);
 
   return (
     <section className={styles.hero} aria-labelledby="hero-title">
@@ -25,7 +13,7 @@ const HeroSection = () => {
         <RevealAnimation cascade damping={0.12} delay={0} triggerOnce>
           <div className={styles.heroContent}>
             <h1 id="hero-title" className={styles.heroTitle}>
-              Cognitive UX Designer
+              UX Designer
             </h1>
             <p className={styles.heroSubtitle}>
               Bridging cognitive engineering and visual craft to simplify mission-critical software, enterprise design
@@ -33,16 +21,13 @@ const HeroSection = () => {
             </p>
             <div className={styles.buttonWrapper}>
               <Button
-                variant="secondary"
+                variant="primary"
+                href="https://florialeger.github.io/deck/"
                 size="small"
-                icon="send"
-                label={<TextMorph>{emailCopied ? 'Email copied!' : 'send email'}</TextMorph>}
-                onClick={(e) => {
-                  e.preventDefault();
-                  handleEmailCopy();
-                }}
+                icon="external"
+                label="view case studies"
               />
-              <Button variant="primary" icon="next" label="see my work" to="/work" />
+              <Button variant="secondary" icon="next" label="browse projects" to="/work" />
             </div>
           </div>
         </RevealAnimation>
@@ -52,3 +37,7 @@ const HeroSection = () => {
 };
 
 export default memo(HeroSection);
+
+//   <div className={styles.heroVisual}>
+//        <video className={styles.heroVideo} src={heroVideo} autoPlay loop muted playsInline />{' '}
+//    </div>

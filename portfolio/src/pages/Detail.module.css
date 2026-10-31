@@ -4,14 +4,14 @@
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  gap: var(--stack-gap-lg);
+  gap: var(--stack-gap-2xl);
 }
 
 /* Header section: metadata, description, links with 32px gap */
 .header {
   display: flex;
   flex-direction: column;
-  gap: var(--stack-gap-md);
+  gap: var(--stack-gap-xl);
   width: 100%;
 }
 
@@ -30,7 +30,7 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: start;
-  gap: 0.25rem;
+  gap: var(--stack-gap-xs);
 }
 
 .headerColumn h3 {
@@ -54,7 +54,7 @@
 
 .metaItem {
   display: flex;
-  gap: var(--stack-gap-sm);
+  gap: var(--stack-gap-xs);
   justify-content: flex-end;
   text-align: right;
 }
@@ -80,7 +80,6 @@
   font-weight: var(--body-regular-weight);
 }
 
-/* Global description */
 .globalDescription {
   font-size: var(--type---body---size);
   font-weight: var(--body-regular-weight);
@@ -90,7 +89,6 @@
 }
 
 .globalDescription p {
-  margin: 0 0 1rem 0;
   white-space: pre-line;
 }
 
@@ -109,14 +107,13 @@
 .section {
   display: flex;
   flex-direction: column;
-  gap: clamp(2.22rem, 3.5vw, 2.5rem); /* 40px gap between subheader and images */
+  gap: var(--stack-gap-xl);
 }
 
-/* Subheader: subtitle + description with 24px gap */
 .sectionSubheader {
   display: flex;
   flex-direction: column;
-  gap: clamp(1.33rem, 2vw, 1.5rem); /* 24px gap */
+  gap: var(--stack-gap-lg);
 }
 
 .sectionTitle {
@@ -128,15 +125,17 @@
 }
 
 .sectionDescription {
+  display: flex;
+  flex-direction: column;
   font-size: var(--type---body---size);
   font-weight: var(--body-regular-weight);
   line-height: var(--type---body---line-height);
   color: var(--label---secondary);
+  gap: var(--stack-gap-sm);
   margin: 0;
 }
 
 .sectionDescription p {
-  margin: 0 0 1rem 0;
   white-space: pre-line;
 }
 

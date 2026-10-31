@@ -1,88 +1,4 @@
 const mediaDimensions = {
-  "AI-chat-1.jpg": {
-    "width": 1200,
-    "height": 1000
-  },
-  "AI-chat-2.jpg": {
-    "width": 1200,
-    "height": 1390
-  },
-  "AI-chat-3.jpg": {
-    "width": 1200,
-    "height": 1000
-  },
-  "AI-chat-4.jpg": {
-    "width": 1200,
-    "height": 1000
-  },
-  "AI-chat-5.jpg": {
-    "width": 1200,
-    "height": 1000
-  },
-  "AI-chat-6.jpg": {
-    "width": 1200,
-    "height": 1000
-  },
-  "AI-chat-primary.jpg": {
-    "width": 1000,
-    "height": 1000
-  },
-  "Configurator-1.jpg": {
-    "width": 900,
-    "height": 582
-  },
-  "Configurator-2.jpg": {
-    "width": 900,
-    "height": 750
-  },
-  "Configurator-3.jpg": {
-    "width": 900,
-    "height": 582
-  },
-  "Configurator-4.jpg": {
-    "width": 900,
-    "height": 600
-  },
-  "Configurator-5.jpg": {
-    "width": 900,
-    "height": 582
-  },
-  "Configurator-6.jpg": {
-    "width": 900,
-    "height": 582
-  },
-  "Configurator-7.jpg": {
-    "width": 900,
-    "height": 582
-  },
-  "Configurator-primary.jpg": {
-    "width": 1000,
-    "height": 1000
-  },
-  "DatePicker-1.jpg": {
-    "width": 900,
-    "height": 582
-  },
-  "DatePicker-2.jpg": {
-    "width": 900,
-    "height": 582
-  },
-  "DatePicker-3.jpg": {
-    "width": 900,
-    "height": 750
-  },
-  "DatePicker-4.jpg": {
-    "width": 900,
-    "height": 582
-  },
-  "DatePicker-5.jpg": {
-    "width": 900,
-    "height": 600
-  },
-  "DatePicker-primary.jpg": {
-    "width": 750,
-    "height": 750
-  },
   "ENSCxSTAPS-1.jpg": {
     "width": 900,
     "height": 720
@@ -128,8 +44,8 @@ const mediaDimensions = {
     "height": 975
   },
   "ENSCxSTAPS-primary.jpg": {
-    "width": 1000,
-    "height": 1000
+    "width": 750,
+    "height": 420
   },
   "KFÉ-1.jpg": {
     "width": 900,
@@ -164,186 +80,58 @@ const mediaDimensions = {
     "height": 1050
   },
   "KFÉ-primary.jpg": {
-    "width": 1000,
-    "height": 1000
+    "width": 750,
+    "height": 420
   },
   "Locked.jpg": {
     "width": 700,
     "height": 400
   },
-  "Meteo-1.jpg": {
-    "width": 900,
-    "height": 582
-  },
-  "Meteo-10.jpg": {
-    "width": 900,
-    "height": 750
-  },
-  "Meteo-2.jpg": {
-    "width": 900,
-    "height": 582
-  },
-  "Meteo-3.jpg": {
-    "width": 900,
-    "height": 582
-  },
-  "Meteo-4.jpg": {
-    "width": 900,
-    "height": 582
-  },
-  "Meteo-5.jpg": {
-    "width": 900,
-    "height": 582
-  },
-  "Meteo-6.jpg": {
-    "width": 900,
-    "height": 582
-  },
-  "Meteo-7.jpg": {
-    "width": 900,
-    "height": 582
-  },
-  "Meteo-8.jpg": {
-    "width": 900,
-    "height": 582
-  },
-  "Meteo-9.jpg": {
-    "width": 900,
-    "height": 582
-  },
-  "Meteo-primary.jpg": {
-    "width": 1000,
-    "height": 1000
-  },
   "Ongoing.jpg": {
     "width": 700,
     "height": 400
   },
-  "Subscription-1.jpg": {
+  "alco-1.jpg": {
     "width": 900,
-    "height": 582
+    "height": 615
   },
-  "Subscription-2.jpg": {
+  "alco-2.jpg": {
     "width": 900,
-    "height": 582
+    "height": 615
   },
-  "Subscription-3.jpg": {
+  "alco-3.jpg": {
     "width": 900,
-    "height": 582
+    "height": 615
   },
-  "Subscription-4.jpg": {
-    "width": 900,
-    "height": 582
-  },
-  "Subscription-5.jpg": {
-    "width": 900,
-    "height": 600
-  },
-  "Subscription-6.jpg": {
-    "width": 900,
-    "height": 582
-  },
-  "Subscription-primary.jpg": {
-    "width": 1000,
-    "height": 1000
-  },
-  "Thermostat-1.jpg": {
-    "width": 900,
-    "height": 900
-  },
-  "Thermostat-2.jpg": {
-    "width": 900,
-    "height": 900
-  },
-  "Thermostat-3.jpg": {
-    "width": 900,
-    "height": 900
-  },
-  "Thermostat-4.jpg": {
-    "width": 900,
-    "height": 900
-  },
-  "Thermostat-5.jpg": {
-    "width": 900,
-    "height": 900
-  },
-  "Thermostat-6.jpg": {
-    "width": 900,
-    "height": 900
-  },
-  "Thermostat-7.jpg": {
-    "width": 900,
-    "height": 900
-  },
-  "Thermostat-8.jpg": {
-    "width": 900,
-    "height": 900
-  },
-  "Thermostat-primary.jpg": {
-    "width": 1000,
-    "height": 1000
-  },
-  "Ubisoft-primary.jpg": {
-    "width": 1000,
-    "height": 1000
-  },
-  "VoiceMemo-1.jpg": {
-    "width": 1200,
-    "height": 776
-  },
-  "VoiceMemo-2.jpg": {
-    "width": 1200,
-    "height": 776
-  },
-  "VoiceMemo-3.jpg": {
-    "width": 1200,
-    "height": 776
-  },
-  "VoiceMemo-4.jpg": {
-    "width": 1200,
-    "height": 776
-  },
-  "VoiceMemo-5.jpg": {
-    "width": 1200,
-    "height": 1000
-  },
-  "VoiceMemo-primary.jpg": {
-    "width": 1000,
-    "height": 1000
-  },
-  "background-study-1.jpg": {
-    "width": 900,
+  "alco-primary.jpg": {
+    "width": 750,
     "height": 750
   },
-  "background-study-2.jpg": {
-    "width": 900,
-    "height": 750
-  },
-  "background-study-3.jpg": {
+  "background-1.jpg": {
     "width": 900,
     "height": 593
   },
-  "background-study-4.jpg": {
-    "width": 900,
-    "height": 750
-  },
-  "background-study-5.jpg": {
-    "width": 900,
-    "height": 750
-  },
-  "background-study-6.jpg": {
+  "background-2.jpg": {
     "width": 900,
     "height": 507
   },
-  "background-study-7.jpg": {
+  "background-3.jpg": {
     "width": 900,
-    "height": 750
+    "height": 371
   },
-  "background-study-8.jpg": {
+  "background-4.jpg": {
     "width": 900,
-    "height": 675
+    "height": 600
   },
-  "background-study-primary.jpg": {
+  "background-5.jpg": {
+    "width": 900,
+    "height": 600
+  },
+  "background-6.jpg": {
+    "width": 900,
+    "height": 600
+  },
+  "background-primary.jpg": {
     "width": 750,
     "height": 750
   },
@@ -357,131 +145,171 @@ const mediaDimensions = {
   },
   "boucaniers-3.jpg": {
     "width": 900,
-    "height": 900
+    "height": 750
   },
   "boucaniers-4.jpg": {
     "width": 900,
     "height": 750
   },
-  "boucaniers-5.jpg": {
-    "width": 900,
+  "boucaniers-primary.jpg": {
+    "width": 750,
     "height": 750
   },
-  "boucaniers-primary.jpg": {
-    "width": 552,
-    "height": 552
+  "card-1.jpg": {
+    "width": 900,
+    "height": 525
   },
-  "buttons-1.jpg": {
-    "width": 1200,
-    "height": 1000
+  "card-2.jpg": {
+    "width": 900,
+    "height": 525
   },
-  "buttons-2.jpg": {
-    "width": 1200,
-    "height": 1000
+  "card-3.jpg": {
+    "width": 900,
+    "height": 525
   },
-  "buttons-3.jpg": {
-    "width": 1200,
-    "height": 808
+  "card-4.jpg": {
+    "width": 900,
+    "height": 525
   },
-  "buttons-4.jpg": {
-    "width": 1200,
-    "height": 1000
-  },
-  "buttons-5.jpg": {
-    "width": 1200,
-    "height": 1000
-  },
-  "buttons-6.jpg": {
-    "width": 1200,
-    "height": 808
-  },
-  "buttons-primary.jpg": {
-    "width": 1000,
-    "height": 1000
+  "card-primary.jpg": {
+    "width": 750,
+    "height": 750
   },
   "choralamar-1.jpg": {
     "width": 900,
     "height": 900
   },
   "choralamar-primary.jpg": {
-    "width": 552,
-    "height": 552
+    "width": 750,
+    "height": 750
   },
-  "expression-study-1.jpg": {
+  "desktop-1.jpg": {
+    "width": 900,
+    "height": 582
+  },
+  "desktop-2.jpg": {
     "width": 900,
     "height": 750
   },
-  "expression-study-2.jpg": {
+  "desktop-3.jpg": {
+    "width": 900,
+    "height": 582
+  },
+  "desktop-4.jpg": {
+    "width": 900,
+    "height": 600
+  },
+  "desktop-5.jpg": {
+    "width": 900,
+    "height": 582
+  },
+  "desktop-6.jpg": {
+    "width": 900,
+    "height": 582
+  },
+  "desktop-7.jpg": {
+    "width": 900,
+    "height": 582
+  },
+  "desktop-primary.jpg": {
+    "width": 750,
+    "height": 750
+  },
+  "desktop2-1.jpg": {
+    "width": 900,
+    "height": 582
+  },
+  "desktop2-2.jpg": {
+    "width": 900,
+    "height": 582
+  },
+  "desktop2-3.jpg": {
+    "width": 900,
+    "height": 582
+  },
+  "desktop2-4.jpg": {
+    "width": 900,
+    "height": 582
+  },
+  "desktop2-5.jpg": {
+    "width": 900,
+    "height": 600
+  },
+  "desktop2-6.jpg": {
+    "width": 900,
+    "height": 582
+  },
+  "desktop2-primary.jpg": {
+    "width": 750,
+    "height": 750
+  },
+  "desktop3-1.jpg": {
+    "width": 900,
+    "height": 582
+  },
+  "desktop3-2.jpg": {
+    "width": 900,
+    "height": 582
+  },
+  "desktop3-3.jpg": {
     "width": 900,
     "height": 750
   },
-  "expression-study-3.jpg": {
+  "desktop3-4.jpg": {
     "width": 900,
+    "height": 582
+  },
+  "desktop3-5.jpg": {
+    "width": 900,
+    "height": 600
+  },
+  "desktop3-primary.jpg": {
+    "width": 750,
     "height": 750
   },
-  "expression-study-4.jpg": {
+  "expression-1.jpg": {
     "width": 900,
     "height": 807
   },
-  "expression-study-5.jpg": {
+  "expression-2.jpg": {
     "width": 900,
     "height": 750
   },
-  "expression-study-6.jpg": {
-    "width": 900,
-    "height": 750
-  },
-  "expression-study-7.jpg": {
-    "width": 900,
-    "height": 750
-  },
-  "expression-study-8.jpg": {
+  "expression-3.jpg": {
     "width": 900,
     "height": 807
   },
-  "expression-study-primary.jpg": {
-    "width": 1000,
-    "height": 1000
+  "expression-4.jpg": {
+    "width": 900,
+    "height": 750
   },
-  "expression-study2-1.jpg": {
+  "expression-5.jpg": {
+    "width": 900,
+    "height": 750
+  },
+  "expression-primary.jpg": {
+    "width": 750,
+    "height": 750
+  },
+  "expression2-1.jpg": {
     "width": 900,
     "height": 600
   },
-  "expression-study2-2.jpg": {
+  "expression2-2.jpg": {
     "width": 900,
     "height": 600
   },
-  "expression-study2-3.jpg": {
+  "expression2-3.jpg": {
     "width": 900,
     "height": 600
   },
-  "expression-study2-4.jpg": {
+  "expression2-4.jpg": {
     "width": 900,
     "height": 600
   },
-  "expression-study2-primary.jpg": {
-    "width": 1000,
-    "height": 1000
-  },
-  "expression-study3-1.jpg": {
-    "width": 1200,
-    "height": 800
-  },
-  "expression-study3-2.jpg": {
-    "width": 1200,
-    "height": 800
-  },
-  "expression-study3-3.jpg": {
-    "width": 1200,
-    "height": 800
-  },
-  "expression-study3-4.jpg": {
-    "width": 1200,
-    "height": 800
-  },
-  "expression-study3-primary.jpg": {
-    "width": 1000,
-    "height": 1000
+  "expression2-primary.jpg": {
+    "width": 750,
+    "height": 750
   },
   "figma-1.jpg": {
     "width": 900,
@@ -504,912 +332,716 @@ const mediaDimensions = {
     "height": 507
   },
   "figma-course-1.jpg": {
-    "width": 1200,
-    "height": 676
+    "width": 900,
+    "height": 507
+  },
+  "figma-course-10.jpg": {
+    "width": 900,
+    "height": 507
+  },
+  "figma-course-11.jpg": {
+    "width": 900,
+    "height": 507
   },
   "figma-course-2.jpg": {
-    "width": 1200,
-    "height": 676
+    "width": 900,
+    "height": 507
   },
   "figma-course-3.jpg": {
-    "width": 1200,
-    "height": 676
+    "width": 900,
+    "height": 507
   },
   "figma-course-4.jpg": {
-    "width": 1200,
-    "height": 676
+    "width": 900,
+    "height": 507
   },
   "figma-course-5.jpg": {
-    "width": 1200,
-    "height": 676
+    "width": 900,
+    "height": 507
   },
   "figma-course-6.jpg": {
-    "width": 1200,
-    "height": 676
+    "width": 900,
+    "height": 507
   },
   "figma-course-7.jpg": {
-    "width": 1200,
-    "height": 676
+    "width": 900,
+    "height": 507
   },
   "figma-course-8.jpg": {
-    "width": 1200,
-    "height": 676
+    "width": 900,
+    "height": 507
+  },
+  "figma-course-9.jpg": {
+    "width": 900,
+    "height": 507
   },
   "figma-course-primary.jpg": {
-    "width": 1000,
-    "height": 1000
-  },
-  "folder-1.jpg": {
-    "width": 1200,
-    "height": 1000
-  },
-  "folder-2.jpg": {
-    "width": 1200,
-    "height": 1000
-  },
-  "folder-3.jpg": {
-    "width": 1200,
-    "height": 1000
-  },
-  "folder-4.jpg": {
-    "width": 1200,
-    "height": 1000
-  },
-  "folder-5.jpg": {
-    "width": 1200,
-    "height": 1000
-  },
-  "folder-primary.jpg": {
-    "width": 1000,
-    "height": 1000
+    "width": 750,
+    "height": 420
   },
   "gameboy-1.jpg": {
-    "width": 1200,
-    "height": 1000
-  },
-  "gameboy-2.jpg": {
-    "width": 1200,
-    "height": 1000
-  },
-  "gameboy-3.jpg": {
-    "width": 1200,
-    "height": 1400
-  },
-  "gameboy-4.jpg": {
-    "width": 1200,
-    "height": 1000
-  },
-  "gameboy-5.jpg": {
-    "width": 1200,
-    "height": 1000
-  },
-  "gameboy-6.jpg": {
-    "width": 1200,
-    "height": 808
-  },
-  "gameboy-7.jpg": {
-    "width": 1200,
-    "height": 1000
-  },
-  "gameboy-8.jpg": {
-    "width": 1200,
-    "height": 1000
-  },
-  "gameboy-9.jpg": {
-    "width": 1200,
-    "height": 810
-  },
-  "gameboy-primary.jpg": {
-    "width": 1000,
-    "height": 1000
-  },
-  "hand-1.jpg": {
-    "width": 1200,
-    "height": 1000
-  },
-  "hand-2.jpg": {
-    "width": 1200,
-    "height": 1000
-  },
-  "hand-3.jpg": {
-    "width": 1200,
-    "height": 984
-  },
-  "hand-4.jpg": {
-    "width": 1200,
-    "height": 1000
-  },
-  "hand-5.jpg": {
-    "width": 1200,
-    "height": 984
-  },
-  "hand-6.jpg": {
-    "width": 1200,
-    "height": 1000
-  },
-  "hand-7.jpg": {
-    "width": 1200,
-    "height": 1000
-  },
-  "hand-primary.jpg": {
-    "width": 1000,
-    "height": 1000
-  },
-  "hand2-1.jpg": {
-    "width": 1200,
-    "height": 1200
-  },
-  "hand2-2.jpg": {
-    "width": 1200,
-    "height": 800
-  },
-  "hand2-3.jpg": {
-    "width": 1200,
-    "height": 1200
-  },
-  "hand2-4.jpg": {
-    "width": 1200,
-    "height": 1200
-  },
-  "hand2-5.jpg": {
-    "width": 1200,
-    "height": 1200
-  },
-  "hand2-6.jpg": {
-    "width": 1200,
-    "height": 1200
-  },
-  "hand2-7.jpg": {
-    "width": 1200,
-    "height": 1200
-  },
-  "hand2-primary.jpg": {
-    "width": 1000,
-    "height": 1000
-  },
-  "icons-1.jpg": {
-    "width": 900,
-    "height": 600
-  },
-  "icons-2.jpg": {
-    "width": 900,
-    "height": 600
-  },
-  "icons-3.jpg": {
-    "width": 900,
-    "height": 600
-  },
-  "icons-primary.jpg": {
-    "width": 750,
-    "height": 750
-  },
-  "icons-replica-1.jpg": {
-    "width": 900,
-    "height": 600
-  },
-  "icons-replica-2.jpg": {
-    "width": 900,
-    "height": 600
-  },
-  "icons-replica-3.jpg": {
-    "width": 900,
-    "height": 600
-  },
-  "icons-replica-4.jpg": {
-    "width": 900,
-    "height": 600
-  },
-  "icons-replica-5.jpg": {
-    "width": 900,
-    "height": 600
-  },
-  "icons-replica-6.jpg": {
-    "width": 900,
-    "height": 750
-  },
-  "icons-replica-primary.jpg": {
-    "width": 750,
-    "height": 750
-  },
-  "icons2-1.jpg": {
-    "width": 900,
-    "height": 600
-  },
-  "icons2-2.jpg": {
-    "width": 900,
-    "height": 600
-  },
-  "icons2-primary.jpg": {
-    "width": 750,
-    "height": 750
-  },
-  "inp-1.jpg": {
-    "width": 1200,
-    "height": 1200
-  },
-  "inp-2.jpg": {
-    "width": 1200,
-    "height": 1200
-  },
-  "inp-3.jpg": {
-    "width": 1200,
-    "height": 1200
-  },
-  "inp-4.jpg": {
-    "width": 1200,
-    "height": 1200
-  },
-  "inp-5.jpg": {
-    "width": 1200,
-    "height": 1200
-  },
-  "inp-6.jpg": {
-    "width": 1200,
-    "height": 1200
-  },
-  "inp-7.jpg": {
-    "width": 1200,
-    "height": 1200
-  },
-  "inp-primary.jpg": {
-    "width": 1000,
-    "height": 1000
-  },
-  "krystal2025-1.jpg": {
-    "width": 1200,
-    "height": 694
-  },
-  "krystal2025-10.jpg": {
-    "width": 1200,
-    "height": 1200
-  },
-  "krystal2025-11.jpg": {
-    "width": 1200,
-    "height": 1200
-  },
-  "krystal2025-12.jpg": {
-    "width": 1200,
-    "height": 792
-  },
-  "krystal2025-2.jpg": {
-    "width": 1200,
-    "height": 694
-  },
-  "krystal2025-3.jpg": {
-    "width": 1200,
-    "height": 1200
-  },
-  "krystal2025-4.jpg": {
-    "width": 1200,
-    "height": 1000
-  },
-  "krystal2025-5.jpg": {
-    "width": 1200,
-    "height": 1000
-  },
-  "krystal2025-6.jpg": {
-    "width": 1200,
-    "height": 694
-  },
-  "krystal2025-7.jpg": {
-    "width": 1200,
-    "height": 1000
-  },
-  "krystal2025-8.jpg": {
-    "width": 1200,
-    "height": 694
-  },
-  "krystal2025-9.jpg": {
-    "width": 1200,
-    "height": 1200
-  },
-  "krystal2025-primary.jpg": {
-    "width": 1000,
-    "height": 1000
-  },
-  "krystal2026-1.jpg": {
-    "width": 1200,
-    "height": 800
-  },
-  "krystal2026-10.jpg": {
-    "width": 1200,
-    "height": 904
-  },
-  "krystal2026-11.jpg": {
-    "width": 1200,
-    "height": 904
-  },
-  "krystal2026-12.jpg": {
-    "width": 1200,
-    "height": 900
-  },
-  "krystal2026-13.jpg": {
-    "width": 1200,
-    "height": 900
-  },
-  "krystal2026-2.jpg": {
-    "width": 1200,
-    "height": 900
-  },
-  "krystal2026-3.jpg": {
-    "width": 1200,
-    "height": 1642
-  },
-  "krystal2026-4.jpg": {
-    "width": 1200,
-    "height": 800
-  },
-  "krystal2026-5.jpg": {
-    "width": 1200,
-    "height": 800
-  },
-  "krystal2026-6.jpg": {
-    "width": 1200,
-    "height": 800
-  },
-  "krystal2026-7.jpg": {
-    "width": 1200,
-    "height": 800
-  },
-  "krystal2026-8.jpg": {
-    "width": 1200,
-    "height": 760
-  },
-  "krystal2026-9.jpg": {
-    "width": 1200,
-    "height": 480
-  },
-  "krystal2026-primary.jpg": {
-    "width": 1000,
-    "height": 1000
-  },
-  "mates-1.jpg": {
-    "width": 1200,
-    "height": 1200
-  },
-  "mates-10.jpg": {
-    "width": 1200,
-    "height": 1000
-  },
-  "mates-11.jpg": {
-    "width": 1200,
-    "height": 1000
-  },
-  "mates-12.jpg": {
-    "width": 1200,
-    "height": 1016
-  },
-  "mates-2.jpg": {
-    "width": 1200,
-    "height": 1200
-  },
-  "mates-3.jpg": {
-    "width": 1200,
-    "height": 1200
-  },
-  "mates-4.jpg": {
-    "width": 1200,
-    "height": 498
-  },
-  "mates-5.jpg": {
-    "width": 1200,
-    "height": 1200
-  },
-  "mates-6.jpg": {
-    "width": 1200,
-    "height": 788
-  },
-  "mates-7.jpg": {
-    "width": 1200,
-    "height": 1000
-  },
-  "mates-8.jpg": {
-    "width": 1200,
-    "height": 494
-  },
-  "mates-9.jpg": {
-    "width": 1200,
-    "height": 1000
-  },
-  "mates-primary.jpg": {
-    "width": 1000,
-    "height": 1000
-  },
-  "mode-1.jpg": {
-    "width": 1200,
-    "height": 676
-  },
-  "mode-2.jpg": {
-    "width": 1200,
-    "height": 800
-  },
-  "mode-3.jpg": {
-    "width": 1200,
-    "height": 1200
-  },
-  "mode-4.jpg": {
-    "width": 1200,
-    "height": 1000
-  },
-  "mode-primary.jpg": {
-    "width": 1000,
-    "height": 1000
-  },
-  "mp3-1.jpg": {
-    "width": 1200,
-    "height": 1000
-  },
-  "mp3-2.jpg": {
-    "width": 1200,
-    "height": 1000
-  },
-  "mp3-3.jpg": {
-    "width": 1200,
-    "height": 1400
-  },
-  "mp3-primary.jpg": {
-    "width": 1000,
-    "height": 1000
-  },
-  "music-1.jpg": {
-    "width": 1200,
-    "height": 1200
-  },
-  "music-2.jpg": {
-    "width": 1200,
-    "height": 1000
-  },
-  "music-3.jpg": {
-    "width": 1200,
-    "height": 808
-  },
-  "music-primary.jpg": {
-    "width": 1000,
-    "height": 1000
-  },
-  "planche-1.jpg": {
-    "width": 1200,
-    "height": 1000
-  },
-  "planche-2.jpg": {
-    "width": 1200,
-    "height": 1000
-  },
-  "planche-3.jpg": {
-    "width": 1200,
-    "height": 984
-  },
-  "planche-4.jpg": {
-    "width": 1200,
-    "height": 1000
-  },
-  "planche-5.jpg": {
-    "width": 1200,
-    "height": 1000
-  },
-  "planche-6.jpg": {
-    "width": 1200,
-    "height": 808
-  },
-  "planche-7.jpg": {
-    "width": 1200,
-    "height": 1000
-  },
-  "planche-8.jpg": {
-    "width": 1200,
-    "height": 1000
-  },
-  "planche-primary.jpg": {
-    "width": 1000,
-    "height": 1000
-  },
-  "planche2-1.jpg": {
-    "width": 1200,
-    "height": 1000
-  },
-  "planche2-2.jpg": {
-    "width": 1200,
-    "height": 1000
-  },
-  "planche2-3.jpg": {
-    "width": 1200,
-    "height": 984
-  },
-  "planche2-4.jpg": {
-    "width": 1200,
-    "height": 1000
-  },
-  "planche2-5.jpg": {
-    "width": 1200,
-    "height": 1000
-  },
-  "planche2-6.jpg": {
-    "width": 1200,
-    "height": 600
-  },
-  "planche2-7.jpg": {
-    "width": 1200,
-    "height": 1000
-  },
-  "planche2-8.jpg": {
-    "width": 1200,
-    "height": 1000
-  },
-  "planche2-9.jpg": {
-    "width": 1200,
-    "height": 810
-  },
-  "planche2-primary.jpg": {
-    "width": 1000,
-    "height": 1000
-  },
-  "planche3-1.jpg": {
-    "width": 1200,
-    "height": 1000
-  },
-  "planche3-2.jpg": {
-    "width": 1200,
-    "height": 1000
-  },
-  "planche3-3.jpg": {
-    "width": 1200,
-    "height": 984
-  },
-  "planche3-4.jpg": {
-    "width": 1200,
-    "height": 1000
-  },
-  "planche3-5.jpg": {
-    "width": 1200,
-    "height": 1000
-  },
-  "planche3-6.jpg": {
-    "width": 1200,
-    "height": 808
-  },
-  "planche3-7.jpg": {
-    "width": 1200,
-    "height": 1000
-  },
-  "planche3-8.jpg": {
-    "width": 1200,
-    "height": 1000
-  },
-  "planche3-9.jpg": {
-    "width": 1200,
-    "height": 808
-  },
-  "planche3-primary.jpg": {
-    "width": 1000,
-    "height": 1000
-  },
-  "planche4-1.jpg": {
-    "width": 1200,
-    "height": 1000
-  },
-  "planche4-2.jpg": {
-    "width": 1200,
-    "height": 1000
-  },
-  "planche4-3.jpg": {
-    "width": 1200,
-    "height": 984
-  },
-  "planche4-4.jpg": {
-    "width": 1200,
-    "height": 1000
-  },
-  "planche4-5.jpg": {
-    "width": 1200,
-    "height": 1000
-  },
-  "planche4-6.jpg": {
-    "width": 1200,
-    "height": 808
-  },
-  "planche4-7.jpg": {
-    "width": 1200,
-    "height": 1000
-  },
-  "planche4-8.jpg": {
-    "width": 1200,
-    "height": 1000
-  },
-  "planche4-primary.jpg": {
-    "width": 948,
-    "height": 1000
-  },
-  "pocket-1.jpg": {
-    "width": 900,
-    "height": 750
-  },
-  "pocket-2.jpg": {
-    "width": 900,
-    "height": 750
-  },
-  "pocket-3.jpg": {
     "width": 900,
     "height": 1050
   },
-  "pocket-4.jpg": {
+  "gameboy-2.jpg": {
     "width": 900,
     "height": 750
   },
-  "pocket-5.jpg": {
+  "gameboy-3.jpg": {
     "width": 900,
     "height": 750
   },
-  "pocket-6.jpg": {
+  "gameboy-4.jpg": {
+    "width": 900,
+    "height": 750
+  },
+  "gameboy-5.jpg": {
+    "width": 900,
+    "height": 606
+  },
+  "gameboy-6.jpg": {
+    "width": 900,
+    "height": 750
+  },
+  "gameboy-primary.jpg": {
+    "width": 750,
+    "height": 750
+  },
+  "hand-1.jpg": {
+    "width": 900,
+    "height": 750
+  },
+  "hand-2.jpg": {
+    "width": 900,
+    "height": 738
+  },
+  "hand-3.jpg": {
+    "width": 900,
+    "height": 750
+  },
+  "hand-4.jpg": {
+    "width": 900,
+    "height": 738
+  },
+  "hand-5.jpg": {
+    "width": 900,
+    "height": 750
+  },
+  "hand-primary.jpg": {
+    "width": 750,
+    "height": 750
+  },
+  "hand2-1.jpg": {
     "width": 900,
     "height": 600
   },
-  "pocket-7.jpg": {
+  "hand2-2.jpg": {
     "width": 900,
-    "height": 900
+    "height": 600
   },
-  "pocket-8.jpg": {
+  "hand2-3.jpg": {
     "width": 900,
     "height": 750
   },
-  "pocket-9.jpg": {
+  "hand2-4.jpg": {
     "width": 900,
-    "height": 525
+    "height": 600
   },
-  "pocket-primary.jpg": {
-    "width": 1000,
-    "height": 1000
+  "hand2-5.jpg": {
+    "width": 900,
+    "height": 690
+  },
+  "hand2-6.jpg": {
+    "width": 900,
+    "height": 618
+  },
+  "hand2-7.jpg": {
+    "width": 900,
+    "height": 900
+  },
+  "hand2-primary.jpg": {
+    "width": 750,
+    "height": 750
+  },
+  "icon-1.jpg": {
+    "width": 900,
+    "height": 600
+  },
+  "icon-2.jpg": {
+    "width": 900,
+    "height": 600
+  },
+  "icon-3.jpg": {
+    "width": 900,
+    "height": 600
+  },
+  "icon-primary.jpg": {
+    "width": 750,
+    "height": 750
+  },
+  "icon2-1.jpg": {
+    "width": 900,
+    "height": 600
+  },
+  "icon2-2.jpg": {
+    "width": 900,
+    "height": 600
+  },
+  "icon2-3.jpg": {
+    "width": 900,
+    "height": 600
+  },
+  "icon2-4.jpg": {
+    "width": 900,
+    "height": 600
+  },
+  "icon2-5.jpg": {
+    "width": 900,
+    "height": 600
+  },
+  "icon2-6.jpg": {
+    "width": 900,
+    "height": 750
+  },
+  "icon2-primary.jpg": {
+    "width": 750,
+    "height": 750
+  },
+  "icon3-1.jpg": {
+    "width": 900,
+    "height": 600
+  },
+  "icon3-2.jpg": {
+    "width": 900,
+    "height": 600
+  },
+  "icon3-primary.jpg": {
+    "width": 750,
+    "height": 750
+  },
+  "interaction-1.jpg": {
+    "width": 900,
+    "height": 750
+  },
+  "interaction-2.jpg": {
+    "width": 900,
+    "height": 600
+  },
+  "interaction-primary.jpg": {
+    "width": 750,
+    "height": 750
+  },
+  "interaction2-1.jpg": {
+    "width": 900,
+    "height": 606
+  },
+  "interaction2-2.jpg": {
+    "width": 900,
+    "height": 750
+  },
+  "interaction2-primary.jpg": {
+    "width": 750,
+    "height": 750
+  },
+  "interaction3-1.jpg": {
+    "width": 900,
+    "height": 750
+  },
+  "interaction3-2.jpg": {
+    "width": 900,
+    "height": 606
+  },
+  "interaction3-primary.jpg": {
+    "width": 750,
+    "height": 750
+  },
+  "interaction4-1.jpg": {
+    "width": 900,
+    "height": 750
+  },
+  "interaction4-2.jpg": {
+    "width": 900,
+    "height": 750
+  },
+  "interaction4-3.jpg": {
+    "width": 900,
+    "height": 750
+  },
+  "interaction4-primary.jpg": {
+    "width": 750,
+    "height": 750
+  },
+  "interaction5-1.jpg": {
+    "width": 900,
+    "height": 750
+  },
+  "interaction5-2.jpg": {
+    "width": 900,
+    "height": 750
+  },
+  "interaction5-3.jpg": {
+    "width": 900,
+    "height": 1050
+  },
+  "interaction5-4.jpg": {
+    "width": 900,
+    "height": 750
+  },
+  "interaction5-primary.jpg": {
+    "width": 750,
+    "height": 750
+  },
+  "krystal2026-1.jpg": {
+    "width": 900,
+    "height": 428
+  },
+  "krystal2026-2.jpg": {
+    "width": 900,
+    "height": 428
+  },
+  "krystal2026-3.jpg": {
+    "width": 900,
+    "height": 432
+  },
+  "krystal2026-4.jpg": {
+    "width": 900,
+    "height": 750
+  },
+  "krystal2026-5.jpg": {
+    "width": 900,
+    "height": 750
+  },
+  "krystal2026-6.jpg": {
+    "width": 900,
+    "height": 570
+  },
+  "krystal2026-7.jpg": {
+    "width": 900,
+    "height": 570
+  },
+  "krystal2026-8.jpg": {
+    "width": 900,
+    "height": 708
+  },
+  "krystal2026-primary.jpg": {
+    "width": 750,
+    "height": 420
+  },
+  "logo-1.jpg": {
+    "width": 900,
+    "height": 900
+  },
+  "logo-2.jpg": {
+    "width": 900,
+    "height": 900
+  },
+  "logo-primary.jpg": {
+    "width": 750,
+    "height": 750
+  },
+  "logo2-1.jpg": {
+    "width": 900,
+    "height": 507
+  },
+  "logo2-primary.jpg": {
+    "width": 750,
+    "height": 750
+  },
+  "mates-1.jpg": {
+    "width": 900,
+    "height": 632
+  },
+  "mates-2.jpg": {
+    "width": 900,
+    "height": 726
+  },
+  "mates-3.jpg": {
+    "width": 900,
+    "height": 900
+  },
+  "mates-4.jpg": {
+    "width": 900,
+    "height": 732
+  },
+  "mates-5.jpg": {
+    "width": 900,
+    "height": 675
+  },
+  "mates-6.jpg": {
+    "width": 900,
+    "height": 591
+  },
+  "mates-7.jpg": {
+    "width": 900,
+    "height": 371
+  },
+  "mates-8.jpg": {
+    "width": 900,
+    "height": 750
+  },
+  "mates-9.jpg": {
+    "width": 900,
+    "height": 762
+  },
+  "mates-primary.jpg": {
+    "width": 750,
+    "height": 420
+  },
+  "mobile-1.jpg": {
+    "width": 900,
+    "height": 675
+  },
+  "mobile-2.jpg": {
+    "width": 900,
+    "height": 675
+  },
+  "mobile-3.jpg": {
+    "width": 900,
+    "height": 750
+  },
+  "mobile-primary.jpg": {
+    "width": 750,
+    "height": 750
+  },
+  "mp3-1.jpg": {
+    "width": 900,
+    "height": 750
+  },
+  "mp3-2.jpg": {
+    "width": 900,
+    "height": 750
+  },
+  "mp3-3.jpg": {
+    "width": 900,
+    "height": 1050
+  },
+  "mp3-primary.jpg": {
+    "width": 750,
+    "height": 750
+  },
+  "planche-1.jpg": {
+    "width": 900,
+    "height": 738
+  },
+  "planche-2.jpg": {
+    "width": 900,
+    "height": 750
+  },
+  "planche-3.jpg": {
+    "width": 900,
+    "height": 606
+  },
+  "planche-4.jpg": {
+    "width": 900,
+    "height": 750
+  },
+  "planche-5.jpg": {
+    "width": 900,
+    "height": 750
+  },
+  "planche-6.jpg": {
+    "width": 900,
+    "height": 750
+  },
+  "planche-7.jpg": {
+    "width": 900,
+    "height": 750
+  },
+  "planche-primary.jpg": {
+    "width": 750,
+    "height": 750
+  },
+  "planche2-1.jpg": {
+    "width": 900,
+    "height": 738
+  },
+  "planche2-2.jpg": {
+    "width": 900,
+    "height": 750
+  },
+  "planche2-3.jpg": {
+    "width": 900,
+    "height": 750
+  },
+  "planche2-4.jpg": {
+    "width": 900,
+    "height": 450
+  },
+  "planche2-5.jpg": {
+    "width": 900,
+    "height": 750
+  },
+  "planche2-6.jpg": {
+    "width": 900,
+    "height": 750
+  },
+  "planche2-7.jpg": {
+    "width": 900,
+    "height": 608
+  },
+  "planche2-primary.jpg": {
+    "width": 750,
+    "height": 750
+  },
+  "planche3-1.jpg": {
+    "width": 900,
+    "height": 738
+  },
+  "planche3-2.jpg": {
+    "width": 900,
+    "height": 750
+  },
+  "planche3-3.jpg": {
+    "width": 900,
+    "height": 606
+  },
+  "planche3-4.jpg": {
+    "width": 900,
+    "height": 750
+  },
+  "planche3-5.jpg": {
+    "width": 900,
+    "height": 750
+  },
+  "planche3-6.jpg": {
+    "width": 900,
+    "height": 750
+  },
+  "planche3-7.jpg": {
+    "width": 900,
+    "height": 606
+  },
+  "planche3-primary.jpg": {
+    "width": 750,
+    "height": 750
+  },
+  "planche4-1.jpg": {
+    "width": 900,
+    "height": 738
+  },
+  "planche4-2.jpg": {
+    "width": 900,
+    "height": 750
+  },
+  "planche4-3.jpg": {
+    "width": 900,
+    "height": 750
+  },
+  "planche4-4.jpg": {
+    "width": 900,
+    "height": 750
+  },
+  "planche4-5.jpg": {
+    "width": 900,
+    "height": 606
+  },
+  "planche4-6.jpg": {
+    "width": 900,
+    "height": 750
+  },
+  "planche4-primary.jpg": {
+    "width": 711,
+    "height": 750
+  },
+  "portrait-1.jpg": {
+    "width": 900,
+    "height": 750
+  },
+  "portrait-primary.jpg": {
+    "width": 750,
+    "height": 750
+  },
+  "portrait2-1.jpg": {
+    "width": 900,
+    "height": 750
+  },
+  "portrait2-2.jpg": {
+    "width": 900,
+    "height": 750
+  },
+  "portrait2-primary.jpg": {
+    "width": 750,
+    "height": 750
+  },
+  "portrait3-1.jpg": {
+    "width": 900,
+    "height": 600
+  },
+  "portrait3-2.jpg": {
+    "width": 900,
+    "height": 600
+  },
+  "portrait3-3.jpg": {
+    "width": 900,
+    "height": 600
+  },
+  "portrait3-4.jpg": {
+    "width": 900,
+    "height": 600
+  },
+  "portrait3-5.jpg": {
+    "width": 900,
+    "height": 600
+  },
+  "portrait3-primary.jpg": {
+    "width": 750,
+    "height": 750
+  },
+  "portrait4-1.jpg": {
+    "width": 900,
+    "height": 750
+  },
+  "portrait4-2.jpg": {
+    "width": 900,
+    "height": 600
+  },
+  "portrait4-primary.jpg": {
+    "width": 750,
+    "height": 750
+  },
+  "portrait5-1.jpg": {
+    "width": 900,
+    "height": 632
+  },
+  "portrait5-primary.jpg": {
+    "width": 750,
+    "height": 750
   },
   "profil-picture.png": {
     "width": 200,
     "height": 200
   },
-  "realistic-portrait-1.jpg": {
-    "width": 1200,
-    "height": 1000
-  },
-  "realistic-portrait-2.jpg": {
-    "width": 1200,
-    "height": 1000
-  },
-  "realistic-portrait-primary.jpg": {
-    "width": 1000,
-    "height": 1000
-  },
-  "sticker-1.jpg": {
-    "width": 1200,
-    "height": 1000
-  },
-  "sticker-10.jpg": {
-    "width": 1200,
-    "height": 1000
-  },
-  "sticker-11.jpg": {
-    "width": 1200,
-    "height": 1000
-  },
-  "sticker-12.jpg": {
-    "width": 1200,
-    "height": 1000
-  },
-  "sticker-2.jpg": {
-    "width": 1200,
-    "height": 1000
-  },
-  "sticker-3.jpg": {
-    "width": 1200,
-    "height": 1200
-  },
-  "sticker-4.jpg": {
-    "width": 1200,
-    "height": 1000
-  },
-  "sticker-5.jpg": {
-    "width": 1200,
-    "height": 1000
-  },
-  "sticker-6.jpg": {
-    "width": 1200,
-    "height": 1200
-  },
-  "sticker-7.jpg": {
-    "width": 1200,
-    "height": 1000
-  },
-  "sticker-8.jpg": {
-    "width": 1200,
-    "height": 1000
-  },
-  "sticker-9.jpg": {
-    "width": 1200,
-    "height": 1200
-  },
-  "sticker-primary.jpg": {
-    "width": 1000,
-    "height": 1000
-  },
-  "stylized-1.jpg": {
-    "width": 900,
-    "height": 507
-  },
-  "stylized-2.jpg": {
-    "width": 900,
-    "height": 507
-  },
-  "stylized-3.jpg": {
-    "width": 900,
-    "height": 507
-  },
-  "stylized-4.jpg": {
-    "width": 900,
-    "height": 900
-  },
-  "stylized-portrait-1.jpg": {
-    "width": 1200,
-    "height": 1000
-  },
-  "stylized-portrait-2.jpg": {
-    "width": 1200,
-    "height": 1000
-  },
-  "stylized-portrait-primary.jpg": {
-    "width": 1000,
-    "height": 1000
-  },
-  "stylized-portrait2-1.jpg": {
-    "width": 900,
-    "height": 750
-  },
-  "stylized-portrait2-2.jpg": {
-    "width": 900,
-    "height": 750
-  },
-  "stylized-portrait2-3.jpg": {
-    "width": 900,
-    "height": 750
-  },
-  "stylized-portrait2-4.jpg": {
-    "width": 900,
-    "height": 750
-  },
-  "stylized-portrait2-5.jpg": {
-    "width": 900,
-    "height": 750
-  },
-  "stylized-portrait2-6.jpg": {
-    "width": 900,
-    "height": 750
-  },
-  "stylized-portrait2-7.jpg": {
-    "width": 900,
-    "height": 750
-  },
-  "stylized-portrait2-primary.jpg": {
-    "width": 1000,
-    "height": 1000
-  },
-  "stylized-portrait3-1.jpg": {
-    "width": 900,
-    "height": 750
-  },
-  "stylized-portrait3-2.jpg": {
-    "width": 900,
-    "height": 750
-  },
-  "stylized-portrait3-3.jpg": {
-    "width": 900,
-    "height": 750
-  },
-  "stylized-portrait3-4.jpg": {
-    "width": 900,
-    "height": 750
-  },
-  "stylized-portrait3-5.jpg": {
+  "sketch-1.jpg": {
     "width": 900,
     "height": 600
   },
-  "stylized-portrait3-primary.jpg": {
+  "sketch-2.jpg": {
+    "width": 900,
+    "height": 801
+  },
+  "sketch-3.jpg": {
+    "width": 900,
+    "height": 801
+  },
+  "sketch-4.jpg": {
+    "width": 900,
+    "height": 600
+  },
+  "sketch-5.jpg": {
+    "width": 900,
+    "height": 600
+  },
+  "sketch-primary.jpg": {
+    "width": 711,
+    "height": 750
+  },
+  "sketch2-1.jpg": {
+    "width": 900,
+    "height": 600
+  },
+  "sketch2-2.jpg": {
+    "width": 900,
+    "height": 600
+  },
+  "sketch2-3.jpg": {
+    "width": 900,
+    "height": 735
+  },
+  "sketch2-4.jpg": {
+    "width": 900,
+    "height": 600
+  },
+  "sketch2-5.jpg": {
+    "width": 900,
+    "height": 600
+  },
+  "sketch2-primary.jpg": {
     "width": 750,
     "height": 750
   },
-  "stylized-portrait4-1.jpg": {
-    "width": 1200,
-    "height": 1000
+  "sketch3-1.jpg": {
+    "width": 900,
+    "height": 750
   },
-  "stylized-portrait4-2.jpg": {
-    "width": 1200,
-    "height": 1000
+  "sketch3-primary.jpg": {
+    "width": 750,
+    "height": 750
   },
-  "stylized-portrait4-primary.jpg": {
-    "width": 1000,
-    "height": 1000
+  "sketch4-1.jpg": {
+    "width": 900,
+    "height": 600
   },
-  "stylized-primary.jpg": {
-    "width": 1000,
-    "height": 1000
+  "sketch4-2.jpg": {
+    "width": 900,
+    "height": 600
   },
-  "stylized2-1.jpg": {
-    "width": 1200,
-    "height": 1000
+  "sketch4-3.jpg": {
+    "width": 900,
+    "height": 450
   },
-  "stylized2-2.jpg": {
-    "width": 1200,
-    "height": 1000
+  "sketch4-4.jpg": {
+    "width": 900,
+    "height": 600
   },
-  "stylized2-3.jpg": {
-    "width": 1200,
-    "height": 1000
+  "sketch4-5.jpg": {
+    "width": 900,
+    "height": 675
   },
-  "stylized2-primary.jpg": {
-    "width": 1000,
-    "height": 1000
+  "sketch4-primary.jpg": {
+    "width": 750,
+    "height": 750
   },
-  "tags-1 2.jpg": {
-    "width": 1200,
-    "height": 1200
+  "sticker-1.jpg": {
+    "width": 900,
+    "height": 600
   },
-  "tags-1.jpg": {
-    "width": 1200,
-    "height": 1200
+  "sticker-2.jpg": {
+    "width": 900,
+    "height": 600
   },
-  "tags-2.jpg": {
-    "width": 1200,
-    "height": 1200
+  "sticker-3.jpg": {
+    "width": 900,
+    "height": 600
   },
-  "tags-3.jpg": {
-    "width": 1200,
-    "height": 724
+  "sticker-primary.jpg": {
+    "width": 750,
+    "height": 750
   },
-  "tags-4.jpg": {
-    "width": 1200,
-    "height": 1200
+  "tag-1.jpg": {
+    "width": 900,
+    "height": 900
   },
-  "tags-5.jpg": {
-    "width": 1200,
-    "height": 1200
+  "tag-2.jpg": {
+    "width": 900,
+    "height": 900
   },
-  "tags-6.jpg": {
-    "width": 1200,
-    "height": 1092
+  "tag-3.jpg": {
+    "width": 900,
+    "height": 543
   },
-  "tags-7.jpg": {
-    "width": 1200,
-    "height": 1200
+  "tag-4.jpg": {
+    "width": 900,
+    "height": 900
   },
-  "tags-8.jpg": {
-    "width": 1200,
-    "height": 1200
+  "tag-5.jpg": {
+    "width": 900,
+    "height": 900
   },
-  "tags-primary.jpg": {
-    "width": 1000,
-    "height": 1000
+  "tag-6.jpg": {
+    "width": 900,
+    "height": 819
   },
-  "talence-1.jpg": {
-    "width": 1200,
-    "height": 1200
+  "tag-7.jpg": {
+    "width": 900,
+    "height": 900
   },
-  "talence-2.jpg": {
-    "width": 1200,
-    "height": 1200
+  "tag-8.jpg": {
+    "width": 900,
+    "height": 900
   },
-  "talence-3.jpg": {
-    "width": 1200,
-    "height": 1600
-  },
-  "talence-4.jpg": {
-    "width": 1200,
-    "height": 1200
-  },
-  "talence-5.jpg": {
-    "width": 1200,
-    "height": 1200
-  },
-  "talence-6.jpg": {
-    "width": 1200,
-    "height": 760
-  },
-  "talence-primary.jpg": {
-    "width": 1000,
-    "height": 1000
+  "tag-primary.jpg": {
+    "width": 750,
+    "height": 750
   },
   "thumbnail-nda.jpg": {
     "width": 720,
@@ -1430,130 +1062,6 @@ const mediaDimensions = {
   "thumnail-purely.jpg": {
     "width": 940,
     "height": 418
-  },
-  "trad-1.jpg": {
-    "width": 1200,
-    "height": 1000
-  },
-  "trad-2.jpg": {
-    "width": 1200,
-    "height": 1068
-  },
-  "trad-3.jpg": {
-    "width": 1200,
-    "height": 1000
-  },
-  "trad-4.jpg": {
-    "width": 1200,
-    "height": 1068
-  },
-  "trad-5.jpg": {
-    "width": 1200,
-    "height": 1068
-  },
-  "trad-6.jpg": {
-    "width": 1200,
-    "height": 1000
-  },
-  "trad-7.jpg": {
-    "width": 1200,
-    "height": 1000
-  },
-  "trad-primary.jpg": {
-    "width": 948,
-    "height": 1000
-  },
-  "trad2-1.jpg": {
-    "width": 1200,
-    "height": 1000
-  },
-  "trad2-2.jpg": {
-    "width": 1200,
-    "height": 1000
-  },
-  "trad2-3.jpg": {
-    "width": 1200,
-    "height": 1068
-  },
-  "trad2-4.jpg": {
-    "width": 1200,
-    "height": 1000
-  },
-  "trad2-5.jpg": {
-    "width": 1200,
-    "height": 1000
-  },
-  "trad2-6.jpg": {
-    "width": 1200,
-    "height": 1068
-  },
-  "trad2-7.jpg": {
-    "width": 1200,
-    "height": 1000
-  },
-  "trad2-8.jpg": {
-    "width": 1200,
-    "height": 1068
-  },
-  "trad2-primary.jpg": {
-    "width": 1000,
-    "height": 1000
-  },
-  "trad3-1.jpg": {
-    "width": 900,
-    "height": 801
-  },
-  "trad3-2.jpg": {
-    "width": 900,
-    "height": 750
-  },
-  "trad3-3.jpg": {
-    "width": 900,
-    "height": 801
-  },
-  "trad3-4.jpg": {
-    "width": 900,
-    "height": 750
-  },
-  "trad3-5.jpg": {
-    "width": 900,
-    "height": 801
-  },
-  "trad3-primary.jpg": {
-    "width": 1000,
-    "height": 1000
-  },
-  "trad4-1.jpg": {
-    "width": 1200,
-    "height": 1068
-  },
-  "trad4-2.jpg": {
-    "width": 1200,
-    "height": 1000
-  },
-  "trad4-3.jpg": {
-    "width": 1200,
-    "height": 1068
-  },
-  "trad4-4.jpg": {
-    "width": 1200,
-    "height": 800
-  },
-  "trad4-5.jpg": {
-    "width": 1200,
-    "height": 1068
-  },
-  "trad4-6.jpg": {
-    "width": 1200,
-    "height": 1068
-  },
-  "trad4-7.jpg": {
-    "width": 1200,
-    "height": 1068
-  },
-  "trad4-primary.jpg": {
-    "width": 1000,
-    "height": 1000
   },
   "ubisoft-1.jpg": {
     "width": 900,
@@ -1625,7 +1133,7 @@ const mediaDimensions = {
   },
   "ucd-primary.jpg": {
     "width": 750,
-    "height": 750
+    "height": 483
   },
   "vmt-1.jpg": {
     "width": 900,
@@ -1651,13 +1159,45 @@ const mediaDimensions = {
     "width": 900,
     "height": 420
   },
-  "vmt-primary.jpg": {
-    "width": 1000,
-    "height": 1000
-  },
   "wallpaper_mac.jpg": {
     "width": 4096,
     "height": 2264
+  },
+  "widget-1.jpg": {
+    "width": 900,
+    "height": 582
+  },
+  "widget-2.jpg": {
+    "width": 900,
+    "height": 582
+  },
+  "widget-3.jpg": {
+    "width": 900,
+    "height": 582
+  },
+  "widget-primary.jpg": {
+    "width": 750,
+    "height": 750
+  },
+  "widget2-1.jpg": {
+    "width": 900,
+    "height": 582
+  },
+  "widget2-2.jpg": {
+    "width": 900,
+    "height": 582
+  },
+  "widget2-3.jpg": {
+    "width": 900,
+    "height": 582
+  },
+  "widget2-4.jpg": {
+    "width": 900,
+    "height": 582
+  },
+  "widget2-primary.jpg": {
+    "width": 750,
+    "height": 750
   }
 };
 

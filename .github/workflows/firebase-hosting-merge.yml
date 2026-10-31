@@ -11,16 +11,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Install frontend dependencies
-        run: npm ci
-        working-directory: ./portfolio
-      - name: Build frontend
-        run: npm run build -- --sourcemap
-        working-directory: ./portfolio
+      - run: npm run build
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: ${{ secrets.GITHUB_TOKEN }}
           firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_FLORIALGER }}
           channelId: live
           projectId: florialger
-          entryPoint: ./portfolio

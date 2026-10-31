@@ -35,7 +35,7 @@
   align-items: center;
   padding: var(--layout-page-padding-top) var(--container-padding-x) var(--layout-page-padding-bottom)
     var(--container-padding-x);
-  gap: var(--stack-gap-lg);
+  gap: var(--stack-gap-2xl);
 }
 
 .container[data-empty] {

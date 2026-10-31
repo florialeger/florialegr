@@ -17,4 +17,6 @@ If you are developing a production application, we recommend using TypeScript an
 # deploy
 
 - npm run build
-- npx firebase deploy --only hosting --project florialger
+- npx firebase target:apply hosting main-site florialeger
+- npx firebase deploy --only hosting --project florialeger
+- npx firebase deploy --only hosting
