@@ -1,6 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
-import { getMediaDimensions } from '@/utils/media';
+import { getMediaDimensions, getMediaSources } from '@/utils/media';
+
+const responsiveWidths = [480, 768, 1200, 1600];
 
 const isVideoSrc = (src) => {
   if (!src) return false;
@@ -19,6 +21,7 @@ const Media = ({
   poster,
   loading = 'lazy',
   fetchPriority = 'auto',
+  sizes = '100vw',
 }) => {
   const videoRef = useRef(null);
   const containerRef = useRef(null);
@@ -69,6 +72,7 @@ const Media = ({
             loading={loading}
             decoding="async"
             fetchPriority={fetchPriority}
+            sizes={sizes}
             width={dimensions?.width}
             height={dimensions?.height}
           />
@@ -90,17 +94,44 @@ const Media = ({
     );
   }
 
-  return (
+  const sources = getMediaSources(src);
+  const createSrcSet = (variants) =>
+    variants.length > 1
+      ? variants.map((variant, index) => `${variant} ${responsiveWidths[index] || responsiveWidths.at(-1)}w`).join(', ')
+      : variants[0];
+  const image = (
     <img
       className={className}
-      src={src}
+      src={sources.fallback}
       alt={alt}
       loading={loading}
       decoding="async"
       fetchPriority={fetchPriority}
+      sizes={sizes}
+      srcSet={sources.webp.length > 0 ? createSrcSet(sources.webp) : undefined}
       width={dimensions?.width}
       height={dimensions?.height}
     />
+  );
+
+  if (sources.avif.length === 0) return image;
+
+  return (
+    <picture>
+      <source
+        type="image/avif"
+        srcSet={createSrcSet(sources.avif)}
+        sizes={sizes}
+      />
+      {sources.webp.length > 0 && (
+        <source
+          type="image/webp"
+          srcSet={createSrcSet(sources.webp)}
+          sizes={sizes}
+        />
+      )}
+      {image}
+    </picture>
   );
 };
 
@@ -111,6 +142,7 @@ Media.propTypes = {
   poster: PropTypes.string,
   loading: PropTypes.oneOf(['eager', 'lazy']),
   fetchPriority: PropTypes.oneOf(['high', 'low', 'auto']),
+  sizes: PropTypes.string,
 };
 
 export default Media;

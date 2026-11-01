@@ -48,7 +48,7 @@ const itemVariants = {
 };
 
 const Work = () => {
-  const { projectsInDataOrder, work, loading, error } = usePortfolio();
+  const { projectsInDataOrder, workInDataOrder, loading, error } = usePortfolio();
   const location = useLocation();
   const [hoveredWorkSlug, setHoveredWorkSlug] = useState(null);
   const [hoveredProjectSlug, setHoveredProjectSlug] = useState(null);
@@ -109,10 +109,8 @@ const Work = () => {
       <Container className={styles.introContainer}>
         <RevealAnimation cascade damping={0.08} triggerOnce>
           <p>
-            <strong>Hi, I&apos;m Floria.</strong> I merge human psychology and UI to craft data-driven experiences. My
-            approach is backed by 3+ years of dedicated practice and a deep expertise in{' '}
-            illustration, allowing me to build products that are as functional as they are visually
-            immersive.
+            <strong>Hi, I&apos;m Floria.</strong> I bridge cognitive engineering and visual craft to simplify
+            mission-critical software, enterprise design systems, and complex human-machine workflows.
           </p>
           <p>
             Previously at{' '}
@@ -126,7 +124,7 @@ const Work = () => {
             <a className={styles.dottedLink} href="https://www.ubisoft.com/fr-fr" target="_blank" rel="noreferrer">
               Ubisoft,
             </a>{' '}
-            I am now seeking a UX Designer role where I can apply cognitive engineering principles to immersive digital
+            I am now seeking a <strong>UX Designer</strong> role where I can apply cognitive engineering principles to immersive digital
             products. Feel free to connect with me on{' '}
             <a
               className={styles.dottedLink}
@@ -139,23 +137,30 @@ const Work = () => {
           </p>
           <div className={styles.introAction}>
             <Button
-              variant="primary"
+              variant="secondary"
               size="small"
               icon="send"
               label={<TextMorph>{emailCopied ? 'Email copied!' : 'send email'}</TextMorph>}
               onClick={handleEmailCopy}
             />
+            <Button
+              variant="primary"
+              href="https://florialeger.github.io/deck/"
+              size="small"
+              icon="external"
+              label="view case studies"
+            />
           </div>
         </RevealAnimation>
       </Container>
 
-      {/* Recent gigs section */}
-      {work && work.length > 0 && (
+      {/* Main projects section */}
+      {workInDataOrder && workInDataOrder.length > 0 && (
         <Container className={styles.workContainer}>
           {!loading && !error && (
             <div className={styles.workList}>
               <RevealAnimation cascade damping={0.15} triggerOnce>
-                {work.map((workItem) => {
+                {workInDataOrder.map((workItem) => {
                   const targetState = { from: `${location.pathname}${location.search}${location.hash}` };
                   return (
                     <WorkCard
@@ -174,11 +179,11 @@ const Work = () => {
         </Container>
       )}
 
-      {/* Some of my projects section */}
+      {/* More projects section */}
       <Container className={styles.projectsContainer}>
         <div className={styles.projectsHeader}>
           <RevealAnimation triggerOnce>
-            <h2>Some of my projects</h2>
+            <h2>More projects</h2>
           </RevealAnimation>
         </div>
 

@@ -1,7 +1,7 @@
 .emailRow {
   display: flex;
   align-items: center;
-  gap: clamp(0.5rem, 1.5vw, 0.75rem);
+  gap: var(--stack-gap-xs);
 }
 
 .emailText {
@@ -135,21 +135,6 @@
   opacity: 0.8;
 }
 
-.followCaption {
-  pointer-events: none;
-  position: fixed;
-  background: var(--background---primary);
-  color: var(--label---primary);
-  border: 1px solid var(--separator---black-10);
-  box-shadow: var(--shadow---normal);
-  padding: 0.25rem 0.5rem;
-  border-radius: var(--radius-sm);
-  white-space: nowrap;
-  z-index: 9999;
-  transform: translate(-50%, -100%);
-  margin-top: -8px;
-}
-
 .contactRow {
   display: flex;
   align-items: center;
@@ -187,6 +172,21 @@
 
 .linkLabel:hover {
   opacity: 0.7;
+}
+
+.followCaption {
+  pointer-events: none;
+  position: fixed;
+  background: var(--background---primary);
+  color: var(--label---primary);
+  border: 1px solid var(--separator---black-10);
+  box-shadow: var(--shadow---normal);
+  padding: 0.25rem 0.5rem;
+  border-radius: var(--radius-sm);
+  white-space: nowrap;
+  z-index: 9999;
+  transform: translate(-50%, -100%);
+  margin-top: -8px;
 }
 
 .linkDescription {

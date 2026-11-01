@@ -39,7 +39,7 @@
 .introAction {
   display: flex;
   justify-content: flex-end;
-  margin-top: var(--stack-gap-sm);
+  gap: var(--stack-gap-sm);
 }
 
 .dottedLink {

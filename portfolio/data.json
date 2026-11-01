@@ -1,14 +1,18 @@
 {
-  "work": [
+  "main": [
     {
       "company": "Ubisoft",
-      "role": "UX Designer Intern",
-      "description": "Enterprise Workflow Architecture",
-      "context": [],
+      "role": "ux designer intern",
+      "title": "Creator visibility",
+      "description": "enterprise workflow architecture",
       "startDate": "2026-02-02",
       "endDate": "2026-07-31",
-      "primaryImage": ["thumbnail-ubisoft.jpg"],
+
+      "primaryImage": ["ubisoft-primary.jpg"],
       "sections": [
+        {
+          "images": ["nda.jpg"]
+        },
         {
           "title": "Human Friction",
           "description": [
@@ -99,73 +103,29 @@
           "images": ["ubisoft-12.jpg"]
         }
       ],
-
-      "slug": "ubisoft",
-
-      "companyUrl": "https://www.ubisoft.com/en-us",
-
-      "link": []
-    },
-    {
-      "company": "Stealth Startup",
-      "role": "Product Designer",
-      "description": "Synchronous Social Discovery",
-      "context": [
-        "Tasked initially with a superficial UI refresh, I deployed quantitative research across 300+ respondents to validate the founders' core hypothesis: replacing commodified swipe mechanics with synchronous video connections. The data confirmed the viability of this strategy, revealing a 77.5% rejection rate of traditional swipe interfaces among users experiencing severe market exhaustion."
-      ],
-      "startDate": "2025-04-01",
-      "endDate": "2026-01-31",
-      "primaryImage": ["thumnail-purely.jpg"],
-      "secondaryImages": [""],
-      "sections": [
-        {
-          "title": "Time-Boxed Mechanics",
-          "description": [
-            "To execute this vision, I engineered 'Connect', a real-time interaction hub restricted to a dedicated 18h-22h window to artificially drive concurrent user density and dismantle choice fatigue. To offset the restricted active window, I designed a frictionless monetization flow integrating 'Purely+' tier subscriptions and 'One Shot' micro-transactions for immediate encounter refills."
-          ]
-        },
-        {
-          "title": "High-Stakes Interaction Design",
-          "description": [
-            "The core product loop centers on a time-boxed 5-minute live audio-visual call, requiring a hyper-focused UI to manage cognitive load. "
-          ]
-        },
-        {
-          "title": "Accessibility",
-          "description": [
-            "I proposed the structural integration of real-time automated text transcription overlays to ensure hearing inclusivity, and engineered an immediate mutual 'Spark' decision gate to filter access to direct messaging.",
-            "Knowing 56% of female users face harassment, I designed a low-friction, persistent safety reporting flow that allows users to instantly block and report abusers without breaking the overarching navigation architecture."
-          ]
-        },
-        {
-          "title": "Tokenized Architecture",
-          "description": [
-            "To support the complex technical requirements of live video and asynchronous messaging, I architected a tokenized Figma design system utilizing 69 variables to seamlessly manage the brand’s dark-mode primary theme and neon interactive accents. This systematized approach eliminated design debt, ensuring rapid developer handoff across 7 fully prototyped interactive flows and over 100 high-fidelity states."
-          ]
-        },
-        {
-          "title": "Brand Execution",
-          "description": [
-            "The final deliverable included bespoke iconography, Apple HIG-compliant PACE microcopy, and a comprehensive investor pitch deck that successfully positioned the human-centered UX strategy as a viable market disruptor."
-          ]
-        }
-      ],
-      "slug": "purely",
-      "companyUrl": null,
-      "link": []
+      "slug": "creator visibility",
+      "companyUrl": "https://www.ubisoft.com/en-us"
     },
     {
       "company": "Airbus",
-      "role": "UX Consultant Intern",
-      "description": "Optimization of a training and learning platform",
-      "context": [
-        "When Airbus Helicopters built the Virtual Maintenance Trainer, a 3D simulation platform designed to train aeronautical technicians on complex maintenance procedures, they created a tool with high-fidelity technical modeling that ultimately struggled to gain traction in actual classrooms."
-      ],
+      "role": "ux consultant intern",
+      "title": "VMT",
+      "description": "optimizing cognitive affordance in industrial CAD training",
       "startDate": "2025-05-01",
       "endDate": "2025-07-25",
 
-      "primaryImage": ["thumbnail-vmt.jpg"],
+      "primaryImage": ["vmt-primary.jpg"],
       "sections": [
+        {
+          "images": ["vmt-primary.jpg"]
+        },
+        {
+          "title": "Context",
+          "description": [
+            "When Airbus Helicopters built the Virtual Maintenance Trainer, a 3D simulation platform designed to train aeronautical technicians on complex maintenance procedures, they created a tool with high-fidelity technical modeling that ultimately struggled to gain traction in actual classrooms."
+          ],
+          "images": ["vmt-1.jpg"]
+        },
         {
           "title": "Diagnostic Challenge",
           "description": [
@@ -244,71 +204,20 @@
       ],
 
       "slug": "vmt",
-      "companyUrl": "https://www.airbus.com/en",
-      "link": []
+      "companyUrl": "https://www.airbus.com/en"
     },
     {
-      "company": "Bordeaux INP",
-      "role": "Educational UX Intern",
-      "description": "Design enablement architecture",
-      "context": [
-        "During an internship at ENSC, I was challenged to introduce 15 high school students from the 'Cordées de la réussite' equal-opportunity program to UX design and cognitive engineering.",
-        "Professional tools like Figma often cause cognitive overload for beginners. My goal was to strip away the complexity and design a 4-hour workshop that was accessible, engaging, and highly practical"
-      ],
-      "startDate": "2024-06-01",
-      "endDate": "2024-06-28",
-      "primaryImage": ["thumbnail-ux-instructor.jpg"],
-      "secondaryImages": [],
-      "sections": [
-        {
-          "images": ["figma.mp4"]
-        },
-        {
-          "title": "Pedagogical Interaction",
-          "description": [
-            "To ensure the students could work autonomously, I designed a multi-tiered learning experience. I first built a dynamic, 30-minute interactive presentation natively inside Figma to demonstrate frames, layers, and typography in real-time. ",
-            "I then coded a custom HTML/CSS portal hosting step-by-step video tutorials. Before the workshop, I tested this portal with a Figma novice to measure time-on-task and identify potential usability bottlenecks, adjusting the pacing to fit our tight 4-hour window."
-          ],
-          "images": ["figma-1.jpg", "figma-3.jpg", "figma-4.jpg", "figma-5.jpg"]
-        },
-        {
-          "title": "The Agency Simulation",
-          "description": [
-            "The workshop culminated in a 2.5-hour hands-on sprint where students worked in three groups to design 'Orchestra,' a desktop music streaming application. Acting as the client, I provided strict brand guidelines and specific feature requirements, including a dedicated 'Handi-sons' section to introduce the students to the core concepts of accessibility and inclusive design."
-          ]
-        },
-        {
-          "title": "Impact & Facilitation",
-          "description": [
-            "Despite the challenges of maintaining engagement over a long session, every team successfully delivered a multi-page wireframe with functional navigation filters.",
-            "I actively coached the groups through interface friction, teaching them how to resolve layer hierarchy and alignment issues. The sprint concluded with the students pitching their UX decisions, proving that with the right structural support, novices can quickly grasp and apply professional design thinking."
-          ]
-        }
-      ],
-      "slug": "tuto-figma",
-      "companyUrl": "https://ensc.bordeaux-inp.fr/fr",
-      "link": [
-        {
-          "label": "Workshop",
-          "url": "https://florialeger.github.io/tuto-Figma/"
-        },
-        {
-          "label": "Slide Deck",
-          "url": "https://www.figma.com/community/file/1434630096456807172/slide-deck-figma"
-        }
-      ]
-    }
-  ],
-  "projects": [
-    {
-      "title": "EmCo",
+      "company": "Academic",
+      "role": "ux designer",
+      "title": "Emco",
+      "description": "decoupling emotional state from cognitive workload",
+      "startDate": "2026-01-19",
       "created": "2026-01-19",
       "endDate": "2026-01-26",
       "duration": "1 weeks",
-      "projectDuty": ["UX Design"],
-      "support": ["figma"],
-      "primaryImage": ["ENSCxSTAPS-primary.jpg"],
-      "type": "ux_ui",
+
+      "projectDuty": ["UX design"],
+      "primaryImage": ["emco-primary.jpg"],
       "sections": [
         {
           "images": ["emco.mp4"]
@@ -367,24 +276,75 @@
         }
       ],
 
-      "link": [{ "label": "View Figma", "url": "https://www.figma.com/community/file/1607410782626990891" }],
-
-      "icon": "ENSCxSTAPS-icone.png",
-      "slug": "EmCo",
-
-      "locked": false,
-
-      "shortDescription": "mobile app to disassociate cognition from emotion"
-    },
+      "link": [{ "label": "view in figma", "url": "https://www.figma.com/community/file/1607410782626990891" }],
+      "slug": "emco",
+      "shortDescription": "decoupling emotional state from cognitive workload"
+    }
+  ],
+  "projects": [
     {
-      "title": "UCD Sprint",
+      "title": "Stealth startup",
+      "shortDescription": "synchronous social discovery",
+      "projectDuty": ["ux design"],
+      "created": "2025-04-01",
+      "endDate": "2026-01-31",
+      "duration": "10",
+      "primaryImage": ["startup-primary.jpg"],
+      "sections": [
+        {
+          "images": ["nda.jpg"]
+        },
+        {
+          "title": "Strategic Pivot",
+          "description": [
+            "Tasked initially with a superficial UI refresh, I deployed quantitative research across 300+ respondents to validate the founders' core hypothesis: replacing commodified swipe mechanics with synchronous video connections. The data confirmed the viability of this strategy, revealing a 77.5% rejection rate of traditional swipe interfaces among users experiencing severe market exhaustion."
+          ]
+        },
+        {
+          "title": "Time-Boxed Mechanics",
+          "description": [
+            "To execute this vision, I engineered a real-time interaction hub restricted to a dedicated 18h-22h window to artificially drive concurrent user density and dismantle choice fatigue. To offset the restricted active window, I designed a frictionless monetization flow integrating premium tier subscriptions and single-use micro-transactions for immediate encounter refills."
+          ]
+        },
+        {
+          "title": "High-Stakes Interaction Design",
+          "description": [
+            "The core product loop centers on a time-boxed 5-minute live audio-visual call, requiring a hyper-focused UI to manage cognitive load. "
+          ]
+        },
+        {
+          "title": "Accessibility",
+          "description": [
+            "I proposed the structural integration of real-time automated text transcription overlays to ensure hearing inclusivity, and engineered an immediate mutual 'Spark' decision gate to filter access to direct messaging.",
+            "Knowing 56% of female users face harassment, I designed a low-friction, persistent safety reporting flow that allows users to instantly block and report abusers without breaking the overarching navigation architecture."
+          ]
+        },
+        {
+          "title": "Tokenized Architecture",
+          "description": [
+            "To support the complex technical requirements of live video and asynchronous messaging, I architected a tokenized Figma design system utilizing 60+ variables to seamlessly manage the brand’s dark-mode primary theme and neon interactive accents. This systematized approach eliminated design debt, ensuring rapid developer handoff across 7 fully prototyped interactive flows and 100+ high-fidelity states."
+          ]
+        },
+        {
+          "title": "Brand Execution",
+          "description": [
+            "The final deliverable included bespoke iconography, Apple HIG-compliant PACE microcopy, and a comprehensive investor pitch deck that successfully positioned the human-centered UX strategy as a viable market disruptor."
+          ]
+        }
+      ],
+      "slug": "startup",
+      "companyUrl": null
+    },
+
+    {
+      "title": "UCD sprint",
+      "shortDescription": "rapid systems architecture & field testing",
+      "projectDuty": ["ux design"],
       "created": "2024-10-05",
       "endDate": "2025-04-28",
       "duration": "7",
-      "projectDuty": ["UX Design"],
-      "support": ["figma"],
+
       "primaryImage": ["ucd-primary.jpg"],
-      "type": "ux_ui",
       "sections": [
         {
           "images": ["ucd.mp4"]
@@ -496,34 +456,27 @@
 
       "link": [
         {
-          "label": "Figma file",
-
+          "label": "view in figma",
           "url": "https://www.figma.com/community/file/1471512161772048324/deskfriend"
         }
       ],
-
-      "icon": "desk-icone.png",
-
-      "slug": "ucd-sprint",
-
-      "locked": false,
-
-      "shortDescription": "rapid systems architecture & field testing"
+      "slug": "ucd-sprint"
     },
     {
-      "title": "Card Sorting",
-      "context": [
-        "Restructuring a 33-service university portal into an intuitive 12-category taxonomy through in-person Open Card Sorting, 33x33 Similarity Matrix quantification, and semantic jargon decoupling."
-      ],
+      "title": "Card sorting",
+      "shortDescription": "aligning enterprise tooling with student mental models",
+      "projectDuty": ["ux research"],
       "created": "2025-10-07",
       "endDate": "2025-12-12",
       "duration": "3",
-      "projectDuty": ["UX Research"],
-      "support": ["figma"],
       "primaryImage": [""],
-      "type": "ux_ui",
-      "secondaryImages": [],
       "sections": [
+        {
+          "title": "Academic Context",
+          "description": [
+            "Restructuring a 33-service university portal into an intuitive 12-category taxonomy through in-person Open Card Sorting, 33x33 Similarity Matrix quantification, and semantic jargon decoupling."
+          ]
+        },
         {
           "title": "Operational Bottleneck",
           "description": [
@@ -556,92 +509,28 @@
           ]
         }
       ],
-      "link": [],
-      "icon": "",
-      "slug": "card-sorting",
-      "locked": false,
-      "shortDescription": "aligning enterprise tooling with student mental models"
+
+      "slug": "card-sorting"
     },
     {
-      "title": "KFÉ",
-      "context": [
-        "Operating under severe time constraints with highly ambiguous stakeholder directives, I led the agile discovery phase to extract and define core product mechanics. ",
-        "Through targeted requirement gathering, I isolated rigid business constraints that dictated the initial system architecture: strict adherence to corporate branding, fixed three-tier sizing, and limited modification parameters (milk and sugar). This foundational logic informed the data structure required to calculate dynamic cart totals and combined product pricing before any interface was drafted."
-      ],
-      "created": "2025-12-18",
-      "endDate": "2025-12-20",
-      "duration": "2 days",
-      "projectDuty": ["UX Design"],
-      "support": ["figma"],
-      "primaryImage": ["KFÉ-primary.jpg"],
-      "type": "ux_ui",
-      "secondaryImages": [],
-      "sections": [
-        {
-          "title": "Interaction Architecture",
-          "description": [
-            "To optimize the legacy interface, I conducted a heuristic optimization sprint focused on minimizing user cognitive load and friction. I abandoned traditional multi-screen modification flows in favor of engineering complex, multi-state in-line expansion cards directly on the main menu. Utilizing tactile segmented controls and dot sliders, users can fully customize their beverage without ever losing their primary browsing context. ",
-            "This structural shift was paired with a visual overhaul rooted in culinary psychology: replacing rigid corporate greens with warm oranges and coffee-browns to maximize food affordance and stimulate user engagement."
-          ],
-          "images": ["KFÉ-1.jpg", "KFÉ-2.jpg"]
-        },
-        {
-          "title": "Adaptive Checkout",
-          "description": [
-            "The checkout architecture was engineered to dynamically adapt to fulfillment intent, preventing user errors. 'Delivery' mode strictly locks payment calls-to-action until address validation is complete, while 'Pickup' mode defaults to geolocation-based store routing and surfaces immediate hardware payment options (Apple Pay). "
-          ],
-          "images": ["KFÉ-3.jpg", "KFÉ-4.jpg"]
-        },
-        {
-          "title": "Edge Case Management",
-          "description": [
-            "To systematically increase Average Order Value (AOV), the flow integrates a receipt-style cart layout with an inline cross-selling module 'Want a snack with that?'. ",
-            "Post-purchase anxiety is mitigated through continuous system visibility, satisfying core stakeholder requirements via a multi-stage visual preparation timeline and a persistent status bar."
-          ],
-          "images": ["KFÉ-5.jpg"]
-        },
-        {
-          "title": "Scalable Component System",
-          "description": [
-            "To support these dynamic interactions, I architected a highly scalable UI kit. Rather than relying on dozens of static screens, I built a modular Figma system utilizing advanced variants and boolean properties, allowing a minimal set of base components to effortlessly handle the exponential combinations of sizes, modifiers, and cart states. "
-          ],
-          "images": ["KFÉ-6.jpg", "KFÉ-7.jpg", "KFÉ-8.jpg"]
-        },
-        {
-          "title": "AI Validation",
-          "description": [
-            "To validate the architecture during a rapid iteration cycle, I deployed Google AI Studio to run simulated heuristic audits against Nielsen’s principles, confirming that the in-line customization logic successfully reduced friction and that the adaptive checkout flows provided clear, error-free affordances."
-          ]
-        }
-      ],
-      "link": [
-        {
-          "label": "View Figma",
-          "link": "https://www.figma.com/community/file/1695197477084254025"
-        }
-      ],
-      "icon": "KFÉ-icone.png",
-      "slug": "KFÉ",
-      "locked": false,
-      "shortDescription": "redesign of a coffee shop's mobile app"
-    },
-    {
-      "title": "Figma Fundamentals",
-      "context": [
-        "At ENSC, engineering students are required to rapidly build interactive UI prototypes for cross-disciplinary projects, user testing, and stakeholder presentations. Without formal training in design system architecture, students relied on trial-and-error execution.",
-        "This resulted in fragile component hierarchies, broken layouts, and inconsistent interfaces that compromised both the integrity of live user testing and eventual developer handoffs."
-      ],
+      "title": "Figma fundamentals",
+      "shortDescription": "engineering student curriculum",
+      "projectDuty": ["ux design"],
       "created": "2025-10-03",
       "endDate": "2026-02-07",
       "duration": "4 months",
-      "projectDuty": ["UX Design"],
-      "support": ["figma"],
+
       "primaryImage": ["figma-course-primary.jpg"],
-      "type": "ux_ui",
-      "secondaryImages": [],
       "sections": [
         {
           "images": ["figma-course-1.jpg"]
+        },
+        {
+          "title": "Challenge",
+          "description": [
+            "At ENSC, engineering students are required to rapidly build interactive UI prototypes for cross-disciplinary projects, user testing, and stakeholder presentations. Without formal training in design system architecture, students relied on trial-and-error execution.",
+            "This resulted in fragile component hierarchies, broken layouts, and inconsistent interfaces that compromised both the integrity of live user testing and eventual developer handoffs."
+          ]
         },
         {
           "title": "Architecting the Solution",
@@ -675,31 +564,148 @@
       ],
       "link": [
         {
-          "label": "View Slides",
+          "label": "view course slides",
           "url": "https://florialeger.github.io/figma-course/"
         }
       ],
-      "icon": "figma-course-icone.png",
-      "slug": "figma-course",
-      "locked": false,
-      "shortDescription": "engineering student curriculum"
+      "slug": "figma-course"
+    }
+  ],
+  "playgrounds": [
+    {
+      "company": "Bordeaux INP",
+      "role": "educational ux intern",
+      "description": "design enablement architecture",
+      "startDate": "2024-06-01",
+      "endDate": "2024-06-28",
+
+      "primaryImage": ["figma-primary.jpg"],
+      "sections": [
+        {
+          "images": ["figma.mp4"]
+        },
+        {
+          "title": "Challenge",
+          "description": [
+            "During an internship at ENSC, I was challenged to introduce 15 high school students from the 'Cordées de la réussite' equal-opportunity program to UX design and cognitive engineering.",
+            "Professional tools like Figma often cause cognitive overload for beginners. My goal was to strip away the complexity and design a 4-hour workshop that was accessible, engaging, and highly practical"
+          ]
+        },
+        {
+          "title": "Pedagogical Interaction",
+          "description": [
+            "To ensure the students could work autonomously, I designed a multi-tiered learning experience. I first built a dynamic, 30-minute interactive presentation natively inside Figma to demonstrate frames, layers, and typography in real-time. ",
+            "I then coded a custom HTML/CSS portal hosting step-by-step video tutorials. Before the workshop, I tested this portal with a Figma novice to measure time-on-task and identify potential usability bottlenecks, adjusting the pacing to fit our tight 4-hour window."
+          ],
+          "images": ["figma-1.jpg", "figma-3.jpg", "figma-4.jpg", "figma-5.jpg"]
+        },
+        {
+          "title": "The Agency Simulation",
+          "description": [
+            "The workshop culminated in a 2.5-hour hands-on sprint where students worked in three groups to design 'Orchestra,' a desktop music streaming application. Acting as the client, I provided strict brand guidelines and specific feature requirements, including a dedicated 'Handi-sons' section to introduce the students to the core concepts of accessibility and inclusive design."
+          ]
+        },
+        {
+          "title": "Impact & Facilitation",
+          "description": [
+            "Despite the challenges of maintaining engagement over a long session, every team successfully delivered a multi-page wireframe with functional navigation filters.",
+            "I actively coached the groups through interface friction, teaching them how to resolve layer hierarchy and alignment issues. The sprint concluded with the students pitching their UX decisions, proving that with the right structural support, novices can quickly grasp and apply professional design thinking."
+          ]
+        }
+      ],
+
+      "slug": "educational-ux",
+      "companyUrl": "https://ensc.bordeaux-inp.fr/fr",
+
+      "link": [
+        {
+          "label": "view workshop",
+          "url": "https://florialeger.github.io/tuto-Figma/"
+        },
+        {
+          "label": "view slide deck",
+          "url": "https://www.figma.com/community/file/1434630096456807172/slide-deck-figma"
+        }
+      ]
     },
     {
-      "title": "Mates",
-      "context": [
-        "The founders of Mates, a peer-to-peer student note-sharing platform, required a brand identity that communicated community trust and pack strength without feeling overly academic.",
-        "They provided strict visual constraints: \n• integrate the letter 'M' \n• use a wolf or ant motif\n• employ the Inter typeface\n• utilize a vibrant blue/orange palette."
+      "title": "kfé",
+      "shortDescription": "redesign of a coffee shop's mobile app",
+
+      "created": "2025-12-18",
+      "endDate": "2025-12-20",
+      "duration": "2 days",
+
+      "projectDuty": ["ux design"],
+      "primaryImage": ["kfe-primary.jpg"],
+      "sections": [
+        {
+          "images": ["kfe-1.jpg"]
+        },
+        {
+          "title": "Navigating Ambiguity",
+          "description": [
+            "Operating under severe time constraints with highly ambiguous stakeholder directives, I led the agile discovery phase to extract and define core product mechanics. ",
+            "Through targeted requirement gathering, I isolated rigid business constraints that dictated the initial system architecture: strict adherence to corporate branding, fixed three-tier sizing, and limited modification parameters (milk and sugar). This foundational logic informed the data structure required to calculate dynamic cart totals and combined product pricing before any interface was drafted."
+          ]
+        },
+        {
+          "title": "Interaction Architecture",
+          "description": [
+            "To optimize the legacy interface, I conducted a heuristic optimization sprint focused on minimizing user cognitive load and friction. I abandoned traditional multi-screen modification flows in favor of engineering complex, multi-state in-line expansion cards directly on the main menu. Utilizing tactile segmented controls and dot sliders, users can fully customize their beverage without ever losing their primary browsing context. ",
+            "This structural shift was paired with a visual overhaul rooted in culinary psychology: replacing rigid corporate greens with warm oranges and coffee-browns to maximize food affordance and stimulate user engagement."
+          ],
+          "images": ["kfe-2.jpg", "kfe-3.jpg"]
+        },
+        {
+          "title": "Adaptive Checkout",
+          "description": [
+            "The checkout architecture was engineered to dynamically adapt to fulfillment intent, preventing user errors. 'Delivery' mode strictly locks payment calls-to-action until address validation is complete, while 'Pickup' mode defaults to geolocation-based store routing and surfaces immediate hardware payment options (Apple Pay). "
+          ],
+          "images": ["kfe-4.jpg", "kfe-5.jpg"]
+        },
+        {
+          "title": "Edge Case Management",
+          "description": [
+            "To systematically increase Average Order Value (AOV), the flow integrates a receipt-style cart layout with an inline cross-selling module 'Want a snack with that?'. ",
+            "Post-purchase anxiety is mitigated through continuous system visibility, satisfying core stakeholder requirements via a multi-stage visual preparation timeline and a persistent status bar."
+          ],
+          "images": ["kfe-6.jpg"]
+        },
+        {
+          "title": "Scalable Component System",
+          "description": [
+            "To support these dynamic interactions, I architected a highly scalable UI kit. Rather than relying on dozens of static screens, I built a modular Figma system utilizing advanced variants and boolean properties, allowing a minimal set of base components to effortlessly handle the exponential combinations of sizes, modifiers, and cart states. "
+          ],
+          "images": ["kfe-7.jpg", "kfe-8.jpg", "kfe-9.jpg"]
+        }
       ],
+      "link": [
+        {
+          "label": "view in figma",
+          "link": "https://www.figma.com/community/file/1695197477084254025"
+        }
+      ],
+      "slug": "kfe"
+    },
+    {
+      "title": "mates",
+      "shortDescription": "comprehensive brand ecosystem and print assets",
       "created": "2025-01-31",
       "endDate": "2025-03-31",
-      "duration": "2 months",
-      "projectDuty": ["Brand Design"],
-      "support": ["paper", "procreate", "figma"],
+      "projectDuty": ["brand design"],
       "primaryImage": ["mates-primary.jpg"],
-      "type": "illustration",
       "sections": [
         {
           "images": ["mates-1.jpg"]
+        },
+        {
+          "title": "Challenge",
+          "description": [
+            "The founders of Mates, a peer-to-peer student note-sharing platform, required a brand identity that communicated community trust and pack strength without feeling overly academic.",
+            "They provided strict visual constraints:",
+            "• integrate the letter M\n• use a wolf or ant motif\n• employ the Inter typeface\n• utilize a vibrant blue/orange palette"
+          ]
         },
         {
           "title": "Strategic Execution",
@@ -726,31 +732,31 @@
       ],
       "link": [
         {
-          "label": "Brand Guidelines",
-          "link": "https://www.figma.com/community/file/1695742092378825229"
+          "label": "view brand guidelines",
+          "url": "https://www.figma.com/community/file/1695742092378825229"
         }
       ],
-      "icon": "mates-icone.png",
-      "slug": "mates",
-      "locked": false,
-      "shortDescription": "comprehensive brand ecosystem and print assets"
+      "slug": "mates"
     },
     {
-      "title": "Krystal 2026",
-      "context": [
-        "Krystal is the premier annual sports tournament for the Bordeaux INP network, bringing together over 500 students and supporters across eight engineering schools. I was re-engaged for the 2026 edition to create a complete garment branding system around an 'Elemental Forces' theme within a strict two-week deadline.",
-        "The critical constraint: a strict two-week delivery deadline for all production-ready assets, with garment manufacturing limited to single-color screen printing on diverse fabric colors."
-      ],
+      "title": "krystal",
+      "shortDescription": "elements visual identity for sports events",
+      
       "created": "2026-01-01",
       "endDate": "2026-01-17",
       "duration": "2 weeks",
-      "projectDuty": ["Logo Design"],
-      "support": ["figma"],
+      "projectDuty": ["logo design"],
       "primaryImage": ["krystal2026-primary.jpg"],
-      "type": "illustration",
       "sections": [
         {
           "images": ["krystal2026-1.jpg", "krystal2026-2.jpg"]
+        },
+        {
+          "title": "Context",
+          "description": [
+            "Krystal is the premier annual sports tournament for the Bordeaux INP network, bringing together over 500 students and supporters across eight engineering schools. I was re-engaged for the 2026 edition to create a complete garment branding system around an 'Elemental Forces' theme within a strict two-week deadline.",
+            "The critical constraint: a strict two-week delivery deadline for all production-ready assets, with garment manufacturing limited to single-color screen printing on diverse fabric colors."
+          ]
         },
         {
           "title": "Modular Architecture",
@@ -791,74 +797,38 @@
       ],
       "link": [
         {
-          "label": "View Figma",
+          "label": "view brand assets",
           "url": "https://www.figma.com/community/file/1607107101909827807"
         }
       ],
-      "icon": "krystal-icone.png",
-      "slug": "krystal-2026",
-      "locked": false,
-      "shortDescription": "elements visual identity for sports events"
-    }
-  ],
-  "playgrounds": [
+      "slug": "krystal"
+    },
+
     {
-      "title": "Logo",
+      "title": "logo",
       "created": "2024-11-24",
-      "endDate": "2024-11-24",
-      "support": ["figma"],
       "primaryImage": ["logo-primary.jpg"],
-      "type": "ux_ui",
-      "secondaryImages": ["logo-1.jpg", "logo-2.jpg"],
+      "secondaryImages": ["logo-1.jpg"],
       "slug": "logo"
     },
     {
-      "title": "Stickers",
+      "title": "stickers",
       "created": "2025-01-25",
-      "endDate": "2025-01-25",
-      "support": ["figma"],
       "primaryImage": ["sticker-primary.jpg"],
-      "type": "ux_ui",
       "secondaryImages": ["sticker-1.jpg", "sticker-2.jpg", "sticker-3.jpg"],
       "slug": "sticker"
     },
     {
-      "title": "Interaction",
-      "created": "2025-02-03",
-      "endDate": "2025-02-03",
-      "support": ["figma"],
-      "primaryImage": ["interaction-primary.jpg"],
-      "type": "ux_ui",
-      "secondaryImages": ["interaction.mp4", "interaction-1.jpg", "interaction-2.jpg"],
-      "slug": "interaction"
-    },
-    {
-      "title": "Interaction",
+      "title": "interaction",
       "created": "2025-02-05",
-      "endDate": "2025-02-05",
-      "support": ["figma"],
-      "primaryImage": ["interaction2.mp4"],
-      "type": "ux_ui",
-      "secondaryImages": ["interaction2.mp4", "interaction2-1.jpg", "interaction2-2.jpg"],
+      "primaryImage": ["interaction2-primary.jpg"],
+      "secondaryImages": ["interaction2.mp4"],
       "slug": "interaction-02"
     },
     {
-      "title": "Interaction",
-      "created": "2025-02-06",
-      "endDate": "2025-02-06",
-      "support": ["figma"],
-      "primaryImage": ["interaction3-primary.jpg"],
-      "type": "ux_ui",
-      "secondaryImages": ["interaction3.mp4", "interaction3-1.jpg", "interaction3-2.jpg"],
-      "slug": "interaction-03"
-    },
-    {
-      "title": "GameBoy",
+      "title": "gameboy",
       "created": "2025-02-15",
-      "endDate": "2025-02-15",
-      "support": ["figma"],
       "primaryImage": ["gameboy-primary.jpg"],
-      "type": "ux_ui",
       "secondaryImages": [
         "gameboy.mp4",
         "gameboy-2.jpg",
@@ -870,96 +840,44 @@
       "slug": "gameboy"
     },
     {
-      "title": "Interaction",
+      "title": "interaction",
       "created": "2025-02-18",
-      "endDate": "2025-02-18",
-      "support": ["figma"],
-      "primaryImage": ["interaction4.mp4"],
-      "type": "ux_ui",
-      "secondaryImages": ["interaction4.mp4", "interaction4-1.jpg", "interaction4-2.jpg", "interaction4-3.jpg"],
+      "primaryImage": ["interaction4-primary.jpg"],
+      "secondaryImages": ["interaction4.mp4"],
       "slug": "interaction-04"
     },
     {
-      "title": "Animation",
+      "title": "animation",
       "created": "2025-02-27",
-      "endDate": "2025-02-27",
-      "support": ["figma"],
-      "primaryImage": ["interaction5.mp4"],
-      "type": "ux_ui",
-      "secondaryImages": [
-        "interaction5.mp4",
-        "interaction5-1.jpg",
-        "interaction5-2.jpg",
-        "interaction5-3.jpg",
-        "interaction5-4.jpg"
-      ],
+      "primaryImage": ["interaction5-primary.jpg"],
+      "secondaryImages": ["interaction5.mp4"],
       "slug": "animation"
     },
     {
-      "title": "MP3",
+      "title": "mp3",
       "created": "2025-03-05",
-      "endDate": "2025-03-05",
-      "support": ["figma"],
       "primaryImage": ["mp3-primary.jpg"],
-      "type": "ux_ui",
       "secondaryImages": ["mp3-1.jpg", "mp3-2.jpg", "mp3-3.jpg"],
       "slug": "mp3"
     },
     {
-      "title": "Icons",
+      "title": "icons",
       "created": "2025-04-25",
-      "endDate": "2025-04-25",
-
-      "support": ["figma"],
       "primaryImage": ["icon-primary.jpg"],
-      "type": "ux_ui",
       "secondaryImages": ["icon-1.jpg", "icon-2.jpg", "icon-3.jpg"],
       "slug": "icon-01"
     },
     {
-      "title": "Logos",
-      "created": "2025-05-27",
-      "endDate": "2025-05-27",
-
-      "support": ["figma"],
-      "primaryImage": ["logo2-primary.jpg"],
-      "type": "ux_ui",
-      "secondaryImages": ["logo2-1.jpg"],
-      "slug": "bordeaux-inp",
-      "link": [
-        { "label": "View Figma", "url": "https://www.figma.com/community/file/1570704562718253153/bordeaux-inp-icones" }
-      ]
-    },
-    {
-      "title": "Icons",
+      "title": "icons",
       "created": "2025-10-26",
-      "endDate": "2025-10-26",
-
-      "support": ["figma"],
       "primaryImage": ["icon2-primary.jpg"],
-      "type": "ux_ui",
       "secondaryImages": ["icon2-1.jpg", "icon2-2.jpg", "icon2-3.jpg", "icon2-4.jpg", "icon2-5.jpg", "icon2-6.jpg"],
       "slug": "icon-02"
     },
     {
-      "title": "Icons",
-      "created": "2025-10-27",
-      "endDate": "2025-10-27",
-
-      "support": ["figma"],
-      "primaryImage": ["icon3-primary.jpg"],
-      "type": "ux_ui",
-      "secondaryImages": ["icon3-1.jpg", "icon3-2.jpg"],
-      "slug": "icon-03"
-    },
-    {
-      "title": "Tags",
+      "title": "tags",
       "created": "2025-10-31",
-      "endDate": "2025-10-31",
-
-      "support": ["figma"],
       "primaryImage": ["tag-primary.jpg"],
-      "type": "ux_ui",
       "secondaryImages": [
         "tag-1.jpg",
         "tag-2.jpg",
@@ -970,50 +888,19 @@
         "tag-7.jpg",
         "tag-8.jpg"
       ],
-      "slug": "tag"
+      "slug": "tags"
     },
     {
-      "title": "Widget",
+      "title": "widget",
       "created": "2025-12-15",
-      "endDate": "2025-12-15",
-
-      "support": ["figma"],
       "primaryImage": ["widget-primary.jpg"],
-      "type": "ux_ui",
       "secondaryImages": ["widget-1.jpg", "widget-2.jpg", "widget-3.jpg"],
       "slug": "widget"
     },
     {
-      "title": "Widget",
-      "created": "2025-12-15",
-      "endDate": "2025-12-15",
-
-      "support": ["figma"],
-      "primaryImage": ["widget2-primary.jpg"],
-      "type": "ux_ui",
-      "secondaryImages": ["widget2-1.jpg", "widget2-2.jpg", "widget2-3.jpg", "widget2-4.jpg"],
-      "slug": "widget-02"
-    },
-    {
-      "title": "Card",
+      "title": "keyboard",
       "created": "2025-12-16",
-      "endDate": "2025-12-16",
-
-      "support": ["figma"],
-      "primaryImage": ["card-primary.jpg"],
-      "type": "ux_ui",
-      "secondaryImages": ["card-1.jpg", "card-2.jpg", "card-3.jpg", "card-4.jpg"],
-      "slug": "card",
-      "link": []
-    },
-    {
-      "title": "Desktop",
-      "created": "2025-12-16",
-      "endDate": "2025-12-16",
-
-      "support": ["figma"],
       "primaryImage": ["desktop-primary.jpg"],
-      "type": "ux_ui",
       "secondaryImages": [
         "desktop-1.jpg",
         "desktop-2.jpg",
@@ -1023,58 +910,13 @@
         "desktop-6.jpg",
         "desktop-7.jpg"
       ],
-      "slug": "desktop"
-    },
-    {
-      "title": "Desktop",
-      "context": [],
-      "created": "2025-12-17",
-      "endDate": "2025-12-17",
-
-      "support": ["figma"],
-      "primaryImage": ["desktop2-primary.jpg"],
-      "type": "ux_ui",
-      "secondaryImages": [
-        "desktop2-1.jpg",
-        "desktop2-2.jpg",
-        "desktop2-3.jpg",
-        "desktop2-4.jpg",
-        "desktop2-5.jpg",
-        "desktop2-6.jpg"
-      ],
-      "slug": "desktop-02",
-      "link": []
-    },
-    {
-      "title": "Desktop",
-      "created": "2025-12-18",
-      "endDate": "2025-12-18",
-
-      "support": ["figma"],
-      "primaryImage": ["desktop3-primary.jpg"],
-      "type": "ux_ui",
-      "secondaryImages": ["desktop3-1.jpg", "desktop3-2.jpg", "desktop3-3.jpg", "desktop3-4.jpg", "desktop3-5.jpg"],
-      "slug": "desktop-03"
-    },
-    {
-      "title": "Mobile",
-      "created": "2025-12-19",
-      "endDate": "2025-12-19",
-
-      "support": ["figma"],
-      "primaryImage": ["mobile-primary.jpg"],
-      "type": "ux_ui",
-      "secondaryImages": ["mobile-1.jpg", "mobile-2.jpg", "mobile-3.jpg"],
-      "slug": "mobile"
+      "slug": "keyboard"
     },
 
     {
-      "title": "Digital Board",
+      "title": "board",
       "created": "2023-08-01",
-      "endDate": "2023-08-01",
-      "support": ["procreate"],
       "primaryImage": ["planche-primary.jpg"],
-      "type": "illustration",
       "secondaryImages": [
         "planche-1.jpg",
         "planche-2.jpg",
@@ -1084,15 +926,12 @@
         "planche-6.jpg",
         "planche-7.jpg"
       ],
-      "slug": "digital-board-01"
+      "slug": "board-01"
     },
     {
-      "title": "Digital Board",
+      "title": "board",
       "created": "2023-08-15",
-      "endDate": "2023-08-15",
-      "support": ["procreate"],
       "primaryImage": ["planche2-primary.jpg"],
-      "type": "illustration",
       "secondaryImages": [
         "planche2-1.jpg",
         "planche2-2.jpg",
@@ -1102,45 +941,19 @@
         "planche2-6.jpg",
         "planche2-7.jpg"
       ],
-      "slug": "digital-board-02"
+      "slug": "board-02"
     },
     {
-      "title": "Boucaniers",
+      "title": "boucaniers",
       "created": "2024-02-15",
-      "endDate": "2024-02-15",
-      "support": ["procreate"],
       "primaryImage": ["boucaniers-primary.jpg"],
-      "type": "illustration",
       "secondaryImages": ["boucaniers-1.jpg", "boucaniers-2.jpg", "boucaniers-3.jpg", "boucaniers-4.jpg"],
       "slug": "les-boucaniers"
     },
     {
-      "title": "Choralamar",
-      "created": "2024-02-20",
-      "endDate": "2024-02-20",
-      "support": ["procreate"],
-      "primaryImage": ["choralamar-primary.jpg"],
-      "type": "illustration",
-      "secondaryImages": ["choralamar-1.jpg"],
-      "slug": "choralamar"
-    },
-    {
-      "title": "Anatomy",
-      "created": "2024-06-15",
-      "endDate": "2024-06-15",
-      "support": ["procreate"],
-      "primaryImage": ["hand-primary.jpg"],
-      "type": "illustration",
-      "secondaryImages": ["hand-1.jpg", "hand-2.jpg", "hand-3.jpg", "hand-4.jpg", "hand-5.jpg"],
-      "slug": "anatomy"
-    },
-    {
-      "title": "Digital Board",
+      "title": "board",
       "created": "2024-07-10",
-      "endDate": "2024-07-10",
-      "support": ["procreate"],
       "primaryImage": ["planche3-primary.jpg"],
-      "type": "illustration",
       "secondaryImages": [
         "planche3-1.jpg",
         "planche3-2.jpg",
@@ -1150,15 +963,12 @@
         "planche3-6.jpg",
         "planche3-7.jpg"
       ],
-      "slug": "digital-board-03"
+      "slug": "board-03"
     },
     {
-      "title": "Digital Board",
+      "title": "board",
       "created": "2025-02-26",
-      "endDate": "2025-02-26",
-      "support": ["procreate"],
       "primaryImage": ["planche4-primary.jpg"],
-      "type": "illustration",
       "secondaryImages": [
         "planche4-1.jpg",
         "planche4-2.jpg",
@@ -1167,35 +977,19 @@
         "planche4-5.jpg",
         "planche4-6.jpg"
       ],
-      "slug": "digital-board-04"
+      "slug": "board-04"
     },
     {
-      "title": "Sketch",
+      "title": "sketch",
       "created": "2025-03-14",
-      "endDate": "2025-03-14",
-      "support": ["paper"],
       "primaryImage": ["sketch-primary.jpg"],
-      "type": "illustration",
       "secondaryImages": ["sketch-1.jpg", "sketch-2.jpg", "sketch-3.jpg", "sketch-4.jpg", "sketch-5.jpg"],
       "slug": "sketch-01"
     },
     {
-      "title": "Sketch",
-      "created": "2025-06-21",
-      "endDate": "2025-06-21",
-      "support": ["paper"],
-      "primaryImage": ["sketch2-primary.jpg"],
-      "type": "illustration",
-      "secondaryImages": ["sketch2-1.jpg", "sketch2-2.jpg", "sketch2-3.jpg", "sketch2-4.jpg", "sketch2-5.jpg"],
-      "slug": "sketch-02"
-    },
-    {
-      "title": "Expression",
+      "title": "expression",
       "created": "2025-07-24",
-      "endDate": "2025-07-24",
-      "support": ["procreate"],
       "primaryImage": ["expression-primary.jpg"],
-      "type": "illustration",
       "secondaryImages": [
         "expression-1.jpg",
         "expression-2.jpg",
@@ -1206,62 +1000,9 @@
       "slug": "expression"
     },
     {
-      "title": "Portrait",
-      "created": "2025-09-02",
-      "endDate": "2025-09-02",
-      "support": ["procreate"],
-      "primaryImage": ["portrait-primary.jpg"],
-      "type": "illustration",
-      "secondaryImages": ["portrait-1.jpg"],
-      "slug": "portrait"
-    },
-    {
-      "title": "Background",
-      "context": [],
-      "created": "2025-09-04",
-      "endDate": "2025-09-04",
-      "support": ["procreate"],
-      "primaryImage": ["background-primary.jpg"],
-      "type": "illustration",
-      "secondaryImages": [
-        "background-1.jpg",
-        "background-2.jpg",
-        "background-3.jpg",
-        "background-4.jpg",
-        "background-5.jpg",
-        "background-6.jpg"
-      ],
-      "slug": "background"
-    },
-    {
-      "title": "Portrait",
-      "created": "2025-09-14",
-      "endDate": "2025-09-14",
-      "support": ["procreate"],
-      "primaryImage": ["portrait2-primary.jpg"],
-      "type": "illustration",
-      "secondaryImages": ["portrait2-1.jpg", "portrait2-2.jpg"],
-      "slug": "portrait-02"
-    },
-    {
-      "title": "Expression",
-      "created": "2025-12-30",
-      "endDate": "2025-12-30",
-      "support": ["procreate"],
-      "primaryImage": ["expression2-primary.jpg"],
-      "type": "illustration",
-      "secondaryImages": ["expression2-1.jpg", "expression2-2.jpg", "expression2-3.jpg", "expression2-4.jpg"],
-      "slug": "expression-02",
-      "link": []
-    },
-    {
-      "title": "Portrait",
+      "title": "portrait",
       "created": "2026-02-06",
-      "endDate": "2026-02-06",
-
-      "support": ["procreate"],
       "primaryImage": ["portrait3-primary.jpg"],
-      "type": "illustration",
       "secondaryImages": [
         "portrait3-1.jpg",
         "portrait3-2.jpg",
@@ -1272,22 +1013,9 @@
       "slug": "portrait-03"
     },
     {
-      "title": "Portrait",
-      "created": "2026-02-09",
-      "endDate": "2026-02-09",
-      "support": ["procreate"],
-      "primaryImage": ["portrait4-primary.jpg"],
-      "type": "illustration",
-      "secondaryImages": ["portrait4-1.jpg", "portrait4-2.jpg"],
-      "slug": "portrait-04"
-    },
-    {
-      "title": "Anatomy",
+      "title": "anatomy",
       "created": "2026-04-09",
-      "endDate": "2026-04-09",
-      "support": ["procreate"],
       "primaryImage": ["hand2-primary.jpg"],
-      "type": "illustration",
       "secondaryImages": [
         "hand2.mp4",
         "hand2-1.jpg",
@@ -1301,42 +1029,16 @@
       "slug": "anatomy-02"
     },
     {
-      "title": "Sketch",
-      "created": "2026-07-05",
-      "endDate": "2026-07-05",
-      "support": ["procreate"],
-      "primaryImage": ["sketch3-primary.jpg"],
-      "type": "illustration",
-      "secondaryImages": ["sketch3-1.jpg"],
-      "slug": "sketch-03"
-    },
-    {
-      "title": "Sketch",
+      "title": "ink",
       "created": "2026-08-06",
-      "endDate": "2026-08-06",
-      "support": ["paper"],
       "primaryImage": ["sketch4-primary.jpg"],
-      "type": "illustration",
       "secondaryImages": ["sketch4-1.jpg", "sketch4-2.jpg", "sketch4-3.jpg", "sketch4-4.jpg", "sketch4-5.jpg"],
       "slug": "sketch-04"
     },
     {
-      "title": "Portrait",
-      "created": "2026-09-10",
-      "endDate": "2026-09-10",
-      "support": ["procreate"],
-      "primaryImage": ["portrait5-primary.jpg"],
-      "type": "illustration",
-      "secondaryImages": ["portrait5-1.jpg"],
-      "slug": "portrait-05"
-    },
-    {
-      "title": "Alco",
+      "title": "alco",
       "created": "2026-10-08",
-      "endDate": "2026-10-08",
-      "support": ["procreate"],
       "primaryImage": ["alco-primary.jpg"],
-      "type": "illustration",
       "secondaryImages": ["alco-1.jpg", "alco-2.jpg", "alco-3.jpg"],
       "slug": "aclo"
     }

@@ -101,7 +101,7 @@ export const fetchWork = async () => {
   if (!USE_BACKEND) {
     try {
       const dataModule = await import('../../data.json');
-      return dataModule.work || dataModule.default?.work || [];
+      return dataModule.main || dataModule.default?.main || dataModule.work || dataModule.default?.work || [];
     } catch {
       return [];
     }
@@ -114,7 +114,7 @@ export const fetchWork = async () => {
   } catch {
     try {
       const dataModule = await import('../../data.json');
-      return dataModule.work || dataModule.default?.work || [];
+      return dataModule.main || dataModule.default?.main || dataModule.work || dataModule.default?.work || [];
     } catch {
       return [];
     }

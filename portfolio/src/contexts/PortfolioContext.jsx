@@ -246,18 +246,6 @@ export const PortfolioProvider = ({ children }) => {
     return map;
   }, [work]);
 
-  const sortedWork = useMemo(() => {
-    return [...work].sort((a, b) => {
-      // ongoing work first
-      if (a.isOngoing && !b.isOngoing) return -1;
-      if (!a.isOngoing && b.isOngoing) return 1;
-
-      const dateA = a.startDateObj ? a.startDateObj.getTime() : 0;
-      const dateB = b.startDateObj ? b.startDateObj.getTime() : 0;
-      return dateB - dateA;
-    });
-  }, [work]);
-
   const uniqueDuties = useMemo(() => {
     const duties = new Set();
     projects.forEach((project) => {
@@ -301,7 +289,8 @@ export const PortfolioProvider = ({ children }) => {
       projects: sortedProjects,
       projectsInDataOrder: projects,
       playgrounds: sortedPlaygrounds,
-      work: sortedWork,
+      work,
+      workInDataOrder: work,
       loading,
       error,
       refresh: loadData,
@@ -315,7 +304,7 @@ export const PortfolioProvider = ({ children }) => {
       sortedProjects,
       projects,
       sortedPlaygrounds,
-      sortedWork,
+      work,
       loading,
       error,
       loadData,

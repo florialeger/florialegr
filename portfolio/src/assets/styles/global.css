@@ -143,7 +143,7 @@
   --layout-page-padding-top: var(--comp-page-padding-top);
   --layout-page-padding-bottom: var(--comp-page-padding-bottom);
 
- --stack-gap-2xl: var(--comp-stack-gap-2xl);
+  --stack-gap-2xl: var(--comp-stack-gap-2xl);
   --stack-gap-lg: var(--comp-stack-gap-lg);
   --stack-gap-xl: var(--comp-stack-gap-xl);
   --stack-gap-md: var(--comp-stack-gap-md);
@@ -151,7 +151,8 @@
   --stack-gap-xs: var(--comp-stack-gap-xs);
   --stack-gap-xxs: var(--comp-stack-gap-xxs);
 
-  --padding-extra-small-h: var(--pr-space-3xs);
+  --padding-extra-small-h: var(--pr-space-2xs);
+  --padding-extra-small-v: var(--pr-space-3xs);
   --padding-small-h: var(--comp-button-padding-small-h);
   --padding-small-v: var(--comp-button-padding-small-v);
   --padding-big-h: var(--comp-button-padding-big-h);

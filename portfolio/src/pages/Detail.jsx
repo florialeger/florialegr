@@ -1,10 +1,12 @@
 import { useMemo, useRef, useState, useEffect, useCallback } from 'react';
+import { motion, useMotionValue, useSpring } from 'framer-motion';
 import PropTypes from 'prop-types';
 import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import Button from '@/components/ui/Button';
 import { usePortfolio } from '@/contexts/PortfolioContext';
 import formatDate from '@/utils/formatDate';
 import formatDuration from '@/utils/formatDuration';
+import formatDateDifference from '@/utils/formatDateDifference';
 import { resolveMediaPath } from '@/utils/media';
 import parseHtmlText from '@/utils/parseHtmlText';
 import styles from './Detail.module.css';
@@ -17,8 +19,15 @@ const Detail = ({ variant }) => {
   const { slug } = useParams();
   const navigate = useNavigate();
   const location = useLocation();
-  const { loading, getProjectBySlug, getPlaygroundBySlug, getWorkBySlug, projectsInDataOrder, playgrounds, work } =
-    usePortfolio();
+  const {
+    loading,
+    getProjectBySlug,
+    getPlaygroundBySlug,
+    getWorkBySlug,
+    projectsInDataOrder,
+    playgrounds,
+    workInDataOrder,
+  } = usePortfolio();
   const titleRef = useRef(null);
   const footerRef = useRef(null);
 
@@ -27,6 +36,18 @@ const Detail = ({ variant }) => {
 
   // Track if navigation should be docked to footer (bottom of content reached)
   const [isNavDocked, setIsNavDocked] = useState(false);
+  const previousCaptionState = useRef({ lastY: 0 });
+  const nextCaptionState = useRef({ lastY: 0 });
+  const previousCaptionX = useMotionValue(0);
+  const previousCaptionY = useMotionValue(0);
+  const previousCaptionScale = useSpring(1, { damping: 30, stiffness: 100, mass: 2 });
+  const previousCaptionOpacity = useSpring(0, { stiffness: 350, damping: 30, mass: 1 });
+  const previousCaptionRotate = useSpring(0, { stiffness: 350, damping: 30, mass: 1 });
+  const nextCaptionX = useMotionValue(0);
+  const nextCaptionY = useMotionValue(0);
+  const nextCaptionScale = useSpring(1, { damping: 30, stiffness: 100, mass: 2 });
+  const nextCaptionOpacity = useSpring(0, { stiffness: 350, damping: 30, mass: 1 });
+  const nextCaptionRotate = useSpring(0, { stiffness: 350, damping: 30, mass: 1 });
 
   const data = useMemo(() => {
     if (variant === 'work') {
@@ -39,36 +60,31 @@ const Detail = ({ variant }) => {
     return getPlaygroundBySlug(slug);
   }, [getPlaygroundBySlug, getProjectBySlug, getWorkBySlug, slug, variant]);
 
-  // Get filtered list based on variant and filter - using already sorted arrays from context
+  // Keep main projects before secondary projects, matching their order in data.json.
   const filteredItems = useMemo(() => {
     if (variant === 'work') {
-      // Determine if current item is a work experience
-      const isCurrentWorkExp = data?.isWorkExperience;
-
-      if (isCurrentWorkExp) {
-        // Return only work experiences (already sorted in context)
-        return work;
-      } else {
-        // Return only projects (filter out work experience slugs, already sorted in context)
-        const workSlugs = new Set(work.map((w) => w.slug));
-        return projectsInDataOrder.filter((p) => !workSlugs.has(p.slug));
-      }
+      return [...workInDataOrder, ...projectsInDataOrder];
     }
     // For playground, apply filter (already sorted in context)
     if (currentFilter === 'all') {
       return playgrounds;
     }
     return playgrounds.filter((item) => item.type === currentFilter);
-  }, [currentFilter, playgrounds, projectsInDataOrder, work, variant, data]);
+  }, [currentFilter, playgrounds, projectsInDataOrder, workInDataOrder, variant]);
 
   // Find current index and calculate prev/next
   const currentIndex = useMemo(() => {
     return filteredItems.findIndex((item) => item.slug === slug);
   }, [filteredItems, slug]);
 
-  const prevItem = currentIndex > 0 ? filteredItems[currentIndex - 1] : null;
+  const prevItem =
+    currentIndex >= 0 && filteredItems.length > 1
+      ? filteredItems[(currentIndex - 1 + filteredItems.length) % filteredItems.length]
+      : null;
   const nextItem =
-    currentIndex >= 0 && currentIndex < filteredItems.length - 1 ? filteredItems[currentIndex + 1] : null;
+    currentIndex >= 0 && filteredItems.length > 1
+      ? filteredItems[(currentIndex + 1) % filteredItems.length]
+      : null;
 
   const duties = useMemo(() => data?.projectDuty?.filter(Boolean) ?? [], [data]);
   const contextParagraphs = useMemo(() => {
@@ -112,7 +128,7 @@ const Detail = ({ variant }) => {
   const links = data?.link || [];
 
   const handleClose = useCallback(() => {
-    const fallbackPath = variant === 'work' ? '/work' : '/playground';
+    const fallbackPath = variant === 'work' ? '/' : '/playground';
     const returnTo =
       typeof location.state?.from === 'string' && location.state.from ? location.state.from : fallbackPath;
 
@@ -124,7 +140,7 @@ const Detail = ({ variant }) => {
 
   const handlePrevious = useCallback(() => {
     if (!prevItem) return;
-    const path = variant === 'work' ? `/work/${prevItem.slug}` : `/playground/${prevItem.slug}`;
+    const path = variant === 'work' ? `/projects/${prevItem.slug}` : `/playground/${prevItem.slug}`;
     navigate(path, {
       state: {
         from: location.state?.from,
@@ -137,7 +153,7 @@ const Detail = ({ variant }) => {
 
   const handleNext = useCallback(() => {
     if (!nextItem) return;
-    const path = variant === 'work' ? `/work/${nextItem.slug}` : `/playground/${nextItem.slug}`;
+    const path = variant === 'work' ? `/projects/${nextItem.slug}` : `/playground/${nextItem.slug}`;
     navigate(path, {
       state: {
         from: location.state?.from,
@@ -288,7 +304,21 @@ const Detail = ({ variant }) => {
     return `${start} - ${end}`;
   };
 
-  const durationLabel = data.duration ? formatDuration(data.duration) : null;
+  const durationLabel =
+    (data.duration ? formatDuration(data.duration) : null) ||
+    (!isOngoing ? formatDateDifference(data.created, data.endDate) : null);
+  const dateLabel = isWorkExperience
+    ? data.endDate
+      ? formatDateRange(data.startDate, data.endDate)
+      : formatDetailDate(data.startDate)
+    : data.endDate
+      ? formatDateRange(data.created, data.endDate)
+      : formatDetailDate(data.created);
+  const scopeLabel = data.endDate
+    ? isWorkExperience
+      ? formatDateDifference(data.startDate, data.endDate)
+      : durationLabel
+    : null;
 
   return (
     <div className={`${pageLayout.page}`.trim()} style={{ gap: 'var(--stack-gap-2xl)' }}>
@@ -307,69 +337,16 @@ const Detail = ({ variant }) => {
         <header className={styles.header}>
           {/* Metadata */}
           <div className={styles.headerMetadata}>
-            <div className={styles.headerColumn}>
-              {isWorkExperience ? (
-                <>
-                  <h3 ref={titleRef}>{data.company}</h3>
-                  {data.role && <p className={styles.badgeList}>{data.role}</p>}
-                </>
-              ) : (
-                <>
-                  <h3 ref={titleRef}>{data.title}</h3>
-                  {duties.length > 0 && <p className={styles.badgeList}>{duties.join(', ')}</p>}
-                </>
-              )}
+            <div className={styles.titleDateRow}>
+              <h3 ref={titleRef}>{data.title || data.company}</h3>
+              <p className={styles.dateLabel}>{dateLabel}</p>
             </div>
-
-            <div className={styles.metaColumn}>
-              <dl className={styles.metaList}>
-                {isWorkExperience ? (
-                  <>
-                    <div className={styles.metaItem}>
-                      <dd>{formatDateRange(data.startDate, data.endDate)}</dd>
-                    </div>
-                    {data.endDate && (
-                      <div className={styles.metaItem}>
-                        <dt>scope</dt>
-                        <dd>
-                          {(() => {
-                            const start = new Date(data.startDate);
-                            const end = new Date(data.endDate);
-                            const months = Math.round((end - start) / (1000 * 60 * 60 * 24 * 30));
-                            return months === 1 ? '1 month' : `${months} months`;
-                          })()}
-                        </dd>
-                      </div>
-                    )}
-                  </>
-                ) : (
-                  <>
-                    {isOngoing ? (
-                      <div className={styles.metaItem}>
-                        <dt>started</dt>
-                        <dd>{formatDetailDate(data.created)}</dd>
-                      </div>
-                    ) : (
-                      <div className={styles.metaItem}>
-                        <dd>{formatDateRange(data.created, data.endDate)}</dd>
-                      </div>
-                    )}
-
-                    {isOngoing ? (
-                      <div className={styles.metaItem}>
-                        <dd>ongoing</dd>
-                      </div>
-                    ) : (
-                      durationLabel && (
-                        <div className={styles.metaItem}>
-                          <dt>scope</dt>
-                          <dd>{durationLabel}</dd>
-                        </div>
-                      )
-                    )}
-                  </>
-                )}
-              </dl>
+            <div className={styles.metaPills}>
+              {data.role && <Button label={data.role} variant="pill" size="xs" magnetic={false} />}
+              {data.company && <Button label={data.company} variant="pill" size="xs" magnetic={false} />}
+              {!data.role &&
+                duties.map((duty) => <Button key={duty} label={duty} variant="pill" size="xs" magnetic={false} />)}
+              {scopeLabel && <Button label={scopeLabel} variant="pill" size="xs" magnetic={false} />}
             </div>
           </div>
 
@@ -437,6 +414,7 @@ const Detail = ({ variant }) => {
                             className={styles.imageItem}
                             loading={sectionIndex === 0 && imageIndex === 0 ? 'eager' : 'lazy'}
                             fetchPriority={sectionIndex === 0 && imageIndex === 0 ? 'high' : 'auto'}
+                            sizes="(max-width: 768px) 100vw, min(90vw, 1200px)"
                           />
                         ))}
                       </div>
@@ -459,9 +437,41 @@ const Detail = ({ variant }) => {
                 type="button"
                 onClick={handlePrevious}
                 className={styles.navItem}
+                onMouseEnter={() => {
+                  previousCaptionScale.set(1.1);
+                  previousCaptionOpacity.set(1);
+                }}
+                onMouseMove={(event) => {
+                  const rect = event.currentTarget.getBoundingClientRect();
+                  const offsetX = event.clientX - rect.left;
+                  const offsetY = event.clientY - rect.top;
+                  previousCaptionX.set(offsetX);
+                  previousCaptionY.set(offsetY);
+                  previousCaptionRotate.set(-(offsetY - previousCaptionState.current.lastY) * 0.6);
+                  previousCaptionState.current.lastY = offsetY;
+                }}
+                onMouseLeave={() => {
+                  previousCaptionOpacity.set(0);
+                  previousCaptionScale.set(1);
+                  previousCaptionRotate.set(0);
+                }}
                 aria-label={`Previous: ${prevItem.company || prevItem.title}`}
               >
                 <ArrowPreviousIcon className={styles.navArrow} />
+                <span className={styles.navCaptionAnchor}>
+                  <motion.span
+                    className={styles.followCaption}
+                    style={{
+                      x: previousCaptionX,
+                      y: previousCaptionY,
+                      opacity: previousCaptionOpacity,
+                      scale: previousCaptionScale,
+                      rotate: previousCaptionRotate,
+                    }}
+                  >
+                    use arrow keys
+                  </motion.span>
+                </span>
               </button>
             )}
             {nextItem && (
@@ -470,10 +480,42 @@ const Detail = ({ variant }) => {
                 type="button"
                 onClick={handleNext}
                 className={`${styles.navItem} ${styles.navItemRight}`}
+                onMouseEnter={() => {
+                  nextCaptionScale.set(1.1);
+                  nextCaptionOpacity.set(1);
+                }}
+                onMouseMove={(event) => {
+                  const rect = event.currentTarget.getBoundingClientRect();
+                  const offsetX = event.clientX - (1.1*rect.left);
+                  const offsetY = event.clientY - rect.top;
+                  nextCaptionX.set(offsetX);
+                  nextCaptionY.set(offsetY);
+                  nextCaptionRotate.set(-(offsetY - nextCaptionState.current.lastY) * 0.6);
+                  nextCaptionState.current.lastY = offsetY;
+                }}
+                onMouseLeave={() => {
+                  nextCaptionOpacity.set(0);
+                  nextCaptionScale.set(1);
+                  nextCaptionRotate.set(0);
+                }}
                 aria-label={`Next: ${nextItem.company || nextItem.title}`}
               >
                 {' '}
                 <ArrowNextIcon className={styles.navArrow} />
+                <span className={styles.navCaptionAnchor}>
+                  <motion.span
+                    className={`${styles.followCaption} ${styles.followCaptionRight}`}
+                    style={{
+                      x: nextCaptionX,
+                      y: nextCaptionY,
+                      opacity: nextCaptionOpacity,
+                      scale: nextCaptionScale,
+                      rotate: nextCaptionRotate,
+                    }}
+                  >
+                    use arrow keys
+                  </motion.span>
+                </span>
               </button>
             )}
           </nav>

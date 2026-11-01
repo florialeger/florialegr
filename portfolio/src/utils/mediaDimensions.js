@@ -1,88 +1,4 @@
 const mediaDimensions = {
-  "ENSCxSTAPS-1.jpg": {
-    "width": 900,
-    "height": 720
-  },
-  "ENSCxSTAPS-10.jpg": {
-    "width": 900,
-    "height": 975
-  },
-  "ENSCxSTAPS-11.jpg": {
-    "width": 900,
-    "height": 300
-  },
-  "ENSCxSTAPS-2.jpg": {
-    "width": 900,
-    "height": 333
-  },
-  "ENSCxSTAPS-3.jpg": {
-    "width": 900,
-    "height": 680
-  },
-  "ENSCxSTAPS-4.jpg": {
-    "width": 900,
-    "height": 588
-  },
-  "ENSCxSTAPS-5.jpg": {
-    "width": 900,
-    "height": 867
-  },
-  "ENSCxSTAPS-6.jpg": {
-    "width": 900,
-    "height": 408
-  },
-  "ENSCxSTAPS-7.jpg": {
-    "width": 900,
-    "height": 975
-  },
-  "ENSCxSTAPS-8.jpg": {
-    "width": 900,
-    "height": 975
-  },
-  "ENSCxSTAPS-9.jpg": {
-    "width": 900,
-    "height": 975
-  },
-  "ENSCxSTAPS-primary.jpg": {
-    "width": 750,
-    "height": 420
-  },
-  "KFÉ-1.jpg": {
-    "width": 900,
-    "height": 726
-  },
-  "KFÉ-2.jpg": {
-    "width": 900,
-    "height": 620
-  },
-  "KFÉ-3.jpg": {
-    "width": 900,
-    "height": 591
-  },
-  "KFÉ-4.jpg": {
-    "width": 900,
-    "height": 519
-  },
-  "KFÉ-5.jpg": {
-    "width": 900,
-    "height": 903
-  },
-  "KFÉ-6.jpg": {
-    "width": 900,
-    "height": 525
-  },
-  "KFÉ-7.jpg": {
-    "width": 900,
-    "height": 374
-  },
-  "KFÉ-8.jpg": {
-    "width": 900,
-    "height": 1050
-  },
-  "KFÉ-primary.jpg": {
-    "width": 750,
-    "height": 420
-  },
   "Locked.jpg": {
     "width": 700,
     "height": 400
@@ -90,6 +6,10 @@ const mediaDimensions = {
   "Ongoing.jpg": {
     "width": 700,
     "height": 400
+  },
+  "Projects.png": {
+    "width": 1440,
+    "height": 1187
   },
   "alco-1.jpg": {
     "width": 900,
@@ -209,7 +129,7 @@ const mediaDimensions = {
   },
   "desktop-7.jpg": {
     "width": 900,
-    "height": 582
+    "height": 807
   },
   "desktop-primary.jpg": {
     "width": 750,
@@ -266,6 +186,66 @@ const mediaDimensions = {
   "desktop3-primary.jpg": {
     "width": 750,
     "height": 750
+  },
+  "emco-1.jpg": {
+    "width": 900,
+    "height": 459
+  },
+  "emco-10.jpg": {
+    "width": 900,
+    "height": 975
+  },
+  "emco-11.jpg": {
+    "width": 900,
+    "height": 975
+  },
+  "emco-12.jpg": {
+    "width": 900,
+    "height": 975
+  },
+  "emco-13.jpg": {
+    "width": 900,
+    "height": 975
+  },
+  "emco-14.jpg": {
+    "width": 900,
+    "height": 300
+  },
+  "emco-2.jpg": {
+    "width": 900,
+    "height": 299
+  },
+  "emco-3.jpg": {
+    "width": 900,
+    "height": 228
+  },
+  "emco-4.jpg": {
+    "width": 900,
+    "height": 405
+  },
+  "emco-5.jpg": {
+    "width": 900,
+    "height": 333
+  },
+  "emco-6.jpg": {
+    "width": 900,
+    "height": 315
+  },
+  "emco-7.jpg": {
+    "width": 900,
+    "height": 435
+  },
+  "emco-8.jpg": {
+    "width": 900,
+    "height": 465
+  },
+  "emco-9.jpg": {
+    "width": 900,
+    "height": 630
+  },
+  "emco-primary.jpg": {
+    "width": 941,
+    "height": 420
   },
   "expression-1.jpg": {
     "width": 900,
@@ -378,6 +358,10 @@ const mediaDimensions = {
   "figma-course-primary.jpg": {
     "width": 750,
     "height": 420
+  },
+  "figma-primary.jpg": {
+    "width": 900,
+    "height": 900
   },
   "gameboy-1.jpg": {
     "width": 900,
@@ -555,18 +539,6 @@ const mediaDimensions = {
     "width": 750,
     "height": 750
   },
-  "interaction4-1.jpg": {
-    "width": 900,
-    "height": 750
-  },
-  "interaction4-2.jpg": {
-    "width": 900,
-    "height": 750
-  },
-  "interaction4-3.jpg": {
-    "width": 900,
-    "height": 750
-  },
   "interaction4-primary.jpg": {
     "width": 750,
     "height": 750
@@ -588,6 +560,46 @@ const mediaDimensions = {
     "height": 750
   },
   "interaction5-primary.jpg": {
+    "width": 750,
+    "height": 750
+  },
+  "kfe-1.jpg": {
+    "width": 900,
+    "height": 570
+  },
+  "kfe-2.jpg": {
+    "width": 900,
+    "height": 726
+  },
+  "kfe-3.jpg": {
+    "width": 900,
+    "height": 620
+  },
+  "kfe-4.jpg": {
+    "width": 900,
+    "height": 591
+  },
+  "kfe-5.jpg": {
+    "width": 900,
+    "height": 519
+  },
+  "kfe-6.jpg": {
+    "width": 900,
+    "height": 903
+  },
+  "kfe-7.jpg": {
+    "width": 900,
+    "height": 525
+  },
+  "kfe-8.jpg": {
+    "width": 900,
+    "height": 374
+  },
+  "kfe-9.jpg": {
+    "width": 900,
+    "height": 1050
+  },
+  "kfe-primary.jpg": {
     "width": 750,
     "height": 750
   },
@@ -625,13 +637,9 @@ const mediaDimensions = {
   },
   "krystal2026-primary.jpg": {
     "width": 750,
-    "height": 420
+    "height": 750
   },
   "logo-1.jpg": {
-    "width": 900,
-    "height": 900
-  },
-  "logo-2.jpg": {
     "width": 900,
     "height": 900
   },
@@ -649,7 +657,7 @@ const mediaDimensions = {
   },
   "mates-1.jpg": {
     "width": 900,
-    "height": 632
+    "height": 480
   },
   "mates-2.jpg": {
     "width": 900,
@@ -685,7 +693,7 @@ const mediaDimensions = {
   },
   "mates-primary.jpg": {
     "width": 750,
-    "height": 420
+    "height": 750
   },
   "mobile-1.jpg": {
     "width": 900,
@@ -718,6 +726,10 @@ const mediaDimensions = {
   "mp3-primary.jpg": {
     "width": 750,
     "height": 750
+  },
+  "nda.jpg": {
+    "width": 720,
+    "height": 320
   },
   "planche-1.jpg": {
     "width": 900,
@@ -845,7 +857,7 @@ const mediaDimensions = {
   },
   "portrait-1.jpg": {
     "width": 900,
-    "height": 750
+    "height": 615
   },
   "portrait-primary.jpg": {
     "width": 750,
@@ -991,6 +1003,10 @@ const mediaDimensions = {
     "width": 750,
     "height": 750
   },
+  "startup-primary.jpg": {
+    "width": 941,
+    "height": 420
+  },
   "sticker-1.jpg": {
     "width": 900,
     "height": 600
@@ -1043,33 +1059,25 @@ const mediaDimensions = {
     "width": 750,
     "height": 750
   },
-  "thumbnail-nda.jpg": {
-    "width": 720,
-    "height": 320
-  },
-  "thumbnail-ubisoft.jpg": {
-    "width": 940,
-    "height": 418
-  },
-  "thumbnail-ux-instructor.jpg": {
-    "width": 940,
-    "height": 418
-  },
-  "thumbnail-vmt.jpg": {
-    "width": 940,
-    "height": 418
-  },
-  "thumnail-purely.jpg": {
-    "width": 940,
-    "height": 418
-  },
   "ubisoft-1.jpg": {
     "width": 900,
-    "height": 225
+    "height": 762
+  },
+  "ubisoft-10.jpg": {
+    "width": 900,
+    "height": 375
+  },
+  "ubisoft-11.jpg": {
+    "width": 900,
+    "height": 284
+  },
+  "ubisoft-12.jpg": {
+    "width": 900,
+    "height": 375
   },
   "ubisoft-2.jpg": {
     "width": 900,
-    "height": 600
+    "height": 270
   },
   "ubisoft-3.jpg": {
     "width": 900,
@@ -1077,27 +1085,59 @@ const mediaDimensions = {
   },
   "ubisoft-4.jpg": {
     "width": 900,
-    "height": 450
+    "height": 489
   },
   "ubisoft-5.jpg": {
     "width": 900,
-    "height": 675
+    "height": 468
   },
   "ubisoft-6.jpg": {
     "width": 900,
-    "height": 420
+    "height": 525
   },
   "ubisoft-7.jpg": {
     "width": 900,
-    "height": 225
+    "height": 450
+  },
+  "ubisoft-8.jpg": {
+    "width": 900,
+    "height": 618
+  },
+  "ubisoft-9.jpg": {
+    "width": 900,
+    "height": 420
+  },
+  "ubisoft-primary.jpg": {
+    "width": 941,
+    "height": 420
   },
   "ucd-1.jpg": {
     "width": 900,
-    "height": 732
+    "height": 720
   },
   "ucd-10.jpg": {
     "width": 900,
-    "height": 540
+    "height": 975
+  },
+  "ucd-11.jpg": {
+    "width": 900,
+    "height": 450
+  },
+  "ucd-12.jpg": {
+    "width": 900,
+    "height": 300
+  },
+  "ucd-13.jpg": {
+    "width": 900,
+    "height": 255
+  },
+  "ucd-14.jpg": {
+    "width": 900,
+    "height": 330
+  },
+  "ucd-15.jpg": {
+    "width": 900,
+    "height": 330
   },
   "ucd-2.jpg": {
     "width": 900,
@@ -1105,31 +1145,31 @@ const mediaDimensions = {
   },
   "ucd-3.jpg": {
     "width": 900,
-    "height": 525
+    "height": 480
   },
   "ucd-4.jpg": {
     "width": 900,
-    "height": 525
+    "height": 387
   },
   "ucd-5.jpg": {
     "width": 900,
-    "height": 1035
+    "height": 399
   },
   "ucd-6.jpg": {
     "width": 900,
-    "height": 975
+    "height": 525
   },
   "ucd-7.jpg": {
     "width": 900,
-    "height": 975
+    "height": 1035
   },
   "ucd-8.jpg": {
     "width": 900,
-    "height": 450
+    "height": 795
   },
   "ucd-9.jpg": {
     "width": 900,
-    "height": 375
+    "height": 975
   },
   "ucd-primary.jpg": {
     "width": 750,
@@ -1139,9 +1179,13 @@ const mediaDimensions = {
     "width": 900,
     "height": 300
   },
+  "vmt-10.jpg": {
+    "width": 900,
+    "height": 290
+  },
   "vmt-2.jpg": {
     "width": 900,
-    "height": 300
+    "height": 309
   },
   "vmt-3.jpg": {
     "width": 900,
@@ -1149,14 +1193,30 @@ const mediaDimensions = {
   },
   "vmt-4.jpg": {
     "width": 900,
-    "height": 450
+    "height": 300
   },
   "vmt-5.jpg": {
     "width": 900,
-    "height": 330
+    "height": 348
   },
   "vmt-6.jpg": {
     "width": 900,
+    "height": 270
+  },
+  "vmt-7.jpg": {
+    "width": 900,
+    "height": 555
+  },
+  "vmt-8.jpg": {
+    "width": 900,
+    "height": 300
+  },
+  "vmt-9.jpg": {
+    "width": 900,
+    "height": 270
+  },
+  "vmt-primary.jpg": {
+    "width": 941,
     "height": 420
   },
   "wallpaper_mac.jpg": {

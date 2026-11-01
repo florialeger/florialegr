@@ -36,7 +36,12 @@ const ProjectCard = ({ project, targetState, isDimmed, onMouseEnter, onMouseLeav
       <Link to={`/work/${project.slug}`} state={targetState} className={styles.projectLink}>
         {primaryImage && (
           <div className={styles.imageFrame}>
-            <Media src={primaryImage} alt={project.title} className={styles.projectImage} />
+            <Media
+              src={primaryImage}
+              alt={project.title}
+              className={styles.projectImage}
+              sizes="(max-width: 768px) 90vw, (max-width: 1200px) 45vw, 33vw"
+            />
           </div>
         )}
         <div className={styles.projectInfo}>

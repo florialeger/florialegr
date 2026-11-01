@@ -22,7 +22,7 @@ const ProjectListItem = ({ project, targetState, isDimmed, onMouseEnter, onMouse
 
   return (
     <Link
-      to={`/work/${project.slug}`}
+      to={`/projects/${project.slug}`}
       state={targetState}
       className={styles.listItemLink}
       data-slug={project.slug}

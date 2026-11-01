@@ -18,6 +18,15 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: var(--stack-gap-2xl);
+  width: 100%;
+  height: 100%;
+}
+
+.heroWording {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   gap: var(--stack-gap-md);
   width: 100%;
   height: 100%;
@@ -53,4 +62,23 @@
   height: 100%;
   object-fit: cover;
   display: block;
+}
+
+
+.MainProjects {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: calc(var(--stack-gap-md)*1.5) calc(var(--stack-gap-md)*1.5);
+}
+
+@media (max-width: 780px) {
+  .MainProjects {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 520px) {
+  .MainProjects {
+    grid-template-columns: 1fr;
+  }
 }

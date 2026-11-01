@@ -110,21 +110,9 @@ const About = () => {
 
   const x = useMotionValue(0);
   const y = useMotionValue(0);
-
-  const springValues = {
-    damping: 30,
-    stiffness: 100,
-    mass: 2,
-  };
-
-  const scale = useSpring(1, springValues);
+  const scale = useSpring(1, { damping: 30, stiffness: 100, mass: 2 });
   const opacity = useSpring(0, { stiffness: 350, damping: 30, mass: 1 });
-  const rotateFigcaption = useSpring(0, {
-    stiffness: 350,
-    damping: 30,
-    mass: 1,
-  });
-
+  const rotateFigcaption = useSpring(0, { stiffness: 350, damping: 30, mass: 1 });
   const handleEmailCopy = async () => {
     const email = 'floria.leger@gmail.com';
     try {
@@ -141,7 +129,6 @@ const About = () => {
     return (
       <div className={styles.emailRow}>
         <p className={styles.emailText}>Get in touch at</p>
-
         <span
           ref={setMagnet}
           className={`${styles.magnet} ${styles.magnetIcon} ${styles.clickable} ${styles.tooltipContainer}`}
@@ -156,7 +143,7 @@ const About = () => {
           }}
           aria-label="Click to copy email address"
         >
-          <LetterIcon className={styles.emailIcon} size={32} title="Adresse e-mail" />
+          {' '}
           <span className={styles.emailText}>floria.leger@gmail.com</span>
           <span className={`${styles.tooltip} ${copied ? styles.tooltipVisible : ''}`}>
             {copied ? 'Copied!' : 'Click to copy'}
@@ -168,10 +155,7 @@ const About = () => {
 
   return (
     <div className={pageLayout.page}>
-      <AboutSection
-        paragraphs={aboutParagraphs}
-        downloads={Links}
-      />
+      <AboutSection paragraphs={aboutParagraphs} downloads={Links} />
 
       <section className={pageLayout.container} style={{ paddingTop: 0, paddingBottom: 0 }}>
         <div className={styles.contactContainer}>
@@ -189,12 +173,9 @@ const About = () => {
                     const rect = e.currentTarget.getBoundingClientRect();
                     const offsetX = e.clientX - rect.left;
                     const offsetY = e.clientY - rect.top;
-
                     x.set(offsetX);
                     y.set(offsetY);
-
-                    const velocityY = offsetY - lastY;
-                    rotateFigcaption.set(-velocityY * 0.6);
+                    rotateFigcaption.set(-(offsetY - lastY) * 0.6);
                     setLastY(offsetY);
                   }}
                   onMouseEnter={() => {
@@ -213,7 +194,10 @@ const About = () => {
                     {link.label}
                   </a>
                   {hoveredLink === link.key && (
-                    <motion.span className={styles.followCaption} style={{ x, y, opacity, rotate: rotateFigcaption }}>
+                    <motion.span
+                      className={styles.followCaption}
+                      style={{ x, y, opacity, scale, rotate: rotateFigcaption }}
+                    >
                       {link.description}
                     </motion.span>
                   )}
@@ -223,8 +207,6 @@ const About = () => {
           </RevealAnimation>
         </div>
       </section>
-
-
     </div>
   );
 };

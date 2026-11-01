@@ -1,7 +1,6 @@
-import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import { BrowserRouter as Router, Navigate, Routes, Route, useLocation } from 'react-router-dom';
 import { useLayoutEffect } from 'react';
 import App from '@/App';
-import Home from '@/pages/Home';
 import About from '@/pages/About';
 import Work from '@/pages/Work';
 import Playground from '@/pages/Playground';
@@ -30,12 +29,14 @@ export default function AppRoutes() {
       <ScrollToTop />
       <Routes>
         <Route path="/" element={<App />}>
-          <Route index element={<Home />} />
-          <Route path="about" element={<About />} />
-          <Route path="work" element={<Work />} />
+          <Route index element={<Work />} />
           <Route path="work/:slug" element={<Detail variant="work" />} />
+          <Route path="work" element={<Navigate to="/" replace />} />
+          <Route path="projects" element={<Navigate to="/" replace />} />
+          <Route path="projects/:slug" element={<Detail variant="work" />} />
           <Route path="playground" element={<Playground />} />
           <Route path="playground/:slug" element={<Detail variant="playground" />} />
+          <Route path="about" element={<About />} />
           <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>

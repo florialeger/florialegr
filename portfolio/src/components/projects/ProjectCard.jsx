@@ -49,7 +49,7 @@ const WorkCard = memo(({ item, className, onHoverChange }) => {
       };
     }
 
-    navigate(`/work/${item.slug}`, {
+    navigate(`/projects/${item.slug}`, {
       state: { from: fromPath, filter: 'all', scrollTo: cardPosition },
     });
   }, [fromPath, item.isLocked, item.slug, navigate]);
@@ -193,7 +193,12 @@ const PlaygroundCard = memo(({ item, className, onHoverChange, currentFilter }) 
       >
         {primaryImage && (
           <div className={styles.preview}>
-            <Media src={primaryImage} alt={`${item.title} preview`} className="" />
+            <Media
+              src={primaryImage}
+              alt={`${item.title} preview`}
+              className=""
+              sizes="(max-width: 768px) 90vw, (max-width: 1200px) 45vw, 33vw"
+            />
           </div>
         )}
       </article>

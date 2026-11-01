@@ -88,6 +88,16 @@
   color: var(--label---tertiary);
 }
 
+/* Variant: Pill */
+.buttonPill {
+  background: var(--fills---quaternuary);
+}
+
+.buttonPill .label,
+.buttonPill .icon {
+  color: var(--label---tertiary);
+}
+
 /* Size: Small */
 .buttonSmall {
   padding: var(--padding-small-v) var(--padding-small-h);
@@ -103,6 +113,13 @@
 .buttonBig {
   padding: var(--padding-big-v) var(--padding-big-h);
   border-radius: var(--radius-md);
+}
+
+/* Size: Xs */
+.buttonXs {
+  padding: var(--padding-extra-small-v) var(--padding-extra-small-h);
+  gap: var(--stack-gap-xs);
+  border-radius: var(--radius-sm);
 }
 
 .buttonBig.buttonTertiary {

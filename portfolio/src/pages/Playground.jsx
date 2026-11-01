@@ -16,7 +16,7 @@ import inlineIconStyles from '@/components/ui/InlineIcon.module.css';
 const playgroundParagraphs = [
   <>
     Drawing has always been a part of me, more than a hobby, it just feels right. Eighteen years in, I keep growing at
-    my own pace, always striving for more. I don't post much online, but I create whenever I can.
+    my own pace, always striving for more.
   </>,
   <>
     Over the years, I've channeled that discipline into{' '}
@@ -26,11 +26,11 @@ const playgroundParagraphs = [
       target="_blank"
       rel="noreferrer"
     >
-      UX/UI design.
+      UX design.
     </a>{' '}
-    With solid, hands-on experience under my belt, it has become another canvas for balance, structure, and emotion,
-    one where I solve real-world problems for real people. The process, the curiosity, and the joy of making, that's
-    what drives me.
+    With solid, hands-on experience under my belt, it has become another canvas for balance, structure, and emotion, one
+    where I solve real-world problems for real people. The process, the curiosity, and the joy of making, that's what
+    drives me.
   </>,
 ];
 

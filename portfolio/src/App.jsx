@@ -13,7 +13,7 @@ function AppContent() {
   const location = useLocation();
   const { isLoading } = useLoading();
 
-  const isDetailRoute = useMemo(() => /^\/(?:work|playground)\//.test(location.pathname), [location.pathname]);
+  const isDetailRoute = useMemo(() => /^\/(?:work|projects|playground)\//.test(location.pathname), [location.pathname]);
 
   if (isLoading) {
     return <LoadAnimation />;

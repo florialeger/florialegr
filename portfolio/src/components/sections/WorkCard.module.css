@@ -1,6 +1,7 @@
 .workCardLink {
   display: block;
   width: 100%;
+  position: relative;
   text-decoration: none;
   color: inherit;
   transition: opacity 200ms ease;
@@ -14,9 +15,10 @@
   display: flex;
   width: 100%;
   flex-direction: column;
-  gap: var(--stack-gap-xxs);
   text-decoration: none;
   color: inherit;
+  gap: var(--stack-gap-xs);
+
 }
 
 .header {
@@ -40,17 +42,37 @@
   color: var(--label---tertiary);
 }
 
+.followCaption {
+  pointer-events: none;
+  position: fixed;
+  background: var(--background---primary);
+  color: var(--label---primary);
+  border: 1px solid var(--separator---black-10);
+  box-shadow: var(--shadow---normal);
+  padding: 0.25rem 0.5rem;
+  border-radius: var(--radius-sm);
+  white-space: nowrap;
+  z-index: 9999;
+  transform: translate(-50%, -100%);
+  margin-top: -8px;
+}
+
 .thumbnail {
   display: block;
   width: 100%;
-  aspect-ratio:initial;
+  height: auto;
+  aspect-ratio: auto;
   rotate: -1deg;
   transition: transform 220ms ease, rotate 220ms ease, opacity 220ms ease;
-  margin-top: var(--stack-gap-sm);
   border-radius: var(--comp-button-radius-small);
-  object-fit: cover;
+  object-fit: contain;
   box-shadow:var(--shadows--small)
   
+}
+
+.workCard > picture {
+  display: block;
+  width: 100%;
 }
 
 .workCardLink:hover .thumbnail {

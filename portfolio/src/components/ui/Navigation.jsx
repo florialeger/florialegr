@@ -11,8 +11,7 @@ const MOBILE_BREAKPOINT_QUERY = '(max-width: 679.98px)'; // Equivalent to < 680p
 
 // Define nav items outside the component for stability
 const navItems = [
-  { name: 'home', path: '/' },
-  { name: 'work', path: '/work' },
+  { name: 'projects', path: '/' },
   { name: 'playground', path: '/playground' },
   { name: 'about', path: '/about' },
 ];
@@ -264,7 +263,8 @@ const Navigation = () => {
   const activeIndex = navItems.findIndex(
     (item) =>
       item.path === location.pathname ||
-      (location.pathname.startsWith('/work/') && item.path === '/work') || // Handle active state for nested work routes
+      ((location.pathname.startsWith('/projects/') || location.pathname.startsWith('/work/')) &&
+        item.path === '/') || // Handle active state for nested project routes
       (location.pathname.startsWith('/playground/') && item.path === '/playground') // Handle active state for nested playground routes
   );
 

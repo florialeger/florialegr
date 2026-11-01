@@ -70,7 +70,7 @@ const ButtonBase = (
     iconProps = {},
     magnetic = true,
     magneticOptions,
-    variant = 'primary', // 'primary' | 'secondary' | 'tertiary' | 'inactive'
+    variant = 'primary', // 'primary' | 'secondary' | 'tertiary' | 'inactive' | 'pill'
     size = 'small', // 'small' | 'big'
     ...props
   },
@@ -157,9 +157,11 @@ const ButtonBase = (
           ? styles.buttonTertiary
           : variant === 'inactive'
             ? styles.buttonInactive
+            : variant === 'pill'
+              ? styles.buttonPill
             : '';
 
-  const sizeClass = size === 'small' ? styles.buttonSmall : size === 'big' ? styles.buttonBig : '';
+  const sizeClass = size === 'small' ? styles.buttonSmall : size === 'big' ? styles.buttonBig : size === 'xs' ? styles.buttonXs : '';
   const iconOnlyClass = !label && !labels ? styles.iconOnly : '';
 
   const sharedProps = {
@@ -222,8 +224,8 @@ Button.propTypes = {
   disabled: PropTypes.bool,
   magnetic: PropTypes.bool,
   magneticOptions: PropTypes.object,
-  variant: PropTypes.oneOf(['primary', 'secondary', 'tertiary', 'inactive']),
-  size: PropTypes.oneOf(['small', 'big']),
+  variant: PropTypes.oneOf(['primary', 'secondary', 'tertiary', 'inactive', 'pill']),
+  size: PropTypes.oneOf(['xs','small', 'big']),
 };
 
 export default Button;
