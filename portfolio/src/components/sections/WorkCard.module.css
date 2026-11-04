@@ -1,6 +1,7 @@
 .workCardLink {
   display: block;
-  width: 100%;
+  width: inherit;
+  max-width: var(--container-max-width);
   position: relative;
   text-decoration: none;
   color: inherit;
@@ -18,13 +19,12 @@
   text-decoration: none;
   color: inherit;
   gap: var(--stack-gap-xs);
-
 }
 
 .header {
   display: flex;
-  flex-direction: column;
-  gap: 0;
+  flex-direction: row;
+  gap: var(--stack-gap-xs);
 }
 
 .title,
@@ -32,6 +32,14 @@
   margin: 0;
   font-size: var(--type---body---size);
   line-height: var(--type---body---line-height);
+  width: fit-content;
+}
+
+.description {
+  color: var(--label---tertiary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .title {
@@ -39,7 +47,7 @@
 }
 
 .meta {
-  color: var(--label---tertiary);
+  color: var(--label---quaternuary);
 }
 
 .followCaption {
@@ -62,12 +70,12 @@
   width: 100%;
   height: auto;
   aspect-ratio: auto;
-  rotate: -1deg;
-  transition: transform 220ms ease, rotate 220ms ease, opacity 220ms ease;
+  transition:
+    transform 220ms ease,
+    rotate 220ms ease,
+    opacity 220ms ease;
   border-radius: var(--comp-button-radius-small);
   object-fit: contain;
-  box-shadow:var(--shadows--small)
-  
 }
 
 .workCard > picture {
@@ -76,7 +84,5 @@
 }
 
 .workCardLink:hover .thumbnail {
-  opacity: 0.85;
-    rotate: 0deg;
-
+  box-shadow: var(--shadows--small);
 }

@@ -9,96 +9,87 @@
       "endDate": "2026-07-31",
 
       "primaryImage": ["ubisoft-primary.jpg"],
+      "context": [
+        "<strong>Problem:</strong> Over 14,000 partner creators in the Ubisoft Creator Program felt ignored because the brand rarely gave feedback on their work, while internal teams lacked a structured process to share partner content.",
+        "<strong>Outcome:</strong> I designed and pitched a multi-department workflow to regularly feature creator content on official channels, securing approval from key department leads to begin trial rollouts."
+      ],
       "sections": [
         {
-          "images": ["nda.jpg"]
+          "images": ["ubisoft-primary.jpg"]
         },
         {
           "title": "Human Friction",
           "description": [
-            "Within the Ubisoft Creator Program, over 14,000 partner creators felt invisible. Producing high-effort content with zero brand feedback directly eroded creator retention and community trust."
-          ]
+            "In the Ubisoft Creator Program, over 14,000 partner creators felt invisible. They put a lot of effort into their content, but a lack of feedback from the brand hurt their trust and loyalty."
+          ],
+          "images": [""]
         },
         {
           "title": "Business Opportunity",
           "description": [
-            "Massive volumes of partner content went unexploited. Ubisoft left significant potential Earned Media Value (EMV) on the table because internal teams lacked a structured approach.",
-            "Working as the primary UX designer under the guidance of my Design Manager, my goal was to define an operational strategy that bridged this dual gap within strict enterprise constraints."
+            "At the same time, Ubisoft was missing out. The company was leaving a lot of organic visibility and Earned Media Value (EMV) on the table because internal teams lacked a structured approach. As the main UX designer under the guidance of my Design Manager, my goal was to build a realistic workflow that bridged this dual gap within strict enterprise constraints."
           ],
-          "images": ["ubisoft-1.jpg"]
+          "images": [""]
         },
         {
           "title": "Discovery",
           "description": [
-            "To validate creator friction, I executed a two-pronged discovery phase. First, I conducted an external public benchmark across 12 entertainment brands (including EA, Riot, and LEGO). This revealed that while macro-influencers received dedicated PR spotlighting, no competitor offered a visible, structured recognition system for micro and nano-creators.",
-            "Concurrently, I audited 20+ partner channels and analyzed 60+ Discord community reports. This research confirmed that creator dissatisfaction stemmed from an operational void: creators produced content in a complete vacuum, lacking feedback loops or clear channels for internal discovery."
-          ],
-          "images": ["ubisoft-2.jpg"]
-        },
-        {
-          "title": "Cross-Functional Co-Design",
-          "description": [
-            "Because creator invisibility was rooted in backend operational confusion, I focused ideation on internal stakeholders rather than external creators who could not resolve internal handoff mechanics."
+            "To validate creator friction, I started by looking at 12 other entertainment brands, including EA, Riot, and LEGO, to see how they handled creator visibility. This revealed that while huge influencers got plenty of PR attention, nobody had a visible structured way to highlight smaller micro and nano-creators.",
+            "Concurrently, I looked at over 20 partner channels and read through more than 60 Discord community reports. The research confirmed the core issue: creators felt they were working in a vacuum because there was no internal system to discover or give feedback on their work."
           ]
         },
         {
-          "title": "Strategic Frameworks",
+          "title": "Ideation Workshop",
           "description": [
-            "I structured and facilitated a 2-hour 20-minute workshop, inviting leads specifically for their daily proximity to partner creators and domain expertise.",
-            "Using an Impact/Effort matrix, we evaluated 24 concepts and converged on official channel reposting as our primary mechanism. This collaborative session also served to identify which key departments needed to be formally integrated into the eventual pipeline."
+            "The root of the problem was internal confusion, so I focused on internal teams instead of asking the creators to fix our handoff issues.",
+            "I co-structured and facilitated a two-hour workshop with six internal leads. We used an Impact/Effort matrix to evaluate 24 different ideas and converged on official channel reposting as the most realistic solution. This session also served to identify which key departments needed to be integrated into the pipeline."
           ],
           "images": ["ubisoft-3.jpg", "ubisoft-4.jpg"]
         },
         {
-          "title": "Workflow Refinement",
+          "title": "Mapping the Process",
           "description": [
-            "Following the workshop, I conducted deep-dive interviews with leads across flagship AAA titles. This revealed the project's true organizational complexity: 6 separate departments needed to collaborate across fragmented toolchains (combining publishing tools, task trackers, and community hubs)."
+            "Following the workshop, I conducted interviews with stakeholders integrated during that session to refine the pipeline around their real-world constraints and needs."
           ],
           "images": ["ubisoft-5.jpg"]
         },
         {
           "description": [
-            "Across 5 iterative cycles, I engineered the workflow to introduce mandatory Brand Safety validation gates while decoupling global asset vetting from local market publishing."
+            "This research revealed how complex the organization really was: six different departments had to coordinate across a mix of publishing tools, task trackers, and community platforms. Over five iterations, I mapped out a workflow that separated global asset approvals from local market publishing, while making sure we still hit mandatory brand safety checks."
           ],
           "images": ["ubisoft-6.jpg", "ubisoft-7.jpg"]
         },
         {
           "title": "Large-Scale Validation",
           "description": [
-            "Once the internal workflow was established, I designed a quantitative survey framework for the 2,000+ Discord creator community to verify creator interest, receptivity, and buy-in prior to live rollout."
+            "Once the internal workflow was established, I designed a survey for Ubisoft's Discord community of over 2,000 creators to make sure this approach actually matched what they wanted."
           ]
         },
         {
           "title": "RACI Governance",
           "description": [
-            "To turn this multi-department workflow into clear enterprise governance, I structured the process into an operational RACI framework. I defined two distinct execution pathways: a Proactive model for planned campaign activations and a Reactive model for spontaneous community clips."
+            "Following a recommendation from my Design Manager, I built a RACI framework to turn this workflow into something teams could actually use. I defined two distinct scenarios: a proactive model for planned campaign activations and a reactive model for spontaneous community clips."
           ],
           "images": ["ubisoft-8.jpg"]
         },
         {
           "title": "Persuasive Storytelling",
           "description": [
-            "To secure executive buy-in, I translated these models into visual storyboards. By mapping the end-to-end human journey (from a creator's Discord submission through Brand Safety approval to local channel publishing), these visuals transformed complex technical handoffs into an engaging, accessible story. ",
-            "This narrative approach secured 100% executive approval across all 3 key department leads, delivering a production-ready operational blueprint for trial rollout."
+            "To secure executive buy-in, I translated these models into visual storyboards. By showing the exact journey of a clip (from a creator posting it on Discord, through brand safety checks, and finally onto a local social media channel), I turned a technical handoff into a story that was easy to follow. ",
+            "This approach helped me get approval from three key department leads, giving us a blueprint ready for testing."
           ],
           "images": ["ubisoft-9.jpg"]
         },
         {
           "title": "Impact and Reflections",
           "description": [
-            "This project reinforced my core conviction that a great solution is not merely usable on paper, but actively adopted and embraced by its operational users."
+            "This project taught me that a great solution is not just usable, but must also be actively adopted by its users. Trying to book time with busy internal staff forced me to create really tight, efficient interview guides."
           ],
-          "images": ["ubisoft-10.jpg"]
+          "images": ["ubisoft-10.jpg", "ubisoft-11.jpg"]
         },
         {
           "description": [
-            "Navigating strict 30-minute availability limits with internal staff taught me to design highly efficient interview protocols. When third-party dependencies created project downtime, I maintained momentum by executing baseline comparative usability evaluations for an internal creator administration platform."
-          ],
-          "images": ["ubisoft-11.jpg"]
-        },
-        {
-          "description": [
-            "Ultimately, it proved that visual storytelling is one of the most effective ways to bridge technical systems and business decision-makers, turning complex operational proposals into compelling, buy-in-ready initiatives."
+            "I also learned that visual storytelling is a powerful way to explain technical processes to business leaders, turning a heavy operational proposal into something they actually want to support."
           ],
           "images": ["ubisoft-12.jpg"]
         }
@@ -115,6 +106,10 @@
       "endDate": "2025-07-25",
 
       "primaryImage": ["vmt-primary.jpg"],
+      "context": [
+        "<strong>Problem:</strong> Airbus Helicopters created a 3D simulator to train technicians on complex maintenance tasks, but instructors were underusing it in class. Navigating the software was cumbersome enough that trainers often preferred relying on physical mockups, missing out on the digital tool's flexibility.",
+        "<strong>Outcome:</strong> I mapped out 28 core usability friction points and presented six key interaction recommendations, including a dual-mode camera and a radial contextual menu. Engineering leads at Airbus Helicopters and Telespazio validated and approved the overall specification package."
+      ],
       "sections": [
         {
           "images": ["vmt-primary.jpg"]
@@ -122,82 +117,75 @@
         {
           "title": "Context",
           "description": [
-            "When Airbus Helicopters built the Virtual Maintenance Trainer, a 3D simulation platform designed to train aeronautical technicians on complex maintenance procedures, they created a tool with high-fidelity technical modeling that ultimately struggled to gain traction in actual classrooms."
+            "Airbus Helicopters built the Virtual Maintenance Trainer (VMT) to help technicians practice helicopter maintenance across over fifty simulated failure scenarios. On paper, it offered a flexible way to scale training without needing constant access to expensive physical mockups, but it struggled to gain regular traction in actual classrooms."
           ],
           "images": ["vmt-1.jpg"]
         },
         {
-          "title": "Diagnostic Challenge",
+          "title": "The Challenge",
           "description": [
-            "The core problem was a total breakdown in adoption. Instructors were actively bypassing the digital simulator during live lessons, falling back on physical mockups or paper manuals. Because physical aviation mockups are scarce and expensive to maintain, abandoning the digital platform created severe training bottlenecks around technician certification timelines."
-          ],
-          "images": ["vmt-1.jpg"]
-        },
-        {
-          "title": "Scope",
-          "description": [
-            "Operating as an embedded UX Consultant through the IMS Laboratory, my goal was to uncover the cognitive and ergonomic root causes behind this resistance and realign the interface with actual classroom workflows."
+            "The primary goal was to fix low adoption rates. Instructors frequently set the simulator aside during live lessons in favor of paper manuals or physical aircraft mockups. My mission was to uncover why trainers avoided the software and provide practical recommendations to improve its intuitiveness and learning efficiency.",
+            "Working as a UX Consultant intern through the IMS Laboratory, my goal was to pinpoint the ergonomic friction points behind this low adoption and redesign the software interactions around real classroom teaching habits."
           ],
           "images": ["vmt-2.jpg"]
         },
         {
           "title": "Discovery",
           "description": [
-            "To immerse myself in the environment and understand the software's baseline operation, I conducted an initial heuristic walkthrough to identify purely technical friction points, such as basic navigational dead ends. Alongside reviewing three aeronautical doctoral theses on simulation learning, this initial audit allowed me to build a highly targeted, semi-directive interview grid tailored to the Airbus training context."
+            "To understand how the simulator operated, I did an initial walkthrough to catch obvious technical friction, such as navigation dead ends. I also reviewed three doctoral theses on aeronautical simulation learning to build a semi-structured interview grid tailored to the Airbus training environment."
           ]
         },
         {
           "title": "Qualitative Research",
           "description": [
-            "During this early phase, a key insight emerged: B2 Avionics instructors adapted to the software with ease, whereas B1.3 Mechanical instructors rejected it entirely because the digital environment offered zero tactile feedback for physical engine parts. Armed with my interview grid, I headed to Aérocampus Aquitaine to conduct seven in-depth interviews with instructors and trainees, processing the audio rapidly via WhisperAI."
+            "During this early phase, a key insight emerged: B2 Avionics instructors adapted to the same type of software easily, but B1.3 Mechanical instructors rejected it because the digital space offered no physical feedback for engine parts. To dig deeper, I went to Aérocampus Aquitaine and interviewed five instructors and two trainees about their frustrations, processing the transcriptions with WhisperAI."
           ],
           "images": ["vmt-3.jpg", "vmt-4.jpg"]
         },
         {
-          "title": "Field Discoveries",
+          "title": "Field Observations",
           "description": [
-            "When observing live classes, I noted that instructors naturally gravitated toward physical mockups rather than opening the 3D software. I pivoted my methodology toward informal contextual inquiries between sessions, which revealed that the navigational overhead of setting up the software severely disrupted their instructional pacing."
+            "When observing live classes, I saw that instructors barely touched the simulator, defaulting immediately to physical mockups. I adapted my approach and started holding informal contextual discussions with them between training sessions. They explained that setting up and navigating around the 3D space took too much effort, breaking the natural pacing of their lessons."
           ],
           "images": ["vmt-5.jpg"]
         },
         {
-          "title": "Quantitative Triangulation",
+          "title": "Quantitative Data",
           "description": [
-            "To back up these qualitative insights with hard data, I deployed a primary survey to active instructors to measure system usability and task friction. I then triangulated my 11 primary survey responses with a historical internal Airbus study of 18 VMT users, creating a consolidated and highly relevant dataset of 29 participants.",
-            "The data proved the issue was systemic: 70% of instructors used the software less than once a month, and 55% cited 3D camera movement and interface clarity as major blockers."
+            "To support these conversations with hard data, I sent a survey to active instructors. I got 11 responses and combined them with an older internal Airbus study of 18 users. Looking at this group of 29 participants, the numbers confirmed a widespread trend: 70% used the software less than once a month, and 55% cited 3D camera movement and interface clarity as main obstacles."
           ],
-          "images": ["vmt-6.jpg", "vmt-7.jpg"]
+          "images": ["vmt-6.jpg"]
         },
         {
           "title": "Heuristic Synthesis",
           "description": [
-            "With my raw data collected, I needed a way to objectively classify my findings. I adopted the 10-Point Ergonomic Heuristic Framework by Colombo and Pasch to synthesize the interview and survey data, evaluating vectors like Ergonomic Transparency and Cognitive Load."
+            "To structure these findings objectively, I categorized the interview and survey data using a 10-point ergonomic heuristic framework. This allowed me to systematically evaluate factors such as cognitive load and ergonomic transparency."
           ]
         },
         {
-          "title": "Usability Diagnosis",
+          "title": "Key Issues",
           "description": [
-            "This structural analysis allowed me to map a total of 28 distinct usability issues across the platform. From this comprehensive diagnosis, I engineered 25 concrete ergonomic recommendations, ranging from architectural menu reorganizations to permissive interaction models. To keep this case study focused, I have isolated the top three most severe cognitive friction points:",
-            "• Unstandardized camera navigation disoriented users during engine inspections.\n• Nested menus constantly forced instructors to look away from the task while lecturing.\n• Selecting small 3D engine components required pinpoint mouse accuracy with zero visual hover affordance."
+            "I mapped out 28 distinct usability issues and proposed 25 concrete recommendations to fix them. To keep this case study focused, I have isolated the three biggest friction points:",
+            "• unstandardized camera navigation disoriented users during engine inspections.\n• nested menus constantly forced instructors to look away from the task while lecturing.\n• selecting small 3D engine components required exact mouse accuracy with zero visual hover affordance."
           ],
-          "images": ["vmt-8.jpg"]
+          "images": ["vmt-7.jpg"]
         },
         {
           "title": "Interaction Specification",
           "description": [
-            "Because my mandate focused on interaction architecture rather than high-fidelity visual assets, I developed ergonomic interaction specifications to solve these exact issues.",
+            "Because my mission focused on interaction architecture rather than visual assets, I created interaction guidelines to solve those specific problems.",
             "I proposed a dual-mode camera system combining standard WASD movement for navigating rooms with automatic orbit controls centered on selected components.",
-            "To reduce menu dependency, I designed a cursor-anchored radial menu leveraging Fitts's Law to give instant access to key actions.",
-            "Finally, I specified permissive click tolerances, dynamic component outlining, and structured error messages to eliminate guesswork."
+            "To reduce menu dependency, I designed a cursor-anchored radial menu using Fitts's Law to give instant access to common actions.",
+            "Finally, I specified permissive click tolerances, component outlining, and structured error messages to eliminate guesswork."
           ],
-          "images": ["vmt-9.jpg"]
+          "images": ["vmt-8.jpg", "vmt-9.jpg"]
         },
         {
-          "title": "Impact and Reflections",
+          "title": "Outcomes and Takeaways",
           "description": [
-            "The final deliverables included a 63-page comprehensive UX analysis report detailing all 28 usability blockers and their corresponding 25 technical specifications. To ensure actionable stakeholder buy-in, I distilled this exhaustive report into an executive slide presentation that pitched the six most impactful strategic ideas.",
-            "This specification package (bridging the comprehensive research report and the focused executive pitch) received unanimous sign-off from engineering leads at Airbus Helicopters and Telespazio for integration into production.",
-            "Looking back, pivoting away from formal observations to capture contextual setups proved that even highly detailed technical simulations fail if the underlying interaction design ignores human cognitive limits."
+            "The final deliverables included a 63-page comprehensive UX analysis report detailing all 28 usability blockers and 25 technical specifications. Knowing that long reports rarely get read in full, I also put together a presentation highlighting the six most impactful strategic ideas.",
+            "The engineering leads at Airbus Helicopters and Telespazio agreed with the findings and formally approved the recommendations.",
+            "Looking back, stepping away from formal observations and just talking to instructors in their environment was the right call. It showed me that no matter how detailed a technical simulation is, it won't work if the interaction design ignores human cognitive limits."
           ],
           "images": ["vmt-10.jpg"]
         }
@@ -218,61 +206,61 @@
 
       "projectDuty": ["UX design"],
       "primaryImage": ["emco-primary.jpg"],
+      "context": [
+        "<strong>Problem:</strong> Evaluating workplace well-being usually relies on subjective surveys. We needed to create a mobile app that could take raw, objective biometric data and turn it into clear insights about a worker's cognitive load and stress.",
+        "<strong>Outcome:</strong> During a five-day academic sprint, I designed a 20-screen prototype that visually separated sudden emotional stress from general cognitive fatigue. By swapping a confusing heatmap for a simple 2D grid with a timeline slider, we made the data much easier for ergonomists to read."
+      ],
       "sections": [
         {
           "images": ["emco.mp4"]
         },
         {
           "title": "Context",
-          "description": "Corporate ergonomists evaluate workplace quality of life and prevent psychosocial risks, but traditional methods rely heavily on retrospective, subjective questionnaires. The EmCo project aimed to create an objective diagnostic system translating non-invasive biometric telemetry into actionable Quality of Work Life (QVT) indicators."
+          "description": "Corporate ergonomists look at workplace well-being, but they usually have to rely on subjective, after-the-fact surveys.The EmCo project was about building an objective tool to turn raw biometric data into clear Quality of Work Life indicators."
         },
         {
-          "title": "Scientific Challenge",
+          "title": "The Challenge",
           "description": [
-            "Emotion and cognition activate similar physiological responses but operate on fundamentally different temporal scales: emotion manifests as sudden, brief physiological spikes, whereas cognition represents sustained resource mobilization. The core UX challenge was visually decoupling these biological realities without overwhelming the user with raw data.",
-            "As the UX Lead across a six-person cross-disciplinary team, I owned the information architecture and technical UI decisions, tasked with delivering a complete 20-screen mobile design system."
+            "Emotion and mental workload cause similar physical reactions, but they happen on different temporal scales. Emotions are quick spikes, while cognitive load represents sustained resource mobilization. The main UX challenge was finding a way to show these two different realities visually without overwhelming the user with raw data.",
+            "Working with a team of six, my job was to figure out the information architecture and design the UI, putting together a 20-screen mobile prototype."
           ],
-          "images": ["emco-2.jpg", "emco-3.jpg"]
+          "images": ["emco-1.jpg"]
         },
         {
-          "title": "Data Translation",
-          "description": "Raw data is useless without interpretation. To prevent cognitive overload, I translated complex biometric streams (HRV, EDA) into actionable, human-readable status labels like 'Focus Productif' and 'Surcharge Critique'.",
-          "images": ["emco-4.jpg"]
+          "title": "Making Sense of the Data",
+          "description": "Raw data is hard to read on the fly. To keep things clear, I turned complex biometric streams into human-readable status labels like 'Productive Focus' or 'Critical Overload.'",
+          "images": ["emco-2.jpg"]
         },
         {
           "title": "Privacy",
-          "description": "To handle privacy seamlessly during live monitoring, I implemented iOS-style FaceID; this allowed ergonomists to securely and repeatedly lift patient anonymity for clinical checks without the long-term interaction friction of passwords.",
-          "images": ["emco-5.jpg"]
+          "description": "To handle patient privacy during live sessions, I added a FaceID-style unlock. This let ergonomists quickly check who they were monitoring without the long-term interaction friction of passwords.",
+          "images": ["emco-3.jpg"]
         },
         {
           "title": "Rapid Execution",
-          "description": "Operating within a strict 5-day conceptual sprint, I aggressively timeboxed the high-fidelity UI execution to just 48 hours. To maximize efficiency, I utilized AI Studio to audit wireframe layouts before executing Day 3 usability testing with 5 cognitive engineering professors and PhD researchers acting as proxy users.",
-          "images": ["emco-6.jpg"]
+          "description": "Because we only had five days from start to finish, I kept the UI design phase to just two days. To save time, I used AI tools to get quick feedback on my wireframes before we ran usability tests with five cognitive engineering professors and PhD researchers acting as proxy users on day three.",
+          "images": ["emco-4.jpg"]
         },
         {
           "title": "Usability Evaluation",
-          "description": "AttrakDiff testing revealed high engagement (+1.5 Stimulation) but highlighted a critical usability flaw (-0.5 Pragmatic Quality), as continuous 3D emotional heatmaps proved too dense to interpret during extended monitoring.",
-          "images": ["emco-7.jpg"]
+          "description": "Our testing showed that people liked the concept (+1.5 Stimulation), but it also pointed out a major usability flaw (-0.5 Pragmatic Quality). We had originally used heatmaps to show emotion, and they were simply too dense and confusing to read during a longer monitoring session.",
+          "images": ["emco-5.jpg"]
         },
         {
           "title": "Empirical Iteration",
           "description": [
-            "To eliminate this cognitive friction, I executed three targeted architectural changes to aggressively filter visual noise:",
-            "• I abandoned the dense heatmaps in favor of a flattened grid based on Russell's model. By plotting discrete subject markers, the eye is instantly guided to critical outliers rather than scanning a chaotic 3D map.\n• I paired this grid with a temporal scrubbing slider, empowering users to track short emotional peaks over time and isolate them from baseline cognitive fatigue.\n• I added explicit threshold baselines across all cognitive and biometric charts to remove interpretive guesswork, and consolidated ambient header actions into a labeled hamburger menu to keep the screen focused purely on diagnostic tasks."
+            "To fix this, I made a few key changes to filter visual noise and gain affordance:",
+            "• I dropped the complex heatmaps in favor of a simple 2-dimensional grid based on Russell's model. By plotting discrete subject markers, the eye is instantly guided to critical outliers rather than scanning a chaotic 3D map.\n• I paired this grid with a temporal slider, letting users track short emotional peaks and separate them from long-term fatigue.\n• I added explicit threshold baselines across all the charts to remove interpretive guesswork, and moved extra actions into a simple menu to keep the main screen focused on the data."
           ],
-          "images": ["emco-8.jpg", "emco-9.jpg"]
+          "images": ["emco-6.jpg", "emco-7.jpg"]
         },
         {
-          "images": ["emco-10.jpg", "emco-11.jpg", "emco-12.jpg", "emco-13.jpg"]
-        },
-        {
-          "title": "Impact and Reflections",
+          "title": "Takeaways",
           "description": [
-            "Delivering a functional MedTech design system under extreme time limits required aggressive scoping of core user flows. Using AI tools to critique wireframes accelerated iteration loops, while negative pragmatic feedback highlighted the danger of over-designing real-time charts.",
-            "Although the sprint's timeline precluded a second round of testing, the final architectural pivot was designed specifically to let users instantly differentiate acute stress events from baseline recovery. The project culminated in strong validation from the reviewing panel.",
-            "If transitioned into a commercial product, the immediate strategic next step would be deploying the iterated prototype in the field: conducting rigorous usability testing with practicing corporate ergonomists to validate the UI changes and refine the QVT indicators for enterprise adoption."
+            "Building this prototype in a week meant we had to focus only on the most important features. Testing taught us a hard lesson about overcomplicating data visualization: <strong>simple is almost always better.</strong>",
+            "If we were to take this further, the next step would be testing the updated design in the field with actual corporate ergonomists to see how it holds up in a real workplace."
           ],
-          "images": ["emco-14.jpg"]
+          "images": ["emco-8.jpg", "emco-9.jpg", "emco-10.jpg", "emco-11.jpg", "emco-12.jpg"]
         }
       ],
 
@@ -283,60 +271,65 @@
   ],
   "projects": [
     {
+      "company": "Stealth startup",
       "title": "Stealth startup",
       "shortDescription": "synchronous social discovery",
       "projectDuty": ["ux design"],
       "created": "2025-04-01",
       "endDate": "2026-01-31",
       "duration": "10",
+
       "primaryImage": ["startup-primary.jpg"],
+      "context": [
+        "<strong>Problem:</strong> The founders initially wanted a UI refresh for their social discovery app that had a completely new matching mechanic. But before building it, we needed to prove users actually wanted an alternative to swiping.",
+        "<strong>Outcome:</strong> A survey of over 300 people showed that 77.5% were tired of swiping. Based on this, I designed the app's core flows and a full design system to hand off over 100 screens to developers."
+      ],
       "sections": [
         {
           "images": ["nda.jpg"]
         },
         {
-          "title": "Strategic Pivot",
+          "title": "Validating the Strategy",
           "description": [
-            "Tasked initially with a superficial UI refresh, I deployed quantitative research across 300+ respondents to validate the founders' core hypothesis: replacing commodified swipe mechanics with synchronous video connections. The data confirmed the viability of this strategy, revealing a 77.5% rejection rate of traditional swipe interfaces among users experiencing severe market exhaustion."
+            "The founders originally hired me for a basic UI refresh, but they also wanted to introduce an innovative new matching mechanic. I suggested we dig into the UX first to validate if people actually wanted this. We ran a survey with over 300 users, and the data backed up their hypothesis: 77.5% of people were completely burned out and rejected traditional swipe interfaces."
           ]
         },
         {
-          "title": "Time-Boxed Mechanics",
+          "title": "Core Mechanics",
           "description": [
-            "To execute this vision, I engineered a real-time interaction hub restricted to a dedicated 18h-22h window to artificially drive concurrent user density and dismantle choice fatigue. To offset the restricted active window, I designed a frictionless monetization flow integrating premium tier subscriptions and single-use micro-transactions for immediate encounter refills."
+            "To make this new vision work, I designed an interaction hub restricted to a specific evening window (18h - 22h). This helped gather users online at the same time and reduced choice fatigue. To balance out the limited hours, I also mapped out a straightforward monetization flow with premium subscriptions and micro-transactions for immediate account refills."
           ]
         },
         {
-          "title": "High-Stakes Interaction Design",
+          "title": "Interaction Design",
           "description": [
-            "The core product loop centers on a time-boxed 5-minute live audio-visual call, requiring a hyper-focused UI to manage cognitive load. "
+            "The main product loop relies on an innovative, fast-paced mechanic, so the UI needed to be focused to keep cognitive load low. I set up a mutual 'Spark' decision gate to filter who gets access to direct messaging."
           ]
         },
         {
-          "title": "Accessibility",
+          "title": "Safety",
           "description": [
-            "I proposed the structural integration of real-time automated text transcription overlays to ensure hearing inclusivity, and engineered an immediate mutual 'Spark' decision gate to filter access to direct messaging.",
-            "Knowing 56% of female users face harassment, I designed a low-friction, persistent safety reporting flow that allows users to instantly block and report abusers without breaking the overarching navigation architecture."
+            "Knowing 56% of female users face harassment, I also designed a quick, always-accessible reporting flow. This lets users block and report abusers instantly without getting lost in the navigation menus."
           ]
         },
         {
-          "title": "Tokenized Architecture",
+          "title": "Design System",
           "description": [
-            "To support the complex technical requirements of live video and asynchronous messaging, I architected a tokenized Figma design system utilizing 60+ variables to seamlessly manage the brand’s dark-mode primary theme and neon interactive accents. This systematized approach eliminated design debt, ensuring rapid developer handoff across 7 fully prototyped interactive flows and 100+ high-fidelity states."
+            "To support the technical requirements behind the new mechanic and messaging, I built a Figma design system. By using 69 variables, it easily managed the brand's dark-mode theme and neon accents. This setup made handing the designs over to developers much faster, covering 7 interactive flows and over 100 high-fidelity screens."
           ]
         },
         {
-          "title": "Brand Execution",
+          "title": "Final Deliverables",
           "description": [
-            "The final deliverable included bespoke iconography, Apple HIG-compliant PACE microcopy, and a comprehensive investor pitch deck that successfully positioned the human-centered UX strategy as a viable market disruptor."
+            "The final deliverables included custom iconography, clear microcopy using the PACE method to minimize friction, and a pitch deck for investors. This deck helped clearly present our UX strategy as a real alternative in the market."
           ]
         }
       ],
       "slug": "startup",
       "companyUrl": null
     },
-
     {
+      "company": "Academic",
       "title": "UCD sprint",
       "shortDescription": "rapid systems architecture & field testing",
       "projectDuty": ["ux design"],
@@ -345,6 +338,10 @@
       "duration": "7",
 
       "primaryImage": ["ucd-primary.jpg"],
+      "context": [
+        "<strong>Problem:</strong> We needed to rapidly adapt to three different industries (bike security, smart desks, and retail carts) to research, design and test UX concepts within tight academic deadlines.",
+        "<strong>Outcome:</strong> We designed an automated bike lock, built a mobile prototype for a smart desk, and ran a field test that proved a digital shopping cart app wasn't actually useful for real shoppers."
+      ],
       "sections": [
         {
           "images": ["ucd.mp4"]
@@ -352,9 +349,9 @@
         {
           "title": "Sprint Context",
           "description": [
-            "Following the Double Diamond framework, this intensive multi-product sprint simulated fast-paced agency conditions across three separate product domains. The core objective was to rapidly adapt to unfamiliar industries, conduct targeted contextual research, build modular Figma design systems, and execute empirical field testing under real-world constraints."
+            "Following the Double Diamond framework, this project sprint simulated fast-paced agency conditions across three separate product domains. The goal was to adapt to unfamiliar industries, build design systems, and run real-world field tests."
           ],
-          "images": ["ucd-2.jpg"]
+          "images": ["ucd-1.jpg"]
         },
         {
           "title": "Phase 1: Conceptual Architecture (Ridar, Urban Mobility Security)"
@@ -362,95 +359,86 @@
         {
           "title": "Field Observations",
           "description": [
-            "Urban bicycle theft results in 400,000 stolen bikes annually in France. To identify behavioral root causes, we conducted contextual observations and interviews in high-traffic transit hubs across Bordeaux, including Sainte-Catherine Street and Bergonié."
+            "Bike theft results in 400,000 stolen bikes annually in France. To figure out why, we conducted observations and interviews at transit hubs in Bordeaux (Sainte-Catherine Street and Bergonié)."
           ]
         },
         {
           "title": "Research Insights",
           "description": [
-            "While mapping three distinct personas (the delivery driver, the rushed parent, and the determined ecologist), our research pinpointed micro-stops as the most critical point of vulnerability. The primary friction point was time: the 23.2-second average required to secure a physical U-lock leads cyclists making brief stops to bypass security entirely to maintain their delivery schedules."
+            "Our research identified micro-stops as a critical vulnerability. Based on this, we mapped out three personas (the delivery driver, the rushed parent, and the determined ecologist). Since it takes an average of 23.2 seconds to secure a U-lock, people making fast stops often skip locking their bikes entirely just to save time"
           ],
-          "images": ["ucd-3.jpg"]
+          "images": ["ucd-2.jpg"]
         },
         {
           "title": "Ideation",
           "description": [
-            "To avoid generic security clichés, our team ran a 15-minute ideation purge to eliminate obvious concepts, leaving a dozen viable ideas. We evaluated these on a matrix structured along two axes: Standalone Hardware vs. Bike-Integrated, and Passive Security vs. Smart Monitoring."
+            "To eliminate obvious concepts, our team ran a 15-minute ideation purge, leaving a dozen viable ideas. We evaluated these on a matrix structured along two axes (Standalone Hardware vs. Bike-Integrated, and Passive Security vs. Smart Monitoring)."
           ],
-          "images": ["ucd-4.jpg"]
+          "images": ["ucd-3.jpg"]
         },
         {
           "title": "Prioritization",
           "description": [
-            "Scoring the surviving concepts on effectiveness, feasibility, and originality birthed Ridar: a phygital security device integrated directly into the seat post. It auto-arms in the background as the cyclist walks away, completely eliminating the 23.2-second physical lock friction."
+            "Scoring the surviving concepts on effectiveness, feasibility, and originality led us to Ridar: a phygital security device integrated directly inside the seat post. It auto-arms as the cyclist walks away, eliminating that 23.2-second friction."
           ],
-          "images": ["ucd-5.jpg"]
+          "images": ["ucd-4.jpg"]
         },
         {
           "title": "Visual Storyboarding",
           "description": [
-            "As Co-Researcher, I illustrated the core user workflow through a storyboard centered on Rayan, a delivery driver persona. The storyboard demonstrates how Ridar passively protects his bike without requiring manual app interaction during quick pick-ups. The system issues instant smartphone alerts and triggers a localized physical alarm upon detecting unauthorized motion, protecting his primary source of income without compromising his delivery speed."
+            "To explain the concept, I illustrated a storyboard centered on a delivery driver persona. It shows how Ridar protects his bike without needing manual interaction during quick pick-ups. The system just works in the background and sends an alert to his phone if someone tries to move the bike."
           ],
-          "images": ["ucd-6.jpg"]
+          "images": ["ucd-5.jpg"]
         },
         {
           "title": "Phase 2: Systems Design (DeskFriend, Remote Workspace Ergonomics)"
         },
         {
-          "title": "Specification Audit Rescoping",
+          "title": "Rescoping the Brief",
           "description": [
-            "Transitioning to workspace ergonomics, our team inherited an external student spec sheet for a smart desk controller. The initial proposal suffered from severe feature bloat, presenting 11 fragmented themes (some packing up to three sub-features each).",
-            "Rather than executing flawed requirements, we held a structured brainstorming session to rationally rescope the project, consolidating the scattered ideas into 4 core UX pillars."
+            "Transitioning to workspace ergonomics, our team inherited a heavy student spec sheet for a smart desk controller that presented 11 fragmented themes (some packing up to three sub-features each). Instead of building a cluttered interface, we ran a workshop to narrow the scope down to four main UX pillars."
           ],
-          "images": ["ucd-7.jpg"]
+          "images": ["ucd-6.jpg"]
         },
         {
           "title": "Rapid Architecture",
           "description": [
-            "To align the team without losing momentum, we drove rapid consensus through low-fidelity whiteboard wireframing, mapping the 4 pillars into a streamlined control interface with 6 modular UI cards."
+            "To align the team, we sketched out our ideas on a whiteboard, turning those pillars into a simple control interface with six modular UI cards."
           ],
-          "images": ["ucd-8.jpg"]
+          "images": ["ucd-7.jpg"]
         },
         {
           "title": "Prototyping",
           "description": [
-            "Stepping in as Visual Design Lead, I engineered the high-fidelity Figma prototype from scratch using Auto Layout rules, tokenized color palettes, and reusable component libraries.",
-            "The flagship UX feature was a physical Focus Mode: users dock their smartphone onto the desk controller, transforming the phone into a tactile workspace remote while automatically filtering out non-essential digital notifications."
+            "Stepping in as Visual Design Lead, I built the Figma prototype from scratch using Auto layout rules and reusable component libraries. The main feature was a Focus Mode that blocks out notifications and lets you use your phone as a tactile desk remote."
           ],
-          "images": ["ucd-9.jpg", "ucd-10.jpg"]
+          "images": ["ucd.mp4", "ucd-8.jpg", "ucd-9.jpg", "ucd-10.jpg"]
         },
         {
           "title": "Phase 3: Field Testing (Smart Cart, Autonomous Retail Usability)"
         },
         {
-          "title": "Testing Protocol",
+          "title": "Field Testing",
           "description": [
-            "In the final phase, we evaluated an unbuilt 100L autonomous supermarket cart concept designed by a third team. I co-designed a guerrilla field usability test at a Leclerc supermarket in Pessac with 9 real shoppers.",
-            "To evaluate spatial navigation efficiently, we engineered a hybrid testing protocol pairing an interactive Figma mobile app with a physical cardboard store map and a cart token, allowing us to evaluate shopper mental models without requiring full-store physical walks."
+            "For the final project, we tested another team's concept for a 100L smart shopping cart. I co-designed a guerrilla usability test at a Leclerc supermarket in Pessac with 9 real shoppers.",
+            "To simulate the experience without a real digital cart, we used a Figma prototype paired with a physical cart token and a cardboard store map. Taking advantage of the unbuilt cart to evaluated spatial navigation efficiently."
           ],
           "images": ["ucd-11.jpg"]
         },
         {
           "title": "Findings",
           "description": [
-            "Testing yielded a 100% completion rate for cart pairing but exposed foundational flaws in the product's premise. Five out of nine shoppers bypassed the digital checkout flow. Our protocol revealed a physical reflex trade-off: having a physical cart token in hand caused users' ingrained habit of pushing a cart to a cashier to override the digital UI prompt."
+            "Every shopper managed to pair their app with the cart, but the concept itself had flaws. Five out of the nine shoppers instinctively tried to go to a physical cashier instead of using the digital checkout.",
+            "More importantly, people preferred their paper grocery lists and felt the app made them <strong>lose the initiative to think</strong>. Shoppers just didn't see the utility of the app, proving it was a complex solution to a problem that didn't exist."
           ],
           "images": ["ucd-12.jpg"]
         },
         {
-          "description": [
-            "More critically, participants overwhelmingly stated a preference for paper grocery lists over the digital application, noting that the app caused them to 'lose the initiative to think'. Shoppers saw zero personal utility in the software, proving the digital feature set was a complex solution to an unvalidated problem."
-          ],
-          "images": ["ucd-13.jpg", "ucd-14.jpg"]
-        },
-        {
           "title": "Impact and Reflections",
           "description": [
-            "This design relay demonstrated that effective UX leadership requires ruthless prioritization and the courage to challenge flawed assumptions.",
-            "Navigating specification ambiguity in Phase 2 proved that structured low-fidelity wireframing prevents engineering waste and accelerates scalable Figma design systems.",
-            "Ultimately, Phase 3 reinforced that high-fidelity UI cannot salvage a product that fails to address a genuine human need: true product strategy prioritizes observing real human behavior over forcing unnecessary digital adoption."
+            "Working across three different projects taught me a lot about focusing on what actually matters. On DeskFriend, taking the time to wireframe early saved us from over-designing. And with the Smart Cart, we learned the hard way that a polished UI doesn't matter if the product doesn't solve a real user need. Sometimes, realizing people just prefer paper is the most valuable insight you can get."
           ],
-          "images": ["ucd-15.jpg"]
+          "images": ["ucd-13.jpg"]
         }
       ],
 
@@ -463,49 +451,49 @@
       "slug": "ucd-sprint"
     },
     {
+      "company": "Academic",
       "title": "Card sorting",
       "shortDescription": "aligning enterprise tooling with student mental models",
       "projectDuty": ["ux research"],
       "created": "2025-10-07",
       "endDate": "2025-12-12",
       "duration": "3",
+
       "primaryImage": [""],
+      "context": [
+        "<strong>Problem:</strong> The Bordeaux INP student portal displayed 33 different tools in a single, unorganized grid. Finding the right service was frustrating because nothing was grouped by theme, forcing users to scan the entire page every time.",
+        "<strong>Outcome:</strong> We reorganized the portal into 12 intuitive categories based on how students naturally group them. We also renamed 7 confusing acronyms so users immediately understand what they are clicking on."
+      ],
       "sections": [
         {
-          "title": "Academic Context",
+          "title": "Context",
           "description": [
-            "Restructuring a 33-service university portal into an intuitive 12-category taxonomy through in-person Open Card Sorting, 33x33 Similarity Matrix quantification, and semantic jargon decoupling."
+            "The university portal had 33 essential tools sitting in a flat grid. Because the layout was based on institutional habits rather than how students think, users had to scan the whole page just to find one tool."
           ]
         },
         {
-          "title": "Operational Bottleneck",
+          "title": "Our Approach",
           "description": [
-            "The Bordeaux INP digital workspace housed 33 essential administrative, academic, and technical tools within a flat, unstructured grid. Built around institutional silos rather than user cognition, the interface lacked thematic grouping, forcing exhaustive visual scanning. "
+            "To fix this, I co-led an open card sorting study. We focused on a group of 9 students, since they are the primary daily users, to see how they naturally categorize these services."
           ]
         },
         {
-          "title": "Strategic Approach",
+          "title": "What We Found",
           "description": [
-            "To restructure this architecture, I co-led a mixed-methods Open Card Sorting study, prioritizing the student cohort as the primary daily users to establish a baseline behavioral taxonomy."
+            "Even with a small group, building a similarity matrix showed clear trends. For example, students almost always grouped their timetable (ADE) with the learning platform (Moodle). This led us to create a dedicated 'Essentiels' category for daily tools.",
+            "We also found that institutional acronyms and vendor names were confusing. I fixed this by renaming 7 items to describe what they actually do. For instance, we changed the vague 'Marsha' to 'Visioconférence - Marsha' and 'ODF' to 'Offre de Formation'."
           ]
         },
         {
-          "title": "Mixed-Methods Synthesis & Semantic Overhaul",
+          "title": "The Solution",
           "description": [
-            "To mitigate the risks of a localized sample size (N=9), we triangulated qualitative verbatim audits with a strict quantitative 33x33 Similarity Matrix to calculate functional co-occurrence. This data pipeline revealed a 100% correlation between the timetable (ADE) and the learning platform (Moodle), dictating the creation of a prioritized 'Essentiels' tier. ",
-            "Furthermore, qualitative analysis exposed that vendor names and institutional acronyms severely disrupted navigation. I resolved this by decoupling 7 jargon bottlenecks, injecting immediate functional affordance—such as renaming the opaque 'Marsha' to 'Visioconférence - Marsha' and 'ODF' to 'Offre de Formation'."
+            "We turned these findings into a Figma mockup. The new design organized the 33 tools into 12 clear, student-validated categories (like Administratif, Mobilité, and Assistance), with everything sorted alphabetically inside."
           ]
         },
         {
-          "title": "Scalable Architecture",
+          "title": "Next Steps",
           "description": [
-            "The research culminated in a functional Figma prototype that successfully condensed the 33 fragmented tools into 12 user-validated, alphabetically sub-sorted categories (e.g., Administratif, Mobilité, Assistance)."
-          ]
-        },
-        {
-          "title": "Role-Based Strategy",
-          "description": [
-            "More importantly, the similarity matrix isolated low-frequency, ambiguous items like 'Evacataires'. Rather than forcing these into the student taxonomy, we leveraged these outliers to advocate for a dynamic, role-personalized portal architecture, ensuring that the interface adapts to the distinct requirements of students, faculty, and administrative staff."
+            "During the study, some tools like 'Evacataires' were left completely isolated because they didn't make sense to students. Instead of forcing them into the layout, we recommended personalizing the portal based on roles. That way, students, teachers, and staff only see the tools relevant to them."
           ]
         }
       ],
@@ -513,6 +501,7 @@
       "slug": "card-sorting"
     },
     {
+      "company": "Academic",
       "title": "Figma fundamentals",
       "shortDescription": "engineering student curriculum",
       "projectDuty": ["ux design"],
@@ -521,23 +510,24 @@
       "duration": "4 months",
 
       "primaryImage": ["figma-course-primary.jpg"],
+      "context": [
+        "<strong>Summary:</strong> ENSC engineering students had to build UI prototypes for their projects but lacked formal Figma training, resulting in messy files and broken layouts. I created a comprehensive 94-slide Figma course covering everything from the basics to developer handoff, and gave it to the faculty to use as a teaching asset."
+      ],
       "sections": [
         {
           "images": ["figma-course-1.jpg"]
         },
         {
-          "title": "Challenge",
+          "title": "The Challenge",
           "description": [
-            "At ENSC, engineering students are required to rapidly build interactive UI prototypes for cross-disciplinary projects, user testing, and stakeholder presentations. Without formal training in design system architecture, students relied on trial-and-error execution.",
-            "This resulted in fragile component hierarchies, broken layouts, and inconsistent interfaces that compromised both the integrity of live user testing and eventual developer handoffs."
+            "At ENSC, engineering students have to build interactive UI prototypes for their projects. But without formal Figma training, most students just relied on trial and error. This led to messy files, broken layouts, and inconsistent interfaces, which made user testing and developer handoffs a lot harder than they needed to be."
           ]
         },
         {
-          "title": "Architecting the Solution",
+          "title": "Building the Course",
           "description": [
-            "To replace guesswork with standardized product logic, I independently architected a 90+ slide curriculum natively within Figma, structured across 6 modular learning tracks.",
-            "To prevent cognitive overload, I avoided static screenshots and instead designed explicit vector diagrams to visually map out abstract mechanics like Auto Layout grids,frame nesting, and variables.",
-            "To bridge theory and practice, I am developing a suite of hands-on, atomic tutorials mirroring the students' actual academic deliverables. These exercises guide students progressively through constructing scalable Auto Layout buttons, building multi-state component sets, and correctly mapping design tokens (variables) to control UI logic."
+            "I wanted to help students replace guesswork with solid basics, so I built a 94-slide course directly inside Figma. To keep things clear and easy to follow, I skipped static screenshots and drew vector diagrams to explain concepts like Auto Layout, nesting, and variables.",
+            "I am also developing practical exercises based on the actual projects they have to deliver for school. These tutorials will walk them through things like making scalable buttons, setting up component variants, and using variables."
           ],
           "images": [
             "figma-course-2.jpg",
@@ -553,13 +543,13 @@
           ]
         },
         {
-          "title": "Proactive Handoff",
-          "description": "Following iterative peer validation to resolve technical edge cases, I proactively delivered this production-ready framework to the ENSC faculty. As a self-initiated contribution, my objective was to provide non-expert professors with a reliable teaching asset."
+          "title": "Handing it Over",
+          "description": "After getting feedback from my classmates to make sure everything worked well, I gave the finished course to the ENSC faculty. I started this on my own to give professors who aren't Figma experts a ready-to-use resource for their classes."
         },
 
         {
-          "title": "Knowledge Sharing",
-          "description": "By open-sourcing this curriculum to the institution, the goal is to empower future engineering cohorts to autonomously build robust, testable prototypes that align with professional software standards."
+          "title": "Impact",
+          "description": "By sharing this course with the school, the goal is to help future students build clean, testable prototypes that actually look and work like professional software."
         }
       ],
       "link": [
@@ -741,7 +731,7 @@
     {
       "title": "krystal",
       "shortDescription": "elements visual identity for sports events",
-      
+
       "created": "2026-01-01",
       "endDate": "2026-01-17",
       "duration": "2 weeks",

@@ -1,11 +1,12 @@
+import { lazy, Suspense, useLayoutEffect } from 'react';
 import { BrowserRouter as Router, Navigate, Routes, Route, useLocation } from 'react-router-dom';
-import { useLayoutEffect } from 'react';
 import App from '@/App';
-import About from '@/pages/About';
-import Work from '@/pages/Work';
-import Playground from '@/pages/Playground';
-import Detail from '@/pages/Detail';
-import NotFound from '@/pages/NotFound';
+
+const About = lazy(() => import('@/pages/About'));
+const Work = lazy(() => import('@/pages/Work'));
+const Playground = lazy(() => import('@/pages/Playground'));
+const Detail = lazy(() => import('@/pages/Detail'));
+const NotFound = lazy(() => import('@/pages/NotFound'));
 
 const ScrollToTop = () => {
   const { pathname, hash } = useLocation();
@@ -27,19 +28,21 @@ export default function AppRoutes() {
   return (
     <Router>
       <ScrollToTop />
-      <Routes>
-        <Route path="/" element={<App />}>
-          <Route index element={<Work />} />
-          <Route path="work/:slug" element={<Detail variant="work" />} />
-          <Route path="work" element={<Navigate to="/" replace />} />
-          <Route path="projects" element={<Navigate to="/" replace />} />
-          <Route path="projects/:slug" element={<Detail variant="work" />} />
-          <Route path="playground" element={<Playground />} />
-          <Route path="playground/:slug" element={<Detail variant="playground" />} />
-          <Route path="about" element={<About />} />
-          <Route path="*" element={<NotFound />} />
-        </Route>
-      </Routes>
+      <Suspense fallback={null}>
+        <Routes>
+          <Route path="/" element={<App />}>
+            <Route index element={<Work />} />
+            <Route path="work/:slug" element={<Detail variant="work" />} />
+            <Route path="work" element={<Navigate to="/" replace />} />
+            <Route path="projects" element={<Navigate to="/" replace />} />
+            <Route path="projects/:slug" element={<Detail variant="work" />} />
+            <Route path="playground" element={<Playground />} />
+            <Route path="playground/:slug" element={<Detail variant="playground" />} />
+            <Route path="about" element={<About />} />
+            <Route path="*" element={<NotFound />} />
+          </Route>
+        </Routes>
+      </Suspense>
     </Router>
   );
 }

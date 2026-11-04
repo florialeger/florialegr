@@ -68,9 +68,9 @@
 }
 
 .workList {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: calc(var(--stack-gap-md)*1.5) calc(var(--stack-gap-md)*1.5);
+  display: flex;
+  flex-direction: column;
+  gap: var(--stack-gap-lg);
 }
 
 .projectList {
@@ -81,16 +81,6 @@
 @media (max-width: 780px) {
   .introAction {
     justify-content: flex-start;
-  }
-
-  .workList {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-}
-
-@media (max-width: 520px) {
-  .workList {
-    grid-template-columns: 1fr;
   }
 }
 

@@ -7,10 +7,6 @@ const mediaDimensions = {
     "width": 700,
     "height": 400
   },
-  "Projects.png": {
-    "width": 1440,
-    "height": 1187
-  },
   "alco-1.jpg": {
     "width": 900,
     "height": 615
@@ -189,23 +185,23 @@ const mediaDimensions = {
   },
   "emco-1.jpg": {
     "width": 900,
-    "height": 459
+    "height": 299
   },
   "emco-10.jpg": {
     "width": 900,
-    "height": 975
+    "height": 678
   },
   "emco-11.jpg": {
     "width": 900,
-    "height": 975
+    "height": 348
   },
   "emco-12.jpg": {
     "width": 900,
-    "height": 975
+    "height": 630
   },
   "emco-13.jpg": {
     "width": 900,
-    "height": 975
+    "height": 300
   },
   "emco-14.jpg": {
     "width": 900,
@@ -213,38 +209,38 @@ const mediaDimensions = {
   },
   "emco-2.jpg": {
     "width": 900,
-    "height": 299
+    "height": 405
   },
   "emco-3.jpg": {
     "width": 900,
-    "height": 228
+    "height": 333
   },
   "emco-4.jpg": {
     "width": 900,
-    "height": 405
+    "height": 219
   },
   "emco-5.jpg": {
     "width": 900,
-    "height": 333
+    "height": 435
   },
   "emco-6.jpg": {
     "width": 900,
-    "height": 315
+    "height": 465
   },
   "emco-7.jpg": {
     "width": 900,
-    "height": 435
+    "height": 630
   },
   "emco-8.jpg": {
     "width": 900,
-    "height": 465
+    "height": 630
   },
   "emco-9.jpg": {
     "width": 900,
-    "height": 630
+    "height": 189
   },
   "emco-primary.jpg": {
-    "width": 941,
+    "width": 900,
     "height": 420
   },
   "expression-1.jpg": {
@@ -317,11 +313,11 @@ const mediaDimensions = {
   },
   "figma-course-10.jpg": {
     "width": 900,
-    "height": 507
+    "height": 440
   },
   "figma-course-11.jpg": {
     "width": 900,
-    "height": 507
+    "height": 423
   },
   "figma-course-2.jpg": {
     "width": 900,
@@ -337,7 +333,7 @@ const mediaDimensions = {
   },
   "figma-course-5.jpg": {
     "width": 900,
-    "height": 507
+    "height": 624
   },
   "figma-course-6.jpg": {
     "width": 900,
@@ -345,15 +341,15 @@ const mediaDimensions = {
   },
   "figma-course-7.jpg": {
     "width": 900,
-    "height": 507
+    "height": 567
   },
   "figma-course-8.jpg": {
     "width": 900,
-    "height": 507
+    "height": 329
   },
   "figma-course-9.jpg": {
     "width": 900,
-    "height": 507
+    "height": 333
   },
   "figma-course-primary.jpg": {
     "width": 750,
@@ -1061,7 +1057,7 @@ const mediaDimensions = {
   },
   "ubisoft-1.jpg": {
     "width": 900,
-    "height": 762
+    "height": 210
   },
   "ubisoft-10.jpg": {
     "width": 900,
@@ -1077,7 +1073,7 @@ const mediaDimensions = {
   },
   "ubisoft-2.jpg": {
     "width": 900,
-    "height": 270
+    "height": 210
   },
   "ubisoft-3.jpg": {
     "width": 900,
@@ -1085,7 +1081,7 @@ const mediaDimensions = {
   },
   "ubisoft-4.jpg": {
     "width": 900,
-    "height": 489
+    "height": 440
   },
   "ubisoft-5.jpg": {
     "width": 900,
@@ -1093,7 +1089,7 @@ const mediaDimensions = {
   },
   "ubisoft-6.jpg": {
     "width": 900,
-    "height": 525
+    "height": 413
   },
   "ubisoft-7.jpg": {
     "width": 900,
@@ -1101,79 +1097,71 @@ const mediaDimensions = {
   },
   "ubisoft-8.jpg": {
     "width": 900,
-    "height": 618
+    "height": 428
   },
   "ubisoft-9.jpg": {
     "width": 900,
     "height": 420
   },
   "ubisoft-primary.jpg": {
-    "width": 941,
+    "width": 900,
     "height": 420
   },
   "ucd-1.jpg": {
     "width": 900,
-    "height": 720
+    "height": 416
   },
   "ucd-10.jpg": {
     "width": 900,
-    "height": 975
+    "height": 605
   },
   "ucd-11.jpg": {
     "width": 900,
-    "height": 450
+    "height": 279
   },
   "ucd-12.jpg": {
     "width": 900,
-    "height": 300
+    "height": 255
   },
   "ucd-13.jpg": {
     "width": 900,
-    "height": 255
-  },
-  "ucd-14.jpg": {
-    "width": 900,
-    "height": 330
-  },
-  "ucd-15.jpg": {
-    "width": 900,
-    "height": 330
+    "height": 311
   },
   "ucd-2.jpg": {
     "width": 900,
-    "height": 480
+    "height": 407
   },
   "ucd-3.jpg": {
     "width": 900,
-    "height": 480
+    "height": 387
   },
   "ucd-4.jpg": {
     "width": 900,
-    "height": 387
+    "height": 399
   },
   "ucd-5.jpg": {
     "width": 900,
-    "height": 399
+    "height": 479
   },
   "ucd-6.jpg": {
     "width": 900,
-    "height": 525
+    "height": 851
   },
   "ucd-7.jpg": {
     "width": 900,
-    "height": 1035
+    "height": 521
   },
   "ucd-8.jpg": {
     "width": 900,
-    "height": 795
+    "height": 540
   },
   "ucd-9.jpg": {
     "width": 900,
-    "height": 975
+    "height": 381
   },
   "ucd-primary.jpg": {
-    "width": 750,
-    "height": 483
+    "width": 900,
+    "height": 420
   },
   "vmt-1.jpg": {
     "width": 900,
@@ -1181,11 +1169,11 @@ const mediaDimensions = {
   },
   "vmt-10.jpg": {
     "width": 900,
-    "height": 290
+    "height": 242
   },
   "vmt-2.jpg": {
     "width": 900,
-    "height": 309
+    "height": 243
   },
   "vmt-3.jpg": {
     "width": 900,
@@ -1201,22 +1189,22 @@ const mediaDimensions = {
   },
   "vmt-6.jpg": {
     "width": 900,
-    "height": 270
+    "height": 434
   },
   "vmt-7.jpg": {
     "width": 900,
-    "height": 555
+    "height": 258
   },
   "vmt-8.jpg": {
     "width": 900,
-    "height": 300
+    "height": 270
   },
   "vmt-9.jpg": {
     "width": 900,
     "height": 270
   },
   "vmt-primary.jpg": {
-    "width": 941,
+    "width": 900,
     "height": 420
   },
   "wallpaper_mac.jpg": {

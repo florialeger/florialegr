@@ -109,30 +109,27 @@ const Work = () => {
       <Container className={styles.introContainer}>
         <RevealAnimation cascade damping={0.08} triggerOnce>
           <p>
-            <strong>Hi, I&apos;m Floria.</strong> I bridge cognitive engineering and visual craft to simplify
-            mission-critical software, enterprise design systems, and complex human-machine workflows.
+            <strong>Hi, I&apos;m Floria.</strong> I am a UX Designer and Cognitive Engineer who simplifies complex
+            systems. I combine human factors and cognitive science to reduce cognitive load and design intuitive,
+            user-centered workflows.
           </p>
           <p>
             Previously at{' '}
             <a className={styles.dottedLink} href="https://www.airbus.com/en" target="_blank" rel="noreferrer">
-              Airbus,
-            </a>{' '}
-            <a className={styles.dottedLink} href="https://www.ims-bordeaux.fr/" target="_blank" rel="noreferrer">
-              IMS
+              <strong>Airbus</strong>
             </a>{' '}
             and{' '}
             <a className={styles.dottedLink} href="https://www.ubisoft.com/fr-fr" target="_blank" rel="noreferrer">
-              Ubisoft,
+              <strong>Ubisoft</strong>,
             </a>{' '}
-            I am now seeking a <strong>UX Designer</strong> role where I can apply cognitive engineering principles to immersive digital
-            products. Feel free to connect with me on{' '}
+            I am now seeking a full-time position. Feel free to connect with me on{' '}
             <a
               className={styles.dottedLink}
               href="https://www.linkedin.com/in/florialeger/"
               target="_blank"
               rel="noreferrer"
             >
-              LinkedIn.
+              <strong>LinkedIn.</strong>
             </a>
           </p>
           <div className={styles.introAction}>

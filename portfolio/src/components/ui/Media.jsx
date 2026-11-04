@@ -26,6 +26,7 @@ const Media = ({
   const videoRef = useRef(null);
   const containerRef = useRef(null);
   const [shouldLoadVideo, setShouldLoadVideo] = useState(loading === 'eager');
+  const [sources, setSources] = useState(null);
 
   useEffect(() => {
     if (!isVideoSrc(src) || loading === 'eager') return undefined;
@@ -58,6 +59,26 @@ const Media = ({
     io.observe(el);
     return () => io.disconnect();
   }, [loading, src]);
+
+  useEffect(() => {
+    if (!src || isVideoSrc(src)) return undefined;
+
+    let cancelled = false;
+    setSources(null);
+    getMediaSources(src)
+      .then((nextSources) => {
+        if (!cancelled) setSources(nextSources);
+      })
+      .catch((error) => {
+        if (!cancelled) {
+          console.error(`Unable to load media source: ${src}`, error);
+        }
+      });
+
+    return () => {
+      cancelled = true;
+    };
+  }, [src]);
 
   if (!src) return null;
   const dimensions = getMediaDimensions(src);
@@ -94,7 +115,19 @@ const Media = ({
     );
   }
 
-  const sources = getMediaSources(src);
+  if (!sources) {
+    return (
+      <div
+        className={className}
+        aria-hidden="true"
+        style={{
+          aspectRatio:
+            dimensions?.width && dimensions?.height ? `${dimensions.width} / ${dimensions.height}` : undefined,
+        }}
+      />
+    );
+  }
+
   const createSrcSet = (variants) =>
     variants.length > 1
       ? variants.map((variant, index) => `${variant} ${responsiveWidths[index] || responsiveWidths.at(-1)}w`).join(', ')

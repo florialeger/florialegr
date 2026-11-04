@@ -390,7 +390,7 @@ const Detail = ({ variant }) => {
                   <section key={sectionIndex} className={styles.section}>
                     {hasSubheader && (
                       <div className={styles.sectionSubheader}>
-                        {section.title && <h3 className={styles.sectionTitle}>{section.title}</h3>}
+                        {section.title && <p className={styles.sectionTitle}>{section.title}</p>}
                         {section.description && (
                           <div className={styles.sectionDescription}>
                             {Array.isArray(section.description) ? (

@@ -1,9 +1,10 @@
-import { useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, useMotionValue, useSpring } from 'framer-motion';
 import PropTypes from 'prop-types';
 import Media from '@/components/ui/Media';
 import { resolveMediaPath } from '@/utils/media';
+import useMagneticEffect from '@/hooks/useMagneticEffect';
 import styles from './WorkCard.module.css';
 
 const formatEndDate = (dateString) => {
@@ -13,28 +14,44 @@ const formatEndDate = (dateString) => {
 };
 
 const WorkCard = ({ work, isDimmed, onMouseEnter, onMouseLeave, targetState }) => {
-  const [setIsHovered] = useState(false);
+  const [, setIsHovered] = useState(false);
   const [lastY, setLastY] = useState(0);
   const x = useMotionValue(0);
   const y = useMotionValue(0);
-  const scale = useSpring(1, { damping: 30, stiffness: 100, mass: 2 });
   const opacity = useSpring(0, { stiffness: 350, damping: 30, mass: 1 });
   const rotateCaption = useSpring(0, { stiffness: 350, damping: 30, mass: 1 });
+  const setMagneticNode = useMagneticEffect();
   const thumbnail = resolveMediaPath(work.primaryImage?.[0]);
   const displayTitle = work.title || work.company;
+  const description = work.description;
+
   const date = formatEndDate(work.endDate || work.created);
   const company = work.company ? `${work.company} – ` : '';
  // const description = work.description || work.shortDescription;
+
+  useEffect(
+    () => () => {
+      setMagneticNode(null);
+    },
+    [setMagneticNode]
+  );
+
+  const handleRef = useCallback(
+    (node) => {
+      setMagneticNode(node);
+    },
+    [setMagneticNode]
+  );
 
   return (
     <Link
       to={`/projects/${work.slug}`}
       state={targetState}
       className={styles.workCardLink}
+      ref={handleRef}
       data-dimmed={isDimmed || undefined}
       onMouseEnter={(event) => {
         setIsHovered(true);
-        scale.set(1.1);
         opacity.set(1);
         onMouseEnter?.(event);
       }}
@@ -50,16 +67,14 @@ const WorkCard = ({ work, isDimmed, onMouseEnter, onMouseLeave, targetState }) =
       onMouseLeave={(event) => {
         setIsHovered(false);
         opacity.set(0);
-        scale.set(1);
         rotateCaption.set(0);
         onMouseLeave?.(event);
       }}
     >
       <div className={styles.workCard}>
         <div className={styles.header}>
-          <p className={styles.title}>
-            {displayTitle}
-          </p>
+          <p className={styles.title}>{displayTitle}</p>
+          <p className={styles.description}>{description}</p>
         </div>
         {thumbnail && (
           <Media

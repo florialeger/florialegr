@@ -4,7 +4,7 @@
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  gap: var(--stack-gap-2xl);
+  gap: var(--stack-gap-xl);
 }
 
 /* Header section: metadata, description, links with 32px gap */
@@ -128,30 +128,24 @@
 .section {
   display: flex;
   flex-direction: column;
-  gap: var(--stack-gap-lg);
+  gap: var(--stack-gap-md);
 }
 
 .sectionSubheader {
   display: flex;
   flex-direction: column;
-  gap: var(--stack-gap-md);
+  gap: var(--stack-gap-xs);
 }
 
 .sectionTitle {
-  font-size: var(--type---title-3---size);
-  font-weight: var(--type---title-3---weight-emphasized);
-  line-height: var(--type---title-3---line-height);
-  color: var(--label---primary);
+  color: var(--label---tertiary);
   margin: 0;
 }
 
 .sectionDescription {
   display: flex;
   flex-direction: column;
-  font-size: var(--type---body---size);
-  font-weight: var(--body-regular-weight);
-  line-height: var(--type---body---line-height);
-  color: var(--label---secondary);
+  color: var(--label---primary);
   gap: var(--stack-gap-xs);
   margin: 0;
 }
@@ -362,7 +356,7 @@
   width: 100%;
   display: flex;
   flex-direction: column;
-  gap: var(--stack-gap-2xl);
+  gap: var(--stack-gap-xl);
   will-change: opacity;
   transform: translateZ(0);
 }
