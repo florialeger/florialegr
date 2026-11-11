@@ -22,6 +22,7 @@ const Media = ({
   loading = 'lazy',
   fetchPriority = 'auto',
   sizes = '100vw',
+  onLoad,
 }) => {
   const videoRef = useRef(null);
   const containerRef = useRef(null);
@@ -96,6 +97,7 @@ const Media = ({
             sizes={sizes}
             width={dimensions?.width}
             height={dimensions?.height}
+            onLoad={onLoad}
           />
         ) : (
           <video
@@ -144,6 +146,7 @@ const Media = ({
       srcSet={sources.webp.length > 0 ? createSrcSet(sources.webp) : undefined}
       width={dimensions?.width}
       height={dimensions?.height}
+      onLoad={onLoad}
     />
   );
 
@@ -176,6 +179,7 @@ Media.propTypes = {
   loading: PropTypes.oneOf(['eager', 'lazy']),
   fetchPriority: PropTypes.oneOf(['high', 'low', 'auto']),
   sizes: PropTypes.string,
+  onLoad: PropTypes.func,
 };
 
 export default Media;

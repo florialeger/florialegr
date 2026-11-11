@@ -1,5 +1,6 @@
 /* eslint-disable react-refresh/only-export-components */
-import { createContext, useCallback, useContext, useEffect, useMemo, useState } from 'react';
+import { createContext, useCallback, useContext, useEffect, useMemo, useRef, useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import { fetchProjects, fetchPlaygrounds, fetchWork } from '@/services/api';
 import slugify from '@/utils/slugify';
 import { findIconForProject, resolveIconPath } from '@/utils/icons';
@@ -172,39 +173,50 @@ const normalizeWork = (work) => {
 };
 
 export const PortfolioProvider = ({ children }) => {
+  const { pathname } = useLocation();
   const [projects, setProjects] = useState([]);
   const [playgrounds, setPlaygrounds] = useState([]);
   const [work, setWork] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const loadGenerationRef = useRef(0);
 
   const loadData = useCallback(async () => {
+    const loadGeneration = loadGenerationRef.current + 1;
+    loadGenerationRef.current = loadGeneration;
+    const isCurrentLoad = () => loadGenerationRef.current === loadGeneration;
+    const needsPlaygrounds = pathname.startsWith('/playground');
+    const needsProjects = pathname === '/' || pathname.startsWith('/projects') || pathname.startsWith('/work');
+    const needsWork = pathname === '/' || pathname.startsWith('/work') || pathname.startsWith('/projects');
+
     try {
       setLoading(true);
       setError(null);
       const [projectsData, playgroundsData, workData] = await Promise.all([
-        fetchProjects(),
-        fetchPlaygrounds(),
-        fetchWork(),
+        needsProjects ? fetchProjects() : Promise.resolve([]),
+        needsPlaygrounds ? fetchPlaygrounds() : Promise.resolve([]),
+        needsWork ? fetchWork() : Promise.resolve([]),
       ]);
       const normalizedProjects = projectsData.map(normalizeProject);
       const normalizedPlaygrounds = playgroundsData.map(normalizePlayground);
       const normalizedWork = workData.map(normalizeWork);
 
-      setProjects(normalizedProjects);
-      setPlaygrounds(normalizedPlaygrounds);
-      setWork(normalizedWork);
+      if (!isCurrentLoad()) return;
+      if (needsProjects) setProjects(normalizedProjects);
+      if (needsPlaygrounds) setPlaygrounds(normalizedPlaygrounds);
+      if (needsWork) setWork(normalizedWork);
 
     } catch (err) {
+      if (!isCurrentLoad()) return;
       console.error('Failed to load portfolio data', err);
       setError(err);
-      setProjects([]);
-      setPlaygrounds([]);
-      setWork([]);
+      if (needsProjects) setProjects([]);
+      if (needsPlaygrounds) setPlaygrounds([]);
+      if (needsWork) setWork([]);
     } finally {
-      setLoading(false);
+      if (isCurrentLoad()) setLoading(false);
     }
-  }, []);
+  }, [pathname]);
 
   useEffect(() => {
     let isMounted = true;

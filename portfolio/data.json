@@ -9,14 +9,12 @@
       "endDate": "2026-07-31",
 
       "primaryImage": ["ubisoft-primary.jpg"],
+      "headerImage": ["ubisoft-primary.jpg"],
       "context": [
         "<strong>Problem:</strong> Over 14,000 partner creators in the Ubisoft Creator Program felt ignored because the brand rarely gave feedback on their work, while internal teams lacked a structured process to share partner content.",
         "<strong>Outcome:</strong> I designed and pitched a multi-department workflow to regularly feature creator content on official channels, securing approval from key department leads to begin trial rollouts."
       ],
       "sections": [
-        {
-          "images": ["ubisoft-primary.jpg"]
-        },
         {
           "title": "Human Friction",
           "description": [
@@ -101,19 +99,17 @@
       "company": "Airbus",
       "role": "ux consultant intern",
       "title": "VMT",
-      "description": "optimizing cognitive affordance in industrial CAD training",
+      "description": "improving the usability of an industrial simulator",
       "startDate": "2025-05-01",
       "endDate": "2025-07-25",
 
       "primaryImage": ["vmt-primary.jpg"],
+      "headerImage": ["vmt-primary.jpg"],
       "context": [
         "<strong>Problem:</strong> Airbus Helicopters created a 3D simulator to train technicians on complex maintenance tasks, but instructors were underusing it in class. Navigating the software was cumbersome enough that trainers often preferred relying on physical mockups, missing out on the digital tool's flexibility.",
         "<strong>Outcome:</strong> I mapped out 28 core usability friction points and presented six key interaction recommendations, including a dual-mode camera and a radial contextual menu. Engineering leads at Airbus Helicopters and Telespazio validated and approved the overall specification package."
       ],
       "sections": [
-        {
-          "images": ["vmt-primary.jpg"]
-        },
         {
           "title": "Context",
           "description": [
@@ -198,7 +194,7 @@
       "company": "Academic",
       "role": "ux designer",
       "title": "Emco",
-      "description": "decoupling emotional state from cognitive workload",
+      "description": "decoupling emotion from cognitive workload",
       "startDate": "2026-01-19",
       "created": "2026-01-19",
       "endDate": "2026-01-26",
@@ -206,14 +202,13 @@
 
       "projectDuty": ["UX design"],
       "primaryImage": ["emco-primary.jpg"],
+      "headerImage": ["emco.mp4"],
+
       "context": [
         "<strong>Problem:</strong> Evaluating workplace well-being usually relies on subjective surveys. We needed to create a mobile app that could take raw, objective biometric data and turn it into clear insights about a worker's cognitive load and stress.",
         "<strong>Outcome:</strong> During a five-day academic sprint, I designed a 20-screen prototype that visually separated sudden emotional stress from general cognitive fatigue. By swapping a confusing heatmap for a simple 2D grid with a timeline slider, we made the data much easier for ergonomists to read."
       ],
       "sections": [
-        {
-          "images": ["emco.mp4"]
-        },
         {
           "title": "Context",
           "description": "Corporate ergonomists look at workplace well-being, but they usually have to rely on subjective, after-the-fact surveys.The EmCo project was about building an objective tool to turn raw biometric data into clear Quality of Work Life indicators."
@@ -273,21 +268,19 @@
     {
       "company": "Stealth startup",
       "title": "Stealth startup",
-      "shortDescription": "synchronous social discovery",
+      "shortDescription": "design system of a social discovery app",
       "projectDuty": ["ux design"],
       "created": "2025-04-01",
       "endDate": "2026-01-31",
       "duration": "10",
 
       "primaryImage": ["startup-primary.jpg"],
+      "headerImage": ["purely-primary.jpg"],
       "context": [
         "<strong>Problem:</strong> The founders initially wanted a UI refresh for their social discovery app that had a completely new matching mechanic. But before building it, we needed to prove users actually wanted an alternative to swiping.",
         "<strong>Outcome:</strong> A survey of over 300 people showed that 77.5% were tired of swiping. Based on this, I designed the app's core flows and a full design system to hand off over 100 screens to developers."
       ],
       "sections": [
-        {
-          "images": ["nda.jpg"]
-        },
         {
           "title": "Validating the Strategy",
           "description": [
@@ -338,14 +331,12 @@
       "duration": "7",
 
       "primaryImage": ["ucd-primary.jpg"],
+      "headerImage": ["ucd.mp4"],
       "context": [
         "<strong>Problem:</strong> We needed to rapidly adapt to three different industries (bike security, smart desks, and retail carts) to research, design and test UX concepts within tight academic deadlines.",
         "<strong>Outcome:</strong> We designed an automated bike lock, built a mobile prototype for a smart desk, and ran a field test that proved a digital shopping cart app wasn't actually useful for real shoppers."
       ],
       "sections": [
-        {
-          "images": ["ucd.mp4"]
-        },
         {
           "title": "Sprint Context",
           "description": [
@@ -453,13 +444,15 @@
     {
       "company": "Academic",
       "title": "Card sorting",
-      "shortDescription": "aligning enterprise tooling with student mental models",
+      "shortDescription": "aligning tooling with student mental models",
       "projectDuty": ["ux research"],
       "created": "2025-10-07",
       "endDate": "2025-12-12",
       "duration": "3",
 
       "primaryImage": [""],
+      "headerImage": [""],
+
       "context": [
         "<strong>Problem:</strong> The Bordeaux INP student portal displayed 33 different tools in a single, unorganized grid. Finding the right service was frustrating because nothing was grouped by theme, forcing users to scan the entire page every time.",
         "<strong>Outcome:</strong> We reorganized the portal into 12 intuitive categories based on how students naturally group them. We also renamed 7 confusing acronyms so users immediately understand what they are clicking on."
@@ -510,13 +503,12 @@
       "duration": "4 months",
 
       "primaryImage": ["figma-course-primary.jpg"],
+      "headerImage": ["figma-course-1.jpg"],
+
       "context": [
         "<strong>Summary:</strong> ENSC engineering students had to build UI prototypes for their projects but lacked formal Figma training, resulting in messy files and broken layouts. I created a comprehensive 94-slide Figma course covering everything from the basics to developer handoff, and gave it to the faculty to use as a teaching asset."
       ],
       "sections": [
-        {
-          "images": ["figma-course-1.jpg"]
-        },
         {
           "title": "The Challenge",
           "description": [
@@ -566,47 +558,47 @@
       "company": "Bordeaux INP",
       "role": "educational ux intern",
       "description": "design enablement architecture",
+      "created": "2024-06-01",
       "startDate": "2024-06-01",
       "endDate": "2024-06-28",
+      "duration": "1",
 
       "primaryImage": ["figma-primary.jpg"],
+      "headerImage": ["figma.mp4"],
+
+      "context": [
+        "<strong>Problem:</strong> I needed to teach the basics of UX design and Figma to 15 high school students during my internship at ENSC. Professional design tools can be overwhelming, so I had to create a 4-hour workshop that was simple, accessible, and hands-on.",
+        "<strong>Outcome:</strong> I built a custom tutorial website and ran a 2.5-hour design sprint where students designed a music app called 'Orchestra'. By the end of the session, all three groups successfully built and presented their own multi-page wireframes."
+      ],
       "sections": [
         {
-          "images": ["figma.mp4"]
-        },
-        {
-          "title": "Challenge",
+          "title": "The Challenge",
           "description": [
-            "During an internship at ENSC, I was challenged to introduce 15 high school students from the 'Cordées de la réussite' equal-opportunity program to UX design and cognitive engineering.",
-            "Professional tools like Figma often cause cognitive overload for beginners. My goal was to strip away the complexity and design a 4-hour workshop that was accessible, engaging, and highly practical"
+            "During my internship, I had to introduce 15 high schoolers to UX design. Figma is a complex tool that can easily confuse beginners. My goal was to cut out the jargon and design a 4-hour workshop that felt approachable and genuinely fun to complete."
           ]
         },
         {
-          "title": "Pedagogical Interaction",
+          "title": "Teaching the Basics",
           "description": [
-            "To ensure the students could work autonomously, I designed a multi-tiered learning experience. I first built a dynamic, 30-minute interactive presentation natively inside Figma to demonstrate frames, layers, and typography in real-time. ",
-            "I then coded a custom HTML/CSS portal hosting step-by-step video tutorials. Before the workshop, I tested this portal with a Figma novice to measure time-on-task and identify potential usability bottlenecks, adjusting the pacing to fit our tight 4-hour window."
+            "I started with a 30-minute presentation directly inside Figma to show them how frames, layers, and typography work. To help them practice, I coded a simple website hosting step-by-step video tutorials. Before the actual day, I timed this tutorial with someone who had little experience with Figma to make sure the pacing was realistic for our 4-hour window."
           ],
           "images": ["figma-1.jpg", "figma-3.jpg", "figma-4.jpg", "figma-5.jpg"]
         },
         {
-          "title": "The Agency Simulation",
+          "title": "The Design Sprint",
           "description": [
-            "The workshop culminated in a 2.5-hour hands-on sprint where students worked in three groups to design 'Orchestra,' a desktop music streaming application. Acting as the client, I provided strict brand guidelines and specific feature requirements, including a dedicated 'Handi-sons' section to introduce the students to the core concepts of accessibility and inclusive design."
+            "The main event was a 2.5-hour hands-on session where the students split into three groups to design a desktop music streaming app named 'Orchestra'. I acted as the client and gave them specific guidelines to follow. To get them thinking about accessibility, I also asked them to include a dedicated 'Handi-sons' section in their app."
           ]
         },
         {
-          "title": "Impact & Facilitation",
+          "title": "How It Went",
           "description": [
-            "Despite the challenges of maintaining engagement over a long session, every team successfully delivered a multi-page wireframe with functional navigation filters.",
-            "I actively coached the groups through interface friction, teaching them how to resolve layer hierarchy and alignment issues. The sprint concluded with the students pitching their UX decisions, proving that with the right structural support, novices can quickly grasp and apply professional design thinking."
+            "Keeping a group of teenagers focused for four hours is definitely a challenge. But every team managed to build a working multi-page wireframe. I walked around the room helping them fix basic issues with layers and alignment. We wrapped up with the students presenting their design choices, proving that beginners can pick up UX concepts quickly when you give them the right support."
           ]
         }
       ],
 
       "slug": "educational-ux",
-      "companyUrl": "https://ensc.bordeaux-inp.fr/fr",
-
       "link": [
         {
           "label": "view workshop",
@@ -623,49 +615,55 @@
       "shortDescription": "redesign of a coffee shop's mobile app",
 
       "created": "2025-12-18",
-      "endDate": "2025-12-20",
-      "duration": "2 days",
+      "endDate": "2025-12-25",
+      "duration": "1 weeks",
 
       "projectDuty": ["ux design"],
       "primaryImage": ["kfe-primary.jpg"],
+      "headerImage": ["kfe-1.jpg"],
+      "context": [
+        "<strong>Problem:</strong> I had a one-week sprint to design a mobile beverage ordering app for a demanding client who gave minimal initial specifications. The challenge was extracting their hidden business rules and turning them into a functional, user-friendly product.",
+        "<strong>Outcome:</strong> I initially built a functional prototype based on strict client rules. Later, I redesigned the app with warmer colors, a flexible Figma component system, and a streamlined menu that lets users customize drinks without leaving the main screen."
+      ],
       "sections": [
         {
-          "images": ["kfe-1.jpg"]
-        },
-        {
-          "title": "Navigating Ambiguity",
+          "title": "Getting Clarity",
           "description": [
-            "Operating under severe time constraints with highly ambiguous stakeholder directives, I led the agile discovery phase to extract and define core product mechanics. ",
-            "Through targeted requirement gathering, I isolated rigid business constraints that dictated the initial system architecture: strict adherence to corporate branding, fixed three-tier sizing, and limited modification parameters (milk and sugar). This foundational logic informed the data structure required to calculate dynamic cart totals and combined product pricing before any interface was drafted."
+            "I had a tight deadline and very vague instructions, so I led the discovery phase to figure out exactly how the app needed to work."
           ]
         },
         {
-          "title": "Interaction Architecture",
+          "title": "Agile Discovery",
           "description": [
-            "To optimize the legacy interface, I conducted a heuristic optimization sprint focused on minimizing user cognitive load and friction. I abandoned traditional multi-screen modification flows in favor of engineering complex, multi-state in-line expansion cards directly on the main menu. Utilizing tactile segmented controls and dot sliders, users can fully customize their beverage without ever losing their primary browsing context. ",
-            "This structural shift was paired with a visual overhaul rooted in culinary psychology: replacing rigid corporate greens with warm oranges and coffee-browns to maximize food affordance and stimulate user engagement."
+            "By asking the right questions, I uncovered a few strict rules: the app had to use the brand's corporate green, stick to three specific sizes, and only allow milk and sugar as add-ons. Knowing this helped me plan the data structure to calculate cart totals and pricing before I even started designing."
+          ]
+        },
+        {
+          "title": "Simplifying the Menu",
+          "description": [
+            "I wanted to make the app as frictionless as possible. Instead of sending users through multiple screens to customize a drink, I added expanding cards right on the main menu during the redesign. Now, people can pick their size, milk, and sweetness using simple buttons and sliders without losing their place in the list.",
+            "I also changed the visual style. The original corporate green didn't feel like a food app, so I swapped it for warm oranges and coffee browns. This makes the interface feel much more appetizing and inviting."
           ],
           "images": ["kfe-2.jpg", "kfe-3.jpg"]
         },
         {
           "title": "Adaptive Checkout",
           "description": [
-            "The checkout architecture was engineered to dynamically adapt to fulfillment intent, preventing user errors. 'Delivery' mode strictly locks payment calls-to-action until address validation is complete, while 'Pickup' mode defaults to geolocation-based store routing and surfaces immediate hardware payment options (Apple Pay). "
+            "The checkout flow changes based on what the user needs. If they want delivery, they have to enter a valid address before the payment button becomes active. If they choose pickup, the app finds the nearest store and immediately shows quick payment options like Apple Pay."
           ],
           "images": ["kfe-4.jpg", "kfe-5.jpg"]
         },
         {
-          "title": "Edge Case Management",
+          "title": "Cart & Order Tracking",
           "description": [
-            "To systematically increase Average Order Value (AOV), the flow integrates a receipt-style cart layout with an inline cross-selling module 'Want a snack with that?'. ",
-            "Post-purchase anxiety is mitigated through continuous system visibility, satisfying core stakeholder requirements via a multi-stage visual preparation timeline and a persistent status bar."
+            "To help increase the average order value, I added a 'Want a snack with that?' prompt right in the cart. I also wanted to keep users from worrying after they pay. The app shows a continuous status bar and a three-step visual timeline so they always know exactly when their coffee will be ready."
           ],
           "images": ["kfe-6.jpg"]
         },
         {
           "title": "Scalable Component System",
           "description": [
-            "To support these dynamic interactions, I architected a highly scalable UI kit. Rather than relying on dozens of static screens, I built a modular Figma system utilizing advanced variants and boolean properties, allowing a minimal set of base components to effortlessly handle the exponential combinations of sizes, modifiers, and cart states. "
+            "To make all of this work, I built a clean UI kit in Figma. Instead of making dozens of static screens, I used variants and boolean properties. This kept the component library small but flexible enough to handle all the different drink sizes, add-ons, and cart states."
           ],
           "images": ["kfe-7.jpg", "kfe-8.jpg", "kfe-9.jpg"]
         }
@@ -681,41 +679,44 @@
     {
       "title": "mates",
       "shortDescription": "comprehensive brand ecosystem and print assets",
-      "created": "2025-01-31",
-      "endDate": "2025-03-31",
+      "created": "2025-03-31",
+      "endDate": "2025-05-31",
       "projectDuty": ["brand design"],
+
       "primaryImage": ["mates-primary.jpg"],
+      "headerImage": ["mates-1.jpg"],
+
+      "context": [
+        "<strong>Problem:</strong> The founders of Mates, a student note-sharing platform, needed a brand identity that highlighted community and trust without feeling like a boring academic tool. They came with specific constraints, including a wolf motif, the Inter font, and a blue and orange color palette.",
+        "<strong>Outcome:</strong> I designed a complete brand system centered around a custom wolf logo and a highly readable digital color palette. I handed everything off in an organized Figma library, giving the founders the assets they needed to launch the brand on their own."
+      ],
       "sections": [
         {
-          "images": ["mates-1.jpg"]
-        },
-        {
-          "title": "Challenge",
+          "title": "The Challenge",
           "description": [
-            "The founders of Mates, a peer-to-peer student note-sharing platform, required a brand identity that communicated community trust and pack strength without feeling overly academic.",
-            "They provided strict visual constraints:",
-            "• integrate the letter M\n• use a wolf or ant motif\n• employ the Inter typeface\n• utilize a vibrant blue/orange palette"
+            "The founders of Mates wanted their peer-to-peer note-sharing platform to feel supportive and dynamic. They gave me a strict list of visual rules to follow:",
+            "• integrate the letter M\n• use a wolf or ant motif\n• stick to the Inter typeface\n• use a blue and orange color palette"
           ]
         },
         {
-          "title": "Strategic Execution",
+          "title": "The Design Process",
           "description": [
-            "To satisfy the structural requirements, I engineered a highly scalable logo that subtly embeds the letter 'M' into the ears of a howling wolf, symbolizing mutual support. To ensure maximum visual balance across micro-icons and campus banners, I constructed the mark using precise mathematical grid lines, geometric tangents, and circular arcs. ",
-            "Recognizing that the requested blue/orange palette could cause accessibility friction on digital interfaces, I proactively presented side-by-side Figma explorations. This structured iteration successfully pivoted the stakeholders to a sleeker, high-contrast palette of Byzantine Blue (#194DDF) and Eerie Black (#212121)."
+            "To meet their requirements, I designed a logo that naturally blends the letter M into the silhouette of a howling wolf. I used basic grids and clear spacing to make sure the icon looked balanced whether it was a tiny digital badge or printed on a large banner.",
+            "While testing the requested blue and orange palette, I realized the colors would cause contrast and readability issues on digital screens. I showed the founders a few side-by-side alternatives in Figma. Seeing the options helped them agree to drop the orange and switch to a cleaner, high-contrast mix of Byzantine Blue (#194DDF), Eerie Black (#212121), and White Smoke (#F3F3F3)."
           ],
           "images": ["mates-6.jpg"]
         },
         {
-          "title": "Brand System",
+          "title": "Brand Assets",
           "description": [
-            "Beyond the core logo, I developed a complete suite of digital and physical assets, including responsive dark-mode badges, custom illustrations, and customized headers for multiple social platforms. For physical campus marketing, I designed A5 flyer templates optimized for quick scanning, ensuring the layouts accommodated necessary visual hierarchy and spacing for future legal print compliance. "
+            "Beyond the main logo, I put together the rest of their digital and physical assets. This included social media templates for platforms like LinkedIn, TikTok, and Instagram, along with custom illustrations and a repeating background pattern made from the wolf shape. For their campus marketing, I designed A5 flyers with a QR code and enough blank space at the bottom to meet standard legal print requirements."
           ],
           "images": ["mates-2.jpg", "mates-3.jpg", "mates-4.jpg", "mates-5.jpg", "mates-7.jpg"]
         },
         {
-          "title": "Figma Handoff",
+          "title": "The Handoff",
           "description": [
-            "The project culminated in a complete transfer of all deliverables via a systematically organized Figma library, equipping the founders with a production-ready brand system to deploy autonomously."
+            "When the work was done, I organized all the assets and templates into a clean Figma library. I handed the files over to the founders so they could immediately start using the brand system and creating their own content without needing me to build every new post."
           ],
           "images": ["mates-8.jpg", "mates-9.jpg"]
         }
@@ -736,53 +737,47 @@
       "endDate": "2026-01-17",
       "duration": "2 weeks",
       "projectDuty": ["logo design"],
+
       "primaryImage": ["krystal2026-primary.jpg"],
+      "headerImage": ["krystal2026-1.jpg"],
+
+      "context": [
+        "<strong>Problem:</strong> Krystal, a sports tournament for eight engineering schools, needed a complete set of themed T-shirt designs delivered in just two weeks. The designs had to work as single-color screen prints on eight different shirt colors.",
+        "<strong>Outcome:</strong> I created a modular logo system based on a diamond shape, which saved time and kept the branding consistent across all the schools. By getting approval on paper sketches first, I was able to hand off the final print-ready files without needing any revisions."
+      ],
       "sections": [
         {
-          "images": ["krystal2026-1.jpg", "krystal2026-2.jpg"]
-        },
-        {
-          "title": "Context",
+          "title": "The Challenge",
           "description": [
-            "Krystal is the premier annual sports tournament for the Bordeaux INP network, bringing together over 500 students and supporters across eight engineering schools. I was re-engaged for the 2026 edition to create a complete garment branding system around an 'Elemental Forces' theme within a strict two-week deadline.",
-            "The critical constraint: a strict two-week delivery deadline for all production-ready assets, with garment manufacturing limited to single-color screen printing on diverse fabric colors."
+            "Krystal is an annual sports tournament for the Bordeaux INP network that brings together over 500 students from eight engineering schools. They asked me to design the event's clothing around an 'Elemental Forces' theme. The main constraint was the timeline: I only had two weeks to deliver all the final files. Additionally, the designs had to be single-color screen prints that would look good on several different T-shirt colors."
           ]
         },
         {
-          "title": "Modular Architecture",
+          "title": "The Design System",
           "description": [
-            "To meet the aggressive timeline without sacrificing visual quality, I abandoned traditional, highly custom illustration in favor of a modular design framework. I engineered a '50/50 split-diamond' architecture.",
-            "• The lower half of the diamond was standardized across all designs, establishing a non-negotiable visual anchor that unified the eight schools.\n• The upper half was customized for each assigned element.",
-            "This abstraction drastically reduced visual noise, ensuring immediate brand recognition on small chest badges while treating graphic design exactly like a scalable UI component library."
+            "With such a tight deadline, I decided to build a simple modular system using a split diamond shape. I kept the bottom half of the diamond exactly the same across all designs to tie the eight schools together, and customized the top half for each school's assigned element. This approach kept the chest badges clean and recognizable, and it let me treat the graphics almost like a reusable component library."
           ],
           "images": ["krystal2026-3.jpg", "krystal2026-4.jpg", "krystal2026-5.jpg"]
         },
         {
-          "title": "Agile Prototyping",
+          "title": "Sketching First",
           "description": [
-            "Operating within a 14-day window left zero room for vector-level revisions. I shifted 100% of the ideation phase to high-fidelity paper prototyping, generating high volumes of sketches to secure stakeholder alignment before opening design software.",
-            "This paper-first strategy kept the workflow highly efficient and completely natural. Concrete themes like Fire and Water were approved instantly from fifteen rough sketches, while complex metaphors like Time and Spirit were resolved offline by rapidly generating twenty-four concepts each. Securing this stakeholder alignment on paper eliminated digital revisions and saved days of production time."
+            "Because I didn't have time to endlessly tweak vectors on a screen, I did all the initial brainstorming on paper. This kept the process fast and natural. Simpler themes like Fire and Water were easy to nail down, while trickier ones like Time and Spirit took a few pages of iteration to get right. Getting the organizers to agree on the pencil sketches first meant that by the time I opened my design software, I knew exactly what I was building."
           ],
           "images": ["krystal2026-6.jpg", "krystal2026-7.jpg"]
         },
         {
-          "title": "Technical Craft",
+          "title": "Designing for Print",
           "description": [
-            "Garment usability requires strict adherence to physical production constraints. Because each of the eight schools wore distinct T-shirt colors, I engineered every logo as a high-contrast, scalable SVG utilizing strategic line weight and negative space to imply 3D volume."
+            "Screen printing has strict limits. To make sure the logos popped on the eight different shirt colors, I set up the vectors using careful line weights and negative space to give the flat shapes a bit of 3D volume."
           ]
         },
         {
-          "title": "Handoff",
+          "title": "The Handoff",
           "description": [
-            "Every vector asset was delivered in production-ready light and dark colorways. This single-pass digital execution allowed garment vendors to print directly onto colored fabrics flawlessly, with absolutely zero post-handoff feedback required."
-          ]
-        },
-        {
-          "title": "Retrospective",
-          "description": [
-            "Krystal 2026 proved that creativity flourishes under extreme constraints when governed by systems-level thinking. By rebuilding the brand into a modular visual architecture and enforcing strict offline alignment, I delivered a cleaner, more cohesive identity system in two weeks than traditional methods allow in two months."
+            "I delivered every logo in both light and dark versions. Because the files were set up cleanly from the start, the garment vendors were able to print everything flawlessly on the first try without coming back to me for any fixes."
           ],
-          "images": ["krystal2026-8.jpg"]
+          "images": ["krystal2026-8.jpg", "krystal2026-2.jpg"]
         }
       ],
       "link": [
@@ -792,6 +787,61 @@
         }
       ],
       "slug": "krystal"
+    },
+    {
+      "title": "krystal",
+      "shortDescription": "elements visual identity for sports events",
+
+      "created": "2025-01-01",
+      "endDate": "2025-02-13",
+      "duration": "1",
+      "projectDuty": ["logo design"],
+
+      "primaryImage": ["krystal2025-primary.jpg"],
+      "headerImage": ["krystal2025-1.jpg"],
+
+      "context": [
+        "<strong>Problem:</strong> Krystal is a sports tournament for over 500 students across eight engineering schools. I needed to design T-shirts that unified the schools under one main brand, while adapting to a specific movie theme assigned to each team.",
+        "<strong>Outcome:</strong> I designed a core sports crest and created eight custom variations based on films like Avatar and Minions.I delivered all the final designs as print-ready, single-color vectors optimized for eight different T-shirt colors."
+      ],
+      "sections": [
+        {
+          "title": "The Challenge",
+          "description": [
+            "Krystal is a two-day sports tournament for eight engineering schools in the Bordeaux INP network. For the 2025 edition, the organizers gave each participating school a distinct movie theme. I was brought in to design the T-shirt graphics for all eight teams. The challenge was to make each shirt fit its assigned movie while making sure they all clearly looked like part of the same tournament."
+          ]
+        },
+        {
+          "title": "The Design System",
+          "description": [
+            "To tie everything together, I designed a main sports crest. It included a central diamond shape, a trophy, laurel wreaths, a crown, and hand-drawn lettering for the tournament name. This gave the event a consistent athletic look.",
+            "Once I had this base design, I customized the central diamond for each school's theme. For example, I added a skull and swords for Pirates of the Caribbean, Na'vi markings for Avatar, a surfboard for Brice de Nice, goggles for Minions,french fries for Les Tuches, a tie for Baby Boss, a dinosaur skull for RRRrrrr!!!, and a cowboy hat for The Good, the Bad and the Ugly."
+          ],
+          "images": ["krystal2025-3.jpg", "krystal2025-4.jpg", "krystal2025-5.jpg", "krystal2025-6.jpg"]
+        },
+        {
+          "title": "Designing for Print",
+          "description": [
+            "The T-shirts needed a small logo on the front and a large one on the back. I kept the front chest badge simple and bold so it was easy to read from a distance during games. For the back, I used the full, detailed crest.",
+            "The printer required single-color vectors. Since every school had a different colored shirt (like red, green, purple, or yellow), I prepared light and dark versions of every design to make sure the ink would have enough contrast against the fabric."
+          ]
+        },
+
+        {
+          "title": "Takeaways",
+          "description": [
+            "Over the two months, I shared multiple iterations with the organizing committee to make sure we were aligned on each movie theme. Balancing a unified tournament brand with eight playful, separate themes was a great exercise in working within constraints. In the end, I delivered a print-ready package that gave all 500 participants a unique team shirt while keeping the overall event identity clear."
+          ],
+          "images": ["krystal2025-7.jpg","krystal2025-2.jpg"]
+        }
+      ],
+      "link": [
+        {
+          "label": "view brand assets",
+          "url": "https://www.figma.com/community/file/1566485113832295881/logo-design-krystal"
+        }
+      ],
+      "slug": "krystal-2025"
     },
 
     {
@@ -977,6 +1027,13 @@
       "slug": "sketch-01"
     },
     {
+      "title": "portrait",
+      "created": "2025-09-02",
+      "primaryImage": ["portrait-primary.jpg"],
+      "secondaryImages": ["portrait-1.jpg"],
+      "slug": "portrait"
+    },
+    {
       "title": "expression",
       "created": "2025-07-24",
       "primaryImage": ["expression-primary.jpg"],
@@ -988,6 +1045,20 @@
         "expression-5.jpg"
       ],
       "slug": "expression"
+    },
+    {
+      "title": "background",
+      "created": "2025-09-04",
+      "primaryImage": ["background-primary.jpg"],
+      "secondaryImages": [
+        "background-1.jpg",
+        "background-2.jpg",
+        "background-3.jpg",
+        "background-4.jpg",
+        "background-5.jpg",
+        "background-6.jpg"
+      ],
+      "slug": "background"
     },
     {
       "title": "portrait",
@@ -1031,6 +1102,13 @@
       "primaryImage": ["alco-primary.jpg"],
       "secondaryImages": ["alco-1.jpg", "alco-2.jpg", "alco-3.jpg"],
       "slug": "aclo"
+    },
+    {
+      "title": "restless nights",
+      "created": "2026-11-07",
+      "primaryImage": ["render-primary.jpg"],
+      "secondaryImages": ["render-1.jpg"],
+      "slug": "restless"
     }
   ]
 }

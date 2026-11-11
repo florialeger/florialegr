@@ -1,7 +1,7 @@
 import { memo, useCallback, useEffect, useMemo, useRef } from 'react';
 import PropTypes from 'prop-types';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { resolveMediaPath } from '@/utils/media';
+import { getMediaDimensions, resolveMediaPath } from '@/utils/media';
 import useMagneticEffect from '@/hooks/useMagneticEffect';
 import styles from './ProjectCard.module.css';
 import Media from '@/components/ui/Media';
@@ -118,11 +118,15 @@ const WorkCard = memo(({ item, className, onHoverChange }) => {
 });
 WorkCard.displayName = 'WorkCard';
 
-const PlaygroundCard = memo(({ item, className, onHoverChange, currentFilter }) => {
+const PlaygroundCard = memo(({ item, className, onHoverChange, currentFilter, layout, layoutStyle, loading, fetchPriority, onMediaLoad }) => {
   const navigate = useNavigate();
   const location = useLocation();
   const cardRef = useRef(null);
   const primaryImage = useMemo(() => resolveMediaPath(item.primaryImage?.[0]), [item.primaryImage]);
+  const mediaDimensions = useMemo(() => getMediaDimensions(item.primaryImage?.[0]), [item.primaryImage]);
+  const mediaRatio = mediaDimensions?.width && mediaDimensions?.height
+    ? mediaDimensions.width / mediaDimensions.height
+    : 1;
   const fromPath = useMemo(
     () => `${location.pathname}${location.search}${location.hash}`,
     [location.hash, location.pathname, location.search]
@@ -172,12 +176,11 @@ const PlaygroundCard = memo(({ item, className, onHoverChange, currentFilter }) 
   );
 
   return (
-    <div className={styles.playgroundWrapper} ref={handleRef}>
-      <div className={styles.ghostHeader} aria-hidden="true">
-        <h2 className={styles.ghostTitle}>{item.title}</h2>
-      
-      </div>
-
+    <div
+      className={`${styles.playgroundWrapper} ${layout === 'justified' ? styles.justifiedWrapper : ''}`.trim()}
+      ref={handleRef}
+      style={{ '--media-ratio': mediaRatio, ...layoutStyle }}
+    >
       <article
         className={`${styles.card} ${styles.playground} ${className}`.trim()}
         tabIndex={0}
@@ -197,6 +200,14 @@ const PlaygroundCard = memo(({ item, className, onHoverChange, currentFilter }) 
               src={primaryImage}
               alt={`${item.title} preview`}
               className=""
+              loading={loading}
+              fetchPriority={fetchPriority}
+              onLoad={(event) => {
+                const { naturalWidth, naturalHeight } = event.currentTarget;
+                if (naturalWidth && naturalHeight) {
+                  onMediaLoad?.(item.slug, naturalWidth / naturalHeight);
+                }
+              }}
               sizes="(max-width: 768px) 90vw, (max-width: 1200px) 45vw, 33vw"
             />
           </div>
@@ -207,9 +218,30 @@ const PlaygroundCard = memo(({ item, className, onHoverChange, currentFilter }) 
 });
 PlaygroundCard.displayName = 'PlaygroundCard';
 
-const ProjectCard = ({ item, variant = 'work', onHoverChange, className }) => {
+const ProjectCard = ({
+  item,
+  variant = 'work',
+  onHoverChange,
+  className,
+  layout,
+  layoutStyle,
+  loading,
+  fetchPriority,
+  onMediaLoad,
+}) => {
   if (variant === 'playground') {
-    return <PlaygroundCard item={item} className={className} onHoverChange={onHoverChange} />;
+    return (
+      <PlaygroundCard
+        item={item}
+        className={className}
+        onHoverChange={onHoverChange}
+        layout={layout}
+        layoutStyle={layoutStyle}
+        loading={loading}
+        fetchPriority={fetchPriority}
+        onMediaLoad={onMediaLoad}
+      />
+    );
   }
   return <WorkCard item={item} className={className} onHoverChange={onHoverChange} />;
 };
@@ -230,12 +262,22 @@ ProjectCard.propTypes = {
   onHoverChange: PropTypes.func,
   className: PropTypes.string,
   currentFilter: PropTypes.string,
+  layout: PropTypes.oneOf(['justified']),
+  layoutStyle: PropTypes.objectOf(PropTypes.oneOfType([PropTypes.string, PropTypes.number])),
+  loading: PropTypes.oneOf(['eager', 'lazy']),
+  fetchPriority: PropTypes.oneOf(['high', 'low', 'auto']),
+  onMediaLoad: PropTypes.func,
 };
 
 ProjectCard.defaultProps = {
   variant: 'work',
   onHoverChange: undefined,
   className: '',
+  layout: undefined,
+  layoutStyle: undefined,
+  loading: 'lazy',
+  fetchPriority: 'auto',
+  onMediaLoad: undefined,
 };
 
 export default memo(ProjectCard);

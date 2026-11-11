@@ -1,9 +1,9 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
 
 const DEFAULT_OPTIONS = {
-  maxDistance: 8,
+  maxDistance: 6,
   easing: 0.2,
-  scale: 1.04,
+  scale: 1.03,
   restScale: 1,
   pointerType: 'fine',
   applyOnCoarse: false,
@@ -146,14 +146,15 @@ function useMagneticEffect(options = {}) {
 
     const handlePointerLeave = () => {
       setTarget(node, 0, 0, restScale);
+      node.style.willChange = '';
     };
 
     const handlePointerEnter = () => {
       // Refresh rect so that large layout changes don't break the effect
       Object.assign(rect, node.getBoundingClientRect());
+      node.style.willChange = 'transform';
     };
 
-    node.style.willChange = 'transform';
     node.addEventListener('pointermove', handlePointerMove, { passive: true });
     node.addEventListener('pointerleave', handlePointerLeave, { passive: true });
     node.addEventListener('pointerenter', handlePointerEnter, { passive: true });

@@ -7,15 +7,6 @@ import { dirname, resolve } from 'node:path';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
-let __useBackend = false;
-try {
-  if (import.meta && import.meta.env && import.meta.env.VITE_USE_BACKEND === 'true') {
-    __useBackend = true;
-  }
-} catch {
-  /* ignore if import.meta is unavailable */
-}
-
 export default defineConfig({
   plugins: [
     react(),
@@ -66,16 +57,8 @@ export default defineConfig({
     // Increase chunk size warning limit to 1000 kB if needed
     chunkSizeWarningLimit: 1000,
   },
-  server: {
-    ...(__useBackend
-      ? {
-          proxy: {
-            '/api': {
-              target: 'http://localhost:5000', // Backend server
-              changeOrigin: true,
-            },
-          },
-        }
-      : {}),
+  test: {
+    environment: 'jsdom',
+    setupFiles: './src/test/setup.js',
   },
 });

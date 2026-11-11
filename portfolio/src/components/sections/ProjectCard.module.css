@@ -23,7 +23,6 @@
 
 .imageFrame {
   width: 100%;
-  aspect-ratio: 1 / 1;
   border-radius: var(--radius-sm);
   border: 1px solid var(--separator---black-10);
   corner-shape: squircle;

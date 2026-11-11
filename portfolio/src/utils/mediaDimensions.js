@@ -19,8 +19,12 @@ const mediaDimensions = {
     "width": 900,
     "height": 615
   },
+  "alco-4.jpg": {
+    "width": 900,
+    "height": 705
+  },
   "alco-primary.jpg": {
-    "width": 750,
+    "width": 978,
     "height": 750
   },
   "background-1.jpg": {
@@ -48,8 +52,8 @@ const mediaDimensions = {
     "height": 600
   },
   "background-primary.jpg": {
-    "width": 750,
-    "height": 750
+    "width": 900,
+    "height": 600
   },
   "boucaniers-1.jpg": {
     "width": 900,
@@ -68,35 +72,11 @@ const mediaDimensions = {
     "height": 750
   },
   "boucaniers-primary.jpg": {
-    "width": 750,
+    "width": 900,
     "height": 750
-  },
-  "card-1.jpg": {
-    "width": 900,
-    "height": 525
-  },
-  "card-2.jpg": {
-    "width": 900,
-    "height": 525
-  },
-  "card-3.jpg": {
-    "width": 900,
-    "height": 525
-  },
-  "card-4.jpg": {
-    "width": 900,
-    "height": 525
-  },
-  "card-primary.jpg": {
-    "width": 750,
-    "height": 750
-  },
-  "choralamar-1.jpg": {
-    "width": 900,
-    "height": 900
   },
   "choralamar-primary.jpg": {
-    "width": 750,
+    "width": 900,
     "height": 750
   },
   "desktop-1.jpg": {
@@ -128,59 +108,7 @@ const mediaDimensions = {
     "height": 807
   },
   "desktop-primary.jpg": {
-    "width": 750,
-    "height": 750
-  },
-  "desktop2-1.jpg": {
     "width": 900,
-    "height": 582
-  },
-  "desktop2-2.jpg": {
-    "width": 900,
-    "height": 582
-  },
-  "desktop2-3.jpg": {
-    "width": 900,
-    "height": 582
-  },
-  "desktop2-4.jpg": {
-    "width": 900,
-    "height": 582
-  },
-  "desktop2-5.jpg": {
-    "width": 900,
-    "height": 600
-  },
-  "desktop2-6.jpg": {
-    "width": 900,
-    "height": 582
-  },
-  "desktop2-primary.jpg": {
-    "width": 750,
-    "height": 750
-  },
-  "desktop3-1.jpg": {
-    "width": 900,
-    "height": 582
-  },
-  "desktop3-2.jpg": {
-    "width": 900,
-    "height": 582
-  },
-  "desktop3-3.jpg": {
-    "width": 900,
-    "height": 750
-  },
-  "desktop3-4.jpg": {
-    "width": 900,
-    "height": 582
-  },
-  "desktop3-5.jpg": {
-    "width": 900,
-    "height": 600
-  },
-  "desktop3-primary.jpg": {
-    "width": 750,
     "height": 750
   },
   "emco-1.jpg": {
@@ -245,7 +173,7 @@ const mediaDimensions = {
   },
   "expression-1.jpg": {
     "width": 900,
-    "height": 807
+    "height": 621
   },
   "expression-2.jpg": {
     "width": 900,
@@ -264,28 +192,16 @@ const mediaDimensions = {
     "height": 750
   },
   "expression-primary.jpg": {
-    "width": 750,
+    "width": 615,
     "height": 750
-  },
-  "expression2-1.jpg": {
-    "width": 900,
-    "height": 600
-  },
-  "expression2-2.jpg": {
-    "width": 900,
-    "height": 600
-  },
-  "expression2-3.jpg": {
-    "width": 900,
-    "height": 600
-  },
-  "expression2-4.jpg": {
-    "width": 900,
-    "height": 600
   },
   "expression2-primary.jpg": {
-    "width": 750,
+    "width": 900,
     "height": 750
+  },
+  "expression3-primary.jpg": {
+    "width": 900,
+    "height": 600
   },
   "figma-1.jpg": {
     "width": 900,
@@ -357,7 +273,7 @@ const mediaDimensions = {
   },
   "figma-primary.jpg": {
     "width": 900,
-    "height": 900
+    "height": 750
   },
   "gameboy-1.jpg": {
     "width": 900,
@@ -385,31 +301,11 @@ const mediaDimensions = {
   },
   "gameboy-primary.jpg": {
     "width": 750,
-    "height": 750
-  },
-  "hand-1.jpg": {
-    "width": 900,
-    "height": 750
-  },
-  "hand-2.jpg": {
-    "width": 900,
-    "height": 738
-  },
-  "hand-3.jpg": {
-    "width": 900,
-    "height": 750
-  },
-  "hand-4.jpg": {
-    "width": 900,
-    "height": 738
-  },
-  "hand-5.jpg": {
-    "width": 900,
-    "height": 750
+    "height": 915
   },
   "hand-primary.jpg": {
-    "width": 750,
-    "height": 750
+    "width": 726,
+    "height": 900
   },
   "hand2-1.jpg": {
     "width": 900,
@@ -440,7 +336,7 @@ const mediaDimensions = {
     "height": 900
   },
   "hand2-primary.jpg": {
-    "width": 750,
+    "width": 915,
     "height": 750
   },
   "icon-1.jpg": {
@@ -487,25 +383,9 @@ const mediaDimensions = {
     "width": 750,
     "height": 750
   },
-  "icon3-1.jpg": {
-    "width": 900,
-    "height": 600
-  },
-  "icon3-2.jpg": {
-    "width": 900,
-    "height": 600
-  },
   "icon3-primary.jpg": {
     "width": 750,
     "height": 750
-  },
-  "interaction-1.jpg": {
-    "width": 900,
-    "height": 750
-  },
-  "interaction-2.jpg": {
-    "width": 900,
-    "height": 600
   },
   "interaction-primary.jpg": {
     "width": 750,
@@ -520,23 +400,11 @@ const mediaDimensions = {
     "height": 750
   },
   "interaction2-primary.jpg": {
-    "width": 750,
-    "height": 750
-  },
-  "interaction3-1.jpg": {
     "width": 900,
-    "height": 750
-  },
-  "interaction3-2.jpg": {
-    "width": 900,
-    "height": 606
-  },
-  "interaction3-primary.jpg": {
-    "width": 750,
-    "height": 750
+    "height": 594
   },
   "interaction4-primary.jpg": {
-    "width": 750,
+    "width": 900,
     "height": 750
   },
   "interaction5-1.jpg": {
@@ -556,7 +424,7 @@ const mediaDimensions = {
     "height": 750
   },
   "interaction5-primary.jpg": {
-    "width": 750,
+    "width": 870,
     "height": 750
   },
   "kfe-1.jpg": {
@@ -596,6 +464,38 @@ const mediaDimensions = {
     "height": 1050
   },
   "kfe-primary.jpg": {
+    "width": 750,
+    "height": 900
+  },
+  "krystal2025-1.jpg": {
+    "width": 1200,
+    "height": 570
+  },
+  "krystal2025-2.jpg": {
+    "width": 1200,
+    "height": 570
+  },
+  "krystal2025-3.jpg": {
+    "width": 1200,
+    "height": 1200
+  },
+  "krystal2025-4.jpg": {
+    "width": 1200,
+    "height": 670
+  },
+  "krystal2025-5.jpg": {
+    "width": 1200,
+    "height": 670
+  },
+  "krystal2025-6.jpg": {
+    "width": 1200,
+    "height": 1000
+  },
+  "krystal2025-7.jpg": {
+    "width": 1200,
+    "height": 860
+  },
+  "krystal2025-primary.jpg": {
     "width": 750,
     "height": 750
   },
@@ -643,10 +543,6 @@ const mediaDimensions = {
     "width": 750,
     "height": 750
   },
-  "logo2-1.jpg": {
-    "width": 900,
-    "height": 507
-  },
   "logo2-primary.jpg": {
     "width": 750,
     "height": 750
@@ -688,23 +584,7 @@ const mediaDimensions = {
     "height": 762
   },
   "mates-primary.jpg": {
-    "width": 750,
-    "height": 750
-  },
-  "mobile-1.jpg": {
     "width": 900,
-    "height": 675
-  },
-  "mobile-2.jpg": {
-    "width": 900,
-    "height": 675
-  },
-  "mobile-3.jpg": {
-    "width": 900,
-    "height": 750
-  },
-  "mobile-primary.jpg": {
-    "width": 750,
     "height": 750
   },
   "mp3-1.jpg": {
@@ -720,8 +600,8 @@ const mediaDimensions = {
     "height": 1050
   },
   "mp3-primary.jpg": {
-    "width": 750,
-    "height": 750
+    "width": 690,
+    "height": 855
   },
   "nda.jpg": {
     "width": 720,
@@ -757,7 +637,7 @@ const mediaDimensions = {
   },
   "planche-primary.jpg": {
     "width": 750,
-    "height": 750
+    "height": 900
   },
   "planche2-1.jpg": {
     "width": 900,
@@ -788,7 +668,7 @@ const mediaDimensions = {
     "height": 608
   },
   "planche2-primary.jpg": {
-    "width": 750,
+    "width": 900,
     "height": 750
   },
   "planche3-1.jpg": {
@@ -821,7 +701,7 @@ const mediaDimensions = {
   },
   "planche3-primary.jpg": {
     "width": 750,
-    "height": 750
+    "height": 900
   },
   "planche4-1.jpg": {
     "width": 900,
@@ -848,7 +728,7 @@ const mediaDimensions = {
     "height": 750
   },
   "planche4-primary.jpg": {
-    "width": 711,
+    "width": 953,
     "height": 750
   },
   "portrait-1.jpg": {
@@ -856,19 +736,11 @@ const mediaDimensions = {
     "height": 615
   },
   "portrait-primary.jpg": {
-    "width": 750,
-    "height": 750
-  },
-  "portrait2-1.jpg": {
-    "width": 900,
-    "height": 750
-  },
-  "portrait2-2.jpg": {
     "width": 900,
     "height": 750
   },
   "portrait2-primary.jpg": {
-    "width": 750,
+    "width": 900,
     "height": 750
   },
   "portrait3-1.jpg": {
@@ -893,31 +765,31 @@ const mediaDimensions = {
   },
   "portrait3-primary.jpg": {
     "width": 750,
-    "height": 750
-  },
-  "portrait4-1.jpg": {
-    "width": 900,
-    "height": 750
-  },
-  "portrait4-2.jpg": {
-    "width": 900,
-    "height": 600
+    "height": 900
   },
   "portrait4-primary.jpg": {
     "width": 750,
     "height": 750
   },
-  "portrait5-1.jpg": {
-    "width": 900,
-    "height": 632
-  },
   "portrait5-primary.jpg": {
-    "width": 750,
+    "width": 900,
     "height": 750
   },
   "profil-picture.png": {
     "width": 200,
     "height": 200
+  },
+  "purely-primary.jpg": {
+    "width": 941,
+    "height": 420
+  },
+  "render-1.jpg": {
+    "width": 900,
+    "height": 1356
+  },
+  "render-primary.jpg": {
+    "width": 597,
+    "height": 848
   },
   "sketch-1.jpg": {
     "width": 900,
@@ -941,38 +813,14 @@ const mediaDimensions = {
   },
   "sketch-primary.jpg": {
     "width": 711,
-    "height": 750
-  },
-  "sketch2-1.jpg": {
-    "width": 900,
-    "height": 600
-  },
-  "sketch2-2.jpg": {
-    "width": 900,
-    "height": 600
-  },
-  "sketch2-3.jpg": {
-    "width": 900,
-    "height": 735
-  },
-  "sketch2-4.jpg": {
-    "width": 900,
-    "height": 600
-  },
-  "sketch2-5.jpg": {
-    "width": 900,
-    "height": 600
+    "height": 891
   },
   "sketch2-primary.jpg": {
     "width": 750,
     "height": 750
   },
-  "sketch3-1.jpg": {
-    "width": 900,
-    "height": 750
-  },
   "sketch3-primary.jpg": {
-    "width": 750,
+    "width": 615,
     "height": 750
   },
   "sketch4-1.jpg": {
@@ -996,7 +844,7 @@ const mediaDimensions = {
     "height": 675
   },
   "sketch4-primary.jpg": {
-    "width": 750,
+    "width": 671,
     "height": 750
   },
   "startup-primary.jpg": {
@@ -1021,11 +869,11 @@ const mediaDimensions = {
   },
   "tag-1.jpg": {
     "width": 900,
-    "height": 900
+    "height": 600
   },
   "tag-2.jpg": {
     "width": 900,
-    "height": 900
+    "height": 600
   },
   "tag-3.jpg": {
     "width": 900,
@@ -1033,11 +881,11 @@ const mediaDimensions = {
   },
   "tag-4.jpg": {
     "width": 900,
-    "height": 900
+    "height": 600
   },
   "tag-5.jpg": {
     "width": 900,
-    "height": 900
+    "height": 600
   },
   "tag-6.jpg": {
     "width": 900,
@@ -1045,14 +893,14 @@ const mediaDimensions = {
   },
   "tag-7.jpg": {
     "width": 900,
-    "height": 900
+    "height": 600
   },
   "tag-8.jpg": {
     "width": 900,
-    "height": 900
+    "height": 600
   },
   "tag-primary.jpg": {
-    "width": 750,
+    "width": 900,
     "height": 750
   },
   "ubisoft-1.jpg": {
@@ -1224,27 +1072,11 @@ const mediaDimensions = {
     "height": 582
   },
   "widget-primary.jpg": {
-    "width": 750,
+    "width": 900,
     "height": 750
   },
-  "widget2-1.jpg": {
-    "width": 900,
-    "height": 582
-  },
-  "widget2-2.jpg": {
-    "width": 900,
-    "height": 582
-  },
-  "widget2-3.jpg": {
-    "width": 900,
-    "height": 582
-  },
-  "widget2-4.jpg": {
-    "width": 900,
-    "height": 582
-  },
   "widget2-primary.jpg": {
-    "width": 750,
+    "width": 900,
     "height": 750
   }
 };

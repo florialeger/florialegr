@@ -63,8 +63,8 @@
   --sem-font-heading: var(--pr-font-family-accent);
   --sem-font-size-body: var(--pr-font-size-sm);
   --sem-line-height-body: 1.4;
-  --sem-weight-regular: 450;
-  --sem-weight-emphasized: 600;
+  --sem-weight-regular: 400;
+  --sem-weight-emphasized: 500;
 
   /* Component tokens */
   --comp-container-width: var(--pr-size-layout);
@@ -293,6 +293,7 @@ p {
 }
 
 p strong {
+  color: var(--label---primary);
   font-family: var(--type---body---family);
   font-weight: var(--body-emphasized-weight);
   letter-spacing: var(--body-emphasized-letter-spacing);

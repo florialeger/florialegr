@@ -27,17 +27,4 @@ export default [
       'react-refresh/only-export-components': ['warn', { allowConstantExport: true }],
     },
   },
-  {
-    files: ['backend/**/*.{js,jsx}'],
-    languageOptions: {
-      ecmaVersion: 2020,
-      globals: {
-        ...globals.node,
-      },
-      sourceType: 'commonjs',
-    },
-    rules: {
-      ...js.configs.recommended.rules,
-    },
-  },
 ];

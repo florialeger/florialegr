@@ -13,6 +13,7 @@ import styles from './Detail.module.css';
 import pageLayout from '@/components/ui/PageLayout.module.css';
 import useMagneticEffect from '@/hooks/useMagneticEffect';
 import Media from '@/components/ui/Media';
+import Timeline from '@/components/ui/Timeline';
 import { ArrowPreviousIcon, ArrowNextIcon } from '@/components/ui/icons';
 
 const Detail = ({ variant }) => {
@@ -30,12 +31,11 @@ const Detail = ({ variant }) => {
   } = usePortfolio();
   const titleRef = useRef(null);
   const footerRef = useRef(null);
+  const [isNavDocked, setIsNavDocked] = useState(false);
 
   // Get filter from location state or default to 'all'
   const currentFilter = location.state?.filter || 'all';
 
-  // Track if navigation should be docked to footer (bottom of content reached)
-  const [isNavDocked, setIsNavDocked] = useState(false);
   const previousCaptionState = useRef({ lastY: 0 });
   const nextCaptionState = useRef({ lastY: 0 });
   const previousCaptionX = useMotionValue(0);
@@ -126,6 +126,50 @@ const Detail = ({ variant }) => {
   }, [data]);
 
   const links = data?.link || [];
+  const headerImage = useMemo(() => {
+    const source = Array.isArray(data?.headerImage) ? data.headerImage[0] : data?.headerImage;
+    return resolveMediaPath(source);
+  }, [data?.headerImage]);
+  const timelineEntries = useMemo(() => {
+    if (!data?.sections || !Array.isArray(data.sections) || data.sections.length === 0) return [];
+    return [
+      { id: 'context', title: 'context' },
+      ...sections
+        .map((section, index) => (section.title ? { id: `section-${index}`, title: section.title } : null))
+        .filter(Boolean),
+    ];
+  }, [data?.sections, sections]);
+
+  useEffect(() => {
+    if (typeof window === 'undefined' || !footerRef.current) return undefined;
+
+    let frameId = null;
+    const updateDockedState = () => {
+      if (frameId !== null) return;
+      frameId = window.requestAnimationFrame(() => {
+        frameId = null;
+        if (window.innerWidth <= 900) {
+          setIsNavDocked(false);
+          return;
+        }
+
+        const footerRect = footerRef.current?.getBoundingClientRect();
+        if (!footerRect) return;
+        const shouldDock = footerRect.top < window.innerHeight && footerRect.bottom > 0;
+        setIsNavDocked((current) => (current === shouldDock ? current : shouldDock));
+      });
+    };
+
+    window.addEventListener('scroll', updateDockedState, { passive: true });
+    window.addEventListener('resize', updateDockedState, { passive: true });
+    updateDockedState();
+
+    return () => {
+      window.removeEventListener('scroll', updateDockedState);
+      window.removeEventListener('resize', updateDockedState);
+      if (frameId !== null) window.cancelAnimationFrame(frameId);
+    };
+  }, [data]);
 
   const handleClose = useCallback(() => {
     const fallbackPath = variant === 'work' ? '/' : '/playground';
@@ -204,55 +248,6 @@ const Detail = ({ variant }) => {
       document.removeEventListener('click', handleScreenClick);
     };
   }, [handleClose, handleNext, handlePrevious, nextItem, prevItem]);
-
-  // Track scroll position to dock navigation when footer is in view (desktop only)
-  useEffect(() => {
-    if (typeof window === 'undefined' || !footerRef.current) return undefined;
-
-    const handleScroll = () => {
-      // Only apply on desktop (above 900px)
-      if (window.innerWidth <= 900) {
-        setIsNavDocked(false);
-        return;
-      }
-
-      const footer = footerRef.current;
-      const footerRect = footer.getBoundingClientRect();
-      const viewportHeight = window.innerHeight;
-
-      // Dock when footer top enters viewport (is visible on screen)
-      // More generous trigger - when footer is anywhere in viewport
-      const shouldDock = footerRect.top < viewportHeight && footerRect.bottom > 0;
-
-      console.log('Footer detection:', {
-        footerTop: footerRect.top,
-        viewportHeight,
-        shouldDock,
-        currentDocked: isNavDocked,
-      });
-
-      setIsNavDocked(shouldDock);
-    };
-
-    const handleResize = () => {
-      if (window.innerWidth <= 900) {
-        setIsNavDocked(false);
-      } else {
-        handleScroll();
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    window.addEventListener('resize', handleResize, { passive: true });
-
-    // Initial check
-    handleScroll();
-
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-      window.removeEventListener('resize', handleResize);
-    };
-  }, [data]);
 
   // Magnetic effect for navigation buttons
   const setBackMag = useMagneticEffect({ maxDistance: 4, scale: 1.02 });
@@ -334,7 +329,7 @@ const Detail = ({ variant }) => {
         />
 
         {/* HEADER SECTION */}
-        <header className={styles.header}>
+        <header className={styles.header} data-timeline-id={timelineEntries.length > 0 ? 'context' : undefined}>
           {/* Metadata */}
           <div className={styles.headerMetadata}>
             <div className={styles.titleDateRow}>
@@ -349,6 +344,19 @@ const Detail = ({ variant }) => {
               {scopeLabel && <Button label={scopeLabel} variant="pill" size="xs" magnetic={false} />}
             </div>
           </div>
+
+          {headerImage && (
+            <div className={styles.headerImageWrapper}>
+              <Media
+                src={headerImage}
+                alt=""
+                className={styles.headerImage}
+                loading="eager"
+                fetchPriority="high"
+                sizes="(max-width: 768px) 100vw, min(90vw, 1200px)"
+              />
+            </div>
+          )}
 
           {/* Global description (if exists from context) */}
           {contextParagraphs.length > 0 && (
@@ -387,7 +395,11 @@ const Detail = ({ variant }) => {
                 const hasSubheader = section.title || section.description;
 
                 return (
-                  <section key={sectionIndex} className={styles.section}>
+                  <section
+                    key={sectionIndex}
+                    className={styles.section}
+                    data-timeline-id={section.title ? `section-${sectionIndex}` : undefined}
+                  >
                     {hasSubheader && (
                       <div className={styles.sectionSubheader}>
                         {section.title && <p className={styles.sectionTitle}>{section.title}</p>}
@@ -427,16 +439,37 @@ const Detail = ({ variant }) => {
         )}
       </article>
 
+      {timelineEntries.length > 0 && <Timeline entries={timelineEntries} />}
+
       {/* Footer with navigation */}
       {(prevItem || nextItem) && (
         <footer ref={footerRef} className={styles.detailFooter}>
           <nav className={`${styles.navigationSection} ${isNavDocked ? styles.navigationDocked : ''}`}>
             {prevItem && (
-              <button
+              <Button
                 ref={setPrevMag}
-                type="button"
                 onClick={handlePrevious}
                 className={styles.navItem}
+                variant="tertiary"
+                size="big"
+                iconPosition="left"
+                icon={<ArrowPreviousIcon className={styles.navArrow} />}
+                label={
+                  <p className={styles.navCaptionAnchor}>
+                    <motion.p
+                      className={styles.followCaption}
+                      style={{
+                        x: previousCaptionX,
+                        y: previousCaptionY,
+                        opacity: previousCaptionOpacity,
+                        scale: previousCaptionScale,
+                        rotate: previousCaptionRotate,
+                      }}
+                    >
+                      use arrow keys
+                    </motion.p>
+                  </p>
+                }
                 onMouseEnter={() => {
                   previousCaptionScale.set(1.1);
                   previousCaptionOpacity.set(1);
@@ -456,30 +489,33 @@ const Detail = ({ variant }) => {
                   previousCaptionRotate.set(0);
                 }}
                 aria-label={`Previous: ${prevItem.company || prevItem.title}`}
-              >
-                <ArrowPreviousIcon className={styles.navArrow} />
-                <span className={styles.navCaptionAnchor}>
-                  <motion.span
-                    className={styles.followCaption}
-                    style={{
-                      x: previousCaptionX,
-                      y: previousCaptionY,
-                      opacity: previousCaptionOpacity,
-                      scale: previousCaptionScale,
-                      rotate: previousCaptionRotate,
-                    }}
-                  >
-                    use arrow keys
-                  </motion.span>
-                </span>
-              </button>
+              />
             )}
             {nextItem && (
-              <button
+              <Button
                 ref={setNextMag}
-                type="button"
                 onClick={handleNext}
                 className={`${styles.navItem} ${styles.navItemRight}`}
+                variant="tertiary"
+                size="big"
+                iconPosition="left"
+                icon={<ArrowNextIcon className={styles.navArrow} />}
+                label={
+                  <p className={styles.navCaptionAnchor}>
+                    <motion.p
+                      className={`${styles.followCaption} ${styles.followCaptionRight}`}
+                      style={{
+                        x: nextCaptionX,
+                        y: nextCaptionY,
+                        opacity: nextCaptionOpacity,
+                        scale: nextCaptionScale,
+                        rotate: nextCaptionRotate,
+                      }}
+                    >
+                      use arrow keys
+                    </motion.p>
+                  </p>
+                }
                 onMouseEnter={() => {
                   nextCaptionScale.set(1.1);
                   nextCaptionOpacity.set(1);
@@ -499,24 +535,7 @@ const Detail = ({ variant }) => {
                   nextCaptionRotate.set(0);
                 }}
                 aria-label={`Next: ${nextItem.company || nextItem.title}`}
-              >
-                {' '}
-                <ArrowNextIcon className={styles.navArrow} />
-                <span className={styles.navCaptionAnchor}>
-                  <motion.span
-                    className={`${styles.followCaption} ${styles.followCaptionRight}`}
-                    style={{
-                      x: nextCaptionX,
-                      y: nextCaptionY,
-                      opacity: nextCaptionOpacity,
-                      scale: nextCaptionScale,
-                      rotate: nextCaptionRotate,
-                    }}
-                  >
-                    use arrow keys
-                  </motion.span>
-                </span>
-              </button>
+              />
             )}
           </nav>
         </footer>
